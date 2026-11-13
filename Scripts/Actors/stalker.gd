@@ -7,3 +7,7 @@ class_name StalkerActor
 @onready var state_machine: StalkerStateMachine = $StateMachine
 @export var known_hints: Array[HintDefinition] = []
 @export var deployed_detection_systems: Array[DetectionSystem] = []
+@export var sprite:Sprite2D
+
+func _ready() -> void:
+	sprite.texture = stalker_definition.texture

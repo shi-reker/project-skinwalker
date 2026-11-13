@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DetectionDefinition" format=3 uid="uid://xfkqgqvseiba"]
+
+[ext_resource type="Script" uid="uid://ce6aqbuhygq2u" path="res://Scripts/Resources/detection_definition.gd" id="1_u2th2"]
+
+[resource]
+script = ExtResource("1_u2th2")
+raycast_length = 20.0
+detection_range = 20.0
+metadata/_custom_type_script = "uid://ce6aqbuhygq2u"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MovementDefinition" format=3 uid="uid://cwfq3hn8rp6by"]
+
+[ext_resource type="Script" uid="uid://drtrxby0qypyv" path="res://Scripts/Resources/movement_definition.gd" id="1_l32gn"]
+
+[resource]
+script = ExtResource("1_l32gn")
+walk_speed = 3.0
+run_speed = 5.0
+acceleration = 2.0
+deceleration = 2.0
+metadata/_custom_type_script = "uid://drtrxby0qypyv"

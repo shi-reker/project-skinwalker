@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueDefinition" format=3 uid="uid://llueu4l0gfsh"]
+
+[ext_resource type="Script" uid="uid://bv33ummqne80f" path="res://Scripts/Resources/dialogue_definition.gd" id="1_nop0v"]
+
+[resource]
+script = ExtResource("1_nop0v")
+speaker_name = "stalker"
+metadata/_custom_type_script = "uid://bv33ummqne80f"

@@ -1,22 +1,32 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bxsfjho2h3vhj"]
 
-[ext_resource type="Script" path="res://Scripts/Actors/stalker.gd" id="1_stalker"]
-[ext_resource type="Script" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
-[ext_resource type="Script" path="res://Scripts/Components/raycast_detection_component.gd" id="3_detection"]
-[ext_resource type="Script" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
+[ext_resource type="Script" uid="uid://dpd327mb0owd0" path="res://Scripts/Actors/stalker.gd" id="1_stalker"]
+[ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
+[ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/stalker_def_res.tres" id="2_vjcrc"]
+[ext_resource type="Script" uid="uid://b3ta2kaj6e5hc" path="res://Scripts/Components/raycast_detection_component.gd" id="3_detection"]
+[ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
 
-[node name="Stalker" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
+
+[node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_stalker")
+stalker_definition = ExtResource("2_vjcrc")
+sprite = NodePath("Sprite2D")
 
-[node name="Components" type="Node" parent="."]
+[node name="Components" type="Node" parent="." unique_id=2030690801]
 
-[node name="MovementComponent" type="Node" parent="Components"]
+[node name="MovementComponent" type="Node" parent="Components" unique_id=1317806895]
 script = ExtResource("2_movement")
 
-[node name="RaycastDetectionComponent" type="Node2D" parent="Components"]
+[node name="RaycastDetectionComponent" type="Node2D" parent="Components" unique_id=1971710525]
 script = ExtResource("3_detection")
 
-[node name="SightRay" type="RayCast2D" parent="Components/RaycastDetectionComponent"]
+[node name="SightRay" type="RayCast2D" parent="Components/RaycastDetectionComponent" unique_id=269243962]
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1892398123]
 script = ExtResource("4_state_machine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447720503]
+shape = SubResource("CapsuleShape2D_y8knx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1579276551]

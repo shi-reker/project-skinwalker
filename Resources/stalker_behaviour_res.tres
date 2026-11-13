@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NPCBehaviorDefinition" format=3 uid="uid://hina2awdsamx"]
+
+[ext_resource type="Script" uid="uid://c17nrkwjy6uhw" path="res://Scripts/Resources/npc_behavior_definition.gd" id="1_yvu4v"]
+
+[resource]
+script = ExtResource("1_yvu4v")
+behavior_name = &"Stalker Behaviour"
+metadata/_custom_type_script = "uid://c17nrkwjy6uhw"
