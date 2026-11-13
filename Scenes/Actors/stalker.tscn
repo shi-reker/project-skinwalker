@@ -5,6 +5,11 @@
 [ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/stalker_def_res.tres" id="2_vjcrc"]
 [ext_resource type="Script" uid="uid://b3ta2kaj6e5hc" path="res://Scripts/Components/raycast_detection_component.gd" id="3_detection"]
 [ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
+[ext_resource type="Script" uid="uid://bcihkuoicmlyu" path="res://Scripts/StateMachines/StalkerStates/searching_state.gd" id="6_2h22a"]
+[ext_resource type="Script" uid="uid://dg1j6srqf0mkp" path="res://Scripts/StateMachines/StalkerStates/investigate_state.gd" id="7_hpxs0"]
+[ext_resource type="Script" uid="uid://d22s8i5t86f8n" path="res://Scripts/StateMachines/StalkerStates/pursuit_state.gd" id="7_i0hgd"]
+[ext_resource type="Script" uid="uid://dq3w1gx652edb" path="res://Scripts/StateMachines/StalkerStates/surveil_state.gd" id="9_hpxs0"]
+[ext_resource type="Script" uid="uid://bchtwcgyiq3hj" path="res://Scripts/StateMachines/StalkerStates/Lost_state.gd" id="10_x4g44"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
 
@@ -25,6 +30,21 @@ script = ExtResource("3_detection")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1892398123]
 script = ExtResource("4_state_machine")
+
+[node name="SearchState" type="Node" parent="StateMachine" unique_id=60467817]
+script = ExtResource("6_2h22a")
+
+[node name="InvestigateState" type="Node" parent="StateMachine" unique_id=1237487621]
+script = ExtResource("7_hpxs0")
+
+[node name="PursuitState" type="Node" parent="StateMachine" unique_id=1628534581]
+script = ExtResource("7_i0hgd")
+
+[node name="SurveilState" type="Node" parent="StateMachine" unique_id=93451075]
+script = ExtResource("9_hpxs0")
+
+[node name="LostState" type="Node" parent="StateMachine" unique_id=399018609]
+script = ExtResource("10_x4g44")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447720503]
 shape = SubResource("CapsuleShape2D_y8knx")
