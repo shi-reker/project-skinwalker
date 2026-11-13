@@ -18,5 +18,12 @@ enum State {
 @export var initial_state: State = State.SEARCHING
 var current_state_id: State = State.SEARCHING
 
+func _ready() -> void:
+	pursuitState.switch_state.connect(change_state)
+	investigateState.switch_state.connect(change_state)
+	surveilState.switch_state.connect(change_state)
+	searchingState.switch_state.connect(change_state)
+	lostState.switch_state.connect(change_state)
+
 func update_current_state(delta: float) -> void:
 	current_state.update_state(delta)
