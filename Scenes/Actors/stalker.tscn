@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpd327mb0owd0" path="res://Scripts/Actors/stalker.gd" id="1_stalker"]
 [ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
-[ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/stalker_def_res.tres" id="2_vjcrc"]
+[ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/Stalker/stalker_def_res.tres" id="2_vjcrc"]
 [ext_resource type="Script" uid="uid://b3ta2kaj6e5hc" path="res://Scripts/Components/raycast_detection_component.gd" id="3_detection"]
 [ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://bcihkuoicmlyu" path="res://Scripts/StateMachines/StalkerStates/searching_state.gd" id="6_2h22a"]
@@ -13,10 +13,14 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
 
-[node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("sprite")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8knx"]
+radius = 210.0
+
+[node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("sprite", "detectionRange")]
 script = ExtResource("1_stalker")
 stalker_definition = ExtResource("2_vjcrc")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("CollisionShape2D/Sprite2D")
+detectionRange = NodePath("DetectionRange")
 
 [node name="Components" type="Node" parent="." unique_id=2030690801]
 
@@ -28,8 +32,13 @@ script = ExtResource("3_detection")
 
 [node name="SightRay" type="RayCast2D" parent="Components/RaycastDetectionComponent" unique_id=269243962]
 
-[node name="StateMachine" type="Node" parent="." unique_id=1892398123]
+[node name="StateMachine" type="Node" parent="." unique_id=1892398123 node_paths=PackedStringArray("searchingState", "investigateState", "pursuitState", "surveilState", "lostState")]
 script = ExtResource("4_state_machine")
+searchingState = NodePath("SearchState")
+investigateState = NodePath("InvestigateState")
+pursuitState = NodePath("PursuitState")
+surveilState = NodePath("SurveilState")
+lostState = NodePath("LostState")
 
 [node name="SearchState" type="Node" parent="StateMachine" unique_id=60467817]
 script = ExtResource("6_2h22a")
@@ -49,4 +58,12 @@ script = ExtResource("10_x4g44")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447720503]
 shape = SubResource("CapsuleShape2D_y8knx")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1579276551]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1579276551]
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=1422627456]
+
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionRange" unique_id=1981717923]
+shape = SubResource("CircleShape2D_y8knx")
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_exited"]
