@@ -3,17 +3,15 @@ class_name StalkerStateMachine
 
 enum State {
 	SEARCHING,
-	INVESTIGATING_HINT,
 	PURSUING,
-	DEPLOYING_SURVEILLANCE,
-	TARGET_LOST,
+	SURVEILING,
+	CAPTURING,
 }
 
 @export var searchingState:SearchingState
-@export var investigateState:InvestigateState
 @export var pursuitState:PursuitState
 @export var surveilState:SurveilState
-@export var lostState:LostState
+@export var captureState:CaptureState
 
 @export var initial_state: State = State.SEARCHING
 var current_state_id: State = State.SEARCHING
@@ -23,14 +21,19 @@ var stateTable:Dictionary[State, ActorState]
 func _ready() -> void:
 	stateTable = {
 		State.SEARCHING: searchingState,
-		State.INVESTIGATING_HINT: investigateState,
 		State.PURSUING: pursuitState,
-		State.DEPLOYING_SURVEILLANCE: surveilState,
-		State.TARGET_LOST: lostState,
+		State.SURVEILING: surveilState,
+		State.CAPTURING: captureState,
 	}
-	
-	for state in State:
-		stateTable[state].switch_state.connect(change_state)
+	var i = 0
+	while i < len(State):
+		stateTable[i].switch_state.connect(change_state)
+		i+=1
+	on_state_change.connect(ChangeStateID)
 
 func update_current_state(delta: float) -> void:
 	current_state.update_state(delta)
+
+func ChangeStateID(id:State):
+	current_state_id = id
+	print_debug(current_state.state_name)

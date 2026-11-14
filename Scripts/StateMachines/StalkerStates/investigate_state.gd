@@ -1,2 +1,0 @@
-extends ActorState
-class_name InvestigateState

@@ -6,10 +6,9 @@
 [ext_resource type="Script" uid="uid://b3ta2kaj6e5hc" path="res://Scripts/Components/raycast_detection_component.gd" id="3_detection"]
 [ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://bcihkuoicmlyu" path="res://Scripts/StateMachines/StalkerStates/searching_state.gd" id="6_2h22a"]
-[ext_resource type="Script" uid="uid://dg1j6srqf0mkp" path="res://Scripts/StateMachines/StalkerStates/investigate_state.gd" id="7_hpxs0"]
 [ext_resource type="Script" uid="uid://d22s8i5t86f8n" path="res://Scripts/StateMachines/StalkerStates/pursuit_state.gd" id="7_i0hgd"]
 [ext_resource type="Script" uid="uid://dq3w1gx652edb" path="res://Scripts/StateMachines/StalkerStates/surveil_state.gd" id="9_hpxs0"]
-[ext_resource type="Script" uid="uid://bchtwcgyiq3hj" path="res://Scripts/StateMachines/StalkerStates/Lost_state.gd" id="10_x4g44"]
+[ext_resource type="Script" uid="uid://bchtwcgyiq3hj" path="res://Scripts/StateMachines/StalkerStates/capture_state.gd" id="10_x4g44"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
 
@@ -32,28 +31,33 @@ script = ExtResource("3_detection")
 
 [node name="SightRay" type="RayCast2D" parent="Components/RaycastDetectionComponent" unique_id=269243962]
 
-[node name="StateMachine" type="Node" parent="." unique_id=1892398123 node_paths=PackedStringArray("searchingState", "investigateState", "pursuitState", "surveilState", "lostState")]
+[node name="StateMachine" type="Node" parent="." unique_id=1892398123 node_paths=PackedStringArray("searchingState", "pursuitState", "surveilState", "captureState", "current_state")]
 script = ExtResource("4_state_machine")
 searchingState = NodePath("SearchState")
-investigateState = NodePath("InvestigateState")
 pursuitState = NodePath("PursuitState")
 surveilState = NodePath("SurveilState")
-lostState = NodePath("LostState")
+captureState = NodePath("CaptureState")
+initial_state = 3
+current_state = NodePath("SurveilState")
 
 [node name="SearchState" type="Node" parent="StateMachine" unique_id=60467817]
 script = ExtResource("6_2h22a")
-
-[node name="InvestigateState" type="Node" parent="StateMachine" unique_id=1237487621]
-script = ExtResource("7_hpxs0")
+state_name = &"SearchState"
 
 [node name="PursuitState" type="Node" parent="StateMachine" unique_id=1628534581]
 script = ExtResource("7_i0hgd")
+state_name = &"PursuitState"
+state_code = 1
 
 [node name="SurveilState" type="Node" parent="StateMachine" unique_id=93451075]
 script = ExtResource("9_hpxs0")
+state_name = &"SurveilState"
+state_code = 2
 
-[node name="LostState" type="Node" parent="StateMachine" unique_id=399018609]
+[node name="CaptureState" type="Node" parent="StateMachine" unique_id=399018609]
 script = ExtResource("10_x4g44")
+state_name = &"CaptureState"
+state_code = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447720503]
 shape = SubResource("CapsuleShape2D_y8knx")
