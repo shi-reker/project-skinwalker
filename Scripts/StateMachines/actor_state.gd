@@ -5,6 +5,7 @@ class_name ActorState
 
 var actor: CharacterBody2D
 
+@export var state_code: int
 signal switch_state(nextState:ActorState)
 
 func setup(actor_node: CharacterBody2D):
