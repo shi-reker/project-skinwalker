@@ -13,12 +13,13 @@ enum State {
 @export var surveilState:SurveilState
 @export var captureState:CaptureState
 
-@export var initial_state: State
-var current_state_id: State
+var current_state_id: State = State.SURVEILING
 
 var stateTable:Dictionary[State, ActorState]
 
 func _ready() -> void:
+	#initial_state = State.SEARCHING
+	current_state = surveilState
 	stateTable = {
 		State.SEARCHING: searchingState,
 		State.PURSUING: pursuitState,
@@ -32,6 +33,7 @@ func _ready() -> void:
 	on_state_change.connect(ChangeStateID)
 
 func update_current_state(delta: float) -> void:
+	#print_debug(current_state_id)
 	current_state.update_state(delta)
 
 func ChangeStateID(id:State):
@@ -39,4 +41,4 @@ func ChangeStateID(id:State):
 		pursuitState.target = get_parent().global_position
 	
 	current_state_id = id
-	print_debug(current_state.state_name)
+	#print_debug(current_state.state_name)
