@@ -10,7 +10,7 @@ class_name StalkerActor
 @export var sprite:Sprite2D
 @export var detectionRange:Area2D
 
-var target:PlayerActor
+var target
 var distToTarget:float
 
 func _ready() -> void:
@@ -26,9 +26,9 @@ func _physics_process(delta: float) -> void:
 		elif distToTarget < 60:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.CAPTURING])
 
-func _on_detection_range_entered(body: PlayerActor) -> void:
+func _on_detection_range_entered(body: Node2D) -> void:
 	state_machine.change_state(state_machine.stateTable[state_machine.State.PURSUING])
 	target = body
 
-func _on_detection_range_exited(body: PlayerActor) -> void:
+func _on_detection_range_exited(body: Node2D) -> void:
 	state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
