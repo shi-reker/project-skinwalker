@@ -4,6 +4,9 @@ class_name ActorState
 @export var state_name: StringName
 signal switch_state(nextState:ActorState)
 
+func setup(actor_node: CharacterBody2D):
+	actor = actor_node
+
 func enter(previous_state: StringName) -> void:
 	pass
 

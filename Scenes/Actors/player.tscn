@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bj87j4ak260gm"]
 
-[ext_resource type="Script" path="res://Scripts/Actors/player.gd" id="1_player"]
-[ext_resource type="Script" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
-[ext_resource type="Script" path="res://Scripts/StateMachines/player_state_machine.gd" id="3_state_machine"]
+[ext_resource type="Script" uid="uid://d3jlynljihy0e" path="res://Scripts/Actors/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
+[ext_resource type="Script" uid="uid://pm6p8ifuqg4d" path="res://Scripts/StateMachines/player_state_machine.gd" id="3_state_machine"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_player")
