@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c5pgh2h5grtkm"]
+
+[ext_resource type="Script" uid="uid://d05q53jgoi6uk" path="res://Scripts/world.gd" id="1_mq1bj"]
+[ext_resource type="PackedScene" uid="uid://bcsjye2v5i3h6" path="res://Scenes/Environments/home.tscn" id="2_iwv7r"]
+[ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="3_kt01x"]
+[ext_resource type="PackedScene" uid="uid://bxsfjho2h3vhj" path="res://Scenes/Actors/stalker.tscn" id="4_p7j4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(500, 20)
+
+[sub_resource type="Gradient" id="Gradient_5a7ea"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_5a7ea")
+width = 50
+
+[node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker")]
+script = ExtResource("1_mq1bj")
+player = NodePath("Actors/Player")
+stalker = NodePath("Actors/Stalker")
+
+[node name="Environment" type="Node2D" parent="." unique_id=1540909067]
+
+[node name="Area2D" type="StaticBody2D" parent="Environment" unique_id=1972975750]
+position = Vector2(469, 351)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Area2D" unique_id=1698473822]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Area2D" unique_id=618219978]
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Home" parent="Environment" unique_id=207890098 instance=ExtResource("2_iwv7r")]
+position = Vector2(554, 186)
+
+[node name="Actors" type="Node2D" parent="." unique_id=1349509614]
+
+[node name="Player" parent="Actors" unique_id=1081840922 instance=ExtResource("3_kt01x")]
+position = Vector2(605, 184)
+
+[node name="Stalker" parent="Actors" unique_id=1292121425 instance=ExtResource("4_p7j4p")]
+position = Vector2(265, 205)
+
+[node name="NPCs" type="Node2D" parent="." unique_id=1043265567]
+
+[node name="SurveillanceSystems" type="Node2D" parent="." unique_id=1156992888]
