@@ -11,6 +11,7 @@ class_name StalkerActor
 @export var detectionRange:Area2D
 
 var target:PlayerActor
+var distToTarget:float
 
 func _ready() -> void:
 	sprite.texture = stalker_definition.texture
@@ -19,10 +20,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.update_current_state(delta)
 	if !state_machine.current_state_id == state_machine.State.SEARCHING:
-		var dist = global_position.distance_to(target.global_position)
-		if dist < 120:
+		distToTarget = global_position.distance_to(target.global_position)
+		if distToTarget < 120:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.SURVEILING])
-		elif dist < 60:
+		elif distToTarget < 60:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.CAPTURING])
 
 func _on_detection_range_entered(body: PlayerActor) -> void:
