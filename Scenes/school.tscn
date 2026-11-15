@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://de5tcsbmtfth5"]
+
+[ext_resource type="Texture2D" uid="uid://cvtki456ulg8f" path="res://Assets/Visuals/school map placeholder.png" id="1_mlgpo"]
+
+[node name="School" type="Control" unique_id=1309802306]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1550547036]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mlgpo")

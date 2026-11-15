@@ -33,7 +33,7 @@ func _ready() -> void:
 	on_state_change.connect(ChangeStateID)
 
 func update_current_state(delta: float) -> void:
-	#print_debug(current_state_id)
+	print_debug(current_state.state_name)
 	current_state.update_state(delta)
 
 func ChangeStateID(id:State):
@@ -41,4 +41,4 @@ func ChangeStateID(id:State):
 		pursuitState.target = get_parent().global_position
 	
 	current_state_id = id
-	#print_debug(current_state.state_name)
+	print_debug(current_state.state_name)
