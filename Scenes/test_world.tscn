@@ -12,7 +12,8 @@ size = Vector2(500, 20)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
 gradient = SubResource("Gradient_5a7ea")
-width = 50
+width = 500
+height = 20
 
 [node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker")]
 script = ExtResource("1_mq1bj")

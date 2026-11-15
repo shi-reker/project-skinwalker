@@ -35,3 +35,15 @@ texture = SubResource("GradientTexture2D_yf5fn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="InteractPopUp" unique_id=1591524042]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -32.0
+offset_right = 57.0
+offset_bottom = -8.0
+text = "E: Interact"
