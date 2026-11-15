@@ -12,6 +12,7 @@ class_name StalkerActor
 
 var target
 var distToTarget:float
+var is_player_detected: bool = false
 
 func _ready() -> void:
 	sprite.texture = stalker_definition.texture
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.update_current_state(delta)
-	if !state_machine.current_state_id == state_machine.State.SEARCHING:
+	if !state_machine.current_state_id == state_machine.State.SEARCHING and target != null:
 		distToTarget = global_position.distance_to(target.global_position)
 		if distToTarget < 120:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.SURVEILING])
