@@ -15,10 +15,15 @@ func setup(actor_node: CharacterBody2D) -> void:
 		state.switch_state.connect(change_state)
 		state.setup(actor)
 
+signal on_state_change(code:int)
+
 func change_state(next_state: ActorState) -> void:
 	if next_state == current_state:
 		return
+	current_state.exit(next_state.state_name)
 	current_state = next_state
+	current_state.enter(current_state.state_name)
+	on_state_change.emit(current_state.state_code)
 
 func update_current_state(delta: float) -> void:
 	pass
