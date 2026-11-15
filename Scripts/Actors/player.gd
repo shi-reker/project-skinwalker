@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name PlayerActor
 
-@onready var movement_component: MovementComponent = $Components/MovementComponent
+@onready var movement: MovementComponent = $Components/MovementComponent
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var interact_pop_up: Control = $InteractPopUp
+
+signal entered_home
 signal interaction_requested
 
 var _interaction_available: bool = false

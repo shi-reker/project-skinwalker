@@ -22,3 +22,5 @@ func _on_detection_range_entered(area: Area2D) -> void:
 
 func _on_detection_range_exited(body: Node2D) -> void:
 	state_machine.change_state(state_machine.stateTable[state_machine.State.TARGET_LOST])
+func detected_player_entered_home():
+	print("i see you :)")
