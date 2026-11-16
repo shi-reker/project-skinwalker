@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
 [ext_resource type="Script" uid="uid://pm6p8ifuqg4d" path="res://Scripts/StateMachines/player_state_machine.gd" id="3_state_machine"]
 [ext_resource type="Script" uid="uid://ijcu5f51cw6y" path="res://Scripts/StateMachines/PlayerStates/idle_state.gd" id="4_mqoqv"]
+[ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="5_movement_definition"]
 
 [sub_resource type="Gradient" id="Gradient_87pht"]
 
@@ -23,6 +24,8 @@ script = ExtResource("1_player")
 
 [node name="MovementComponent" type="Node" parent="Components" unique_id=478005862]
 script = ExtResource("2_movement")
+movement_definition = ExtResource("5_movement_definition")
+actor = NodePath("../..")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1831636250]
 script = ExtResource("3_state_machine")
