@@ -45,3 +45,5 @@ position = Vector2(265, 205)
 [node name="NPCs" type="Node2D" parent="." unique_id=1043265567]
 
 [node name="SurveillanceSystems" type="Node2D" parent="." unique_id=1156992888]
+
+[connection signal="home_entered" from="Environment/Home" to="." method="_on_player_entered_home"]
