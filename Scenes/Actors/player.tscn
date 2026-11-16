@@ -13,6 +13,9 @@ gradient = SubResource("Gradient_87pht")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(60, 60)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 60.0
+
 [node name="Player" type="CharacterBody2D" unique_id=473171831]
 script = ExtResource("1_player")
 
@@ -36,7 +39,6 @@ texture = SubResource("GradientTexture2D_yf5fn")
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 
@@ -47,3 +49,12 @@ offset_top = -32.0
 offset_right = 57.0
 offset_bottom = -8.0
 text = "E: Interact"
+
+[node name="DetectArea" type="Area2D" parent="." unique_id=370194297]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=1473775574]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="area_entered" from="DetectArea" to="." method="_on_detect_area_area_entered"]
+[connection signal="area_exited" from="DetectArea" to="." method="_on_detect_area_area_exited"]
