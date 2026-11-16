@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cn2a02on2ceme"]
+
+[ext_resource type="Texture2D" uid="uid://vel0elk7vb18" path="res://Assets/Visuals/icons/placeholder event button.png" id="1_6201r"]
+[ext_resource type="Script" uid="uid://c56yfsjqfbupl" path="res://Scripts/Environments/event_button.gd" id="1_ygqqn"]
+
+[node name="EventButton" type="TextureButton" unique_id=1178872233]
+offset_right = 65.0
+offset_bottom = 28.0
+texture_normal = ExtResource("1_6201r")
+texture_pressed = ExtResource("1_6201r")
+texture_hover = ExtResource("1_6201r")
+script = ExtResource("1_ygqqn")
