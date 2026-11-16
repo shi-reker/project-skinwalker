@@ -10,3 +10,5 @@ texture_normal = ExtResource("1_6201r")
 texture_pressed = ExtResource("1_6201r")
 texture_hover = ExtResource("1_6201r")
 script = ExtResource("1_ygqqn")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
