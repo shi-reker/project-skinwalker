@@ -33,7 +33,7 @@ func _ready() -> void:
 	on_state_change.connect(ChangeStateID)
 
 func update_current_state(delta: float) -> void:
-	print_debug(current_state.state_name)
+	#print_debug(current_state.state_name)
 	current_state.update_state(delta)
 
 func ChangeStateID(id:State):

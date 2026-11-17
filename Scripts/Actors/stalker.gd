@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.update_current_state(delta)
 	if !state_machine.current_state_id == state_machine.State.SEARCHING and target != null:
 		distToTarget = global_position.distance_to(target.global_position)
-		print_debug(distToTarget)
+		#print_debug(distToTarget)
 		if distToTarget < 120:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.SURVEILING])
 		elif distToTarget < 60:
@@ -34,5 +34,6 @@ func _on_detection_range_entered(body: PlayerActor) -> void:
 
 func _on_detection_range_exited(body: PlayerActor) -> void:
 	state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
+
 func detected_player_entered_home():
 	print("i see you :)")
