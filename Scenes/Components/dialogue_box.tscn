@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://db2yhk6hlwwci" path="res://Assets/Visuals/placeholder dialogue box.png" id="1_c26mk"]
 [ext_resource type="Texture2D" uid="uid://d2flcaaeyhw2j" path="res://Assets/Visuals/placeholder speaker box.png" id="3_ixl7y"]
 
+[sub_resource type="SystemFont" id="SystemFont_ybkmv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_frki8"]
+font = SubResource("SystemFont_ybkmv")
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="DialogueBox" type="TextureRect" unique_id=1117392782 node_paths=PackedStringArray("speakerBox", "speakerText", "text")]
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,6 +45,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="DialogueText" type="Label" parent="." unique_id=1574403242]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(982, 120)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_frki8")
+autowrap_mode = 3
