@@ -1,7 +1,13 @@
 extends Camera2D
 
-@export var speed := 800.0
+enum Modes{
+	SCHOOL,
+	WORLD
+}
+
+@export var speed := 400.0
 @export var edge_margin := 20.0   # pixels from the screen edge
+@export var mode:Modes
 
 func _ready() -> void:
 	# Keeps the cursor inside the window so it can actually reach the edge
@@ -27,5 +33,15 @@ func _process(delta: float) -> void:
 		dir.y -= 1
 	elif mouse.y >= size.y - edge_margin:
 		dir.y += 1
-
-	position += dir.normalized() * speed * delta
+	
+	var posQueue:Vector2 = position + dir.normalized() * speed * delta
+	match mode:
+		Modes.SCHOOL:
+			if posQueue.y < limit_bottom and posQueue.y > limit_top:
+				position += dir.normalized() * speed * delta
+				if limit_right == 0 and limit_left == 0:
+					print_debug("zero")
+					position.x = 0
+		Modes.WORLD:
+			pass
+	
