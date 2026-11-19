@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b6qalw6pvtp0n" path="res://Scripts/Environments/home.gd" id="1_7wl01"]
 [ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="2_1ssxx"]
+[ext_resource type="PackedScene" uid="uid://c82j75d07l2o5" path="res://Scenes/Components/interactable_component.tscn" id="3_1ssxx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 27.48
 
-[node name="Home" type="Area2D" unique_id=207890098]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 49.96
+
+[node name="Home" type="StaticBody2D" unique_id=812389625 node_paths=PackedStringArray("interactable")]
 script = ExtResource("1_7wl01")
+interactable = NodePath("InteractableComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1050776503]
 texture = ExtResource("2_1ssxx")
@@ -15,5 +20,8 @@ texture = ExtResource("2_1ssxx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=822850573]
 shape = SubResource("CircleShape2D_g4v7s")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="InteractableComponent" parent="." unique_id=1612934472 instance=ExtResource("3_1ssxx")]
+interact_name = "GO HOME"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1453574856]
+shape = SubResource("CircleShape2D_yf5fn")

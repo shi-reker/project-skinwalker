@@ -37,7 +37,7 @@ position = Vector2(554, 186)
 [node name="Actors" type="Node2D" parent="." unique_id=1349509614]
 
 [node name="Player" parent="Actors" unique_id=1081840922 instance=ExtResource("3_kt01x")]
-position = Vector2(772, 184)
+position = Vector2(511, 196)
 
 [node name="Stalker" parent="Actors" unique_id=1292121425 instance=ExtResource("4_p7j4p")]
 position = Vector2(265, 205)
@@ -45,3 +45,5 @@ position = Vector2(265, 205)
 [node name="NPCs" type="Node2D" parent="." unique_id=1043265567]
 
 [node name="SurveillanceSystems" type="Node2D" parent="." unique_id=1156992888]
+
+[connection signal="home_entered" from="Environment/Home" to="." method="_on_player_entered_home"]

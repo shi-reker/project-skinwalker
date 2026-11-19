@@ -1,13 +1,10 @@
-extends Area2D
+extends StaticBody2D
 class_name Home
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is PlayerActor:
-		var player := body as PlayerActor
-		player.set_interaction_available(true)
-		player.entered_home.emit()
+@export var interactable: InteractableComponent
+signal home_entered
 
-func _on_body_exited(body: Node2D) -> void:
-	if body is PlayerActor:
-		var player := body as PlayerActor
-		player.set_interaction_available(false)
+func _ready() -> void:
+	if interactable:
+		interactable.interact = func():
+			home_entered.emit()
