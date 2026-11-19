@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="project skinwalker"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="uid://cujnjxthnql4w"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+QuestManager="*uid://b412e3vgtmxp"
+Events="*uid://cw627dquxexf8"
+NpcManager="*uid://dna6jv521132l"
+ItemManager="*uid://cajggnmgbjp5s"
 
 [display]
 
