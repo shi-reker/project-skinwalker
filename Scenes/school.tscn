@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://de5tcsbmtfth5"]
+
+[ext_resource type="Texture2D" uid="uid://cvtki456ulg8f" path="res://Assets/Visuals/school map placeholder.png" id="1_mlgpo"]
+[ext_resource type="PackedScene" uid="uid://buk8rjcec7rm6" path="res://Scenes/Environments/interest_point.tscn" id="2_hnxbv"]
+[ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="3_yrja8"]
+[ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="4_frki8"]
+[ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="4_nxj8n"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="5_ybkmv"]
+
+[node name="School" type="Node2D" unique_id=702370092]
+
+[node name="BG" type="TextureRect" parent="." unique_id=1550547036]
+offset_right = 1152.0
+offset_bottom = 994.0
+texture = ExtResource("1_mlgpo")
+
+[node name="InterestPoint" parent="BG" unique_id=858540143 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+layout_mode = 1
+offset_top = -189.0
+offset_bottom = -157.0
+dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+metadata/_edit_use_anchors_ = true
+
+[node name="InterestPoint2" parent="BG" unique_id=104285942 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 32.0
+grow_vertical = 1
+dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+metadata/_edit_use_anchors_ = true
+
+[node name="InterestPoint3" parent="BG" unique_id=1162841921 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -488.32
+offset_top = -370.44
+offset_right = -456.32
+offset_bottom = -338.44
+dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1361060894]
+anchor_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 0
+limit_bottom = 346
+position_smoothing_enabled = true
+script = ExtResource("3_yrja8")
+
+[node name="DialogueHandler" type="Node" parent="Camera2D" unique_id=37952860 node_paths=PackedStringArray("dialogueBox")]
+script = ExtResource("4_frki8")
+dialogue_definition = ExtResource("5_ybkmv")
+dialogueBox = NodePath("../DialogueBox")
+
+[node name="DialogueBox" parent="Camera2D" unique_id=1117392782 instance=ExtResource("4_nxj8n")]
+visible = false
+offset_left = 55.0
+offset_top = 408.5
+offset_right = 1097.0
+offset_bottom = 585.5
