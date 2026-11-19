@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 			if posQueue.y < limit_bottom and posQueue.y > limit_top:
 				position += dir.normalized() * speed * delta
 				if limit_right == 0 and limit_left == 0:
-					print_debug("zero")
+					#print_debug("zero")
 					position.x = 0
 		Modes.WORLD:
-			pass
+			position += dir.normalized() * speed * delta
 	
