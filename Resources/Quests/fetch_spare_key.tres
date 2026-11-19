@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestDefinition" format=3 uid="uid://bkq0af1c27rsa"]
+
+[ext_resource type="Script" uid="uid://bm1bk3el6qi05" path="res://Scripts/Resources/quest_definition.gd" id="1_quest"]
+[ext_resource type="Resource" uid="uid://c5c6wts6u2ai6" path="res://Resources/Quests/collect_objective.tres" id="2_objective"]
+[ext_resource type="Resource" path="res://Resources/Quests/return_to_neighbor_objective.tres" id="3_objective"]
+[ext_resource type="Script" uid="uid://c3wrvbol1s2i2" path="res://Scripts/Components/quest_objective_definition.gd" id="4_objective_script"]
+
+[resource]
+script = ExtResource("1_quest")
+id = 2
+title = "Find the spare key"
+description = "Retrieve the spare key nearby, then return to the neighbor."
+objectives = Array[ExtResource("4_objective_script")]([ExtResource("2_objective"), ExtResource("3_objective")])

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://c5c6wts6u2ai6"]
+
+[ext_resource type="Script" uid="uid://bat7t5qn0fkao" path="res://Scripts/Resources/collect_objective.gd" id="1_pyesi"]
+
+[resource]
+script = ExtResource("1_pyesi")
+id = 1
+target_item_id = &"spare_key"
+metadata/_custom_type_script = "uid://c3wrvbol1s2i2"
