@@ -1,0 +1,2 @@
+extends QuestObjectiveDefinition
+class_name CollectObjective

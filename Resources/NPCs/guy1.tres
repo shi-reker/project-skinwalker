@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://ukpxwbm1n7jx"]
+
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="1_mbctg"]
+[ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="2_mbctg"]
+
+[resource]
+script = ExtResource("1_mbctg")
+texture = ExtResource("2_mbctg")
+location = Vector2(256, -256)
+metadata/_custom_type_script = "uid://cp37fayu15pxh"

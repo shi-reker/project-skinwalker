@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestObjectiveDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Components/quest_objective_definition.gd" id="1_objective"]
+
+[resource]
+script = ExtResource("1_objective")
+id = 2
+target_npc_id = 1
