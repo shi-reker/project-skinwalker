@@ -34,6 +34,7 @@ func advance_dialogue() -> void:
 	dialogueBox.text.text = dialogue_definition.dialogue_lines[current_line_index]
 	
 	if dialogue_definition.choice_lines[current_line_index]:
+		dialogueBox.disabled = true
 		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
 		var choices:Array = dialogue_definition.choice_lines[current_line_index]
 		
@@ -47,6 +48,7 @@ func end_dialogue() -> void:
 	dialogueBox.hide()
 
 func dialogue_choice_handler(id:int):
+	dialogueBox.disabled = false
 	var offset = len(dialogue_definition.choice_lines[current_line_index])/2
 	var nextLine:int = dialogue_definition.choice_lines[id][offset]
 	dialogue_definition.end_lines[nextLine].call()
