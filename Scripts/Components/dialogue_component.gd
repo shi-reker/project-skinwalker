@@ -18,10 +18,35 @@ func start_dialogue() -> void:
 		dialogueBox.speakerBox.show()
 		dialogueBox.speakerText.text = dialogue_definition.speaker_name
 	dialogueBox.text.text = dialogue_definition.dialogue_lines[current_line_index]
+	
+	if dialogue_definition.choice_lines[current_line_index]:
+		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
+		var choices:Array = dialogue_definition.choice_lines[current_line_index]
+		
+		for c in nChoices:
+			dialogueBox.choices[c].show()
+			dialogueBox.choices[c].id = c
+			dialogueBox.choices[c].text.text = choices[c]
+			dialogueBox.choices[c].picked.connect(dialogue_choice_handler)
 
 func advance_dialogue() -> void:
 	current_line_index += 1
 	dialogueBox.text.text = dialogue_definition.dialogue_lines[current_line_index]
+	
+	if dialogue_definition.choice_lines[current_line_index]:
+		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
+		var choices:Array = dialogue_definition.choice_lines[current_line_index]
+		
+		for c in nChoices:
+			dialogueBox.choices[c].show()
+			dialogueBox.choices[c].id = c
+			dialogueBox.choices[c].text.text = choices[c]
+			dialogueBox.choices[c].picked.connect(dialogue_choice_handler)
 
 func end_dialogue() -> void:
 	dialogueBox.hide()
+
+func dialogue_choice_handler(id:int):
+	var offset = len(dialogue_definition.choice_lines[current_line_index])/2
+	var nextLine:int = dialogue_definition.choice_lines[id][offset]
+	dialogue_definition.end_lines[nextLine].call()

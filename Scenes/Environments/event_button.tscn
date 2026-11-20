@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://nl0y62c0b23m" path="res://Resources/Events/placeholder_event.tres" id="3_j0h80"]
 
 [sub_resource type="SystemFont" id="SystemFont_pkeh2"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_y8knx"]
 font = SubResource("SystemFont_pkeh2")

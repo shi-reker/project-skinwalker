@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bg8n3qmuodx6e" path="res://Scripts/Components/dialogue_box.gd" id="1_10vpv"]
 [ext_resource type="Texture2D" uid="uid://db2yhk6hlwwci" path="res://Assets/Visuals/placeholder dialogue box.png" id="1_c26mk"]
 [ext_resource type="Texture2D" uid="uid://d2flcaaeyhw2j" path="res://Assets/Visuals/placeholder speaker box.png" id="3_ixl7y"]
+[ext_resource type="Script" uid="uid://chaqxec2doc0p" path="res://Scripts/Components/dialogue_choice.gd" id="4_ixl7y"]
 
 [sub_resource type="SystemFont" id="SystemFont_ybkmv"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_frki8"]
 font = SubResource("SystemFont_ybkmv")
@@ -12,7 +14,7 @@ font_size = 20
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DialogueBox" type="TextureRect" unique_id=1117392782 node_paths=PackedStringArray("speakerBox", "speakerText", "text")]
+[node name="DialogueBox" type="TextureButton" unique_id=1390935538 node_paths=PackedStringArray("speakerBox", "speakerText", "text", "c1", "c2", "c3", "c4")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -24,11 +26,17 @@ offset_right = 521.0
 offset_bottom = 88.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_c26mk")
+texture_normal = ExtResource("1_c26mk")
+texture_pressed = ExtResource("1_c26mk")
+texture_hover = ExtResource("1_c26mk")
 script = ExtResource("1_10vpv")
 speakerBox = NodePath("Speaker")
 speakerText = NodePath("Speaker/SpeakerLabel")
 text = NodePath("DialogueText")
+c1 = NodePath("Choices/Choice1")
+c2 = NodePath("Choices/Choice2")
+c3 = NodePath("Choices/Choice3")
+c4 = NodePath("Choices/Choice4")
 
 [node name="Speaker" type="TextureRect" parent="." unique_id=313994559]
 visible = false
@@ -54,3 +62,82 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_frki8")
 autowrap_mode = 3
+
+[node name="Choices" type="VBoxContainer" parent="." unique_id=2143556930]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = -0.2
+anchor_right = 0.98
+anchor_bottom = -0.2
+offset_left = -250.0
+offset_top = -204.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Choice1" type="TextureButton" parent="Choices" unique_id=964767401 node_paths=PackedStringArray("text")]
+visible = false
+layout_mode = 2
+offset_transform_position = Vector2(32, -34)
+texture_normal = ExtResource("3_ixl7y")
+texture_pressed = ExtResource("3_ixl7y")
+texture_hover = ExtResource("3_ixl7y")
+script = ExtResource("4_ixl7y")
+text = NodePath("ChoiceText")
+
+[node name="ChoiceText" type="Label" parent="Choices/Choice1" unique_id=668204566]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Choice2" type="TextureButton" parent="Choices" unique_id=80340517 node_paths=PackedStringArray("text")]
+visible = false
+layout_mode = 2
+offset_transform_position = Vector2(32, -34)
+texture_normal = ExtResource("3_ixl7y")
+texture_pressed = ExtResource("3_ixl7y")
+texture_hover = ExtResource("3_ixl7y")
+script = ExtResource("4_ixl7y")
+text = NodePath("ChoiceText")
+
+[node name="ChoiceText" type="Label" parent="Choices/Choice2" unique_id=737874858]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Choice3" type="TextureButton" parent="Choices" unique_id=188389675 node_paths=PackedStringArray("text")]
+visible = false
+layout_mode = 2
+offset_transform_position = Vector2(32, -34)
+texture_normal = ExtResource("3_ixl7y")
+texture_pressed = ExtResource("3_ixl7y")
+texture_hover = ExtResource("3_ixl7y")
+script = ExtResource("4_ixl7y")
+text = NodePath("ChoiceText")
+
+[node name="ChoiceText" type="Label" parent="Choices/Choice3" unique_id=470461363]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Choice4" type="TextureButton" parent="Choices" unique_id=722763839 node_paths=PackedStringArray("text")]
+visible = false
+layout_mode = 2
+offset_transform_position = Vector2(32, -34)
+texture_normal = ExtResource("3_ixl7y")
+texture_pressed = ExtResource("3_ixl7y")
+texture_hover = ExtResource("3_ixl7y")
+script = ExtResource("4_ixl7y")
+text = NodePath("ChoiceText")
+
+[node name="ChoiceText" type="Label" parent="Choices/Choice4" unique_id=245839282]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Choices/Choice1" to="Choices/Choice1" method="_on_pressed"]
+[connection signal="pressed" from="Choices/Choice2" to="Choices/Choice2" method="_on_pressed"]
+[connection signal="pressed" from="Choices/Choice3" to="Choices/Choice3" method="_on_pressed"]
+[connection signal="pressed" from="Choices/Choice4" to="Choices/Choice4" method="_on_pressed"]
