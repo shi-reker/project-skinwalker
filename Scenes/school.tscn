@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cvtki456ulg8f" path="res://Assets/Visuals/school map placeholder.png" id="1_mlgpo"]
 [ext_resource type="PackedScene" uid="uid://buk8rjcec7rm6" path="res://Scenes/Environments/interest_point.tscn" id="2_hnxbv"]
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="3_ti8f2"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="3_yrja8"]
+[ext_resource type="Resource" uid="uid://nl0y62c0b23m" path="res://Resources/Events/placeholder_event.tres" id="4_c8duk"]
 [ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="4_frki8"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="4_nxj8n"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="5_ybkmv"]
@@ -19,6 +21,7 @@ layout_mode = 1
 offset_top = -189.0
 offset_bottom = -157.0
 dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
 metadata/_edit_use_anchors_ = true
 
 [node name="InterestPoint2" parent="BG" unique_id=104285942 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
@@ -30,6 +33,7 @@ offset_top = 0.0
 offset_bottom = 32.0
 grow_vertical = 1
 dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk")])
 metadata/_edit_use_anchors_ = true
 
 [node name="InterestPoint3" parent="BG" unique_id=1162841921 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
@@ -40,6 +44,7 @@ offset_top = -370.44
 offset_right = -456.32
 offset_bottom = -338.44
 dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk")])
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1361060894]
