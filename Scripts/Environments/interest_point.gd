@@ -4,15 +4,18 @@ class_name InterestButton
 var events = preload("res://Scenes/Environments/event_button.tscn")
 @export var grid:VBoxContainer
 @export var dialogueHandler:DialogueComponent
+@export var eventList:Array[EventBase]
 var isPressed:bool = false
 var storedLine:int = -1
 var chosenEvent:EventButton
 
 func _ready() -> void:
-	var nEvents = 3
+	var nEvents = len(eventList)
 	for e in nEvents:
 		var newEvent:EventButton = events.instantiate()
+		newEvent.event = eventList[e]
 		newEvent.start_dialogue.connect(dialogueHandler.recieve_dialogue)
+		newEvent.Setup()
 		grid.add_child(newEvent)
 		newEvent.hide()
 	print_debug(len(grid.get_children()))

@@ -11,10 +11,6 @@ class_name DialogueDefinition
 	#":("
 #]
 
-class dialogue_part:
-	var text: String
-	var type: int # 0 normal 1 choice
-	
 @export var choice_lines: Dictionary[int, Array]
 #{
 	#0: ["yes", "nah", 1, 2]

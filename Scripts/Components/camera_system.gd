@@ -11,7 +11,10 @@ enum Modes{
 
 func _ready() -> void:
 	# Keeps the cursor inside the window so it can actually reach the edge
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	if mode == Modes.WORLD:
+		pass
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 	# Map bounds (adjust to your level size)
 	#limit_left = 0
@@ -43,5 +46,6 @@ func _process(delta: float) -> void:
 					#print_debug("zero")
 					position.x = 0
 		Modes.WORLD:
-			position += dir.normalized() * speed * delta
+			#position += dir.normalized() * speed * delta
+			pass
 	

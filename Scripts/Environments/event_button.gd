@@ -7,6 +7,9 @@ class_name EventButton
 signal start_dialogue(d:DialogueDefinition, line:int)
 
 func _ready() -> void:
+	Setup()
+
+func Setup():
 	title.text = event.eventName
 
 func _on_pressed() -> void:

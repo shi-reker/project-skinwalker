@@ -6,4 +6,4 @@ class_name PursuitState
 var target:Vector2
 
 func update_state(delta: float) -> void:
-	movementComponen.move_to(target)
+	movementComponen.move_to(target, delta)
