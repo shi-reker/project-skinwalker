@@ -1,20 +1,51 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cbwk1t0rwuc4m"]
 
-[ext_resource type="Script" path="res://Scripts/Actors/npc.gd" id="1_npc"]
-[ext_resource type="Script" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
-[ext_resource type="Script" path="res://Scripts/Components/dialogue_component.gd" id="3_dialogue"]
-[ext_resource type="Script" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
+[ext_resource type="Script" uid="uid://c6vmicw5k7r43" path="res://Scripts/Actors/npc.gd" id="1_npc"]
+[ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
+[ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="3_dialogue"]
+[ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
+[ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="8_movement_definition"]
+[ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="9_interactable"]
 
-[node name="NPC" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_companion"]
+radius = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_interaction"]
+radius = 32.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=580896283 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_npc")
+sprite = NodePath("Sprite2D")
 
-[node name="Components" type="Node" parent="."]
+[node name="Components" type="Node" parent="." unique_id=726637104]
 
-[node name="MovementComponent" type="Node" parent="Components"]
+[node name="MovementComponent" type="Node" parent="Components" unique_id=148463873 node_paths=PackedStringArray("actor")]
 script = ExtResource("2_movement")
+movement_definition = ExtResource("8_movement_definition")
+actor = NodePath("../..")
 
-[node name="DialogueComponent" type="Node" parent="Components"]
+[node name="DialogueComponent" type="Node" parent="Components" unique_id=232032424]
 script = ExtResource("3_dialogue")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="CompanionBehaviorComponent" type="Area2D" parent="Components" unique_id=875863649]
+collision_layer = 0
+script = ExtResource("5_companion")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/CompanionBehaviorComponent" unique_id=625194299]
+shape = SubResource("CircleShape2D_companion")
+
+[node name="StateMachine" type="Node" parent="." unique_id=2105785949]
 script = ExtResource("4_state_machine")
+
+[node name="InteractableComponent" type="Area2D" parent="." unique_id=1482895357]
+collision_layer = 2
+script = ExtResource("9_interactable")
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractableComponent" unique_id=595263403]
+shape = SubResource("CircleShape2D_interaction")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=686268596]
+color = Color(0.35, 0.75, 0.55, 1)
+polygon = PackedVector2Array(-12, -16, 12, -16, 16, -4, 12, 16, -12, 16, -16, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=867908403]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://4rkiat0jfniq"]
+
+[ext_resource type="Script" uid="uid://cl8wu60wrw1tq" path="res://Scripts/Environments/house.gd" id="1_88tlx"]
+[ext_resource type="PackedScene" uid="uid://c82j75d07l2o5" path="res://Scenes/Components/interactable_component.tscn" id="2_congh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 16.0
+
+[node name="house1" type="Node2D" unique_id=1714198596 node_paths=PackedStringArray("interactable")]
+script = ExtResource("1_88tlx")
+interactable = NodePath("InteractableComponent")
+
+[node name="InteractableComponent" parent="." unique_id=1612934472 instance=ExtResource("2_congh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1940327612]
+shape = SubResource("CircleShape2D_g4v7s")
