@@ -9,8 +9,8 @@ class_name StalkerActor
 @export var deployed_detection_systems: Array[DetectionSystem] = []
 @export var sprite:Sprite2D
 @export var detectionRange:Area2D
+@export var target:PlayerActor
 
-var target
 var distToTarget:float = 0
 var is_player_detected: bool = false
 
@@ -28,12 +28,13 @@ func _physics_process(delta: float) -> void:
 		elif distToTarget < 60:
 			state_machine.change_state(state_machine.stateTable[state_machine.State.CAPTURING])
 
-func _on_detection_range_entered(body: PlayerActor) -> void:
-	state_machine.change_state(state_machine.stateTable[state_machine.State.PURSUING])
-	target = body
+func _on_detection_range_entered(body: Node2D) -> void:
+	if body is PlayerActor:
+		state_machine.change_state(state_machine.stateTable[state_machine.State.PURSUING])
 
-func _on_detection_range_exited(body: PlayerActor) -> void:
-	state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
+func _on_detection_range_exited(body: Node2D) -> void:
+	if body is PlayerActor:
+		state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
 
 func detected_player_entered_home():
 	print("i see you :)")
