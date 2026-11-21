@@ -39,3 +39,11 @@ func ChangeStateID(id:State):
 	
 	current_state_id = id
 	print_debug(current_state.state_name)
+	
+func _on_detected(seen: Array[CharacterBody2D]):
+	if current_state is PursuitState:
+		for body in seen:
+			if body is PlayerActor:
+				print_debug("IM COMMING")
+				current_state.target = body
+				return
