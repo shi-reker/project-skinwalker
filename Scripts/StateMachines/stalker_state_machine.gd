@@ -26,10 +26,7 @@ func _ready() -> void:
 		State.SURVEILING: surveilState,
 		State.CAPTURING: captureState,
 	}
-	var i = 0
-	while i < len(State):
-		stateTable[i].switch_state.connect(change_state)
-		i+=1
+	setup(actor)
 	on_state_change.connect(ChangeStateID)
 
 func update_current_state(delta: float) -> void:

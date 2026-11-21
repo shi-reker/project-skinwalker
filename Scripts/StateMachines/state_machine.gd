@@ -4,7 +4,7 @@ class_name StateMachine
 @export var initial_state: ActorState
 @export var current_state: ActorState
 @export var available_states: Array[ActorState] = []
-var actor: CharacterBody2D
+@export var actor: CharacterBody2D
 
 func setup(actor_node: CharacterBody2D) -> void:
 	actor = actor_node
@@ -14,6 +14,7 @@ func setup(actor_node: CharacterBody2D) -> void:
 			continue
 		state.switch_state.connect(change_state)
 		state.setup(actor)
+		state.manager = self
 
 signal on_state_change(code:int)
 
