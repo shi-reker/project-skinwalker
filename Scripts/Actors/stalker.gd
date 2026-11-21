@@ -1,15 +1,16 @@
 extends CharacterBody2D
 class_name StalkerActor
 
-@export var stalker_definition: StalkerDefinition
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 @onready var raycast_detection_component: RaycastDetectionComponent = $Components/RaycastDetectionComponent
 @onready var state_machine: StalkerStateMachine = $StateMachine
+@export var stalker_definition: StalkerDefinition
 @export var known_hints: Array[HintDefinition] = []
 @export var deployed_detection_systems: Array[DetectionSystem] = []
 @export var sprite:Sprite2D
 @export var detectionRange:Area2D
 @export var target:PlayerActor
+#@export var navAgent:NavigationAgent2D
 
 var distToTarget:float = 0
 var is_player_detected: bool = false
@@ -38,3 +39,6 @@ func _on_detection_range_exited(body: Node2D) -> void:
 
 func detected_player_entered_home():
 	print("i see you :)")
+
+func _on_nav_agent_velocity_computed(safe_velocity: Vector2) -> void:
+	pass # Replace with function body.
