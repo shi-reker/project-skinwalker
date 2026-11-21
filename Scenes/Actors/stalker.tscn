@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bxsfjho2h3vhj"]
 
 [ext_resource type="Script" uid="uid://dpd327mb0owd0" path="res://Scripts/Actors/stalker.gd" id="1_stalker"]
-[ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
 [ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/Stalker/stalker_def_res.tres" id="2_vjcrc"]
 [ext_resource type="PackedScene" uid="uid://crshuc8x0viue" path="res://Scenes/Components/detection_component.tscn" id="3_ibjgy"]
-[ext_resource type="Resource" uid="uid://cwfq3hn8rp6by" path="res://Resources/Stalker/stalker_move_res.tres" id="4_ibjgy"]
+[ext_resource type="PackedScene" uid="uid://cpywotousrmdy" path="res://Scenes/Components/movement_component.tscn" id="3_x4g44"]
 [ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://bcihkuoicmlyu" path="res://Scripts/StateMachines/StalkerStates/searching_state.gd" id="6_2h22a"]
 [ext_resource type="Script" uid="uid://d22s8i5t86f8n" path="res://Scripts/StateMachines/StalkerStates/pursuit_state.gd" id="7_i0hgd"]
@@ -14,21 +13,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
 
-[node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("sprite", "detection_component")]
+[node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("movement_component", "sprite", "detection_component")]
 script = ExtResource("1_stalker")
+movement_component = NodePath("Components/MovementComponent")
 stalker_definition = ExtResource("2_vjcrc")
 sprite = NodePath("CollisionShape2D/Sprite2D")
 detection_component = NodePath("Components/DetectionComponent")
 
 [node name="Components" type="Node" parent="." unique_id=2030690801]
 
-[node name="MovementComponent" type="Node" parent="Components" unique_id=1317806895 node_paths=PackedStringArray("actor", "navigator")]
-script = ExtResource("2_movement")
-movement_definition = ExtResource("4_ibjgy")
-actor = NodePath("../..")
-navigator = NodePath("../../NavAgent")
-
 [node name="DetectionComponent" parent="Components" unique_id=1899678912 instance=ExtResource("3_ibjgy")]
+
+[node name="MovementComponent" parent="Components" unique_id=1603163079 instance=ExtResource("3_x4g44")]
 
 [node name="StateMachine" type="Node" parent="." unique_id=1892398123 node_paths=PackedStringArray("searchingState", "pursuitState", "surveilState", "captureState", "initial_state", "current_state", "available_states", "actor")]
 script = ExtResource("4_state_machine")
@@ -36,8 +32,8 @@ searchingState = NodePath("SearchState")
 pursuitState = NodePath("PursuitState")
 surveilState = NodePath("SurveilState")
 captureState = NodePath("CaptureState")
-initial_state = NodePath("PursuitState")
-current_state = NodePath("PursuitState")
+initial_state = NodePath("SurveilState")
+current_state = NodePath("SurveilState")
 available_states = [NodePath("SearchState"), NodePath("PursuitState"), NodePath("SurveilState"), NodePath("CaptureState")]
 actor = NodePath("..")
 
@@ -46,10 +42,8 @@ script = ExtResource("6_2h22a")
 noise = NodePath("../../AudioStreamPlayer2D")
 state_name = &"SearchState"
 
-[node name="PursuitState" type="Node" parent="StateMachine" unique_id=1628534581 node_paths=PackedStringArray("movementComponen", "navigator")]
+[node name="PursuitState" type="Node" parent="StateMachine" unique_id=1628534581]
 script = ExtResource("7_i0hgd")
-movementComponen = NodePath("../../Components/MovementComponent")
-navigator = NodePath("../../NavAgent")
 state_name = &"PursuitState"
 state_code = 1
 
@@ -70,10 +64,3 @@ shape = SubResource("CapsuleShape2D_y8knx")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1673401701]
 stream = ExtResource("10_ibjgy")
-
-[node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=342400057]
-path_desired_distance = 10.0
-path_postprocessing = 1
-avoidance_enabled = true
-
-[connection signal="velocity_computed" from="NavAgent" to="StateMachine/PursuitState" method="_on_nav_agent_velocity_computed"]

@@ -6,3 +6,6 @@ class_name SearchingState
 func update_state(delta: float) -> void:
 	noise.play()
 	await  noise.finished
+
+func exit(next_state: StringName) -> void:
+	noise.stop()

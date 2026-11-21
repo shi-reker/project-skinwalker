@@ -22,7 +22,7 @@ script = ExtResource("1_player")
 
 [node name="Components" type="Node" parent="." unique_id=1573085184]
 
-[node name="MovementComponent" type="Node" parent="Components" unique_id=478005862]
+[node name="MovementComponent" type="Node2D" parent="Components" unique_id=1262144486]
 script = ExtResource("2_movement")
 movement_definition = ExtResource("5_movement_definition")
 actor = NodePath("../..")

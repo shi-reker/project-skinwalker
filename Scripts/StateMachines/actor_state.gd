@@ -13,10 +13,10 @@ func setup(actor_node: CharacterBody2D):
 	actor = actor_node
 
 func enter(previous_state: StringName) -> void:
-	pass
+	push_error("define state enter!")
 
 func exit(next_state: StringName) -> void:
-	pass
+	push_error("define state exit!")
 
 func update_state(delta: float) -> void:
-	pass
+	push_error("define state process!")
