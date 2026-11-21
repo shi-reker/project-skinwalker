@@ -7,6 +7,9 @@ var color_houses: Dictionary[HouseColor, Array] = {} # [house_node1, house_node2
 
 var home_node: House = null
 
+var street_nodes: Array[Street] = []
+var street_houses: Dictionary[Street, Array] = {} # street_node: [house_node1, house_node2]
+
 func add_house(house: House):
 	if house in house_nodes:
 		return
@@ -15,6 +18,8 @@ func add_house(house: House):
 	var house_color: HouseColor = house.color
 	color_houses[house_color].append(house)
 	
+	var house_street: Street = house.street
+	street_houses[house_street].append(house)
 	
 func add_street(street: Street):
 	if street in street_nodes:

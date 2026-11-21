@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dal3i3qvx2elt"]
+
+[ext_resource type="Script" uid="uid://bxekytwshxi8j" path="res://Scripts/Environments/street.gd" id="1_5pyta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 16.0
+
+[node name="Street" type="Node2D" unique_id=449041247]
+script = ExtResource("1_5pyta")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=880501467]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1622664416]
+shape = SubResource("CircleShape2D_g4v7s")

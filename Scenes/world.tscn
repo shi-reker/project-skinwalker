@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bu13odsr76h73" path="res://Assets/Visuals/school map placeholder - v.png" id="3_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://bxsfjho2h3vhj" path="res://Scenes/Actors/stalker.tscn" id="3_stalker"]
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="4_k7acu"]
+[ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="5_5v1tr"]
 
 [node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker")]
 script = ExtResource("1_a02cp")
@@ -45,6 +46,18 @@ tile_set = ExtResource("2_8j60k")
 [node name="house1" parent="Environment/Houses" unique_id=1714198596 node_paths=PackedStringArray("street") instance=ExtResource("4_k7acu")]
 position = Vector2(408, -17)
 street = NodePath("../../Streets/street1")
+
+[node name="Streets" type="Node2D" parent="Environment" unique_id=1424892248]
+
+[node name="street1" parent="Environment/Streets" unique_id=449041247 node_paths=PackedStringArray("connected_street") instance=ExtResource("5_5v1tr")]
+position = Vector2(658, -11)
+street_name = "Pines"
+connected_street = [NodePath("../street2")]
+
+[node name="street2" parent="Environment/Streets" unique_id=453881573 node_paths=PackedStringArray("connected_street") instance=ExtResource("5_5v1tr")]
+position = Vector2(265, -168)
+street_name = "Apple"
+connected_street = [NodePath("../street1")]
 
 [node name="Actors" type="Node2D" parent="." unique_id=1882525461]
 
