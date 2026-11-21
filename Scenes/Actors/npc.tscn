@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="8_movement_definition"]
 [ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="9_interactable"]
+[ext_resource type="Script" uid="uid://bru6v3b04yqvx" path="res://Scripts/Components/companion_behavior_component.gd" id="5_companion"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_companion"]
 radius = 72.0
