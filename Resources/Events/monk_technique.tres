@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventBase" format=3 uid="uid://dkomxucwsp3q"]
+
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="1_06b2k"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="1_i45mx"]
+
+[resource]
+script = ExtResource("1_06b2k")
+eventName = "Obtain tibetan Monk Martial Manual"
+dialogue = ExtResource("1_i45mx")
+metadata/_custom_type_script = "uid://bdq00javdngjw"
