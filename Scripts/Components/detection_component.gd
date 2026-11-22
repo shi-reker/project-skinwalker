@@ -1,8 +1,8 @@
-@tool
 extends Area2D
 class_name DetectionComponent
 
 var detected_nodes: Array[CharacterBody2D] = []
+var current_visible_player: PlayerActor
 
 @export var detect_shape: CollisionShape2D # only detect col layer 1
 
@@ -10,24 +10,35 @@ var detected_nodes: Array[CharacterBody2D] = []
 	set(value):
 		if value <= 0:
 			return
-		print_debug(value)
 		detect_radius = value
-		var shape: Shape2D = detect_shape.shape
-		print_debug("got shape")
-		if shape is CircleShape2D:
-			shape.radius = value
-			print_debug(shape.radius)
+		_update_detect_shape()
+	#get():
+		#var shape: Shape2D = detect_shape.shape
+		#if shape is CircleShape2D:
+			#return shape.radius
+		#return detect_radius
 # Called when the node enters the scene tree for the first time.
 
 signal detected(nodes: Array[CharacterBody2D])
+signal player_detected(player: PlayerActor)
+
+func _ready() -> void:
+	_update_detect_shape()
 
 func _physics_process(_delta: float) -> void:
 	check_blast_radius(detected_nodes)
 
+func _update_detect_shape() -> void:
+	if detect_shape == null or detect_shape.shape == null:
+		return
+	var shape := detect_shape.shape
+	if shape is CircleShape2D:
+		shape.radius = detect_radius
+
 func check_blast_radius(targets: Array[CharacterBody2D]) -> void:
 	var space_state = get_world_2d().direct_space_state
-	
 	var seen: Array[CharacterBody2D] = []
+	var visible_player: PlayerActor
 	
 	for target in targets:
 		if not is_instance_valid(target):
@@ -42,9 +53,18 @@ func check_blast_radius(targets: Array[CharacterBody2D]) -> void:
 		var result = space_state.intersect_ray(query)
 		
 		if result and result.collider == target:
+			if target is PlayerActor and visible_player == null:
+				visible_player = target
 			seen.append(target)
 
+	if current_visible_player != null and not is_instance_valid(current_visible_player):
+		current_visible_player = null
+	if visible_player != current_visible_player:
+		current_visible_player = visible_player
+		player_detected.emit(visible_player)
+
 	detected.emit(seen)
+
 func _on_body_entered(body: Node2D) -> void:
 	var character_body := body as CharacterBody2D
 	if character_body != null and not detected_nodes.has(character_body):

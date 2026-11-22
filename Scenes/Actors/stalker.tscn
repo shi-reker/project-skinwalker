@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://bcihkuoicmlyu" path="res://Scripts/StateMachines/StalkerStates/searching_state.gd" id="6_2h22a"]
 [ext_resource type="Script" uid="uid://d22s8i5t86f8n" path="res://Scripts/StateMachines/StalkerStates/pursuit_state.gd" id="7_i0hgd"]
 [ext_resource type="Script" uid="uid://dq3w1gx652edb" path="res://Scripts/StateMachines/StalkerStates/surveil_state.gd" id="9_hpxs0"]
+[ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="10_bj6gk"]
 [ext_resource type="AudioStream" uid="uid://cmsd56j2caaw0" path="res://Assets/Audio/pipe.wav" id="10_ibjgy"]
 [ext_resource type="Script" uid="uid://bchtwcgyiq3hj" path="res://Scripts/StateMachines/StalkerStates/capture_state.gd" id="10_x4g44"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8knx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibjgy"]
+radius = 8.0
 
 [node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("movement_component", "sprite", "detection_component")]
 script = ExtResource("1_stalker")
@@ -20,9 +22,13 @@ stalker_definition = ExtResource("2_vjcrc")
 sprite = NodePath("CollisionShape2D/Sprite2D")
 detection_component = NodePath("Components/DetectionComponent")
 
-[node name="Components" type="Node" parent="." unique_id=2030690801]
+[node name="Components" type="Node2D" parent="." unique_id=35921588]
+
+[node name="MovementComponent" parent="Components" unique_id=1603163079 node_paths=PackedStringArray("actor") instance=ExtResource("3_x4g44")]
+actor = NodePath("../..")
 
 [node name="DetectionComponent" parent="Components" unique_id=1899678912 instance=ExtResource("3_ibjgy")]
+detect_radius = 50
 
 [node name="MovementComponent" parent="Components" unique_id=1603163079 node_paths=PackedStringArray("actor") instance=ExtResource("3_x4g44")]
 actor = NodePath("../..")
@@ -33,8 +39,8 @@ searchingState = NodePath("SearchState")
 pursuitState = NodePath("PursuitState")
 surveilState = NodePath("SurveilState")
 captureState = NodePath("CaptureState")
-initial_state = NodePath("SurveilState")
-current_state = NodePath("SurveilState")
+initial_state = NodePath("SearchState")
+current_state = NodePath("SearchState")
 available_states = [NodePath("SearchState"), NodePath("PursuitState"), NodePath("SurveilState"), NodePath("CaptureState")]
 actor = NodePath("..")
 
@@ -59,9 +65,11 @@ state_name = &"CaptureState"
 state_code = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447720503]
-shape = SubResource("CapsuleShape2D_y8knx")
+shape = SubResource("CircleShape2D_ibjgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1579276551]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_bj6gk")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1673401701]
 stream = ExtResource("10_ibjgy")

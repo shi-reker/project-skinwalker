@@ -5,18 +5,20 @@ class_name ActorState
 
 var actor: CharacterBody2D
 var manager:StateMachine
+var statesTable: Dictionary[int, ActorState]
 
 @export var state_code: int
 signal switch_state(nextState:ActorState)
 
-func setup(actor_node: CharacterBody2D):
+func setup(actor_node: CharacterBody2D, inputStatesTable: Dictionary[int, ActorState]):
 	actor = actor_node
+	statesTable = inputStatesTable
 
 func enter(previous_state: StringName) -> void:
-	push_error("define state enter!")
+	pass
 
 func exit(next_state: StringName) -> void:
-	push_error("define state exit!")
+	pass
 
 func update_state(delta: float) -> void:
-	push_error("define state process!")
+	pass
