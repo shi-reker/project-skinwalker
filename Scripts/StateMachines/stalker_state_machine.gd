@@ -14,9 +14,9 @@ enum State {
 @export var captureState:CaptureState
 
 var stalker: StalkerActor
-var current_state_id: State = State.SURVEILING
 
 func setup(actor_node: CharacterBody2D) -> void:
+	current_state_id = State.SURVEILING
 	if initial_state == null:
 		initial_state = surveilState
 	current_state = initial_state

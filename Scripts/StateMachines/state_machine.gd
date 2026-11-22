@@ -5,6 +5,7 @@ class_name StateMachine
 @export var current_state: ActorState
 @export var available_states: Array[ActorState] = []
 @export var actor: CharacterBody2D
+var current_state_id: int
 
 var stateTable:Dictionary[int, ActorState]
 
@@ -29,7 +30,7 @@ func change_state(next_state: ActorState):
 	current_state.exit(next_state.state_name)
 	current_state = next_state
 	current_state.enter(current_state.state_name)
-	on_state_change.emit(current_state.state_code)
+	current_state_id = current_state.state_code
 
 func update_current_state(delta: float) -> void:
 	current_state.update_state(delta)

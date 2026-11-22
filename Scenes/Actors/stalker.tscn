@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bxsfjho2h3vhj"]
 
 [ext_resource type="Script" uid="uid://dpd327mb0owd0" path="res://Scripts/Actors/stalker.gd" id="1_stalker"]
-[ext_resource type="Resource" uid="uid://dx8babm5185dg" path="res://Resources/Stalker/stalker_def_res.tres" id="2_vjcrc"]
 [ext_resource type="PackedScene" uid="uid://crshuc8x0viue" path="res://Scenes/Components/detection_component.tscn" id="3_ibjgy"]
 [ext_resource type="PackedScene" uid="uid://cpywotousrmdy" path="res://Scenes/Components/movement_component.tscn" id="3_x4g44"]
 [ext_resource type="Script" uid="uid://drowikn1xgjix" path="res://Scripts/StateMachines/stalker_state_machine.gd" id="4_state_machine"]
@@ -18,7 +17,6 @@ radius = 8.0
 [node name="Stalker" type="CharacterBody2D" unique_id=1888125872 node_paths=PackedStringArray("movement_component", "sprite", "detection_component")]
 script = ExtResource("1_stalker")
 movement_component = NodePath("Components/MovementComponent")
-stalker_definition = ExtResource("2_vjcrc")
 sprite = NodePath("CollisionShape2D/Sprite2D")
 detection_component = NodePath("Components/DetectionComponent")
 
