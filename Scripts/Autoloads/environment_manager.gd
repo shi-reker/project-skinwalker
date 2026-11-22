@@ -25,4 +25,3 @@ func add_street(street: Street):
 	if street in street_nodes:
 		return
 	street_nodes.append(street)
-

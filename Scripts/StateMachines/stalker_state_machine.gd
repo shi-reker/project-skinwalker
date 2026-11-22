@@ -27,20 +27,21 @@ func _ready() -> void:
 		State.SURVEILING: surveilState,
 		State.CAPTURING: captureState,
 	}
+	setup(actor)
 	on_state_change.connect(_change_state_id)
 
 func update_current_state(delta: float) -> void:
 	print_debug(current_state.state_name)
 	current_state.update_state(delta)
-	
-	#if target == null or not is_instance_valid(target):
-		#return
-	#distToTarget = global_position.distance_to(target.global_position)
-	#if distToTarget < 60 and state_machine.current_state != state_machine.captureState:
-		#state_machine.change_state(state_machine.captureState)
 
 func _change_state_id(id: State) -> void:
 	current_state_id = id
+
+func handle_dist_to_player(dist:float):
+	if dist < 160:
+		change_state(surveilState)
+	elif dist < 64:
+		change_state(captureState)
 
 func _on_detected(seen: Array[CharacterBody2D]) -> void:
 	for body in seen:
