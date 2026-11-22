@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
-[ext_resource type="Texture2D" uid="uid://dl8ja33n4q5tn" path="res://Assets/Main Menu Assets/room background-6x.png" id="1_28flt"]
-[ext_resource type="Texture2D" uid="uid://do70uayji7sv1" path="res://Assets/Main Menu Assets/TV-Normal.png" id="2_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://c1ves5oy4qpti" path="res://Assets/Main Menu Assets/TV--Pressed.png" id="3_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://dkriaayyxqv6p" path="res://Assets/Main Menu Assets/Desk-Normal.png" id="4_n45e2"]
-[ext_resource type="Texture2D" uid="uid://cchlhd1v4t3td" path="res://Assets/Main Menu Assets/Desk-Pressed.png" id="5_opfnp"]
-[ext_resource type="Texture2D" uid="uid://vhj2gt4bbuyp" path="res://Assets/Main Menu Assets/Door-Normal.png" id="6_cp0ys"]
-[ext_resource type="Texture2D" uid="uid://b8mjcgghqyjbb" path="res://Assets/Main Menu Assets/Door-Pressed.png" id="7_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
+[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://ciy8f8q55g32e" path="res://Assets/Main Menu Assets/Desk normal.png" id="5_trj04"]
+[ext_resource type="Texture2D" uid="uid://bn7bj7ha50kqu" path="res://Assets/Main Menu Assets/Desk hover.png" id="6_16hvj"]
+[ext_resource type="Texture2D" uid="uid://q0c4j0ldi8dv" path="res://Assets/Main Menu Assets/Desk pressed.png" id="7_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://v2i76wfprcs8" path="res://Assets/Main Menu Assets/Door normal.png" id="8_16hvj"]
+[ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
 
 [node name="MainMenu" type="Control" unique_id=1234617915]
 layout_mode = 3
@@ -15,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vr1f0")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=388609081]
 layout_mode = 1
@@ -36,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_28flt")
+texture = ExtResource("1_cp0ys")
 expand_mode = 1
 
 [node name="Buttons" type="Control" parent="SubViewportContainer/SubViewport" unique_id=2118064406]
@@ -52,23 +57,23 @@ offset_bottom = 85.36
 
 [node name="Play" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=1805792928]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 495.0
-offset_right = 1046.0
-offset_bottom = 975.0
-texture_normal = ExtResource("2_1ehe0")
-texture_pressed = ExtResource("3_ce3w2")
-texture_hover = ExtResource("3_ce3w2")
+offset_left = 652.0
+offset_top = 485.0
+offset_right = 1018.0
+offset_bottom = 983.0
+texture_normal = ExtResource("2_cp0ys")
+texture_pressed = ExtResource("3_yhxw7")
+texture_hover = ExtResource("4_yhxw7")
 
 [node name="Options" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=464626274]
 layout_mode = 0
-offset_left = 1131.0
-offset_top = 546.0
-offset_right = 1612.0
-offset_bottom = 996.0
-texture_normal = ExtResource("4_n45e2")
-texture_pressed = ExtResource("5_opfnp")
-texture_hover = ExtResource("5_opfnp")
+offset_left = 1090.0
+offset_top = 457.0
+offset_right = 1600.0
+offset_bottom = 991.0
+texture_normal = ExtResource("5_trj04")
+texture_pressed = ExtResource("7_vr1f0")
+texture_hover = ExtResource("6_16hvj")
 
 [node name="Exit" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=1894267514]
 layout_mode = 0
@@ -76,9 +81,9 @@ offset_left = 1687.0
 offset_top = 300.0
 offset_right = 1890.0
 offset_bottom = 1064.0
-texture_normal = ExtResource("6_cp0ys")
-texture_pressed = ExtResource("7_yhxw7")
-texture_hover = ExtResource("7_yhxw7")
+texture_normal = ExtResource("8_16hvj")
+texture_pressed = ExtResource("9_vr1f0")
+texture_hover = ExtResource("10_t1dhk")
 
 [node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1736801088]
 offset_left = -128.0
@@ -105,3 +110,7 @@ offset_left = 137.0
 offset_top = 1.0
 offset_right = 177.0
 offset_bottom = 41.0
+
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8mjcgghqyjbb"
-path="res://.godot/imported/Door-Pressed.png-07e9a4546424ba8ee39096394b9e1448.ctex"
+uid="uid://c22ol5vn8q280"
+path="res://.godot/imported/TV hover pressed.png-6396570f72ae4bbeefeb2b00f71762f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Main Menu Assets/Door-Pressed.png"
-dest_files=["res://.godot/imported/Door-Pressed.png-07e9a4546424ba8ee39096394b9e1448.ctex"]
+source_file="res://Assets/Main Menu Assets/TV hover pressed.png"
+dest_files=["res://.godot/imported/TV hover pressed.png-6396570f72ae4bbeefeb2b00f71762f9.ctex"]
 
 [params]
 

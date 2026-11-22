@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkriaayyxqv6p"
-path="res://.godot/imported/Desk-Normal.png-288e2a9af8a43c1e780ddef5b4409f10.ctex"
+uid="uid://bn7bj7ha50kqu"
+path="res://.godot/imported/Desk hover.png-82794dc1de7f6100f3fd3155803df79d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Main Menu Assets/Desk-Normal.png"
-dest_files=["res://.godot/imported/Desk-Normal.png-288e2a9af8a43c1e780ddef5b4409f10.ctex"]
+source_file="res://Assets/Main Menu Assets/Desk hover.png"
+dest_files=["res://.godot/imported/Desk hover.png-82794dc1de7f6100f3fd3155803df79d.ctex"]
 
 [params]
 
