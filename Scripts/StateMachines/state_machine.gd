@@ -32,4 +32,4 @@ func change_state(next_state: ActorState):
 	on_state_change.emit(current_state.state_code)
 
 func update_current_state(delta: float) -> void:
-	pass
+	current_state.update_state(delta)

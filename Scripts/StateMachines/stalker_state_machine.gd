@@ -36,10 +36,33 @@ func setup(actor_node: CharacterBody2D) -> void:
 		"[StalkerStateMachine] setup actor=", actor_node.name,
 		" initial_state=", current_state.state_name
 	)
+	# setup(actor)
+	# on_state_change.connect(_change_state_id)
 
-func update_current_state(delta: float) -> void:
-	current_state.update_state(delta)
+#func _change_state_id(id: State) -> void:
+#func change_state(next_state: ActorState):
+	#super.change_state(next_state)
+	#current_state_id = id
 
+func handle_dist_to_player(dist:float):
+	if dist < 160:
+		change_state(surveilState)
+	elif dist < 64:
+		change_state(captureState)
+
+# func _on_detected(seen: Array[CharacterBody2D]) -> void:
+# 	for body in seen:
+# 		var player := body as PlayerActor
+# 		if player == null:
+# 			continue
+# 		#print_debug("SEE YOU")
+# 		pursuitState.target = player
+# 		var stalker := actor as StalkerActor
+# 		if stalker != null:
+# 			stalker.target = player
+# 		if current_state != pursuitState and current_state != captureState:
+# 			change_state(pursuitState)
+# 			print_debug("PURSUING")
 func change_state(next_state: ActorState) -> void:
 	if next_state == current_state:
 		return

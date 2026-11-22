@@ -10,6 +10,9 @@ var target_velocity: Vector2 = Vector2.ZERO
 var has_target_position: bool = false
 var _debug_elapsed: float = 1.0
 var _using_direct_fallback: bool = false
+var rangeBorders:float = 0
+
+signal at_range(i:float)
 
 func _ready() -> void:
 	if actor == null:
@@ -31,6 +34,7 @@ func move_to(destination: Vector2, delta: float) -> void:
 	target_position = destination
 	has_target_position = true
 	navigator.target_position = destination
+	var distToTarget = actor.global_position.distance_to(destination)
 	var next_path_position := navigator.get_next_path_position()
 	var target_distance := actor.global_position.distance_to(destination)
 	var navigation_finished := navigator.is_navigation_finished()
@@ -50,7 +54,9 @@ func move_to(destination: Vector2, delta: float) -> void:
 
 	if is_target_reached():
 		_using_direct_fallback = false
+	# if navigator.is_navigation_finished() or distToTarget < rangeBorders:
 		stop_movement()
+		at_range.emit(distToTarget)
 		return
 
 	if navigation_finished:

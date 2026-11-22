@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 		Input.get_vector("move_left", "move_right", "move_up", "move_down"),
 		delta
 	)
+	var label: Label = $Label
+	label.text = str(global_position)
 
 func set_interaction_available(available: bool, position: Vector2 = global_position) -> void:
 	can_interact = available

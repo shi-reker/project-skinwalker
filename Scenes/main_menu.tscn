@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
 [ext_resource type="Texture2D" uid="uid://dl8ja33n4q5tn" path="res://Assets/Main Menu Assets/room background-6x.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://gruknfu46jsp" path="res://Scripts/Menus/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://do70uayji7sv1" path="res://Assets/Main Menu Assets/TV-Normal.png" id="2_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://c1ves5oy4qpti" path="res://Assets/Main Menu Assets/TV--Pressed.png" id="3_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://dkriaayyxqv6p" path="res://Assets/Main Menu Assets/Desk-Normal.png" id="4_n45e2"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yhxw7")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=388609081]
 layout_mode = 1
@@ -105,3 +107,7 @@ offset_left = 137.0
 offset_top = 1.0
 offset_right = 177.0
 offset_bottom = 41.0
+
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="SubViewportContainer/SubViewport/Buttons/Play" method="_on_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]

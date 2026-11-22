@@ -8,6 +8,8 @@ var npc_resource: Dictionary[NpcId, NPCDefinition] = {
 
 var npc_statuses: Dictionary[NpcId, int] = {}
 
+func setup(world: World):
+	pass
 func add_npc(npc: NpcId):
 	npc_statuses[npc] = 0
 	
