@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventBase" format=3 uid="uid://deglcnhg1ftqv"]
+
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="1_0qr6w"]
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="1_sfsda"]
+
+[resource]
+script = ExtResource("1_sfsda")
+eventName = "Read self-defense book"
+dialogue = ExtResource("1_0qr6w")
+metadata/_custom_type_script = "uid://bdq00javdngjw"

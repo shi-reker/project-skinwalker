@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventBase" format=3 uid="uid://g1nil5oplqav"]
+
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="1_28efv"]
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="1_a4iiq"]
+
+[resource]
+script = ExtResource("1_a4iiq")
+eventName = "Love confession"
+dialogue = ExtResource("1_28efv")
+metadata/_custom_type_script = "uid://bdq00javdngjw"

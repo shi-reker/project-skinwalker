@@ -9,8 +9,7 @@ enum State {
 }
 
 #@export var initial_state: State = State.IDLE
-var current_state_id: State = State.IDLE
+#var current_state_id: State = State.IDLE
 
 func _ready() -> void:
-	pass
-	#initial_state = State.IDLE
+	current_state_id = State.IDLE

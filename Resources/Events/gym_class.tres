@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventBase" format=3 uid="uid://b2qus3atr424k"]
+
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="1_547tt"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="1_ntxqu"]
+
+[resource]
+script = ExtResource("1_547tt")
+eventName = "Gym class"
+dialogue = ExtResource("1_ntxqu")
+metadata/_custom_type_script = "uid://bdq00javdngjw"
