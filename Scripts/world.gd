@@ -10,9 +10,9 @@ func _ready() -> void:
 		EnvironmentManager.set_home(home)
 	if stalker != null:
 		stalker.add_hint()
-	NpcManager.setup(self)
+	#NpcManager.setup(self)
 	Events.home_entered.connect(_on_player_entered_home)
-	Events.player_captured.connect(_on_player_captured)
+	#Events.player_captured.connect(_on_player_captured)
 
 func _on_player_entered_home():
 	print("gone home!")

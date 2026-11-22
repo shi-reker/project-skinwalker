@@ -30,9 +30,6 @@ actor = NodePath("../..")
 [node name="DetectionComponent" parent="Components" unique_id=1899678912 instance=ExtResource("3_ibjgy")]
 detect_radius = 50
 
-[node name="MovementComponent" parent="Components" unique_id=1603163079 node_paths=PackedStringArray("actor") instance=ExtResource("3_x4g44")]
-actor = NodePath("../..")
-
 [node name="StateMachine" type="Node" parent="." unique_id=1892398123 node_paths=PackedStringArray("searchingState", "pursuitState", "surveilState", "captureState", "initial_state", "current_state", "available_states", "actor")]
 script = ExtResource("4_state_machine")
 searchingState = NodePath("SearchState")

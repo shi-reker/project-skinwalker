@@ -16,6 +16,9 @@ enum State {
 var stalker: StalkerActor
 var current_state_id: State = State.SURVEILING
 
+func _ready() -> void:
+	setup(actor)
+
 func setup(actor_node: CharacterBody2D) -> void:
 	if initial_state == null:
 		initial_state = surveilState
