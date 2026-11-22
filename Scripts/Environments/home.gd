@@ -1,10 +1,13 @@
-extends StaticBody2D
-class_name Home
+extends Node2D
+class_name HomeComponent
 
-@export var interactable: InteractableComponent
-signal home_entered
+func setup(interactable: InteractableComponent):
+	interactable.interact_name = "GO HOME"
+	interactable.interact = enter_home
+	interactable.is_interactable = is_home_unlocked()
 
-func _ready() -> void:
-	if interactable:
-		interactable.interact = func():
-			home_entered.emit()
+func enter_home() -> void:
+	Events.home_entered.emit()
+
+func is_home_unlocked() -> bool:
+	return true

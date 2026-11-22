@@ -5,14 +5,10 @@
 [ext_resource type="Script" uid="uid://pm6p8ifuqg4d" path="res://Scripts/StateMachines/player_state_machine.gd" id="3_state_machine"]
 [ext_resource type="Script" uid="uid://ijcu5f51cw6y" path="res://Scripts/StateMachines/PlayerStates/idle_state.gd" id="4_mqoqv"]
 [ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="5_movement_definition"]
+[ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="6_sfcrp"]
 
-[sub_resource type="Gradient" id="Gradient_87pht"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
-gradient = SubResource("Gradient_87pht")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(60, 60)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibjgy"]
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 60.0
@@ -22,7 +18,7 @@ script = ExtResource("1_player")
 
 [node name="Components" type="Node" parent="." unique_id=1573085184]
 
-[node name="MovementComponent" type="Node2D" parent="Components" unique_id=1262144486]
+[node name="MovementComponent" type="Node2D" parent="Components" unique_id=1262144486 node_paths=PackedStringArray("actor")]
 script = ExtResource("2_movement")
 movement_definition = ExtResource("5_movement_definition")
 actor = NodePath("../..")
@@ -36,10 +32,10 @@ script = ExtResource("4_mqoqv")
 [node name="MoveState" type="Node" parent="StateMachine" unique_id=881009881]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1807965918]
-texture = SubResource("GradientTexture2D_yf5fn")
+texture = ExtResource("6_sfcrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
-shape = SubResource("RectangleShape2D_g4v7s")
+shape = SubResource("CircleShape2D_ibjgy")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
 layout_mode = 3
@@ -54,10 +50,22 @@ offset_bottom = -8.0
 text = "E: Interact"
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=370194297]
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=1473775574]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Label" type="Label" parent="." unique_id=1869333331]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="DetectArea" to="." method="_on_detect_area_area_entered"]
 [connection signal="area_exited" from="DetectArea" to="." method="_on_detect_area_area_exited"]

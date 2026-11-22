@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name House
 
 var number: int
@@ -6,19 +6,17 @@ var number: int
 @export var street: Street
 
 @export var interactable: InteractableComponent
+@export var is_home: bool = false
 
-@export var is_home: bool = false:
-	set(value):
-		is_home = value
-		if value == false:
-			return
+func _ready() -> void:
+	EnvironmentManager.add_house(self)
+	if is_home:
 		setup_home()
 
-func get_home() -> HomeComponent:
-	var home_component_
-	return null
-
-func setup_home():
+func setup_home() -> void:
+	if interactable == null:
+		push_error("Home house is missing its InteractableComponent.")
+		return
 	interactable.interact_name = "GO HOME"
 	interactable.interact = enter_home
 	interactable.is_interactable = is_home_unlocked()

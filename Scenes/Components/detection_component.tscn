@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://b7kaj4jeg1bby" path="res://Scripts/Components/detection_component.gd" id="1_kd1gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y8knx"]
-radius = 210.0
+radius = 50.0
 
 [node name="DetectionComponent" type="Area2D" unique_id=1899678912 node_paths=PackedStringArray("detect_shape")]
 collision_layer = 0
 script = ExtResource("1_kd1gd")
 detect_shape = NodePath("DetectionShape")
+detect_radius = 100
 
 [node name="DetectionShape" type="CollisionShape2D" parent="." unique_id=782657549]
 shape = SubResource("CircleShape2D_y8knx")
