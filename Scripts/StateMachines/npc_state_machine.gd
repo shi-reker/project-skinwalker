@@ -1,3 +1,4 @@
+
 extends StateMachine
 class_name NPCStateMachine
 
@@ -8,5 +9,4 @@ enum State {
 	INVESTIGATING,
 }
 
-@export var initial_state: State = State.IDLE
 var current_state_id: State = State.IDLE
