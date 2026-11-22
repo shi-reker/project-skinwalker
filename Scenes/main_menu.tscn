@@ -11,6 +11,31 @@
 [ext_resource type="Texture2D" uid="uid://v2i76wfprcs8" path="res://Assets/Main Menu Assets/Door normal.png" id="8_16hvj"]
 [ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
+[ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="12_t1dhk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
+shader = ExtResource("12_t1dhk")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2000000095
+shader_parameter/scanlines_width = 0.2000000095
+shader_parameter/grille_opacity = 0.30000001425
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 9.70000046075
+shader_parameter/roll_variation = 3.40000015824012
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [node name="MainMenu" type="Control" unique_id=1234617915]
 layout_mode = 3
@@ -97,12 +122,6 @@ offset_top = 93.0
 offset_right = -88.0
 offset_bottom = 133.0
 
-[node name="vhs overlay (soon)" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=585436613]
-offset_left = 87.0
-offset_top = 208.0
-offset_right = 127.0
-offset_bottom = 248.0
-
 [node name="MainMenuContent" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1253420565]
 layout_mode = 3
 anchors_preset = 0
@@ -110,6 +129,25 @@ offset_left = 137.0
 offset_top = 1.0
 offset_right = 177.0
 offset_bottom = 41.0
+
+[node name="CanvasLayer" type="Control" parent="." unique_id=84579701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1067466745]
+material = SubResource("ShaderMaterial_t1dhk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]
