@@ -8,5 +8,5 @@ enum State {
 	INVESTIGATING,
 }
 
-@export var initial_state: State = State.IDLE
+#@export var initial_state: State = State.IDLE
 var current_state_id: State = State.IDLE

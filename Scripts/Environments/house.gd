@@ -14,9 +14,9 @@ var number: int
 			return
 		setup_home()
 
-func get_home() -> HomeComponent:
-	var home_component_
-	return null
+#func get_home() -> HomeComponent:
+	#var home_component_
+	#return null
 
 func setup_home():
 	interactable.interact_name = "GO HOME"
