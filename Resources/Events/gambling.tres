@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventBase" format=3 uid="uid://coofhpj5p5dbw"]
+
+[ext_resource type="Script" uid="uid://bdq00javdngjw" path="res://Resources/Events/event_base.gd" id="1_gquxa"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="1_q1x88"]
+
+[resource]
+script = ExtResource("1_gquxa")
+eventName = "Let's Go Gambling"
+dialogue = ExtResource("1_q1x88")
+metadata/_custom_type_script = "uid://bdq00javdngjw"

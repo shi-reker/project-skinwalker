@@ -61,7 +61,17 @@ connected_street = [NodePath("../street2")]
 [node name="street2" parent="Environment/Streets" unique_id=453881573 node_paths=PackedStringArray("connected_street") instance=ExtResource("5_5v1tr")]
 position = Vector2(265, -168)
 street_name = "Apple"
-connected_street = [NodePath("../street1")]
+connected_street = [NodePath("../street1"), NodePath("../street3")]
+
+[node name="street3" parent="Environment/Streets" unique_id=1302331036 node_paths=PackedStringArray("connected_street") instance=ExtResource("5_5v1tr")]
+position = Vector2(937, -362)
+street_name = "Crab"
+connected_street = [NodePath("../street2")]
+
+[node name="street4" parent="Environment/Streets" unique_id=2058141056 node_paths=PackedStringArray("connected_street") instance=ExtResource("5_5v1tr")]
+position = Vector2(1816, 0)
+street_name = "Rain"
+connected_street = [NodePath("../street3")]
 
 [node name="Actors" type="Node2D" parent="." unique_id=1882525461]
 
