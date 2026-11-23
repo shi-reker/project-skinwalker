@@ -322,6 +322,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6ujcp"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ta3fb"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -1026,6 +1032,7 @@ texture = ExtResource("1_pa1ib")
 14:33/0 = 0
 14:33/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1b5dx")
 16:33/0 = 0
+16:33/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6ujcp")
 23:33/0 = 0
 25:33/0 = 0
 27:33/0 = 0
