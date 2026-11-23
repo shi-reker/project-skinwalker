@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c3fejfjggmav0"]
+
+[ext_resource type="Script" uid="uid://c6nsbdgswn6uk" path="res://Scenes/Components/Pause Component/options.gd" id="1_e88yk"]
+[ext_resource type="Texture2D" uid="uid://1f3j8822vo5a" path="res://Assets/Main Menu Assets/options book.png" id="2_fjmic"]
+[ext_resource type="Texture2D" uid="uid://ujy7mrilskad" path="res://Assets/Main Menu Assets/back button.png" id="3_pklk5"]
+
+[node name="Options" type="Control" unique_id=377710763]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e88yk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=842454906]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fjmic")
+
+[node name="Button" type="Control" parent="." unique_id=190579976]
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BackButton" type="TextureButton" parent="Button" unique_id=1941787505]
+layout_mode = 0
+offset_left = 1373.0
+offset_top = 820.0
+offset_right = 1589.0
+offset_bottom = 952.0
+texture_normal = ExtResource("3_pklk5")
+
+[connection signal="pressed" from="Button/BackButton" to="." method="_on_back_button_pressed"]
