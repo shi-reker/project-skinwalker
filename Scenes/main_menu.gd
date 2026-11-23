@@ -26,23 +26,6 @@ func _ready() -> void:
 	fire_ambiance.play()
 	vhs_ambiance.play()
 	
-	# Connect furniture click events
-	#tv.pressed.connect(_on_play_pressed)
-	#bookshelf.pressed.connect(_on_options_pressed)
-	#door.pressed.connect(_on_exit_pressed)
-	
-	## Prepare hover animations
-	for button in [tv, bookshelf, door]:
-		button.pivot_offset = button.size / 2
-		button.mouse_entered.connect(_on_hover.bind(button, true))
-		button.mouse_exited.connect(_on_hover.bind(button, false))
-#
-func _on_hover(button: Control, hovering: bool):
-	var tween = create_tween()
-	var target_scale = Vector2(1.04, 1.04) if hovering else Vector2.ONE
-
-	tween.tween_property(button, "scale", target_scale, 0.15)
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
