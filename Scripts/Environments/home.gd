@@ -11,3 +11,9 @@ func enter_home() -> void:
 
 func is_home_unlocked() -> bool:
 	return true
+
+func _ready() -> void:
+	add_to_group("home")
+	if interactable:
+		interactable.interact = func():
+			home_entered.emit()

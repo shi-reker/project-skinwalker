@@ -1,4 +1,11 @@
-# Godot 4+ specific ignores
+# Godot cache
 .godot/
 /android/
 /Export
+
+# Godot autosave
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store

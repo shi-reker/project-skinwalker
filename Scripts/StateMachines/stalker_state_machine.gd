@@ -8,10 +8,10 @@ enum State {
 	CAPTURING,
 }
 
-@export var searchingState:SearchingState
-@export var pursuitState:PursuitState
-@export var surveilState:SurveilState
-@export var captureState:CaptureState
+@export var searchingState: SearchingState
+@export var pursuitState: PursuitState
+@export var surveilState: SurveilState
+@export var captureState: CaptureState
 
 var stalker: StalkerActor
 
