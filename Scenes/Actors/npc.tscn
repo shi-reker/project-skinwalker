@@ -19,9 +19,9 @@ radius = 55.0
 script = ExtResource("1_npc")
 npc_definition = ExtResource("2_16au0")
 
-[node name="Components" type="Node" parent="." unique_id=1769791857]
+[node name="Components" type="Node2D" parent="." unique_id=2088076043]
 
-[node name="MovementComponent" type="Node" parent="Components" unique_id=1923050649]
+[node name="MovementComponent" type="Node2D" parent="Components" unique_id=1923050649]
 script = ExtResource("2_movement")
 actor = NodePath("../..")
 

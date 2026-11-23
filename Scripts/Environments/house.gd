@@ -11,6 +11,7 @@ var number: int
 func _ready() -> void:
 	EnvironmentManager.add_house(self)
 	if is_home:
+		add_to_group("home")
 		setup_home()
 
 func setup_home() -> void:
