@@ -15,6 +15,7 @@ extends Control
 @onready var lights_off_sfx: AudioStreamPlayer = $LightsOffSfx
 @onready var door_creak: AudioStreamPlayer = $DoorCreakSfx
 
+var settings_scene = preload("res://Scenes/Components/Pause Component/options.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,7 +59,11 @@ func _on_play_pressed() -> void:
 	
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	var settings = settings_scene.instantiate()
+	add_child(settings)
+	var shader_index = get_node("ShaderCanvas").get_index()
+	move_child(settings, shader_index)
+	settings.closed.connect(_on_settings_closed)
 	
 func _on_exit_pressed() -> void:
 	pass # Replace with function body.
@@ -78,3 +83,5 @@ func _on_options_mouse_exited() -> void:
 	
 func _on_exit_mouse_entered() -> void:
 	door_creak.play()
+func _on_settings_closed() -> void:
+	print("Settings closed")
