@@ -18,10 +18,6 @@ func _ready() -> void:
 	SoundManager.play_music(SoundManager.menuBGM)
 	fire_ambiance.play()
 	vhs_ambiance.play()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_music_finished() -> void:
 	music_delay.start()
