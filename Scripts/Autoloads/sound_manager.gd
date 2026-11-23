@@ -4,10 +4,11 @@ var BGMPlayer: AudioStreamPlayer
 var UISoundPlayer: AudioStreamPlayer2D
 var gameplaySoundPlayer: AudioStreamPlayer2D
 
-var play_button := "res://Assets/Audio/pipe.wav"
-var option_button
-var quit_button
-var generic_button
+var button_hover := "res://Assets/Audio/packs/pack 1/WAV/Retro1.wav"
+var play_button := "res://Assets/Audio/packs/pack 1/WAV/Modern15.wav"
+var option_button := "res://Assets/Audio/packs/pack 1/WAV/Coffee2.wav"
+var quit_button := "res://Assets/Audio/packs/pack 1/WAV/African3.wav"
+var generic_button := "res://Assets/Audio/packs/pack 1/WAV/Minimalist11.wav"
 
 func _ready():
 	BGMPlayer = AudioStreamPlayer.new()

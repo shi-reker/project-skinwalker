@@ -43,3 +43,4 @@ func _on_options_pressed() -> void:
 func _on_exit_pressed() -> void:
 	SoundManager.quit_button_sfx()
 	await SoundManager.UISoundPlayer.finished
+	get_tree().quit()
