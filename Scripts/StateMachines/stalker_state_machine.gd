@@ -8,10 +8,11 @@ enum State {
 	CAPTURING,
 }
 
-@export var searchingState: SearchingState
-@export var pursuitState: PursuitState
-@export var surveilState: SurveilState
-@export var captureState: CaptureState
+@export var searchingState:SearchingState
+@export var pursuitState:PursuitState
+@export var surveilState:SurveilState
+@export var captureState:CaptureState
+@export var debug_label: Label
 
 var stalker: StalkerActor
 
@@ -38,6 +39,14 @@ func setup(actor_node: CharacterBody2D) -> void:
 	)
 	# setup(actor)
 	# on_state_change.connect(_change_state_id)
+
+func setup_state(state: ActorState):
+	super.setup_state(state)
+	state.stalker_manager = self
+
+func update_current_state(delta: float) -> void:
+	super.update_current_state(delta)
+	#debug_label.text = str(current_state.name)
 
 #func _change_state_id(id: State) -> void:
 #func change_state(next_state: ActorState):

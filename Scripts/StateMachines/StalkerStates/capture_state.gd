@@ -6,15 +6,16 @@ class_name CaptureState
 var _timer: float = 0.0
 var stalker: StalkerActor
 
-func enter(_previous_state: StringName) -> void:
+func enter(previous_state: StringName) -> void:
 	print("[CaptureState] Player tertangkap!")
 	_timer = capture_duration
+	stalker_manager.debug_label.text = str(self.name)
 
-	var world := get_tree().current_scene
-	if world and world.has_method("on_player_captured"):
-		world.on_player_captured()
-
-
+	print_debug("HI THERE")
+	Events.player_captured.emit()
+	#var stalker := actor as StalkerActor
+	#if stalker != null:
+		#stalker.movement_component.stop_movement()
 func exit(_next_state: StringName) -> void:
 	_timer = 0.0
 

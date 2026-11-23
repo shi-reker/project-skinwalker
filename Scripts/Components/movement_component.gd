@@ -77,11 +77,13 @@ func move_to(destination: Vector2, delta: float) -> void:
 	else:
 		_apply_movement(desired_direction, delta)
 
-func is_target_reached() -> bool:
+func is_target_reached(min_distance: float = 0) -> bool:
 	if actor == null or navigator == null or not has_target_position:
 		return false
+	if min_distance == 0: min_distance = navigator.target_desired_distance
 	var distance_to_target := actor.global_position.distance_to(target_position)
-	return navigator.is_navigation_finished() and distance_to_target <= navigator.target_desired_distance
+	return navigator.is_navigation_finished() and distance_to_target <= min_distance
+	#return navigator.is_navigation_finished() and distance_to_target <= navigator.target_desired_distance
 
 func stop_movement() -> void:
 	if actor == null:

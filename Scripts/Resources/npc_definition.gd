@@ -19,3 +19,4 @@ class_name NPCDefinition
 @export_group("Ability")
 @export var ability: NPCAbility
 @export var ability_input_action: StringName = &"ability"
+@export var location: Vector2 = Vector2(0,0)

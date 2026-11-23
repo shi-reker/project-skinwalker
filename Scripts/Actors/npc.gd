@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody2D
 class_name NPCActor
 

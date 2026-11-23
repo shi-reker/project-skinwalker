@@ -2,9 +2,10 @@ extends Node
 class_name ActorState
 
 @export var state_name: StringName
-
 var actor: CharacterBody2D
-var manager:StateMachine
+var manager:StateMachine = null
+var player_manager:PlayerStateMachine = null # for player states
+var stalker_manager:StalkerStateMachine = null # for stalker states
 var statesTable: Dictionary[int, ActorState]
 
 @export var state_code: int
