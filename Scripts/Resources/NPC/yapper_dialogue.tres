@@ -6,4 +6,7 @@
 script = ExtResource("1_hnd8l")
 speaker_name = "Yapper"
 dialogue_lines = Array[String](["Eh! Kamu anak sekolah yang tadi, kan?", "Aku punya informasi penting tentang jalan pulang", "Tapi tunggu dulu, dengarkan ceritaku!", "Hati-hati, ada seseorang yang mengikutimu"])
+end_lines = Dictionary[int, Callable]({
+1: Callable()
+})
 metadata/_custom_type_script = "uid://bv33ummqne80f"

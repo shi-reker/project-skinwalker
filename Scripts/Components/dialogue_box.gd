@@ -13,3 +13,4 @@ var choices:Array [DialogueChoice]
 
 func _ready() -> void:
 	choices = [c1, c2, c3, c4]
+	DialogueManager.setup(self)

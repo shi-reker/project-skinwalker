@@ -77,7 +77,7 @@ func interact_with_player() -> void:
 		has_talked_once = true
 	else:
 		if can_recruit_now():
-			dialogue_component.start_dialogue(npc_definition.recruitment_dialogue)
+			dialogue_component.recieve_dialogue(npc_definition.recruitment_dialogue)
 		else:
 			dialogue_component.start_dialogue()
 

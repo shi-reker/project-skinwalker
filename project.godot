@@ -23,6 +23,7 @@ NpcManager="*uid://dna6jv521132l"
 ItemManager="*uid://cajggnmgbjp5s"
 EnvironmentManager="*uid://4bsid8sj2v6q"
 NPCManager="*res://Scripts/Managers/npc_manager.gd"
+DialogueManager="*uid://dhmh0nxiyifc8"
 
 [display]
 
