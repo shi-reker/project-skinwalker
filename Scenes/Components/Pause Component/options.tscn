@@ -2,7 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c6nsbdgswn6uk" path="res://Scenes/Components/Pause Component/options.gd" id="1_e88yk"]
 [ext_resource type="Texture2D" uid="uid://1f3j8822vo5a" path="res://Assets/Main Menu Assets/options book.png" id="2_fjmic"]
+[ext_resource type="FontFile" uid="uid://c58chvw3cpwej" path="res://Fonts/HandymandiFree.ttf" id="3_fjmic"]
 [ext_resource type="Texture2D" uid="uid://ujy7mrilskad" path="res://Assets/Main Menu Assets/back button.png" id="3_pklk5"]
+[ext_resource type="Theme" uid="uid://j1ygfva7cotb" path="res://Assets/UI/slider theme.tres" id="4_pklk5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wj5hs"]
+font = ExtResource("3_fjmic")
+font_size = 50
+font_color = Color(1.4439226e-07, 0, 0.19190347, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pklk5"]
+font = ExtResource("3_fjmic")
+font_size = 40
+font_color = Color(1.4439226e-07, 0, 0.19190347, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Options" type="Control" unique_id=377710763]
 layout_mode = 3
@@ -14,6 +30,99 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_fjmic")
+
+[node name="SettingsContent" type="Control" parent="." unique_id=1173132147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="AudioTitle" type="Label" parent="SettingsContent" unique_id=605763882]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 160.0
+offset_right = 712.0
+offset_bottom = 211.0
+text = "AUDIO"
+label_settings = SubResource("LabelSettings_wj5hs")
+
+[node name="DisplayTitle" type="Label" parent="SettingsContent" unique_id=1221031929]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 168.0
+offset_right = 1393.0
+offset_bottom = 219.0
+text = "DISPLAY"
+label_settings = SubResource("LabelSettings_wj5hs")
+
+[node name="MasterLabel" type="Label" parent="SettingsContent" unique_id=161381864]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 280.0
+offset_right = 601.0
+offset_bottom = 331.0
+text = "Master"
+label_settings = SubResource("LabelSettings_pklk5")
+
+[node name="MusicLabel" type="Label" parent="SettingsContent" unique_id=465521871]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 376.0
+offset_right = 601.0
+offset_bottom = 427.0
+text = "Music"
+label_settings = SubResource("LabelSettings_pklk5")
+
+[node name="SFXLabel" type="Label" parent="SettingsContent" unique_id=795870374]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 470.0
+offset_right = 645.0
+offset_bottom = 521.0
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_pklk5")
+
+[node name="MasterSlider" type="HSlider" parent="SettingsContent" unique_id=851563290]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 318.0
+offset_right = 920.0
+offset_bottom = 368.0
+theme = ExtResource("4_pklk5")
+value = 100.0
+rounded = true
+tick_count = 4
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="MusicSlider" type="HSlider" parent="SettingsContent" unique_id=603340167]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 414.0
+offset_right = 920.0
+offset_bottom = 464.0
+theme = ExtResource("4_pklk5")
+value = 100.0
+rounded = true
+tick_count = 4
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="SFXSlider" type="HSlider" parent="SettingsContent" unique_id=1806082348]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 511.0
+offset_right = 920.0
+offset_bottom = 561.0
+theme = ExtResource("4_pklk5")
+value = 100.0
+rounded = true
+tick_count = 4
+ticks_on_borders = true
+ticks_position = 3
 
 [node name="Button" type="Control" parent="." unique_id=190579976]
 anchors_preset = 0

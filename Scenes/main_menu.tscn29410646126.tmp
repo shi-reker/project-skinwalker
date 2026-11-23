@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://cujnjxthnql4w"]
+
+[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
+[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://ciy8f8q55g32e" path="res://Assets/Main Menu Assets/Desk normal.png" id="5_trj04"]
+[ext_resource type="Texture2D" uid="uid://bn7bj7ha50kqu" path="res://Assets/Main Menu Assets/Desk hover.png" id="6_16hvj"]
+[ext_resource type="Texture2D" uid="uid://q0c4j0ldi8dv" path="res://Assets/Main Menu Assets/Desk pressed.png" id="7_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://v2i76wfprcs8" path="res://Assets/Main Menu Assets/Door normal.png" id="8_16hvj"]
+[ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
+[ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="12_t1dhk"]
+[ext_resource type="AudioStream" uid="uid://cxv0hisbsiln8" path="res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg" id="13_vtepg"]
+[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_vtepg"]
+[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_8dnnj"]
+[ext_resource type="AudioStream" uid="uid://dvekb6eq3epga" path="res://Assets/Audio/Sound Effects/lights on.wav" id="16_m3bi6"]
+[ext_resource type="AudioStream" uid="uid://dsboa0lyfi8kp" path="res://Assets/Audio/Sound Effects/lights off.wav" id="17_wyh8j"]
+[ext_resource type="AudioStream" uid="uid://d016lige5r2yn" path="res://Assets/Audio/Sound Effects/TV on.wav" id="18_mkpwh"]
+[ext_resource type="AudioStream" uid="uid://bcptnm4s77dpg" path="res://Assets/Audio/Sound Effects/TV off.wav" id="19_4nkqq"]
+[ext_resource type="AudioStream" uid="uid://ctcxylw2ctitp" path="res://Assets/Audio/Sound Effects/tv static on.wav" id="20_4nkqq"]
+[ext_resource type="AudioStream" uid="uid://be8vsjojnqstu" path="res://Assets/Audio/Sound Effects/Door creak.wav" id="21_ehtkc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
+shader = ExtResource("12_t1dhk")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.08800000418
+shader_parameter/scanlines_width = 0.0590000028025
+shader_parameter/grille_opacity = 0.046000002185
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.10000000149012
+shader_parameter/distort_intensity = 0.00400000019
+shader_parameter/noise_opacity = 0.794000037715
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.18000000855
+shader_parameter/aberration = 0.00900004792750008
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.06800000323
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.2950000140125
+
+[node name="MainMenu" type="Control" unique_id=1234617915]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vr1f0")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=388609081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1384123767]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Background" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=395302101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cp0ys")
+expand_mode = 1
+
+[node name="Buttons" type="Control" parent="SubViewportContainer/SubViewport" unique_id=2118064406]
+layout_mode = 3
+anchor_left = 0.08800001
+anchor_top = -0.042000003
+anchor_right = 0.08800001
+anchor_bottom = -0.042000003
+offset_left = -202.96
+offset_top = 20.360004
+offset_right = -128.96
+offset_bottom = 85.36
+
+[node name="Play" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=1805792928]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 485.0
+offset_right = 1018.0
+offset_bottom = 983.0
+texture_normal = ExtResource("2_cp0ys")
+texture_pressed = ExtResource("3_yhxw7")
+texture_hover = ExtResource("4_yhxw7")
+
+[node name="Options" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=464626274]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 457.0
+offset_right = 1600.0
+offset_bottom = 991.0
+texture_normal = ExtResource("5_trj04")
+texture_pressed = ExtResource("7_vr1f0")
+texture_hover = ExtResource("6_16hvj")
+
+[node name="Exit" type="TextureButton" parent="SubViewportContainer/SubViewport/Buttons" unique_id=1894267514]
+layout_mode = 0
+offset_left = 1687.0
+offset_top = 300.0
+offset_right = 1890.0
+offset_bottom = 1064.0
+texture_normal = ExtResource("8_16hvj")
+texture_pressed = ExtResource("9_vr1f0")
+texture_hover = ExtResource("10_t1dhk")
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1736801088]
+offset_left = -128.0
+offset_top = 143.0
+offset_right = -88.0
+offset_bottom = 183.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1544387684]
+offset_left = -128.0
+offset_top = 93.0
+offset_right = -88.0
+offset_bottom = 133.0
+
+[node name="MainMenuContent" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1253420565]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 137.0
+offset_top = 1.0
+offset_right = 177.0
+offset_bottom = 41.0
+
+[node name="ShaderCanvas" type="Control" parent="." unique_id=84579701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=1067466745]
+material = SubResource("ShaderMaterial_t1dhk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=883998432]
+stream = ExtResource("13_vtepg")
+volume_db = -4.099
+bus = &"Music"
+
+[node name="MusicDelay" type="Timer" parent="." unique_id=1408040239]
+wait_time = 20.0
+one_shot = true
+
+[node name="FireAmbiance" type="AudioStreamPlayer" parent="." unique_id=1614970871]
+stream = ExtResource("14_vtepg")
+volume_db = -10.747
+pitch_scale = 1.25
+bus = &"SFX"
+parameters/looping = true
+
+[node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=1048817067]
+stream = ExtResource("15_8dnnj")
+volume_db = 0.256
+bus = &"SFX"
+parameters/looping = true
+
+[node name="LightOnSfx" type="AudioStreamPlayer" parent="." unique_id=1506854707]
+stream = ExtResource("16_m3bi6")
+volume_db = -10.103
+bus = &"SFX"
+
+[node name="LightsOffSfx" type="AudioStreamPlayer" parent="." unique_id=822186667]
+stream = ExtResource("17_wyh8j")
+volume_db = -10.104
+bus = &"SFX"
+
+[node name="TVOnSfx" type="AudioStreamPlayer" parent="." unique_id=1379259109]
+stream = ExtResource("18_mkpwh")
+volume_db = -7.393
+pitch_scale = 1.09
+bus = &"SFX"
+
+[node name="TVOffSfx" type="AudioStreamPlayer" parent="." unique_id=2024206525]
+stream = ExtResource("19_4nkqq")
+volume_db = -7.886
+pitch_scale = 1.05
+bus = &"SFX"
+
+[node name="TVStaticOnSfx" type="AudioStreamPlayer" parent="." unique_id=498272192]
+stream = ExtResource("20_4nkqq")
+volume_db = -5.448
+bus = &"SFX"
+
+[node name="DoorCreakSfx" type="AudioStreamPlayer" parent="." unique_id=1279036716]
+stream = ExtResource("21_ehtkc")
+volume_db = 2.97
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_pressed"]
