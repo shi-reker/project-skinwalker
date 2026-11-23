@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
 [ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
-[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scripts/Menus/main_menu.gd" id="1_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
@@ -12,15 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
 [ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="12_t1dhk"]
-[ext_resource type="AudioStream" uid="uid://cxv0hisbsiln8" path="res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg" id="13_vtepg"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_vtepg"]
 [ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_8dnnj"]
-[ext_resource type="AudioStream" uid="uid://dvekb6eq3epga" path="res://Assets/Audio/Sound Effects/lights on.wav" id="16_m3bi6"]
-[ext_resource type="AudioStream" uid="uid://dsboa0lyfi8kp" path="res://Assets/Audio/Sound Effects/lights off.wav" id="17_wyh8j"]
-[ext_resource type="AudioStream" uid="uid://d016lige5r2yn" path="res://Assets/Audio/Sound Effects/TV on.wav" id="18_mkpwh"]
-[ext_resource type="AudioStream" uid="uid://bcptnm4s77dpg" path="res://Assets/Audio/Sound Effects/TV off.wav" id="19_4nkqq"]
-[ext_resource type="AudioStream" uid="uid://ctcxylw2ctitp" path="res://Assets/Audio/Sound Effects/tv static on.wav" id="20_4nkqq"]
-[ext_resource type="AudioStream" uid="uid://be8vsjojnqstu" path="res://Assets/Audio/Sound Effects/Door creak.wav" id="21_ehtkc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
 shader = ExtResource("12_t1dhk")
@@ -158,11 +151,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=883998432]
-stream = ExtResource("13_vtepg")
-volume_db = -4.099
-bus = &"Music"
-
 [node name="MusicDelay" type="Timer" parent="." unique_id=1408040239]
 wait_time = 20.0
 one_shot = true
@@ -171,46 +159,12 @@ one_shot = true
 stream = ExtResource("14_vtepg")
 volume_db = -10.747
 pitch_scale = 1.25
-bus = &"SFX"
 parameters/looping = true
 
 [node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=1048817067]
 stream = ExtResource("15_8dnnj")
 volume_db = 0.256
-bus = &"SFX"
 parameters/looping = true
-
-[node name="LightOnSfx" type="AudioStreamPlayer" parent="." unique_id=1506854707]
-stream = ExtResource("16_m3bi6")
-volume_db = -10.103
-bus = &"SFX"
-
-[node name="LightsOffSfx" type="AudioStreamPlayer" parent="." unique_id=822186667]
-stream = ExtResource("17_wyh8j")
-volume_db = -10.104
-bus = &"SFX"
-
-[node name="TVOnSfx" type="AudioStreamPlayer" parent="." unique_id=1379259109]
-stream = ExtResource("18_mkpwh")
-volume_db = -7.393
-pitch_scale = 1.09
-bus = &"SFX"
-
-[node name="TVOffSfx" type="AudioStreamPlayer" parent="." unique_id=2024206525]
-stream = ExtResource("19_4nkqq")
-volume_db = -7.886
-pitch_scale = 1.05
-bus = &"SFX"
-
-[node name="TVStaticOnSfx" type="AudioStreamPlayer" parent="." unique_id=498272192]
-stream = ExtResource("20_4nkqq")
-volume_db = -5.448
-bus = &"SFX"
-
-[node name="DoorCreakSfx" type="AudioStreamPlayer" parent="." unique_id=1279036716]
-stream = ExtResource("21_ehtkc")
-volume_db = 2.97
-bus = &"SFX"
 
 [connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_exited"]
