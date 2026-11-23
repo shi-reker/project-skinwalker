@@ -3,17 +3,10 @@ extends Control
 @onready var tv: TextureButton = $SubViewportContainer/SubViewport/Buttons/Play
 @onready var bookshelf: TextureButton = $SubViewportContainer/SubViewport/Buttons/Options
 @onready var door: TextureButton = $SubViewportContainer/SubViewport/Buttons/Exit
-#
-#@onready var background_music: AudioStreamPlayer = $BackgroundMusic
+
 @onready var music_delay: Timer = $MusicDelay
 @onready var fire_ambiance: AudioStreamPlayer = $FireAmbiance
 @onready var vhs_ambiance: AudioStreamPlayer = $VhsAmbiance
-#@onready var tv_on_sfx: AudioStreamPlayer = $TVOnSfx
-#@onready var tv_static_on_sfx: AudioStreamPlayer = $TVStaticOnSfx
-#@onready var tv_off_sfx: AudioStreamPlayer = $TVOffSfx
-#@onready var lights_on_sfx: AudioStreamPlayer = $LightOnSfx
-#@onready var lights_off_sfx: AudioStreamPlayer = $LightsOffSfx
-#@onready var door_creak: AudioStreamPlayer = $DoorCreakSfx
 
 var settings_scene = preload("res://Scenes/Components/Pause Component/options.tscn")
 
