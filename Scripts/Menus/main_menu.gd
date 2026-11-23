@@ -31,15 +31,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_play_pressed() -> void:
+	SoundManager.play_button_sfx()
+	await SoundManager.UISoundPlayer.finished
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
-	#SoundManager.play_button_press()
-	
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
-	
+	SoundManager.option_button_sfx()
+	await SoundManager.UISoundPlayer.finished
 
 func _on_exit_pressed() -> void:
-	pass # Replace with function body.
+	SoundManager.quit_button_sfx()
+	await SoundManager.UISoundPlayer.finished

@@ -1,27 +1,39 @@
 extends Node
 
-var bgm_player: AudioStreamPlayer
-var sfx_player: AudioStreamPlayer
+var BGMPlayer: AudioStreamPlayer
+var UISoundPlayer: AudioStreamPlayer2D
+var gameplaySoundPlayer: AudioStreamPlayer2D
 
-var main_menu_press := "res://Assets/Audio/pipe.wav"
+var play_button := "res://Assets/Audio/pipe.wav"
+var option_button
+var quit_button
+var generic_button
 
 func _ready():
-	bgm_player = AudioStreamPlayer.new()
-	bgm_player.bus = "Music"
-	add_child(bgm_player)
-		
+	BGMPlayer = AudioStreamPlayer.new()
+	UISoundPlayer = AudioStreamPlayer2D.new()
+	gameplaySoundPlayer = AudioStreamPlayer2D.new()
+	BGMPlayer.bus = "Music"
+	UISoundPlayer.bus = "UI"
+	gameplaySoundPlayer.bus = "Gameplay"
+	add_child(BGMPlayer)
+	add_child(UISoundPlayer)
+	add_child(gameplaySoundPlayer)
 
 func play_music(path: String):
-	if bgm_player.stream == load(path):
+	if BGMPlayer.stream == load(path):
 		return # lagu sama, jangan restart
 	
-	bgm_player.stop()
-	bgm_player.stream = load(path)
-	bgm_player.volume_db = -5
-	bgm_player.play()
+	BGMPlayer.stop()
+	BGMPlayer.stream = load(path)
+	BGMPlayer.volume_db = -5
+	BGMPlayer.play()
 
-func play_sfx():
-	sfx_player.stream = load("res://Assets/Audio/pipe.wav")	
-	sfx_player.play()
+func _play_ui(path: String) -> void:
+	UISoundPlayer.stream = load(path)
+	UISoundPlayer.play()
 
-# AudioManager.play_sfx(Audiomanager.
+func play_button_sfx(): _play_ui(play_button)
+func option_button_sfx(): _play_ui(option_button)
+func quit_button_sfx(): _play_ui(quit_button)
+func general_button_sfx(): _play_ui(generic_button)
