@@ -47,41 +47,41 @@ func _unhandled_input(event: InputEvent) -> void:
 		can_interact = true
 		return
 
-	if event.is_action_pressed("ability"):
-		_trigger_nearest_ability()
-		get_viewport().set_input_as_handled()
+	# if event.is_action_pressed("ability"):
+	# 	_trigger_nearest_ability()
+	# 	get_viewport().set_input_as_handled()
 
 func _is_any_dialogue_active() -> bool:
-	for npc in NPCManager.get_all_npcs():
+	for npc in NpcManager.all_npcs:
 		if npc == null or not is_instance_valid(npc):
 			continue
 		if npc.dialogue_component and npc.dialogue_component.is_dialogue_active:
 			return true
 	return false
 
-func _trigger_nearest_ability() -> void:
-	var nearest: NPCActor = null
-	var nearest_dist := INF
+# func _trigger_nearest_ability() -> void:
+# 	var nearest: NPCActor = null
+# 	var nearest_dist := INF
 
-	for npc in NPCManager.get_recruited_npcs():
-		if npc == null or not is_instance_valid(npc):
-			continue
-		print("[Debug] NPC ", npc.name, 
-			" | has_ability: ", npc.has_ability(), 
-			" | can_use: ", npc.can_use_ability(),
-			" | ability_class: ", (npc.npc_definition.ability.get_script().get_global_name() if npc.has_ability() else "none"))
-		if not npc.can_use_ability():
-			continue
-		var d := global_position.distance_to(npc.global_position)
-		if d < nearest_dist:
-			nearest_dist = d
-			nearest = npc
+# 	for npc in NpcManager.recruited_npcs:
+# 		if npc == null or not is_instance_valid(npc):
+# 			continue
+# 		print("[Debug] NPC ", npc.name, 
+# 			" | has_ability: ", npc.has_ability(), 
+# 			" | can_use: ", npc.can_use_ability(),
+# 			" | ability_class: ", (npc.npc_definition.ability.get_script().get_global_name() if npc.has_ability() else "none"))
+# 		if not npc.can_use_ability():
+# 			continue
+# 		var d := global_position.distance_to(npc.global_position)
+# 		if d < nearest_dist:
+# 			nearest_dist = d
+# 			nearest = npc
 
-	if nearest == null:
-		print("[Player] Tidak ada ability siap pakai")
-		return
+# 	if nearest == null:
+# 		print("[Player] Tidak ada ability siap pakai")
+# 		return
 
-	nearest.use_ability({"player": self})
+# 	nearest.use_ability({"player": self})
 
 
 func _on_detect_area_area_entered(area: Area2D) -> void:
@@ -97,22 +97,6 @@ func _on_detect_area_area_exited(area: Area2D) -> void:
 			set_interaction_available(false)
 		else:
 			set_interaction_available(true, cur_interactables[0].global_position)
-
-func add_recruited_npc(npc: NPCActor) -> void:
-	if NPCManager and npc != null:
-		NPCManager._on_npc_recruited(npc)
-
-
-func get_recruited_count() -> int:
-	if NPCManager:
-		return NPCManager.get_recruited_count()
-	return 0
-
-
-func get_recruited_npcs() -> Array[NPCActor]:
-	if NPCManager:
-		return NPCManager.get_recruited_npcs()
-	return []
 
 func has_hint(hint: HintDefinition) -> bool:
 	if hint == null:
