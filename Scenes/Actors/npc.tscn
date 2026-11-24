@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="3_dialogue"]
 [ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="5_interactable"]
-[ext_resource type="Texture2D" uid="uid://dns6852cy5aid" path="res://Assets/Visuals/placeholder person.png" id="6_texture"]
+[ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Scripts/Resources/NPC/yapper_dialogue.tres" id="6_4p8ee"]
 [ext_resource type="Script" uid="uid://brqbs6tvkh17f" path="res://Scripts/Components/follow_component.gd" id="7_follow"]
+[ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="8_flvar"]
 
 [sub_resource type="RectangleShape2D" id="NPC_Collision"]
 size = Vector2(24, 24)
@@ -25,18 +26,21 @@ npc_definition = ExtResource("2_16au0")
 script = ExtResource("2_movement")
 actor = NodePath("../..")
 
-[node name="FollowComponent" type="Node" parent="Components" unique_id=1923050650 groups=["npc"]]
+[node name="FollowComponent" type="Node" parent="Components" unique_id=1923050650 node_paths=PackedStringArray("actor", "movement_component") groups=["npc"]]
 script = ExtResource("7_follow")
+actor = NodePath("../..")
+movement_component = NodePath("../MovementComponent")
 
 [node name="DialogueComponent" type="Node" parent="Components" unique_id=1324082494]
 script = ExtResource("3_dialogue")
+dialogue_definition = ExtResource("6_4p8ee")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1972760016]
 script = ExtResource("4_state_machine")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1467782547]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_texture")
+texture = ExtResource("8_flvar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964047544]
 shape = SubResource("NPC_Collision")
@@ -45,6 +49,7 @@ shape = SubResource("NPC_Collision")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_interactable")
+interact_name = "Talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1322296015]
 shape = SubResource("NPC_Interact")

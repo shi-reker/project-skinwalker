@@ -32,7 +32,10 @@ func _on_pressed() -> void:
 			dialogueHandler.recieve_dialogue(chosenEvent.event.dialogue, storedLine)
 		isPressed = true
 	else:
-		store_dialogue(dialogueHandler.current_line_index)
+		if dialogueHandler.dialogue_definition != chosenEvent.event.dialogue:
+			return
+		if !dialogueHandler.dialogueBox.hidden:
+			store_dialogue(dialogueHandler.current_line_index)
 		chosenEvent.hide()
 		dialogueHandler.dialogueBox.hide()
 		isPressed = false

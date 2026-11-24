@@ -37,6 +37,7 @@ func advance_dialogue() -> void:
 	current_line_index += 1
 	if !dialogue_definition.dialogue_lines.has(current_line_index):
 		end_dialogue()
+		return
 	DialogueManager.update_dialogue(dialogue_definition.dialogue_lines[current_line_index], self)
 	
 	if dialogue_definition.choice_lines.has(current_line_index):

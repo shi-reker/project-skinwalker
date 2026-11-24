@@ -152,9 +152,9 @@ dialogueBox = NodePath("../DialogueBox")
 
 [node name="DialogueBox" parent="Camera2D" unique_id=1117392782 instance=ExtResource("4_nxj8n")]
 visible = false
-offset_left = 55.0
-offset_top = 408.5
-offset_right = 1097.0
-offset_bottom = 585.5
+offset_left = 95.0
+offset_top = 702.0
+offset_right = 1825.0
+offset_bottom = 990.0
 
 [connection signal="pressed" from="Camera2D/DialogueBox" to="Camera2D/DialogueHandler" method="advance_dialogue"]
