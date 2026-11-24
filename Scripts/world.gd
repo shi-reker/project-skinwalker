@@ -66,4 +66,3 @@ func _on_player_entered_home():
 
 func _on_player_captured():
 	print_debug("YOU LOSEEEEE")
-

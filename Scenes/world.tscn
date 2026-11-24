@@ -80,7 +80,7 @@ connected_street = [NodePath("../street3")]
 [node name="Actors" type="Node2D" parent="." unique_id=1882525461]
 
 [node name="Player" parent="Actors" unique_id=32702128 instance=ExtResource("2_player")]
-position = Vector2(118, 88)
+position = Vector2(173, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1213216834]
 script = ExtResource("2_fo5ed")
