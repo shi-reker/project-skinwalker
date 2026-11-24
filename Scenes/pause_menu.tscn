@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cc3kxs4f7ywb"]
 
 [ext_resource type="Script" uid="uid://davervbdpxjdy" path="res://Scenes/pause_menu.gd" id="1_1och7"]
-[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_k0w1u"]
 [ext_resource type="Theme" uid="uid://c3lmp4q05ajph" path="res://Assets/UI/pause_button_theme.tres" id="2_k0w1u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k0w1u"]
+load_path = "res://.godot/imported/room background.png-34d4a6b0cd9cce154799e5b6a5eaf4f9.ctex"
 
 [sub_resource type="Gradient" id="Gradient_bpi0q"]
 offsets = PackedFloat32Array(0.094752185, 0.57580173, 1)
@@ -21,15 +23,16 @@ grow_vertical = 2
 script = ExtResource("1_1och7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1982182866]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_k0w1u")
+texture = SubResource("CompressedTexture2D_k0w1u")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=439028428]
+[node name="GradientBackground" type="TextureRect" parent="." unique_id=439028428]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

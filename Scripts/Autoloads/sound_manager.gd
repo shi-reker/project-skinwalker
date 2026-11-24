@@ -13,6 +13,7 @@ var tv_off_sfx := "res://Assets/Audio/Sound Effects/TV off.wav"
 var lights_on_sfx := "res://Assets/Audio/Sound Effects/lights on.wav"
 var lights_off_sfx := "res://Assets/Audio/Sound Effects/lights off.wav"
 var door_creak := "res://Assets/Audio/Sound Effects/Door creak.wav"
+var book_open := "res://Assets/Audio/Sound Effects/book_open.wav"
 
 var generic_button_hover := "res://Assets/Audio/packs/pack 1/WAV/Retro1.wav"
 var play_button := "res://Assets/Audio/packs/pack 1/WAV/Modern15.wav"
@@ -43,15 +44,18 @@ func play_music(path: String):
 	BGMPlayer.volume_db = -5
 	BGMPlayer.play()
 
-func _play_ui_hover(path: String):
+func _play_ui_hover(path: String, volume: float = 0.0):
 	UIHoverSoundPlayer.stream = load(path)
+	UIHoverSoundPlayer.volume_db = volume
 	UIHoverSoundPlayer.play()
 
-func _play_ui(path: String) -> void:
+func _play_ui(path: String, volume: float = 0.0) -> void:
 	UISoundPlayer.stream = load(path)
+	UISoundPlayer.volume_db = volume
 	UISoundPlayer.play()
 
-func play_button_sfx(): _play_ui(play_button)
-func option_button_sfx(): _play_ui(option_button)
-func quit_button_sfx(): _play_ui(quit_button)
-func general_button_sfx(): _play_ui(generic_button)
+func play_button_sfx(): _play_ui(play_button, 7)
+func option_button_sfx(): _play_ui(option_button, 7)
+func quit_button_sfx(): _play_ui(quit_button, 7)
+func general_button_sfx(): _play_ui(generic_button, 10)
+func option_menu_open_sfx(): _play_ui(book_open)

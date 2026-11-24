@@ -27,12 +27,10 @@ func _on_music_delay_timeout() -> void:
 
 func _on_play_pressed() -> void:
 	SoundManager.play_button_sfx()
-	#await SoundManager.UISoundPlayer.finished
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	
 func _on_options_pressed() -> void:
 	SoundManager.option_button_sfx()
-	#await SoundManager.UISoundPlayer.finished
 	var settings = settings_scene.instantiate()
 	add_child(settings)
 	var shader_index = get_node("ShaderCanvas").get_index()
@@ -41,7 +39,6 @@ func _on_options_pressed() -> void:
 	
 func _on_exit_pressed() -> void:
 	SoundManager.quit_button_sfx()
-	#await SoundManager.UISoundPlayer.finished
 	get_tree().quit()
 	
 func _on_play_mouse_entered() -> void:
@@ -58,7 +55,7 @@ func _on_options_mouse_exited() -> void:
 	SoundManager._play_ui_hover(SoundManager.lights_off_sfx)
 
 func _on_exit_mouse_entered() -> void:
-	SoundManager._play_ui_hover(SoundManager.door_creak)
+	SoundManager._play_ui_hover(SoundManager.door_creak, 12)
 
 func _on_settings_closed() -> void:
 	print("Settings closed")
