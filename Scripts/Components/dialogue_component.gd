@@ -35,9 +35,11 @@ func start_dialogue() -> void:
 
 func advance_dialogue() -> void:
 	current_line_index += 1
+	if !dialogue_definition.dialogue_lines.has(current_line_index):
+		end_dialogue()
 	DialogueManager.update_dialogue(dialogue_definition.dialogue_lines[current_line_index], self)
 	
-	if dialogue_definition.choice_lines[current_line_index]:
+	if dialogue_definition.choice_lines.has(current_line_index):
 		dialogueBox.disabled = true
 		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
 		var choices:Array = dialogue_definition.choice_lines[current_line_index]

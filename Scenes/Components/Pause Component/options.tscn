@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3fejfjggmav0"]
 
-[ext_resource type="Script" uid="uid://c6nsbdgswn6uk" path="res://Scenes/Components/Pause Component/options.gd" id="1_e88yk"]
+[ext_resource type="Script" uid="uid://c6nsbdgswn6uk" path="res://Scripts/Menus/options.gd" id="1_e88yk"]
 [ext_resource type="Theme" uid="uid://dt5appisb3apr" path="res://Assets/UI/dropdown_theme.tres" id="2_7p0qj"]
 [ext_resource type="Texture2D" uid="uid://1f3j8822vo5a" path="res://Assets/Main Menu Assets/options book.png" id="2_fjmic"]
 [ext_resource type="FontFile" uid="uid://c58chvw3cpwej" path="res://Fonts/HandymandiFree.ttf" id="3_fjmic"]
