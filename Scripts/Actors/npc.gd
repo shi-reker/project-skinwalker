@@ -27,12 +27,12 @@ func _ready() -> void:
 		npc_definition.ability = npc_definition.ability.duplicate(true)
 		npc_definition.ability.setup(self)
 
-	NPCManager.register_npc(self)
+	NpcManager.register_npc(self)
 
 
 func _exit_tree() -> void:
-	if NPCManager:
-		NPCManager.unregister_npc(self)
+	if NpcManager:
+		NpcManager.unregister_npc(self)
 
 
 func _physics_process(delta: float) -> void:
