@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cc3kxs4f7ywb"]
+
+[ext_resource type="Script" uid="uid://davervbdpxjdy" path="res://Scenes/pause_menu.gd" id="1_1och7"]
+[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_k0w1u"]
+[ext_resource type="Theme" uid="uid://c3lmp4q05ajph" path="res://Assets/UI/pause_button_theme.tres" id="2_k0w1u"]
+
+[sub_resource type="Gradient" id="Gradient_bpi0q"]
+offsets = PackedFloat32Array(0.094752185, 0.57580173, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.49125367, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wj5hs"]
+gradient = SubResource("Gradient_bpi0q")
+
+[node name="PauseMenu" type="Control" unique_id=627930756]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1och7")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1982182866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_k0w1u")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=439028428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_wj5hs")
+
+[node name="PauseContent" type="Control" parent="." unique_id=148091989]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="PauseContent" unique_id=1169718260]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 328.0
+offset_right = 530.0
+offset_bottom = 431.0
+theme = ExtResource("2_k0w1u")
+text = "Resume"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="PauseContent" unique_id=408561176]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 480.0
+offset_right = 514.0
+offset_bottom = 583.0
+theme = ExtResource("2_k0w1u")
+text = "Options"
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="PauseContent" unique_id=1025725945]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 624.0
+offset_right = 631.0
+offset_bottom = 727.0
+theme = ExtResource("2_k0w1u")
+text = "Main Menu"
+flat = true
