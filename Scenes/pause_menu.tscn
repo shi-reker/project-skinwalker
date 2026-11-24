@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cc3kxs4f7ywb"]
 
-[ext_resource type="Script" uid="uid://davervbdpxjdy" path="res://Scenes/pause_menu.gd" id="1_1och7"]
+[ext_resource type="Script" uid="uid://davervbdpxjdy" path="res://Scripts/Menus/pause_menu.gd" id="1_1och7"]
 [ext_resource type="Theme" uid="uid://c3lmp4q05ajph" path="res://Assets/UI/pause_button_theme.tres" id="2_k0w1u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k0w1u"]
