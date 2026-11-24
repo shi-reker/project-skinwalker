@@ -14,13 +14,15 @@ signal ability_used(npc: NPCActor, ability: NPCAbility)
 @onready var interactable: InteractableComponent = $InteractableComponent
 
 var is_recruited: bool = false
-var recruit_target: Node2D = null
 var has_talked_once: bool = false
 
 
 func _ready() -> void:
 	setup_npc()
-	setup_interaction()
+	
+	interactable.interact_name = "Talk"
+	interactable.interact = func(): interact_with_player()
+	
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
 
 	if npc_definition != null and npc_definition.ability != null:
@@ -53,15 +55,6 @@ func setup_npc() -> void:
 
 	if npc_definition.movement_definition != null:
 		movement_component.movement_definition = npc_definition.movement_definition
-
-	follow_component.actor = self
-	follow_component.movement_component = movement_component
-	follow_component.follow_distance = npc_definition.follow_distance
-
-
-func setup_interaction() -> void:
-	interactable.interact_name = "Talk"
-	interactable.interact = func(): interact_with_player()
 
 
 func interact_with_player() -> void:
@@ -105,33 +98,16 @@ func can_recruit_now() -> bool:
 	if npc_definition == null or not npc_definition.can_be_recruited:
 		return false
 
-	var player := get_tree().get_first_node_in_group("player") as PlayerActor
-	if player == null:
-		return false
-
-	for required_hint in npc_definition.recruitment_required_hints:
-		if required_hint == null:
-			continue
-		if not player.has_hint(required_hint):
-			return false
-		if required_hint.confidence < npc_definition.recruitment_min_confidence:
-			return false
-
 	return true
 
-func recruit(by: Node2D) -> void:
+func recruit() -> void:
 	if is_recruited:
 		return
-
 	is_recruited = true
-	recruit_target = by
-	follow_component.start_following(by)
-	recruited.emit(self)
-
+	NpcManager._on_npc_recruited(self)
 
 func _on_dialogue_finished() -> void:
 	if not is_recruited and can_recruit_now():
 		var player := get_tree().get_first_node_in_group("player") as PlayerActor
 		if player != null:
-			recruit(player)
-			player.add_recruited_npc(self)
+			recruit()
