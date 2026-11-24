@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
-[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
-[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://dvuum88c7lhp4" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
+[ext_resource type="Script" uid="uid://by531j0oan4c0" path="res://Scripts/Menus/main_menu.gd" id="1_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
 [ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="12_t1dhk"]
+[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_vtepg"]
+[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_8dnnj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
 shader = ExtResource("12_t1dhk")
@@ -110,18 +112,6 @@ texture_normal = ExtResource("8_16hvj")
 texture_pressed = ExtResource("9_vr1f0")
 texture_hover = ExtResource("10_t1dhk")
 
-[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1736801088]
-offset_left = -128.0
-offset_top = 143.0
-offset_right = -88.0
-offset_bottom = 183.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1544387684]
-offset_left = -128.0
-offset_top = 93.0
-offset_right = -88.0
-offset_bottom = 133.0
-
 [node name="MainMenuContent" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1253420565]
 layout_mode = 3
 anchors_preset = 0
@@ -130,7 +120,7 @@ offset_top = 1.0
 offset_right = 177.0
 offset_bottom = 41.0
 
-[node name="CanvasLayer" type="Control" parent="." unique_id=84579701]
+[node name="ShaderCanvas" type="Control" parent="." unique_id=84579701]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,7 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1067466745]
+[node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=1067466745]
 material = SubResource("ShaderMaterial_t1dhk")
 layout_mode = 1
 anchors_preset = 15
@@ -149,6 +139,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="MusicDelay" type="Timer" parent="." unique_id=1408040239]
+wait_time = 20.0
+one_shot = true
+
+[node name="FireAmbiance" type="AudioStreamPlayer" parent="." unique_id=1614970871]
+stream = ExtResource("14_vtepg")
+volume_db = -10.747
+pitch_scale = 1.25
+bus = &"Gameplay"
+parameters/looping = true
+
+[node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=1048817067]
+stream = ExtResource("15_8dnnj")
+volume_db = 0.256
+bus = &"Gameplay"
+parameters/looping = true
+
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_mouse_exited"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_pressed"]

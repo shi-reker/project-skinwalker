@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CompanionBehaviorDefinition" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://Scripts/Resources/companion_behavior_definition.gd" id="1_behavior"]
-
-[resource]
-script = ExtResource("1_behavior")
-ability = 1
-trigger_radius = 72.0
-stun_duration = 0.75

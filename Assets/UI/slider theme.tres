@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://j1ygfva7cotb"]
+
+[ext_resource type="Texture2D" uid="uid://dhv5w61q77lwx" path="res://Assets/UI/Inputs/slider_knob_round_normal.png" id="1_ybp2y"]
+[ext_resource type="Texture2D" uid="uid://c4bt7ch6pnbsh" path="res://Assets/UI/Inputs/slider_knob_round_disabled.png" id="2_6sal0"]
+[ext_resource type="Texture2D" uid="uid://b6ad0kxeilovo" path="res://Assets/UI/Inputs/slider_knob_round_focus.png" id="3_j2g01"]
+
+[sub_resource type="DPITexture" id="DPITexture_ufyxj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[resource]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = ExtResource("1_ybp2y")
+HSlider/icons/grabber_disabled = ExtResource("2_6sal0")
+HSlider/icons/grabber_highlight = ExtResource("3_j2g01")
+HSlider/icons/tick = SubResource("DPITexture_ufyxj")

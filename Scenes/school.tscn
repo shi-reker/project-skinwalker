@@ -6,67 +6,96 @@
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="3_yrja8"]
 [ext_resource type="Resource" uid="uid://nl0y62c0b23m" path="res://Resources/Events/placeholder_event.tres" id="4_c8duk"]
 [ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="4_frki8"]
+[ext_resource type="Resource" uid="uid://bqalncvxla66c" path="res://Resources/Events/10_shadows.tres" id="4_jt518"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="4_nxj8n"]
+[ext_resource type="Resource" uid="uid://ydf13xd5qb3k" path="res://Resources/Events/aura_farm.tres" id="5_r4ihy"]
 [ext_resource type="Resource" uid="uid://g1nil5oplqav" path="res://Resources/Events/confession.tres" id="5_uppob"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="5_ybkmv"]
+[ext_resource type="Resource" uid="uid://dkomxucwsp3q" path="res://Resources/Events/monk_technique.tres" id="6_gsf5s"]
 [ext_resource type="Resource" uid="uid://bfehkv62fa6xb" path="res://Resources/Events/promise.tres" id="6_u1uw6"]
+[ext_resource type="Resource" uid="uid://c2ay6620ou5qo" path="res://Resources/Events/consultation.tres" id="9_5f28e"]
+[ext_resource type="Resource" uid="uid://b6hcetjflrsld" path="res://Resources/Events/social_club.tres" id="9_6dgcv"]
+[ext_resource type="Resource" uid="uid://blf5mx0h1e4a5" path="res://Resources/Events/vaccine.tres" id="11_5f28e"]
+[ext_resource type="Resource" uid="uid://coofhpj5p5dbw" path="res://Resources/Events/gambling.tres" id="11_7fydb"]
+[ext_resource type="Resource" uid="uid://d2t2lf0r6e84b" path="res://Resources/Events/cops.tres" id="12_7fydb"]
+[ext_resource type="Resource" uid="uid://deglcnhg1ftqv" path="res://Resources/Events/self_defense_book.tres" id="12_yfaqm"]
+[ext_resource type="Resource" uid="uid://b2qus3atr424k" path="res://Resources/Events/gym_class.tres" id="13_spbju"]
 
-[node name="School" type="Node2D" unique_id=702370092]
-
-[node name="BG" type="TextureRect" parent="." unique_id=1550547036]
-offset_right = 1152.0
-offset_bottom = 994.0
-texture = ExtResource("1_mlgpo")
-
-[node name="Events" type="Control" parent="." unique_id=792430571]
+[node name="School" type="Control" unique_id=1037943489]
 layout_mode = 3
+anchors_preset = 0
+
+[node name="Control" type="Control" parent="." unique_id=1471872925]
+propagate_maximum_size = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1152.0
-offset_bottom = 994.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InterestPoint" parent="Events" unique_id=858540143 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="BG" type="TextureRect" parent="Control" unique_id=1550547036]
+layout_mode = 1
+offset_right = 994.0
+offset_bottom = 994.0
+texture = ExtResource("1_mlgpo")
+
+[node name="Events" type="Control" parent="Control" unique_id=792430571]
+custom_maximum_size = Vector2(1920, -1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 1117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InterestPoint" parent="Control/Events" unique_id=858540143 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13
 anchor_top = 0.18
 anchor_right = 0.13
 anchor_bottom = 0.18
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_jt518"), ExtResource("5_r4ihy"), ExtResource("6_gsf5s")])
 
-[node name="InterestPoint2" parent="Events" unique_id=104285942 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint2" parent="Control/Events" unique_id=104285942 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.93
 anchor_top = 0.3
 anchor_right = 0.93
 anchor_bottom = 0.3
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
 eventList = Array[ExtResource("3_ti8f2")]([ExtResource("5_uppob")])
 
-[node name="InterestPoint3" parent="Events" unique_id=1162841921 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint3" parent="Control/Events" unique_id=1162841921 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.36
 anchor_top = 0.36
 anchor_right = 0.36
 anchor_bottom = 0.36
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("6_u1uw6")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("6_u1uw6"), ExtResource("9_5f28e")])
 
-[node name="InterestPoint4" parent="Events" unique_id=1651429727 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint4" parent="Control/Events" unique_id=1651429727 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.36
 anchor_bottom = 0.36
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("9_6dgcv"), ExtResource("11_7fydb")])
 
-[node name="InterestPoint5" parent="Events" unique_id=1865004935 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint5" parent="Control/Events" unique_id=1865004935 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -74,19 +103,19 @@ anchor_top = 0.8
 anchor_right = 0.3
 anchor_bottom = 0.8
 grow_horizontal = 1
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("12_yfaqm"), ExtResource("13_spbju")])
 
-[node name="InterestPoint6" parent="Events" unique_id=1217973174 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint6" parent="Control/Events" unique_id=1217973174 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.8
 anchor_bottom = 0.8
 grow_horizontal = 1
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("5_r4ihy")])
 
-[node name="InterestPoint7" parent="Events" unique_id=1354547558 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint7" parent="Control/Events" unique_id=1354547558 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.7
@@ -94,25 +123,25 @@ anchor_top = 0.88
 anchor_right = 0.7
 anchor_bottom = 0.88
 grow_horizontal = 1
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("11_5f28e")])
 
-[node name="InterestPoint8" parent="Events" unique_id=1033177195 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
+[node name="InterestPoint8" parent="Control/Events" unique_id=1033177195 node_paths=PackedStringArray("dialogueHandler") instance=ExtResource("2_hnxbv")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13
 anchor_top = 0.02
 anchor_right = 0.13
 anchor_bottom = 0.02
-dialogueHandler = NodePath("../../Camera2D/DialogueHandler")
-eventList = Array[ExtResource("3_ti8f2")]([ExtResource("4_c8duk"), ExtResource("4_c8duk")])
+dialogueHandler = NodePath("../../../Camera2D/DialogueHandler")
+eventList = Array[ExtResource("3_ti8f2")]([ExtResource("12_7fydb")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1361060894]
 anchor_mode = 0
 limit_left = 0
 limit_top = 0
 limit_right = 0
-limit_bottom = 346
+limit_bottom = 577
 position_smoothing_enabled = true
 script = ExtResource("3_yrja8")
 
@@ -123,9 +152,9 @@ dialogueBox = NodePath("../DialogueBox")
 
 [node name="DialogueBox" parent="Camera2D" unique_id=1117392782 instance=ExtResource("4_nxj8n")]
 visible = false
-offset_left = 55.0
-offset_top = 408.5
-offset_right = 1097.0
-offset_bottom = 585.5
+offset_left = 95.0
+offset_top = 702.0
+offset_right = 1825.0
+offset_bottom = 990.0
 
 [connection signal="pressed" from="Camera2D/DialogueBox" to="Camera2D/DialogueHandler" method="advance_dialogue"]
