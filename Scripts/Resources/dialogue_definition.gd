@@ -1,8 +1,9 @@
 extends Resource
 class_name DialogueDefinition
 
-@export var speaker_name: String = ""
+signal recruit_owner()
 
+@export var speaker_name: String = ""
 
 @export var dialogue_lines: Array[String]
 #[
@@ -18,6 +19,6 @@ class_name DialogueDefinition
 
 @export var end_lines: Dictionary[int, Callable]
 #{
-	#1: jerk(),
+	#1: func(): recruit_owner.emit(),
 	#10: func{}: pass
 #}
