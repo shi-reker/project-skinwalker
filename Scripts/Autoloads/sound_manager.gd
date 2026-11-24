@@ -1,27 +1,61 @@
 extends Node
 
-var bgm_player: AudioStreamPlayer
-var sfx_player: AudioStreamPlayer
+var BGMPlayer: AudioStreamPlayer
+var UISoundPlayer: AudioStreamPlayer2D
+var UIHoverSoundPlayer: AudioStreamPlayer2D
+var gameplaySoundPlayer: AudioStreamPlayer2D
 
-var main_menu_press := "res://Assets/Audio/pipe.wav"
+#Main Menu
+var menuBGM := "res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg"
+var tv_on_sfx := "res://Assets/Audio/Sound Effects/TV on.wav"
+var tv_static_on_sfx := "res://Assets/Audio/Sound Effects/tv static on.wav"
+var tv_off_sfx := "res://Assets/Audio/Sound Effects/TV off.wav"
+var lights_on_sfx := "res://Assets/Audio/Sound Effects/lights on.wav"
+var lights_off_sfx := "res://Assets/Audio/Sound Effects/lights off.wav"
+var door_creak := "res://Assets/Audio/Sound Effects/Door creak.wav"
+var book_open := "res://Assets/Audio/Sound Effects/book_open.wav"
+
+var generic_button_hover := "res://Assets/Audio/packs/pack 1/WAV/Retro1.wav"
+var play_button := "res://Assets/Audio/packs/pack 1/WAV/Modern15.wav"
+var option_button := "res://Assets/Audio/packs/pack 1/WAV/Coffee2.wav"
+var quit_button := "res://Assets/Audio/packs/pack 1/WAV/African3.wav"
+var generic_button := "res://Assets/Audio/packs/pack 1/WAV/Minimalist11.wav"
 
 func _ready():
-	bgm_player = AudioStreamPlayer.new()
-	bgm_player.bus = "Music"
-	add_child(bgm_player)
-		
+	BGMPlayer = AudioStreamPlayer.new()
+	UISoundPlayer = AudioStreamPlayer2D.new()
+	gameplaySoundPlayer = AudioStreamPlayer2D.new()
+	UIHoverSoundPlayer = AudioStreamPlayer2D.new()
+	BGMPlayer.bus = "Music"
+	UISoundPlayer.bus = "UI"
+	UIHoverSoundPlayer.bus = "UI"
+	gameplaySoundPlayer.bus = "Gameplay"
+	add_child(BGMPlayer)
+	add_child(UISoundPlayer)
+	add_child(UIHoverSoundPlayer)
+	add_child(gameplaySoundPlayer)
 
 func play_music(path: String):
-	if bgm_player.stream == load(path):
+	if BGMPlayer.stream == load(path):
 		return # lagu sama, jangan restart
 	
-	bgm_player.stop()
-	bgm_player.stream = load(path)
-	bgm_player.volume_db = -5
-	bgm_player.play()
+	BGMPlayer.stop()
+	BGMPlayer.stream = load(path)
+	BGMPlayer.volume_db = -5
+	BGMPlayer.play()
 
-func play_sfx():
-	sfx_player.stream = load("res://Assets/Audio/pipe.wav")	
-	sfx_player.play()
+func _play_ui_hover(path: String, volume: float = 0.0):
+	UIHoverSoundPlayer.stream = load(path)
+	UIHoverSoundPlayer.volume_db = volume
+	UIHoverSoundPlayer.play()
 
-# AudioManager.play_sfx(Audiomanager.
+func _play_ui(path: String, volume: float = 0.0) -> void:
+	UISoundPlayer.stream = load(path)
+	UISoundPlayer.volume_db = volume
+	UISoundPlayer.play()
+
+func play_button_sfx(): _play_ui(play_button, 7)
+func option_button_sfx(): _play_ui(option_button, 7)
+func quit_button_sfx(): _play_ui(quit_button, 7)
+func general_button_sfx(): _play_ui(generic_button, 10)
+func option_menu_open_sfx(): _play_ui(book_open)

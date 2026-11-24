@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://d2flcaaeyhw2j" path="res://Assets/Visuals/placeholder speaker box.png" id="3_ixl7y"]
 [ext_resource type="Script" uid="uid://chaqxec2doc0p" path="res://Scripts/Components/dialogue_choice.gd" id="4_ixl7y"]
 
+[sub_resource type="SystemFont" id="SystemFont_7fydb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5f28e"]
+font = SubResource("SystemFont_7fydb")
+font_size = 38
+
 [sub_resource type="SystemFont" id="SystemFont_ybkmv"]
 subpixel_positioning = 0
 
@@ -14,12 +20,14 @@ font_size = 20
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_spbju"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfaqm"]
+font = SubResource("SystemFont_spbju")
+font_size = 38
+
 [node name="DialogueBox" type="TextureButton" unique_id=1390935538 node_paths=PackedStringArray("speakerBox", "speakerText", "text", "c1", "c2", "c3", "c4")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
 offset_left = -521.0
 offset_top = -88.5
 offset_right = 521.0
@@ -41,16 +49,23 @@ c4 = NodePath("Choices/Choice4")
 [node name="Speaker" type="TextureRect" parent="." unique_id=313994559]
 visible = false
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
-offset_transform_enabled = true
+offset_left = 53.0
+offset_top = -56.0
+offset_right = 469.0
+offset_bottom = 24.0
 offset_transform_position = Vector2(32, -34)
 texture = ExtResource("3_ixl7y")
 
 [node name="SpeakerLabel" type="Label" parent="Speaker" unique_id=1354930923]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(391, 54)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_5f28e")
+vertical_alignment = 1
 
 [node name="DialogueText" type="Label" parent="." unique_id=1574403242]
 custom_maximum_size = Vector2(982, 120)
@@ -67,9 +82,9 @@ autowrap_mode = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
-anchor_top = -0.2
+anchor_top = -0.1
 anchor_right = 0.98
-anchor_bottom = -0.2
+anchor_bottom = -0.1
 offset_left = -250.0
 offset_top = -204.0
 grow_horizontal = 0
@@ -88,9 +103,15 @@ script = ExtResource("4_ixl7y")
 text = NodePath("ChoiceText")
 
 [node name="ChoiceText" type="Label" parent="Choices/Choice1" unique_id=668204566]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(391, 54)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yfaqm")
+vertical_alignment = 1
 
 [node name="Choice2" type="TextureButton" parent="Choices" unique_id=80340517 node_paths=PackedStringArray("text")]
 visible = false
@@ -103,9 +124,15 @@ script = ExtResource("4_ixl7y")
 text = NodePath("ChoiceText")
 
 [node name="ChoiceText" type="Label" parent="Choices/Choice2" unique_id=737874858]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(391, 54)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yfaqm")
+vertical_alignment = 1
 
 [node name="Choice3" type="TextureButton" parent="Choices" unique_id=188389675 node_paths=PackedStringArray("text")]
 visible = false
@@ -118,9 +145,15 @@ script = ExtResource("4_ixl7y")
 text = NodePath("ChoiceText")
 
 [node name="ChoiceText" type="Label" parent="Choices/Choice3" unique_id=470461363]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(391, 54)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yfaqm")
+vertical_alignment = 1
 
 [node name="Choice4" type="TextureButton" parent="Choices" unique_id=722763839 node_paths=PackedStringArray("text")]
 visible = false
@@ -133,9 +166,15 @@ script = ExtResource("4_ixl7y")
 text = NodePath("ChoiceText")
 
 [node name="ChoiceText" type="Label" parent="Choices/Choice4" unique_id=245839282]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(391, 54)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yfaqm")
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=707784414]
 layout_mode = 0

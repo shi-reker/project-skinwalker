@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://c3lmp4q05ajph"]
+
+[ext_resource type="FontFile" uid="uid://c58chvw3cpwej" path="res://Fonts/HandymandiFree.ttf" id="1_8hrv2"]
+
+[resource]
+Button/colors/font_hover_color = Color(0.011085571, 0.33907843, 0.45428777, 1)
+Button/font_sizes/font_size = 90
+Button/fonts/font = ExtResource("1_8hrv2")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null

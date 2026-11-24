@@ -22,14 +22,18 @@ Events="*uid://cw627dquxexf8"
 NpcManager="*uid://dna6jv521132l"
 ItemManager="*uid://cajggnmgbjp5s"
 EnvironmentManager="*uid://4bsid8sj2v6q"
+SoundManager="*uid://c033tldb0wexa"
+NPCManager="*res://Scripts/Managers/npc_manager.gd"
 DialogueManager="*uid://dhmh0nxiyifc8"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="uid://dse1yiuastpxn"
 
 [input]
 
