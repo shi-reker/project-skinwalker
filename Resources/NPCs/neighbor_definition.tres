@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/Resources/npc_definition.gd" id="1_definition"]
 [ext_resource type="Resource" path="res://Resources/Quests/fetch_spare_key.tres" id="2_quest"]
-[ext_resource type="Resource" path="res://Resources/NPCs/neighbor_behavior.tres" id="3_behavior"]
 [ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="4_movement"]
 
 [resource]
@@ -11,4 +10,3 @@ id = 1
 display_name = "Neighbor"
 movement_definition = ExtResource("4_movement")
 quest_definition = ExtResource("2_quest")
-companion_behavior_definition = ExtResource("3_behavior")
