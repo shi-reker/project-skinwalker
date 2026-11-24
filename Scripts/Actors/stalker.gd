@@ -3,7 +3,7 @@ class_name StalkerActor
 
 @export var movement_component: MovementComponent
 @onready var state_machine: StalkerStateMachine = $StateMachine
-#@export var stalker_definition: StalkerDefinition
+@export var stalker_definition: StalkerDefinition = null
 @export var known_hints: Array[HintDefinition] = []
 #@export var deployed_detection_systems: Array[DetectionSystem] = []
 @export var sprite:Sprite2D
@@ -15,14 +15,20 @@ var hints: EnvironmentManager.HomeHints = EnvironmentManager.HomeHints.new()
 var distToTarget:float = 0
 var is_player_detected: bool = false
 
+
 func _ready() -> void:
-	#sprite.texture = stalker_definition.texture
+	add_to_group("stalker")
+	if stalker_definition != null and stalker_definition.texture != null:
+		sprite.texture = stalker_definition.texture
 	sprite.scale = Vector2(0.1, 0.1)
 	movement_component.actor = self
 	state_machine.setup(self)
 	detection_component.player_detected.connect(state_machine._on_detected)
 	movement_component.rangeBorders = 160
 	movement_component.at_range.connect(state_machine.handle_dist_to_player)
+
+
+	state_machine.setup(self)
 
 
 func _physics_process(delta: float) -> void:

@@ -27,7 +27,8 @@ signal on_state_change(code:int)
 func change_state(next_state: ActorState):
 	if next_state == current_state:
 		return
-	current_state.exit(next_state.state_name)
+	if current_state:
+		current_state.exit(next_state.state_name)
 	current_state = next_state
 	current_state.enter(current_state.state_name)
 	current_state_id = current_state.state_code

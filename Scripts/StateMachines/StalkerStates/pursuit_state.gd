@@ -1,7 +1,7 @@
 extends ActorState
 class_name PursuitState
 
-const CATCH_DISTANCE: float = 16
+const CATCH_DISTANCE: float = 50
 
 var target: PlayerActor
 var stalker: StalkerActor
@@ -19,9 +19,10 @@ func exit(next_state: StringName) -> void:
 	pass
 
 func update_state(delta: float) -> void:
-	var machine := manager as StalkerStateMachine
+	stalker_manager.debug_label.text = str(self.name)
+	stalker_manager.debug_label.text = "\n"+str(stalker.global_position.distance_to(last_known_position))
 	_debug_elapsed += delta
-	if _debug_elapsed >= 1.0:
+	if _debug_elapsed >= 1.0: # for debugging
 		if has_target:
 			print_debug(
 				"[PursuitState] following visible player; stalker=", stalker.global_position,
@@ -43,16 +44,16 @@ func update_state(delta: float) -> void:
 		has_last_known_position = true
 		if stalker.global_position.distance_to(last_known_position) <= CATCH_DISTANCE:
 			stalker.movement_component.stop_movement()
-			machine.change_state(machine.captureState)
+			stalker_manager.change_state(stalker_manager.captureState)
 			return
 	elif not has_last_known_position:
 		stalker.movement_component.stop_movement()
 		return
 
 	stalker.movement_component.move_to(last_known_position, delta)
-	if not has_target and stalker.movement_component.is_target_reached():
+	if not has_target and stalker.movement_component.is_target_reached(CATCH_DISTANCE):
 		stalker.movement_component.stop_movement()
-		machine.change_state(machine.searchingState)
+		stalker_manager.change_state(stalker_manager.searchingState)
 
 func set_target(player: PlayerActor) -> void:
 	target = player

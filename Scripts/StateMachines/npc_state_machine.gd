@@ -1,3 +1,4 @@
+
 extends StateMachine
 class_name NPCStateMachine
 

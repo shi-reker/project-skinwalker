@@ -137,6 +137,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Label" type="Label" parent="." unique_id=707784414]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="pressed" from="Choices/Choice1" to="Choices/Choice1" method="_on_pressed"]
 [connection signal="pressed" from="Choices/Choice2" to="Choices/Choice2" method="_on_pressed"]
 [connection signal="pressed" from="Choices/Choice3" to="Choices/Choice3" method="_on_pressed"]

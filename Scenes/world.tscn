@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bu13odsr76h73" path="res://Assets/Visuals/school map placeholder - v.png" id="3_5ukr8"]
 [ext_resource type="Script" uid="uid://fpom1hpdpsjr" path="res://Scripts/Environments/tile_navigation.gd" id="3_5v1tr"]
 [ext_resource type="PackedScene" uid="uid://bxsfjho2h3vhj" path="res://Scenes/Actors/stalker.tscn" id="3_stalker"]
+[ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="4_k7acu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="5_5v1tr"]
+[ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="9_ikia7"]
 
 [node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker", "home")]
 script = ExtResource("1_a02cp")
@@ -81,14 +83,18 @@ connected_street = [NodePath("../street3")]
 position = Vector2(118, 88)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1213216834]
-zoom = Vector2(3, 3)
 script = ExtResource("2_fo5ed")
 mode = 1
+
+[node name="DialogueBox" parent="Actors/Player/Camera2D" unique_id=1390935538 instance=ExtResource("9_ikia7")]
+visible = false
 
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("3_stalker")]
 position = Vector2(273, -78)
 target = NodePath("../Player")
 
-[node name="NPCs" type="Node2D" parent="." unique_id=2120348656]
+[node name="NPCs" type="Node2D" parent="." unique_id=185036846]
+
+[node name="NPC" parent="NPCs" unique_id=676992456 instance=ExtResource("4_8j60k")]
 
 [node name="SurveillanceSystems" type="Node2D" parent="." unique_id=1518984011]
