@@ -11,6 +11,7 @@ signal closed
 @onready var display_mode: OptionButton = $SettingsContent/DisplayModeDropdown
 
 func _ready() -> void:
+	SoundManager.option_menu_open_sfx()
 	display_mode.item_selected.connect(_on_display_mode_selected)
 
 	update_display_mode()	
@@ -80,6 +81,7 @@ func _on_ui_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	SoundManager.general_button_sfx()
 	closed.emit()
 	queue_free()
 	

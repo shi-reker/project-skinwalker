@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
-[ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
-[ext_resource type="Script" uid="uid://by531j0oan4c0" path="res://Scripts/Menus/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://dvuum88c7lhp4" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
+[ext_resource type="Script" uid="uid://by531j0oan4c0" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
@@ -111,18 +111,6 @@ offset_bottom = 1064.0
 texture_normal = ExtResource("8_16hvj")
 texture_pressed = ExtResource("9_vr1f0")
 texture_hover = ExtResource("10_t1dhk")
-
-[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1736801088]
-offset_left = -128.0
-offset_top = 143.0
-offset_right = -88.0
-offset_bottom = 183.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="SubViewportContainer/SubViewport" unique_id=1544387684]
-offset_left = -128.0
-offset_top = 93.0
-offset_right = -88.0
-offset_bottom = 133.0
 
 [node name="MainMenuContent" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1253420565]
 layout_mode = 3
