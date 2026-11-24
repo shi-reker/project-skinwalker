@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cujnjxthnql4w"]
 
 [ext_resource type="Texture2D" uid="uid://cv7jtulotvgod" path="res://Assets/Main Menu Assets/room background.png" id="1_cp0ys"]
-[ext_resource type="Script" uid="uid://4o6p4xrq36aa" path="res://Scripts/Menus/main_menu.gd" id="1_vr1f0"]
+[ext_resource type="Script" uid="uid://by531j0oan4c0" path="res://Scenes/main_menu.gd" id="1_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://c5infaa6j7r2l" path="res://Assets/Main Menu Assets/TV normal.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://c22ol5vn8q280" path="res://Assets/Main Menu Assets/TV hover pressed.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cgu2hdqu1vdhy" path="res://Assets/Main Menu Assets/TV hover.png" id="4_yhxw7"]
@@ -159,11 +159,13 @@ one_shot = true
 stream = ExtResource("14_vtepg")
 volume_db = -10.747
 pitch_scale = 1.25
+bus = &"Gameplay"
 parameters/looping = true
 
 [node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=1048817067]
 stream = ExtResource("15_8dnnj")
 volume_db = 0.256
+bus = &"Gameplay"
 parameters/looping = true
 
 [connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_entered"]
