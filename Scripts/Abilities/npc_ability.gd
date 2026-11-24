@@ -21,11 +21,11 @@ func can_activate() -> bool:
 	return not _is_active and _cooldown_timer <= 0.0 and _owner_npc != null
 
 
-func activate(_context: Dictionary = {}) -> void:
+func activate(world: World) -> void:
 	if not can_activate():
 		return
 	_is_active = true
-	_on_activate(_context)
+	_on_activate(world)
 
 
 func deactivate() -> void:
@@ -52,7 +52,7 @@ func get_owner_npc() -> NPCActor:
 
 # --- Virtual methods (override di subclass) ---
 
-func _on_activate(_context: Dictionary) -> void:
+func _on_activate(world: World) -> void:
 	pass
 
 

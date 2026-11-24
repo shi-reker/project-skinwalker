@@ -12,10 +12,14 @@ var all_npcs: Array[NPCActor] = []
 var recruited_npcs: Array[NPCActor] = []
 var _npc_by_id: Dictionary = {}
 
+var world: World
+
 func _ready() -> void:
 	npc_statuses = randomize_npc()
 
-func setup(world: World):
+func setup(_world: World):
+	world = _world
+	
 	var npc_scene := load("res://Scenes/Actors/npc.tscn")
 	for npc in npc_statuses.keys():
 		var npc_def: NPCDefinition = npc_resource[npc]
@@ -48,4 +52,5 @@ func _on_npc_recruited(npc: NPCActor) -> void:
 	if npc == null or npc in recruited_npcs:
 		return
 	recruited_npcs.append(npc)
+	npc.npc_definition.ability.activate(world)
 	print("[NPCManager] Recruited: ", npc.name, " (total: ", recruited_npcs.size(), ")")

@@ -24,6 +24,8 @@ func _ready() -> void:
 
 	_apply_spawn_layout()
 	
+	NpcManager.setup(self)
+	
 	if active_debug_label:
 		DebugManager.setup(debug_label)
 		DebugManager.add_debug("debug turned on")
