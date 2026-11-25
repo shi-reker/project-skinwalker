@@ -25,7 +25,6 @@ npc_definition = ExtResource("2_16au0")
 
 [node name="MovementComponent" type="Node2D" parent="Components" unique_id=1923050649]
 script = ExtResource("2_movement")
-actor = NodePath("../..")
 
 [node name="FollowComponent" type="Node" parent="Components" unique_id=1923050650 node_paths=PackedStringArray("actor", "movement_component") groups=["npc"]]
 script = ExtResource("7_follow")

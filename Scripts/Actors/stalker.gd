@@ -11,7 +11,8 @@ class_name StalkerActor
 @export var target:PlayerActor
 var hints: EnvironmentManager.HomeHints = EnvironmentManager.HomeHints.new()
 #@export var navAgent:NavigationAgent2D
-
+var isImmobilized:bool = false
+var moveSpeedCache:float = 0
 var distToTarget:float = 0
 var is_player_detected: bool = false
 
@@ -30,11 +31,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.update_current_state(delta)
-	#if target == null or not is_instance_valid(target):
-		#return
-	#distToTarget = global_position.distance_to(target.global_position)
-	#if distToTarget < 60 and state_machine.current_state != state_machine.captureState:
-		#state_machine.change_state(state_machine.captureState)
 
 func detected_player_entered_home():
 	print("i see you :)")
@@ -54,8 +50,18 @@ func add_hint() -> void:
 	if is_instance_valid(EnvironmentManager.home_node):
 		hints = EnvironmentManager.reveal_hints(hints)
 
+func _on_immobilized(_state:bool):
+	if _state:
+		isImmobilized = true
+		moveSpeedCache = movement_component.movement_definition.walk_speed
+		movement_component.movement_definition.walk_speed = 0
+	else:
+		isImmobilized = false
+		movement_component.movement_definition.walk_speed = moveSpeedCache
+
 func _on_nav_agent_velocity_computed(safe_velocity: Vector2) -> void:
 	pass # Replace with function body.
+
 func _on_detection_range_entered(body: Node2D) -> void:
 	if body is PlayerActor:
 		state_machine.change_state(state_machine.stateTable[state_machine.State.PURSUING])

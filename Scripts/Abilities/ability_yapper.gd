@@ -2,7 +2,7 @@ extends NPCAbility
 class_name AbilityYapper
 
 @export var distraction_radius: float = 300.0
-@export var distraction_duration: float = 5.0
+@export var distraction_duration: float = 10.0
 @export var hint_bonus_confidence: float = 0.3
 
 var _distraction_timer: float = 0.0
@@ -19,12 +19,15 @@ func _on_activate(_world: World) -> void:
 
 	print("[AbilityYapper] Distraksi aktif di ", _distraction_position)
 
+func _on_use() -> void:
+	_target._on_immobilized(true)
 
 func _on_update(delta: float) -> void:
 	if _is_using:
-		_target.velocity = Vector2.ZERO
+		#_target.velocity = Vector2.ZERO
 		_distraction_timer -= delta
 		if _distraction_timer <= 0.0:
+			_target._on_immobilized(false)
 			deactivate()
 
 func _on_deactivate() -> void:

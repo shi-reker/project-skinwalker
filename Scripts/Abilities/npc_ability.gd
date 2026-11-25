@@ -56,6 +56,9 @@ func _on_deactivate() -> void:
 func _on_update(_delta: float) -> void:
 	pass
 
+func _on_use() -> void:
+	pass
+
 # --- Helper untuk subclass ---
 
 func _start_cooldown() -> void:

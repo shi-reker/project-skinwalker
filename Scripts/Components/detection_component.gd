@@ -21,6 +21,7 @@ var current_visible_player: PlayerActor
 
 signal detected(nodes: Array[CharacterBody2D])
 signal player_detected(player: PlayerActor)
+signal stalker_detected(stalker: StalkerActor)
 
 func _ready() -> void:
 	_update_detect_shape()
@@ -69,6 +70,10 @@ func _on_body_entered(body: Node2D) -> void:
 	var character_body := body as CharacterBody2D
 	if character_body != null and not detected_nodes.has(character_body):
 		detected_nodes.append(character_body)
+	for node in detected_nodes:
+		if node is StalkerActor:
+			stalker_detected.emit(node)
+			break
 
 func _on_body_exited(body: Node2D) -> void:
 	detected_nodes.erase(body)

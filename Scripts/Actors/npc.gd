@@ -6,6 +6,7 @@ signal ability_used(npc: NPCActor, ability: NPCAbility)
 
 @export var npc_definition: NPCDefinition
 
+@onready var detection_component: DetectionComponent = $Components/DetectionComponent
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 @onready var dialogue_component: DialogueComponent = $Components/DialogueComponent
 @onready var follow_component: FollowComponent = $Components/FollowComponent
@@ -23,6 +24,7 @@ func _ready() -> void:
 	interactable.interact = func(): interact_with_player()
 	
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
+	detection_component.stalker_detected.connect(_on_detected)
 
 	if npc_definition != null and npc_definition.ability != null:
 		npc_definition.ability = npc_definition.ability.duplicate(true)
@@ -108,6 +110,9 @@ func _on_dialogue_finished() -> void:
 	recruit()
 
 func _on_detected(stalker: StalkerActor) -> void:
+	#print_debug("[NPC] detected")
 	if is_instance_valid(stalker) and npc_definition.ability.is_active():
+		#print_debug("[NPC] stalker detected")
 		npc_definition.ability._is_using = true
 		npc_definition.ability._target = stalker
+		npc_definition.ability._on_use()
