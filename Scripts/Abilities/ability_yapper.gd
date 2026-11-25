@@ -3,7 +3,6 @@ class_name AbilityYapper
 
 @export var distraction_radius: float = 300.0
 @export var distraction_duration: float = 10.0
-@export var hint_bonus_confidence: float = 0.3
 
 var _distraction_timer: float = 0.0
 var _distraction_position: Vector2

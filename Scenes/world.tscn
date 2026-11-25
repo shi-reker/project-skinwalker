@@ -88,6 +88,7 @@ connected_street = [NodePath("../street3")]
 position = Vector2(173, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1213216834]
+zoom = Vector2(2.5, 2.5)
 script = ExtResource("2_fo5ed")
 mode = 1
 

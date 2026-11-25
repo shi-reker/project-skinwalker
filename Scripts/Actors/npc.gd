@@ -106,8 +106,8 @@ func _on_recruit_by_choice():
 		recruit()
 
 func _on_dialogue_finished() -> void:
-	#if not is_recruited and can_recruit_now():
-	recruit()
+	if not is_recruited and can_recruit_now():
+		recruit()
 
 func _on_detected(stalker: StalkerActor) -> void:
 	#print_debug("[NPC] detected")
