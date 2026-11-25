@@ -9,6 +9,7 @@ func setup(dialogue_box_node: DialogueBox):
 
 func begin_session(component: DialogueComponent) -> void:
 	_active_component = component
+	dialogue_box.pressed.connect(component.advance_dialogue)
 
 func end_session(component: DialogueComponent) -> void:
 	if _active_component == component:

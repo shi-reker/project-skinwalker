@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://c3qsmrhowax0k"]
 
 [ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="1_script"]
-[ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Scripts/Resources/NPC/yapper_dialogue.tres" id="2_dialog"]
+[ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Resources/NPCs/yapper_dialogue.tres" id="2_dialog"]
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="2_nyknu"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="3_rclju"]
 [ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="3_tex"]
@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_script")
+id = 2
 display_name = "Yapper"
 dialogue_definition = ExtResource("2_dialog")
 texture = ExtResource("3_tex")
