@@ -1,0 +1,48 @@
+[gd_resource type="TileSet" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="../tiles/1x/town-halloween-street-night-lite.png" id="1_town_halloween_street_night_lite"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_town_halloween_street_night_lite"]
+resource_name = "town-halloween-street-night-lite"
+texture = ExtResource("1_town_halloween_street_night_lite")
+0:0/0 = 0
+0:0/0/custom_data_0 = "asphalt-1"
+1:0/0 = 0
+1:0/0/custom_data_0 = "asphalt-2"
+2:0/0 = 0
+2:0/0/custom_data_0 = "asphalt-manhole"
+3:0/0 = 0
+3:0/0/custom_data_0 = "asphalt-drain"
+4:0/0 = 0
+4:0/0/custom_data_0 = "asphalt-line-ew"
+5:0/0 = 0
+5:0/0/custom_data_0 = "asphalt-crosswalk-ew"
+6:0/0 = 0
+6:0/0/custom_data_0 = "sidewalk-1"
+7:0/0 = 0
+7:0/0/custom_data_0 = "sidewalk-ramp-n"
+0:1/0 = 0
+0:1/0/custom_data_0 = "sidewalk-ramp-s"
+1:1/0 = 0
+1:1/0/custom_data_0 = "grass-1"
+2:1/0 = 0
+2:1/0/custom_data_0 = "grass-2"
+3:1/0 = 0
+3:1/0/custom_data_0 = "grass-3"
+4:1/0 = 0
+4:1/0/custom_data_0 = "grass-flowers-2"
+5:1/0 = 0
+5:1/0/custom_data_0 = "grass-flowers-3"
+6:1/0 = 0
+6:1/0/custom_data_0 = "sidewalk-asphalt-e-se-s-sw-w"
+7:1/0 = 0
+7:1/0/custom_data_0 = "sidewalk-asphalt-n-ne-e-w-nw"
+0:2/0 = 0
+0:2/0/custom_data_0 = "grass-sidewalk-e-se-s-sw-w"
+1:2/0 = 0
+1:2/0/custom_data_0 = "grass-sidewalk-n-ne-e-w-nw"
+
+[resource]
+custom_data_layer_0/name = "name"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_town_halloween_street_night_lite")

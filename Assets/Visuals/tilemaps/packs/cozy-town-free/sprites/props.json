@@ -1,0 +1,65 @@
+{
+ "props": {
+  "lights": [
+   "lamppost-classic-on",
+   "lamppost-classic-off"
+  ],
+  "seating": [
+   "bench-wood-down",
+   "bench-wood-up",
+   "bench-wood-left",
+   "bench-wood-right"
+  ],
+  "terrace": [
+   "patio-umbrella-red",
+   "patio-umbrella-mint",
+   "terrace-table",
+   "terrace-chair-left",
+   "terrace-chair-right"
+  ],
+  "awnings": [
+   "awning-mint"
+  ],
+  "street": [
+   "mailbox-blue",
+   "trash-can-iron",
+   "trash-can-park",
+   "fire-hydrant-red",
+   "bollard-iron",
+   "bike-rack"
+  ],
+  "vehicles": [
+   "bicycle-red",
+   "bicycle-mint"
+  ],
+  "signs": [
+   "bus-stop",
+   "traffic-light-red",
+   "traffic-light-yellow",
+   "traffic-light-green",
+   "sign-stop",
+   "sign-crosswalk"
+  ],
+  "planters": [
+   "planter-box-red",
+   "planter-box-pink",
+   "flower-pot-red",
+   "round-planter"
+  ],
+  "plants": [
+   "hedge"
+  ],
+  "misc": [
+   "wooden-crate",
+   "crate-stack",
+   "sidewalk-sign-cup",
+   "sidewalk-sign-bread",
+   "sidewalk-sign-flower",
+   "hanging-sign-cup",
+   "hanging-sign-bread",
+   "hanging-sign-flower",
+   "flower-buckets"
+  ]
+ },
+ "note": "Lamps come in -on and -off pairs with the same silhouette. fountain-strip.png holds the 3 water frames (48x48 each, ~6 fps). Props sit on the bottom edge of a canvas sized in whole tiles."
+}

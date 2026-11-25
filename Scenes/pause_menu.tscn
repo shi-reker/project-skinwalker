@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccory64uumym1"]
 
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_1och7"]
-[ext_resource type="Theme" path="res://Assets/UI/pause_button_theme.tres" id="2_k0w1u"]
+[ext_resource type="Script" uid="uid://davervbdpxjdy" path="res://Scripts/Menus/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="Theme" uid="uid://c3lmp4q05ajph" path="res://Assets/UI/pause_button_theme.tres" id="2_k0w1u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k0w1u"]
 load_path = "res://.godot/imported/room background.png-34d4a6b0cd9cce154799e5b6a5eaf4f9.ctex"
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1och7")
+script = ExtResource("1_k0w1u")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1982182866]
 visible = false

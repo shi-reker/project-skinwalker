@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ktr6fllcvidg" path="res://Assets/Visuals/tilemaps/City tileset edited.png" id="1_pa1ib"]
 [ext_resource type="Texture2D" uid="uid://bppy34rbcbigv" path="res://Assets/Visuals/tilemaps/Cemetery Tile map.png" id="2_b661q"]
 [ext_resource type="Texture2D" uid="uid://daa2yqfwd20r6" path="res://Assets/Visuals/tilemaps/City Prop Tileset update 2.png" id="4_calrm"]
+[ext_resource type="Texture2D" uid="uid://bd3ry4k2lgq2u" path="res://Assets/Visuals/tilemaps/galletcity_tiles.png" id="5_r6eu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xn2al"]
 texture = ExtResource("1_h8di2")
@@ -2198,6 +2199,15 @@ texture = ExtResource("1_pa1ib")
 23:30/size_in_atlas = Vector2i(1, 2)
 23:30/0 = 0
 23:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 12, -4, 8, 4, 8, 4, 12, 0, 16)
+0:8/0 = 0
+0:7/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1b5dx"]
 texture = ExtResource("4_calrm")
@@ -2894,6 +2904,49 @@ texture = ExtResource("4_calrm")
 14:16/0/texture_origin = Vector2i(-24, 24)
 14:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -12, 56, -12, 56, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8di2"]
+texture = ExtResource("5_r6eu6")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
@@ -2939,3 +2992,4 @@ sources/2 = SubResource("TileSetAtlasSource_afko2")
 sources/0 = SubResource("TileSetAtlasSource_xn2al")
 sources/1 = SubResource("TileSetAtlasSource_f1bjp")
 sources/3 = SubResource("TileSetAtlasSource_1b5dx")
+sources/4 = SubResource("TileSetAtlasSource_h8di2")

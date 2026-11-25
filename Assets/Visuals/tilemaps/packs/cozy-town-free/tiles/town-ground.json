@@ -1,0 +1,2547 @@
+{
+ "tile_size": 16,
+ "columns": 16,
+ "mask_bits": {
+  "n": 1,
+  "ne": 2,
+  "e": 4,
+  "se": 8,
+  "s": 16,
+  "sw": 32,
+  "w": 64,
+  "nw": 128
+ },
+ "note": "47-piece blob autotiles: same_neighbors lists the 8 neighbors of the same class (a diagonal only counts when both of its sides do). Planters match the 4 sides only.",
+ "tiles": [
+  {
+   "index": 0,
+   "name": "asphalt-1",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "index": 1,
+   "name": "asphalt-2",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "index": 2,
+   "name": "asphalt-patch",
+   "col": 2,
+   "row": 0
+  },
+  {
+   "index": 3,
+   "name": "asphalt-crack",
+   "col": 3,
+   "row": 0
+  },
+  {
+   "index": 4,
+   "name": "asphalt-manhole",
+   "col": 4,
+   "row": 0
+  },
+  {
+   "index": 5,
+   "name": "asphalt-drain",
+   "col": 5,
+   "row": 0
+  },
+  {
+   "index": 6,
+   "name": "asphalt-puddle",
+   "col": 6,
+   "row": 0
+  },
+  {
+   "index": 7,
+   "name": "asphalt-leaves",
+   "col": 7,
+   "row": 0
+  },
+  {
+   "index": 8,
+   "name": "asphalt-line-ew",
+   "col": 8,
+   "row": 0
+  },
+  {
+   "index": 9,
+   "name": "asphalt-line-ns",
+   "col": 9,
+   "row": 0
+  },
+  {
+   "index": 10,
+   "name": "asphalt-crosswalk-ew",
+   "col": 10,
+   "row": 0
+  },
+  {
+   "index": 11,
+   "name": "asphalt-crosswalk-ns",
+   "col": 11,
+   "row": 0
+  },
+  {
+   "index": 12,
+   "name": "asphalt-edge-n",
+   "col": 12,
+   "row": 0
+  },
+  {
+   "index": 13,
+   "name": "asphalt-edge-e",
+   "col": 13,
+   "row": 0
+  },
+  {
+   "index": 14,
+   "name": "asphalt-edge-s",
+   "col": 14,
+   "row": 0
+  },
+  {
+   "index": 15,
+   "name": "asphalt-edge-w",
+   "col": 15,
+   "row": 0
+  },
+  {
+   "index": 16,
+   "name": "cobble-1",
+   "col": 0,
+   "row": 1
+  },
+  {
+   "index": 17,
+   "name": "cobble-2",
+   "col": 1,
+   "row": 1
+  },
+  {
+   "index": 18,
+   "name": "cobble-moss",
+   "col": 2,
+   "row": 1
+  },
+  {
+   "index": 19,
+   "name": "cobble-manhole",
+   "col": 3,
+   "row": 1
+  },
+  {
+   "index": 20,
+   "name": "cobble-drain",
+   "col": 4,
+   "row": 1
+  },
+  {
+   "index": 21,
+   "name": "cobble-puddle",
+   "col": 5,
+   "row": 1
+  },
+  {
+   "index": 22,
+   "name": "cobble-leaves",
+   "col": 6,
+   "row": 1
+  },
+  {
+   "index": 23,
+   "name": "cobble-crosswalk-ew",
+   "col": 7,
+   "row": 1
+  },
+  {
+   "index": 24,
+   "name": "cobble-crosswalk-ns",
+   "col": 8,
+   "row": 1
+  },
+  {
+   "index": 25,
+   "name": "brick-1",
+   "col": 9,
+   "row": 1
+  },
+  {
+   "index": 26,
+   "name": "brick-2",
+   "col": 10,
+   "row": 1
+  },
+  {
+   "index": 27,
+   "name": "brick-worn",
+   "col": 11,
+   "row": 1
+  },
+  {
+   "index": 28,
+   "name": "planter-e-s",
+   "col": 12,
+   "row": 1,
+   "autotile": "planter",
+   "same_neighbors": [
+    "e",
+    "s"
+   ]
+  },
+  {
+   "index": 29,
+   "name": "planter-w-e-s",
+   "col": 13,
+   "row": 1,
+   "autotile": "planter",
+   "same_neighbors": [
+    "w",
+    "e",
+    "s"
+   ]
+  },
+  {
+   "index": 30,
+   "name": "planter-w-s",
+   "col": 14,
+   "row": 1,
+   "autotile": "planter",
+   "same_neighbors": [
+    "w",
+    "s"
+   ]
+  },
+  {
+   "index": 31,
+   "name": "planter-s",
+   "col": 15,
+   "row": 1,
+   "autotile": "planter",
+   "same_neighbors": [
+    "s"
+   ]
+  },
+  {
+   "index": 32,
+   "name": "sidewalk-1",
+   "col": 0,
+   "row": 2
+  },
+  {
+   "index": 33,
+   "name": "sidewalk-cracked",
+   "col": 1,
+   "row": 2
+  },
+  {
+   "index": 34,
+   "name": "sidewalk-new-slab",
+   "col": 2,
+   "row": 2
+  },
+  {
+   "index": 35,
+   "name": "sidewalk-leaves",
+   "col": 3,
+   "row": 2
+  },
+  {
+   "index": 36,
+   "name": "sidewalk-puddle",
+   "col": 4,
+   "row": 2
+  },
+  {
+   "index": 37,
+   "name": "sidewalk-hatch",
+   "col": 5,
+   "row": 2
+  },
+  {
+   "index": 38,
+   "name": "sidewalk-tactile",
+   "col": 6,
+   "row": 2
+  },
+  {
+   "index": 39,
+   "name": "sidewalk-ramp-n",
+   "col": 7,
+   "row": 2
+  },
+  {
+   "index": 40,
+   "name": "sidewalk-ramp-e",
+   "col": 8,
+   "row": 2
+  },
+  {
+   "index": 41,
+   "name": "sidewalk-ramp-s",
+   "col": 9,
+   "row": 2
+  },
+  {
+   "index": 42,
+   "name": "sidewalk-ramp-w",
+   "col": 10,
+   "row": 2
+  },
+  {
+   "index": 43,
+   "name": "brick-drain",
+   "col": 11,
+   "row": 2
+  },
+  {
+   "index": 44,
+   "name": "planter-n-e-s",
+   "col": 12,
+   "row": 2,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s"
+   ]
+  },
+  {
+   "index": 45,
+   "name": "planter-n-e-s-w",
+   "col": 13,
+   "row": 2,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w"
+   ]
+  },
+  {
+   "index": 46,
+   "name": "planter-n-w-s",
+   "col": 14,
+   "row": 2,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "w",
+    "s"
+   ]
+  },
+  {
+   "index": 47,
+   "name": "planter-n-s",
+   "col": 15,
+   "row": 2,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "s"
+   ]
+  },
+  {
+   "index": 48,
+   "name": "grass-1",
+   "col": 0,
+   "row": 3
+  },
+  {
+   "index": 49,
+   "name": "grass-2",
+   "col": 1,
+   "row": 3
+  },
+  {
+   "index": 50,
+   "name": "grass-3",
+   "col": 2,
+   "row": 3
+  },
+  {
+   "index": 51,
+   "name": "grass-flowers-1",
+   "col": 3,
+   "row": 3
+  },
+  {
+   "index": 52,
+   "name": "grass-flowers-2",
+   "col": 4,
+   "row": 3
+  },
+  {
+   "index": 53,
+   "name": "grass-flowers-3",
+   "col": 5,
+   "row": 3
+  },
+  {
+   "index": 54,
+   "name": "grass-clover",
+   "col": 6,
+   "row": 3
+  },
+  {
+   "index": 55,
+   "name": "grass-leaves",
+   "col": 7,
+   "row": 3
+  },
+  {
+   "index": 56,
+   "name": "tree-pit",
+   "col": 8,
+   "row": 3
+  },
+  {
+   "index": 57,
+   "name": "tree-pit-grate",
+   "col": 9,
+   "row": 3
+  },
+  {
+   "index": 58,
+   "name": "plaza-rose-nw",
+   "col": 10,
+   "row": 3
+  },
+  {
+   "index": 59,
+   "name": "plaza-rose-ne",
+   "col": 11,
+   "row": 3
+  },
+  {
+   "index": 60,
+   "name": "planter-n-e",
+   "col": 12,
+   "row": 3,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "e"
+   ]
+  },
+  {
+   "index": 61,
+   "name": "planter-n-w-e",
+   "col": 13,
+   "row": 3,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "w",
+    "e"
+   ]
+  },
+  {
+   "index": 62,
+   "name": "planter-n-w",
+   "col": 14,
+   "row": 3,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n",
+    "w"
+   ]
+  },
+  {
+   "index": 63,
+   "name": "planter-n",
+   "col": 15,
+   "row": 3,
+   "autotile": "planter",
+   "same_neighbors": [
+    "n"
+   ]
+  },
+  {
+   "index": 64,
+   "name": "plaza-1",
+   "col": 0,
+   "row": 4
+  },
+  {
+   "index": 65,
+   "name": "plaza-2",
+   "col": 1,
+   "row": 4
+  },
+  {
+   "index": 66,
+   "name": "plaza-3",
+   "col": 2,
+   "row": 4
+  },
+  {
+   "index": 67,
+   "name": "plaza-leaves",
+   "col": 3,
+   "row": 4
+  },
+  {
+   "index": 68,
+   "name": "plaza-band-ew",
+   "col": 4,
+   "row": 4
+  },
+  {
+   "index": 69,
+   "name": "plaza-band-ns",
+   "col": 5,
+   "row": 4
+  },
+  {
+   "index": 70,
+   "name": "plaza-band-cross",
+   "col": 6,
+   "row": 4
+  },
+  {
+   "index": 71,
+   "name": "plaza-drain",
+   "col": 7,
+   "row": 4
+  },
+  {
+   "index": 72,
+   "name": "plaza-star",
+   "col": 8,
+   "row": 4
+  },
+  {
+   "index": 73,
+   "name": "tree-pit-grass",
+   "col": 9,
+   "row": 4
+  },
+  {
+   "index": 74,
+   "name": "plaza-rose-sw",
+   "col": 10,
+   "row": 4
+  },
+  {
+   "index": 75,
+   "name": "plaza-rose-se",
+   "col": 11,
+   "row": 4
+  },
+  {
+   "index": 76,
+   "name": "planter-e",
+   "col": 12,
+   "row": 4,
+   "autotile": "planter",
+   "same_neighbors": [
+    "e"
+   ]
+  },
+  {
+   "index": 77,
+   "name": "planter-w-e",
+   "col": 13,
+   "row": 4,
+   "autotile": "planter",
+   "same_neighbors": [
+    "w",
+    "e"
+   ]
+  },
+  {
+   "index": 78,
+   "name": "planter-w",
+   "col": 14,
+   "row": 4,
+   "autotile": "planter",
+   "same_neighbors": [
+    "w"
+   ]
+  },
+  {
+   "index": 79,
+   "name": "planter-single",
+   "col": 15,
+   "row": 4,
+   "autotile": "planter",
+   "same_neighbors": []
+  },
+  {
+   "index": 80,
+   "name": "sidewalk-asphalt-e-se-s",
+   "col": 0,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 28
+  },
+  {
+   "index": 81,
+   "name": "sidewalk-asphalt-e-se-s-sw-w",
+   "col": 1,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 124
+  },
+  {
+   "index": 82,
+   "name": "sidewalk-asphalt-s-sw-w",
+   "col": 2,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 112
+  },
+  {
+   "index": 83,
+   "name": "sidewalk-asphalt-n-ne-e-se-s",
+   "col": 3,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 31
+  },
+  {
+   "index": 84,
+   "name": "sidewalk-asphalt-n-ne-e-se-s-sw-w-nw",
+   "col": 4,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 255
+  },
+  {
+   "index": 85,
+   "name": "sidewalk-asphalt-n-s-sw-w-nw",
+   "col": 5,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 241
+  },
+  {
+   "index": 86,
+   "name": "sidewalk-asphalt-n-ne-e",
+   "col": 6,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e"
+   ],
+   "mask_bits": 7
+  },
+  {
+   "index": 87,
+   "name": "sidewalk-asphalt-n-ne-e-w-nw",
+   "col": 7,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 199
+  },
+  {
+   "index": 88,
+   "name": "sidewalk-asphalt-n-w-nw",
+   "col": 8,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 193
+  },
+  {
+   "index": 89,
+   "name": "sidewalk-asphalt-e",
+   "col": 9,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e"
+   ],
+   "mask_bits": 4
+  },
+  {
+   "index": 90,
+   "name": "sidewalk-asphalt-e-w",
+   "col": 10,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "w"
+   ],
+   "mask_bits": 68
+  },
+  {
+   "index": 91,
+   "name": "sidewalk-asphalt-w",
+   "col": 11,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "w"
+   ],
+   "mask_bits": 64
+  },
+  {
+   "index": 92,
+   "name": "sidewalk-asphalt-s",
+   "col": 12,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "s"
+   ],
+   "mask_bits": 16
+  },
+  {
+   "index": 93,
+   "name": "sidewalk-asphalt-n-s",
+   "col": 13,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "s"
+   ],
+   "mask_bits": 17
+  },
+  {
+   "index": 94,
+   "name": "sidewalk-asphalt-n",
+   "col": 14,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n"
+   ],
+   "mask_bits": 1
+  },
+  {
+   "index": 95,
+   "name": "sidewalk-asphalt-none",
+   "col": 15,
+   "row": 5,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [],
+   "mask_bits": 0
+  },
+  {
+   "index": 96,
+   "name": "sidewalk-asphalt-n-ne-e-se-s-sw-w",
+   "col": 0,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 127
+  },
+  {
+   "index": 97,
+   "name": "sidewalk-asphalt-n-e-se-s-sw-w-nw",
+   "col": 1,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 253
+  },
+  {
+   "index": 98,
+   "name": "sidewalk-asphalt-n-ne-e-se-s-w-nw",
+   "col": 2,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 223
+  },
+  {
+   "index": 99,
+   "name": "sidewalk-asphalt-n-ne-e-s-sw-w-nw",
+   "col": 3,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 247
+  },
+  {
+   "index": 100,
+   "name": "sidewalk-asphalt-n-e-se-s-sw-w",
+   "col": 4,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 125
+  },
+  {
+   "index": 101,
+   "name": "sidewalk-asphalt-n-ne-e-s-w-nw",
+   "col": 5,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 215
+  },
+  {
+   "index": 102,
+   "name": "sidewalk-asphalt-n-ne-e-se-s-w",
+   "col": 6,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 95
+  },
+  {
+   "index": 103,
+   "name": "sidewalk-asphalt-n-e-s-sw-w-nw",
+   "col": 7,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 245
+  },
+  {
+   "index": 104,
+   "name": "sidewalk-asphalt-n-ne-e-s-sw-w",
+   "col": 8,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 119
+  },
+  {
+   "index": 105,
+   "name": "sidewalk-asphalt-n-e-se-s-w-nw",
+   "col": 9,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 221
+  },
+  {
+   "index": 106,
+   "name": "sidewalk-asphalt-n-e-se-s-w",
+   "col": 10,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 93
+  },
+  {
+   "index": 107,
+   "name": "sidewalk-asphalt-n-e-s-sw-w",
+   "col": 11,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 117
+  },
+  {
+   "index": 108,
+   "name": "sidewalk-asphalt-n-ne-e-s-w",
+   "col": 12,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 87
+  },
+  {
+   "index": 109,
+   "name": "sidewalk-asphalt-n-e-s-w-nw",
+   "col": 13,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 213
+  },
+  {
+   "index": 110,
+   "name": "sidewalk-asphalt-n-e-s-w",
+   "col": 14,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 85
+  },
+  {
+   "index": 111,
+   "name": "sidewalk-asphalt-e-se-s-w",
+   "col": 15,
+   "row": 6,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 92
+  },
+  {
+   "index": 112,
+   "name": "sidewalk-asphalt-e-s-sw-w",
+   "col": 0,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 116
+  },
+  {
+   "index": 113,
+   "name": "sidewalk-asphalt-e-s-w",
+   "col": 1,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 84
+  },
+  {
+   "index": 114,
+   "name": "sidewalk-asphalt-n-ne-e-w",
+   "col": 2,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w"
+   ],
+   "mask_bits": 71
+  },
+  {
+   "index": 115,
+   "name": "sidewalk-asphalt-n-e-w-nw",
+   "col": 3,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 197
+  },
+  {
+   "index": 116,
+   "name": "sidewalk-asphalt-n-e-w",
+   "col": 4,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w"
+   ],
+   "mask_bits": 69
+  },
+  {
+   "index": 117,
+   "name": "sidewalk-asphalt-n-e-se-s",
+   "col": 5,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 29
+  },
+  {
+   "index": 118,
+   "name": "sidewalk-asphalt-n-ne-e-s",
+   "col": 6,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s"
+   ],
+   "mask_bits": 23
+  },
+  {
+   "index": 119,
+   "name": "sidewalk-asphalt-n-e-s",
+   "col": 7,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s"
+   ],
+   "mask_bits": 21
+  },
+  {
+   "index": 120,
+   "name": "sidewalk-asphalt-n-s-sw-w",
+   "col": 8,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 113
+  },
+  {
+   "index": 121,
+   "name": "sidewalk-asphalt-n-s-w-nw",
+   "col": 9,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 209
+  },
+  {
+   "index": 122,
+   "name": "sidewalk-asphalt-n-s-w",
+   "col": 10,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w"
+   ],
+   "mask_bits": 81
+  },
+  {
+   "index": 123,
+   "name": "sidewalk-asphalt-e-s",
+   "col": 11,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "e",
+    "s"
+   ],
+   "mask_bits": 20
+  },
+  {
+   "index": 124,
+   "name": "sidewalk-asphalt-s-w",
+   "col": 12,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "s",
+    "w"
+   ],
+   "mask_bits": 80
+  },
+  {
+   "index": 125,
+   "name": "sidewalk-asphalt-n-e",
+   "col": 13,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "e"
+   ],
+   "mask_bits": 5
+  },
+  {
+   "index": 126,
+   "name": "sidewalk-asphalt-n-w",
+   "col": 14,
+   "row": 7,
+   "autotile": "sidewalk-asphalt",
+   "same_neighbors": [
+    "n",
+    "w"
+   ],
+   "mask_bits": 65
+  },
+  {
+   "index": 128,
+   "name": "sidewalk-cobble-e-se-s",
+   "col": 0,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 28
+  },
+  {
+   "index": 129,
+   "name": "sidewalk-cobble-e-se-s-sw-w",
+   "col": 1,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 124
+  },
+  {
+   "index": 130,
+   "name": "sidewalk-cobble-s-sw-w",
+   "col": 2,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 112
+  },
+  {
+   "index": 131,
+   "name": "sidewalk-cobble-n-ne-e-se-s",
+   "col": 3,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 31
+  },
+  {
+   "index": 132,
+   "name": "sidewalk-cobble-n-ne-e-se-s-sw-w-nw",
+   "col": 4,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 255
+  },
+  {
+   "index": 133,
+   "name": "sidewalk-cobble-n-s-sw-w-nw",
+   "col": 5,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 241
+  },
+  {
+   "index": 134,
+   "name": "sidewalk-cobble-n-ne-e",
+   "col": 6,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e"
+   ],
+   "mask_bits": 7
+  },
+  {
+   "index": 135,
+   "name": "sidewalk-cobble-n-ne-e-w-nw",
+   "col": 7,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 199
+  },
+  {
+   "index": 136,
+   "name": "sidewalk-cobble-n-w-nw",
+   "col": 8,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 193
+  },
+  {
+   "index": 137,
+   "name": "sidewalk-cobble-e",
+   "col": 9,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e"
+   ],
+   "mask_bits": 4
+  },
+  {
+   "index": 138,
+   "name": "sidewalk-cobble-e-w",
+   "col": 10,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "w"
+   ],
+   "mask_bits": 68
+  },
+  {
+   "index": 139,
+   "name": "sidewalk-cobble-w",
+   "col": 11,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "w"
+   ],
+   "mask_bits": 64
+  },
+  {
+   "index": 140,
+   "name": "sidewalk-cobble-s",
+   "col": 12,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "s"
+   ],
+   "mask_bits": 16
+  },
+  {
+   "index": 141,
+   "name": "sidewalk-cobble-n-s",
+   "col": 13,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "s"
+   ],
+   "mask_bits": 17
+  },
+  {
+   "index": 142,
+   "name": "sidewalk-cobble-n",
+   "col": 14,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n"
+   ],
+   "mask_bits": 1
+  },
+  {
+   "index": 143,
+   "name": "sidewalk-cobble-none",
+   "col": 15,
+   "row": 8,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [],
+   "mask_bits": 0
+  },
+  {
+   "index": 144,
+   "name": "sidewalk-cobble-n-ne-e-se-s-sw-w",
+   "col": 0,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 127
+  },
+  {
+   "index": 145,
+   "name": "sidewalk-cobble-n-e-se-s-sw-w-nw",
+   "col": 1,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 253
+  },
+  {
+   "index": 146,
+   "name": "sidewalk-cobble-n-ne-e-se-s-w-nw",
+   "col": 2,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 223
+  },
+  {
+   "index": 147,
+   "name": "sidewalk-cobble-n-ne-e-s-sw-w-nw",
+   "col": 3,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 247
+  },
+  {
+   "index": 148,
+   "name": "sidewalk-cobble-n-e-se-s-sw-w",
+   "col": 4,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 125
+  },
+  {
+   "index": 149,
+   "name": "sidewalk-cobble-n-ne-e-s-w-nw",
+   "col": 5,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 215
+  },
+  {
+   "index": 150,
+   "name": "sidewalk-cobble-n-ne-e-se-s-w",
+   "col": 6,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 95
+  },
+  {
+   "index": 151,
+   "name": "sidewalk-cobble-n-e-s-sw-w-nw",
+   "col": 7,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 245
+  },
+  {
+   "index": 152,
+   "name": "sidewalk-cobble-n-ne-e-s-sw-w",
+   "col": 8,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 119
+  },
+  {
+   "index": 153,
+   "name": "sidewalk-cobble-n-e-se-s-w-nw",
+   "col": 9,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 221
+  },
+  {
+   "index": 154,
+   "name": "sidewalk-cobble-n-e-se-s-w",
+   "col": 10,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 93
+  },
+  {
+   "index": 155,
+   "name": "sidewalk-cobble-n-e-s-sw-w",
+   "col": 11,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 117
+  },
+  {
+   "index": 156,
+   "name": "sidewalk-cobble-n-ne-e-s-w",
+   "col": 12,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 87
+  },
+  {
+   "index": 157,
+   "name": "sidewalk-cobble-n-e-s-w-nw",
+   "col": 13,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 213
+  },
+  {
+   "index": 158,
+   "name": "sidewalk-cobble-n-e-s-w",
+   "col": 14,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 85
+  },
+  {
+   "index": 159,
+   "name": "sidewalk-cobble-e-se-s-w",
+   "col": 15,
+   "row": 9,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 92
+  },
+  {
+   "index": 160,
+   "name": "sidewalk-cobble-e-s-sw-w",
+   "col": 0,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 116
+  },
+  {
+   "index": 161,
+   "name": "sidewalk-cobble-e-s-w",
+   "col": 1,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 84
+  },
+  {
+   "index": 162,
+   "name": "sidewalk-cobble-n-ne-e-w",
+   "col": 2,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w"
+   ],
+   "mask_bits": 71
+  },
+  {
+   "index": 163,
+   "name": "sidewalk-cobble-n-e-w-nw",
+   "col": 3,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 197
+  },
+  {
+   "index": 164,
+   "name": "sidewalk-cobble-n-e-w",
+   "col": 4,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w"
+   ],
+   "mask_bits": 69
+  },
+  {
+   "index": 165,
+   "name": "sidewalk-cobble-n-e-se-s",
+   "col": 5,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 29
+  },
+  {
+   "index": 166,
+   "name": "sidewalk-cobble-n-ne-e-s",
+   "col": 6,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s"
+   ],
+   "mask_bits": 23
+  },
+  {
+   "index": 167,
+   "name": "sidewalk-cobble-n-e-s",
+   "col": 7,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s"
+   ],
+   "mask_bits": 21
+  },
+  {
+   "index": 168,
+   "name": "sidewalk-cobble-n-s-sw-w",
+   "col": 8,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 113
+  },
+  {
+   "index": 169,
+   "name": "sidewalk-cobble-n-s-w-nw",
+   "col": 9,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 209
+  },
+  {
+   "index": 170,
+   "name": "sidewalk-cobble-n-s-w",
+   "col": 10,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w"
+   ],
+   "mask_bits": 81
+  },
+  {
+   "index": 171,
+   "name": "sidewalk-cobble-e-s",
+   "col": 11,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "e",
+    "s"
+   ],
+   "mask_bits": 20
+  },
+  {
+   "index": 172,
+   "name": "sidewalk-cobble-s-w",
+   "col": 12,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "s",
+    "w"
+   ],
+   "mask_bits": 80
+  },
+  {
+   "index": 173,
+   "name": "sidewalk-cobble-n-e",
+   "col": 13,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "e"
+   ],
+   "mask_bits": 5
+  },
+  {
+   "index": 174,
+   "name": "sidewalk-cobble-n-w",
+   "col": 14,
+   "row": 10,
+   "autotile": "sidewalk-cobble",
+   "same_neighbors": [
+    "n",
+    "w"
+   ],
+   "mask_bits": 65
+  },
+  {
+   "index": 176,
+   "name": "grass-sidewalk-e-se-s",
+   "col": 0,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 28
+  },
+  {
+   "index": 177,
+   "name": "grass-sidewalk-e-se-s-sw-w",
+   "col": 1,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 124
+  },
+  {
+   "index": 178,
+   "name": "grass-sidewalk-s-sw-w",
+   "col": 2,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 112
+  },
+  {
+   "index": 179,
+   "name": "grass-sidewalk-n-ne-e-se-s",
+   "col": 3,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 31
+  },
+  {
+   "index": 180,
+   "name": "grass-sidewalk-n-ne-e-se-s-sw-w-nw",
+   "col": 4,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 255
+  },
+  {
+   "index": 181,
+   "name": "grass-sidewalk-n-s-sw-w-nw",
+   "col": 5,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 241
+  },
+  {
+   "index": 182,
+   "name": "grass-sidewalk-n-ne-e",
+   "col": 6,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e"
+   ],
+   "mask_bits": 7
+  },
+  {
+   "index": 183,
+   "name": "grass-sidewalk-n-ne-e-w-nw",
+   "col": 7,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 199
+  },
+  {
+   "index": 184,
+   "name": "grass-sidewalk-n-w-nw",
+   "col": 8,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 193
+  },
+  {
+   "index": 185,
+   "name": "grass-sidewalk-e",
+   "col": 9,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e"
+   ],
+   "mask_bits": 4
+  },
+  {
+   "index": 186,
+   "name": "grass-sidewalk-e-w",
+   "col": 10,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "w"
+   ],
+   "mask_bits": 68
+  },
+  {
+   "index": 187,
+   "name": "grass-sidewalk-w",
+   "col": 11,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "w"
+   ],
+   "mask_bits": 64
+  },
+  {
+   "index": 188,
+   "name": "grass-sidewalk-s",
+   "col": 12,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "s"
+   ],
+   "mask_bits": 16
+  },
+  {
+   "index": 189,
+   "name": "grass-sidewalk-n-s",
+   "col": 13,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "s"
+   ],
+   "mask_bits": 17
+  },
+  {
+   "index": 190,
+   "name": "grass-sidewalk-n",
+   "col": 14,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n"
+   ],
+   "mask_bits": 1
+  },
+  {
+   "index": 191,
+   "name": "grass-sidewalk-none",
+   "col": 15,
+   "row": 11,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [],
+   "mask_bits": 0
+  },
+  {
+   "index": 192,
+   "name": "grass-sidewalk-n-ne-e-se-s-sw-w",
+   "col": 0,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 127
+  },
+  {
+   "index": 193,
+   "name": "grass-sidewalk-n-e-se-s-sw-w-nw",
+   "col": 1,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 253
+  },
+  {
+   "index": 194,
+   "name": "grass-sidewalk-n-ne-e-se-s-w-nw",
+   "col": 2,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 223
+  },
+  {
+   "index": 195,
+   "name": "grass-sidewalk-n-ne-e-s-sw-w-nw",
+   "col": 3,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 247
+  },
+  {
+   "index": 196,
+   "name": "grass-sidewalk-n-e-se-s-sw-w",
+   "col": 4,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 125
+  },
+  {
+   "index": 197,
+   "name": "grass-sidewalk-n-ne-e-s-w-nw",
+   "col": 5,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 215
+  },
+  {
+   "index": 198,
+   "name": "grass-sidewalk-n-ne-e-se-s-w",
+   "col": 6,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 95
+  },
+  {
+   "index": 199,
+   "name": "grass-sidewalk-n-e-s-sw-w-nw",
+   "col": 7,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 245
+  },
+  {
+   "index": 200,
+   "name": "grass-sidewalk-n-ne-e-s-sw-w",
+   "col": 8,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 119
+  },
+  {
+   "index": 201,
+   "name": "grass-sidewalk-n-e-se-s-w-nw",
+   "col": 9,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 221
+  },
+  {
+   "index": 202,
+   "name": "grass-sidewalk-n-e-se-s-w",
+   "col": 10,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 93
+  },
+  {
+   "index": 203,
+   "name": "grass-sidewalk-n-e-s-sw-w",
+   "col": 11,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 117
+  },
+  {
+   "index": 204,
+   "name": "grass-sidewalk-n-ne-e-s-w",
+   "col": 12,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 87
+  },
+  {
+   "index": 205,
+   "name": "grass-sidewalk-n-e-s-w-nw",
+   "col": 13,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 213
+  },
+  {
+   "index": 206,
+   "name": "grass-sidewalk-n-e-s-w",
+   "col": 14,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 85
+  },
+  {
+   "index": 207,
+   "name": "grass-sidewalk-e-se-s-w",
+   "col": 15,
+   "row": 12,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "se",
+    "s",
+    "w"
+   ],
+   "mask_bits": 92
+  },
+  {
+   "index": 208,
+   "name": "grass-sidewalk-e-s-sw-w",
+   "col": 0,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 116
+  },
+  {
+   "index": 209,
+   "name": "grass-sidewalk-e-s-w",
+   "col": 1,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "s",
+    "w"
+   ],
+   "mask_bits": 84
+  },
+  {
+   "index": 210,
+   "name": "grass-sidewalk-n-ne-e-w",
+   "col": 2,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "w"
+   ],
+   "mask_bits": 71
+  },
+  {
+   "index": 211,
+   "name": "grass-sidewalk-n-e-w-nw",
+   "col": 3,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 197
+  },
+  {
+   "index": 212,
+   "name": "grass-sidewalk-n-e-w",
+   "col": 4,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "w"
+   ],
+   "mask_bits": 69
+  },
+  {
+   "index": 213,
+   "name": "grass-sidewalk-n-e-se-s",
+   "col": 5,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "se",
+    "s"
+   ],
+   "mask_bits": 29
+  },
+  {
+   "index": 214,
+   "name": "grass-sidewalk-n-ne-e-s",
+   "col": 6,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "ne",
+    "e",
+    "s"
+   ],
+   "mask_bits": 23
+  },
+  {
+   "index": 215,
+   "name": "grass-sidewalk-n-e-s",
+   "col": 7,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e",
+    "s"
+   ],
+   "mask_bits": 21
+  },
+  {
+   "index": 216,
+   "name": "grass-sidewalk-n-s-sw-w",
+   "col": 8,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "s",
+    "sw",
+    "w"
+   ],
+   "mask_bits": 113
+  },
+  {
+   "index": 217,
+   "name": "grass-sidewalk-n-s-w-nw",
+   "col": 9,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w",
+    "nw"
+   ],
+   "mask_bits": 209
+  },
+  {
+   "index": 218,
+   "name": "grass-sidewalk-n-s-w",
+   "col": 10,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "s",
+    "w"
+   ],
+   "mask_bits": 81
+  },
+  {
+   "index": 219,
+   "name": "grass-sidewalk-e-s",
+   "col": 11,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "e",
+    "s"
+   ],
+   "mask_bits": 20
+  },
+  {
+   "index": 220,
+   "name": "grass-sidewalk-s-w",
+   "col": 12,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "s",
+    "w"
+   ],
+   "mask_bits": 80
+  },
+  {
+   "index": 221,
+   "name": "grass-sidewalk-n-e",
+   "col": 13,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "e"
+   ],
+   "mask_bits": 5
+  },
+  {
+   "index": 222,
+   "name": "grass-sidewalk-n-w",
+   "col": 14,
+   "row": 13,
+   "autotile": "grass-sidewalk",
+   "same_neighbors": [
+    "n",
+    "w"
+   ],
+   "mask_bits": 65
+  }
+ ]
+}

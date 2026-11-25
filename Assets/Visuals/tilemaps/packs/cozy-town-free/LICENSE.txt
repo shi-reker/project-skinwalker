@@ -1,0 +1,17 @@
+Cozy Town Free — asset license
+
+You MAY:
+- Use these assets in personal and non-commercial projects: free games, game jam entries,
+  prototypes, school projects, free videos.
+- Modify them: recolor, resize, cut, combine.
+
+You MAY NOT:
+- Use them in commercial projects (a game or app that is sold, has paid content or ads, or a
+  paid client project). For commercial use get Cozy Town Complete, which includes a commercial
+  license: https://aquumgifts.itch.io/cozy-town
+- Resell or redistribute the assets themselves, modified or not, as assets
+  (for example, in another asset pack, a tileset or on a free asset site).
+- Claim you created the original assets.
+
+If your jam game later goes commercial, Cozy Town Complete covers it.
+Credit is appreciated but not required: "Cozy Town by Spaceyyy".
