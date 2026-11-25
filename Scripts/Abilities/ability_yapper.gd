@@ -31,5 +31,4 @@ func _on_update(delta: float) -> void:
 
 func _on_deactivate() -> void:
 	_is_using = false
-	_is_active = false
 	print("[AbilityYapper] Distraksi selesai")
