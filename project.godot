@@ -25,6 +25,7 @@ EnvironmentManager="*uid://4bsid8sj2v6q"
 SoundManager="*uid://c033tldb0wexa"
 NPCManager="*res://Scripts/Managers/npc_manager.gd"
 DialogueManager="*uid://dhmh0nxiyifc8"
+DebugManager="*uid://b0chii7bb0yvf"
 
 [display]
 

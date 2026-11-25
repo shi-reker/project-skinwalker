@@ -8,59 +8,89 @@ signal dialogue_finished
 var current_line_index: int = 0
 var is_dialogue_active: bool = false
 
-func recieve_dialogue(dialogueRes:DialogueDefinition, line:int = 0):
-	dialogue_definition = dialogueRes
+func receive_dialogue(dialogue_res: DialogueDefinition, line: int = 0) -> void:
+	if dialogue_res == null:
+		return
+	dialogue_definition = dialogue_res
 	current_line_index = line
 	start_dialogue()
 
 func start_dialogue() -> void:
-	#current_line_index = 0
+	if dialogue_definition == null or dialogue_definition.dialogue_lines.is_empty():
+		return
+
+	is_dialogue_active = true
+	current_line_index = clampi(current_line_index, 0, dialogue_definition.dialogue_lines.size() - 1)
+
+	DialogueManager.begin_session(self)
 	DialogueManager.show_dialogue()
 
 	if dialogue_definition.speaker_name != "":
 		DialogueManager.update_speaker(dialogue_definition.speaker_name, self)
-	DialogueManager.update_dialogue(dialogue_definition.dialogue_lines[current_line_index], self)
-	
-	if current_line_index in dialogue_definition.choice_lines:
-		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
-		var choices:Array = dialogue_definition.choice_lines[current_line_index]
+	else:
+		DialogueManager.hide_speaker()
 
-		DialogueManager.update_choices(nChoices, choices, self)
-		
-		# for c in nChoices:
-		# 	dialogueBox.choices[c].show()
-		# 	dialogueBox.choices[c].id = c
-		# 	dialogueBox.choices[c].text.text = choices[c]
-		# 	dialogueBox.choices[c].picked.connect(dialogue_choice_handler)
+	_display_current_line()
 
 func advance_dialogue() -> void:
+	if not is_dialogue_active or dialogue_definition == null:
+		return
+
 	current_line_index += 1
 	if !dialogue_definition.dialogue_lines.has(current_line_index):
 		end_dialogue()
 		return
-	DialogueManager.update_dialogue(dialogue_definition.dialogue_lines[current_line_index], self)
-	
-	if dialogue_definition.choice_lines.has(current_line_index):
-		dialogueBox.disabled = true
-		var nChoices:int = len(dialogue_definition.choice_lines[current_line_index])/2
-		var choices:Array = dialogue_definition.choice_lines[current_line_index]
-		
-		DialogueManager.update_choices(nChoices, choices, self)
 
-		# for c in nChoices:
-		# 	dialogueBox.choices[c].show()
-		# 	dialogueBox.choices[c].id = c
-		# 	dialogueBox.choices[c].text.text = choices[c]
-		# 	dialogueBox.choices[c].picked.connect(dialogue_choice_handler)
+	if current_line_index >= dialogue_definition.dialogue_lines.size():
+		end_dialogue()
+		return
+
+	_display_current_line()
+
+func _display_current_line() -> void:
+	DialogueManager.update_dialogue(dialogue_definition.dialogue_lines[current_line_index], self)
+
+	if current_line_index in dialogue_definition.choice_lines:
+		var choices: Array = dialogue_definition.choice_lines[current_line_index]
+		var n_choices: int = choices.size() / 2
+		DialogueManager.disable_dialogue()
+		DialogueManager.update_choices(n_choices, choices, self)
+	else:
+		DialogueManager.enable_dialogue()
+		DialogueManager.hide_choices()
 
 func end_dialogue() -> void:
+	if not is_dialogue_active:
+		return
+
+	is_dialogue_active = false
+	current_line_index = 0
+	DialogueManager.hide_choices()
 	DialogueManager.hide_dialogue()
+	DialogueManager.end_session(self)
+	dialogue_finished.emit()
 
 func dialogue_choice_handler(id:int):
+	if current_line_index not in dialogue_definition.choice_lines:
+		return
+
+	var choices: Array = dialogue_definition.choice_lines[current_line_index]
+	var offset: int = choices.size() / 2
+	if id < 0 or id >= offset:
+		return
+	var target_key: int = choices[id + offset]
+	DialogueManager.hide_choices()
 	DialogueManager.enable_dialogue()
-	var offset = len(dialogue_definition.choice_lines[current_line_index])/2
-	var nextLine:int = dialogue_definition.choice_lines[id][offset]
-	dialogue_definition.end_lines[nextLine].call()
+	if target_key in dialogue_definition.end_lines:
+		var action: Callable = dialogue_definition.end_lines[target_key]
+		if action.is_valid():
+			action.call()
+		end_dialogue()
+	elif target_key >= 0 and target_key < dialogue_definition.dialogue_lines.size():
+		current_line_index = target_key
+		_display_current_line()
+	else:
+		end_dialogue()
 
 # var dialogue_lines: Array[String] = []
 

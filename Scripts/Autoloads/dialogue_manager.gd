@@ -1,28 +1,51 @@
 extends Node
 
 var dialogue_box: DialogueBox
+var _is_any_dialogue_active: bool = false
+var _active_component: DialogueComponent = null
 
 func setup(dialogue_box_node: DialogueBox):
 	dialogue_box = dialogue_box_node
 
+func begin_session(component: DialogueComponent) -> void:
+	_active_component = component
+
+func end_session(component: DialogueComponent) -> void:
+	if _active_component == component:
+		_active_component = null
+
 func show_dialogue():
+	_is_any_dialogue_active = true
 	dialogue_box.show()
 
 func update_speaker(text: String, component: DialogueComponent):
 	dialogue_box.speakerBox.show()
 	dialogue_box.speakerText.text = text
 
+func hide_speaker() -> void:
+	dialogue_box.speakerBox.hide()
+
 func update_dialogue(text: String, component: DialogueComponent):
 	dialogue_box.text.text = text
 
 func update_choices(nChoices: int, choices: Array, component: DialogueComponent):
-	for c in nChoices:
-		dialogue_box.choices[c].show()
-		dialogue_box.choices[c].id = c
-		dialogue_box.choices[c].text.text = choices[c]
-		dialogue_box.choices[c].picked.connect(component.dialogue_choice_handler)
-		
+	hide_choices()
+	for c in range(nChoices):
+		var btn = dialogue_box.choices[c]
+		btn.show()
+		btn.id = c
+		btn.text.text = str(choices[c])
+		if not btn.picked.is_connected(component.dialogue_choice_handler):
+			btn.picked.connect(component.dialogue_choice_handler)
+
+func hide_choices() -> void:
+	for btn in dialogue_box.choices:
+		btn.hide()
+		if _active_component != null and btn.picked.is_connected(_active_component.dialogue_choice_handler):
+			btn.picked.disconnect(_active_component.dialogue_choice_handler)
+
 func hide_dialogue():
+	_is_any_dialogue_active = false
 	dialogue_box.hide()
 
 func disable_dialogue():

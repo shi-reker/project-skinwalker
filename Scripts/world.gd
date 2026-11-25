@@ -5,6 +5,9 @@ class_name World
 @export var stalker: StalkerActor
 @export var home: House
 
+@export var debug_label: Label
+@export var active_debug_label: bool = false
+
 @export_group("Spawn Layout")
 @export var player_spawn: Vector2 = Vector2(400, 300)
 @export var stalker_spawn: Vector2 = Vector2(800, 500)
@@ -21,6 +24,11 @@ func _ready() -> void:
 
 	#_apply_spawn_layout()
 
+	NpcManager.setup(self)
+	
+	if active_debug_label:
+		DebugManager.setup(debug_label)
+		DebugManager.add_debug("debug turned on")
 
 func _apply_spawn_layout() -> void:
 	if player:

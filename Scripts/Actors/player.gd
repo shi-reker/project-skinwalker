@@ -37,7 +37,7 @@ func set_interaction_available(available: bool, position: Vector2 = global_posit
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _is_any_dialogue_active():
+	if DialogueManager._is_any_dialogue_active:
 		return
 
 	if can_interact and cur_interactables and event.is_action_pressed("interact"):
@@ -50,14 +50,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	# if event.is_action_pressed("ability"):
 	# 	_trigger_nearest_ability()
 	# 	get_viewport().set_input_as_handled()
-
-func _is_any_dialogue_active() -> bool:
-	for npc in NpcManager.all_npcs:
-		if npc == null or not is_instance_valid(npc):
-			continue
-		if npc.dialogue_component and npc.dialogue_component.is_dialogue_active:
-			return true
-	return false
 
 # func _trigger_nearest_ability() -> void:
 # 	var nearest: NPCActor = null
@@ -97,15 +89,6 @@ func _on_detect_area_area_exited(area: Area2D) -> void:
 			set_interaction_available(false)
 		else:
 			set_interaction_available(true, cur_interactables[0].global_position)
-
-func has_hint(hint: HintDefinition) -> bool:
-	if hint == null:
-		return false
-	for h in player_hints:
-		if h != null and h.category == hint.category and h.hint_value == hint.hint_value:
-			return true
-	return false
-
 
 func add_hint(hint: HintDefinition) -> void:
 	if hint != null and hint not in player_hints:

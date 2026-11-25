@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://chaqxec2doc0p" path="res://Scripts/Components/dialogue_choice.gd" id="4_ixl7y"]
 
 [sub_resource type="SystemFont" id="SystemFont_7fydb"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_5f28e"]
 font = SubResource("SystemFont_7fydb")
@@ -21,10 +22,17 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_spbju"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfaqm"]
 font = SubResource("SystemFont_spbju")
 font_size = 38
+
+[sub_resource type="SystemFont" id="SystemFont_6sal0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybp2y"]
+font = SubResource("SystemFont_6sal0")
+font_size = 36
 
 [node name="DialogueBox" type="TextureButton" unique_id=1390935538 node_paths=PackedStringArray("speakerBox", "speakerText", "text", "c1", "c2", "c3", "c4")]
 anchors_preset = -1
@@ -177,9 +185,16 @@ label_settings = SubResource("LabelSettings_yfaqm")
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=707784414]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_maximum_size = Vector2(1680, 230)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ballas"
+label_settings = SubResource("LabelSettings_ybp2y")
+autowrap_mode = 3
 
 [connection signal="pressed" from="Choices/Choice1" to="Choices/Choice1" method="_on_pressed"]
 [connection signal="pressed" from="Choices/Choice2" to="Choices/Choice2" method="_on_pressed"]
