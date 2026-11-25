@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="5_interactable"]
 [ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Scripts/Resources/NPC/yapper_dialogue.tres" id="6_4p8ee"]
+[ext_resource type="PackedScene" uid="uid://crshuc8x0viue" path="res://Scenes/Components/detection_component.tscn" id="7_flvar"]
 [ext_resource type="Script" uid="uid://brqbs6tvkh17f" path="res://Scripts/Components/follow_component.gd" id="7_follow"]
 [ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="8_flvar"]
 
@@ -34,6 +35,8 @@ movement_component = NodePath("../MovementComponent")
 [node name="DialogueComponent" type="Node" parent="Components" unique_id=1324082494]
 script = ExtResource("3_dialogue")
 dialogue_definition = ExtResource("6_4p8ee")
+
+[node name="DetectionComponent" parent="Components" unique_id=1899678912 instance=ExtResource("7_flvar")]
 
 [node name="StateMachine" type="Node" parent="." unique_id=1972760016]
 script = ExtResource("4_state_machine")

@@ -10,23 +10,22 @@ class_name NPCAbility
 
 var _cooldown_timer: float = 0.0
 var _is_active: bool = false
+var _is_using: bool = false
 var _owner_npc: NPCActor = null
-
+var _target: StalkerActor = null
 
 func setup(owner_npc: NPCActor) -> void:
 	_owner_npc = owner_npc
 
-
 func can_activate() -> bool:
 	return not _is_active and _cooldown_timer <= 0.0 and _owner_npc != null
-
 
 func activate(world: World) -> void:
 	if not can_activate():
 		return
 	_is_active = true
+	_target = world.stalker
 	_on_activate(world)
-
 
 func deactivate() -> void:
 	if not _is_active:
@@ -34,35 +33,28 @@ func deactivate() -> void:
 	_is_active = false
 	_on_deactivate()
 
-
 func update(delta: float) -> void:
 	if _cooldown_timer > 0.0:
 		_cooldown_timer -= delta
 	if _is_active:
 		_on_update(delta)
 
-
 func is_active() -> bool:
 	return _is_active
-
 
 func get_owner_npc() -> NPCActor:
 	return _owner_npc
 
-
 # --- Virtual methods (override di subclass) ---
 
-func _on_activate(world: World) -> void:
+func _on_activate(_world: World) -> void:
 	pass
-
 
 func _on_deactivate() -> void:
 	pass
 
-
 func _on_update(_delta: float) -> void:
 	pass
-
 
 # --- Helper untuk subclass ---
 

@@ -15,7 +15,6 @@ var hints: EnvironmentManager.HomeHints = EnvironmentManager.HomeHints.new()
 var distToTarget:float = 0
 var is_player_detected: bool = false
 
-
 func _ready() -> void:
 	add_to_group("stalker")
 	if stalker_definition != null and stalker_definition.texture != null:
@@ -26,10 +25,8 @@ func _ready() -> void:
 	detection_component.player_detected.connect(state_machine._on_detected)
 	movement_component.rangeBorders = 160
 	movement_component.at_range.connect(state_machine.handle_dist_to_player)
-
-
+	
 	state_machine.setup(self)
-
 
 func _physics_process(delta: float) -> void:
 	state_machine.update_current_state(delta)

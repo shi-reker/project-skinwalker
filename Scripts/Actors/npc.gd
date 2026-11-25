@@ -36,7 +36,7 @@ func _exit_tree() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Update ability aktif
-	if npc_definition != null and npc_definition.ability != null:
+	if npc_definition != null and npc_definition.ability != null and npc_definition.ability.is_active():
 		npc_definition.ability.update(delta)
 
 func setup_npc() -> void:
@@ -78,12 +78,11 @@ func can_use_ability() -> bool:
 		return false
 	return npc_definition.ability.can_activate()
 
-
-func use_ability(context: Dictionary = {}) -> bool:
+func use_ability(world: World) -> bool:
 	if not can_use_ability():
 		print("[NPC] Ability tidak tersedia untuk ", name)
 		return false
-	npc_definition.ability.activate(context)
+	npc_definition.ability.activate(world)
 	ability_used.emit(self, npc_definition.ability)
 	print("[NPC] ", name, " menggunakan ability: ", npc_definition.ability.ability_name)
 	return true
@@ -107,3 +106,8 @@ func _on_recruit_by_choice():
 func _on_dialogue_finished() -> void:
 	#if not is_recruited and can_recruit_now():
 	recruit()
+
+func _on_detected(stalker: StalkerActor) -> void:
+	if is_instance_valid(stalker) and npc_definition.ability.is_active():
+		npc_definition.ability._is_using = true
+		npc_definition.ability._target = stalker

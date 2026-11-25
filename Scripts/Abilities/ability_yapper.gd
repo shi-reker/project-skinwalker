@@ -6,46 +6,35 @@ class_name AbilityYapper
 @export var hint_bonus_confidence: float = 0.3
 
 var _distraction_timer: float = 0.0
-var _audio_player: AudioStreamPlayer2D = null
 var _distraction_position: Vector2
 
+func _on_activate(_world: World) -> void:
+	_distraction_timer = distraction_duration
 
-#func _on_activate(_context: Dictionary) -> void:
-	#_distraction_timer = distraction_duration
-#
-	#var npc := get_owner_npc()
-	#if npc == null:
-		#return
-#
-	#_distraction_position = npc.global_position
-	#_audio_player = AudioStreamPlayer2D.new()
-	#_audio_player.stream = load("res://Assets/Audio/pipe.wav")
-	#_audio_player.global_position = _distraction_position
-	#_audio_player.max_distance = distraction_radius
-	#npc.get_parent().add_child(_audio_player)
-	#_audio_player.play()
-#
+	var npc := get_owner_npc()
+	if npc == null:
+		return
+
+	_distraction_position = npc.global_position
+
 	#_notify_nearby_stalkers()
 	#_give_player_hint_bonus()
-#
-	#print("[AbilityYapper] Distraksi aktif di ", _distraction_position)
-#
-#
-#func _on_update(delta: float) -> void:
-	#_distraction_timer -= delta
-	#if _distraction_timer <= 0.0:
-		#deactivate()
-#
-#
-#func _on_deactivate() -> void:
-	#if _audio_player != null and is_instance_valid(_audio_player):
-		#_audio_player.stop()
-		#_audio_player.queue_free()
-	#_audio_player = null
-	#_start_cooldown()
-	#print("[AbilityYapper] Distraksi selesai")
-#
-#
+
+	print("[AbilityYapper] Distraksi aktif di ", _distraction_position)
+
+
+func _on_update(delta: float) -> void:
+	if _is_using:
+		_target.velocity = Vector2.ZERO
+		_distraction_timer -= delta
+		if _distraction_timer <= 0.0:
+			deactivate()
+
+func _on_deactivate() -> void:
+	_is_using = false
+	_is_active = false
+	print("[AbilityYapper] Distraksi selesai")
+
 #func _notify_nearby_stalkers() -> void:
 	#var npc := get_owner_npc()
 	#if npc == null:
