@@ -22,8 +22,8 @@ func _ready() -> void:
 	Events.home_entered.connect(_on_player_entered_home)
 	Events.player_captured.connect(_on_player_captured)
 
-	_apply_spawn_layout()
-	
+	#_apply_spawn_layout()
+
 	NpcManager.setup(self)
 	
 	if active_debug_label:

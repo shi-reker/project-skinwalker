@@ -1,0 +1,418 @@
+{
+ "frame_width": 16,
+ "frame_height": 24,
+ "feet_y": 21,
+ "note": "Each sheet is a grid of 16x24 frames. Row = animation x direction (down, left, right, up), column = frame (left to right). Unused cells are transparent. Feet rest on pixel row 21 of the frame; place the frame so that row sits on the ground (e.g. offset y = -21 from the feet).",
+ "directions": [
+  "down",
+  "left",
+  "right",
+  "up"
+ ],
+ "players": {
+  "files": [
+   "1x/player-1.png",
+   "2x/player-1.png",
+   "4x/player-1.png",
+   "1x/player-2.png",
+   "2x/player-2.png",
+   "4x/player-2.png"
+  ],
+  "columns": 6,
+  "rows": [
+   {
+    "row": 0,
+    "y": 0,
+    "animation": "idle",
+    "direction": "down",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 1,
+    "y": 24,
+    "animation": "idle",
+    "direction": "left",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 2,
+    "y": 48,
+    "animation": "idle",
+    "direction": "right",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 3,
+    "y": 72,
+    "animation": "idle",
+    "direction": "up",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 4,
+    "y": 96,
+    "animation": "walk",
+    "direction": "down",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 5,
+    "y": 120,
+    "animation": "walk",
+    "direction": "left",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 6,
+    "y": 144,
+    "animation": "walk",
+    "direction": "right",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 7,
+    "y": 168,
+    "animation": "walk",
+    "direction": "up",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 8,
+    "y": 192,
+    "animation": "run",
+    "direction": "down",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   {
+    "row": 9,
+    "y": 216,
+    "animation": "run",
+    "direction": "left",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   {
+    "row": 10,
+    "y": 240,
+    "animation": "run",
+    "direction": "right",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   {
+    "row": 11,
+    "y": 264,
+    "animation": "run",
+    "direction": "up",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   {
+    "row": 12,
+    "y": 288,
+    "animation": "carry",
+    "direction": "down",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 13,
+    "y": 312,
+    "animation": "carry",
+    "direction": "left",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 14,
+    "y": 336,
+    "animation": "carry",
+    "direction": "right",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 15,
+    "y": 360,
+    "animation": "carry",
+    "direction": "up",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 16,
+    "y": 384,
+    "animation": "sit",
+    "direction": "down",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 17,
+    "y": 408,
+    "animation": "sit",
+    "direction": "left",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 18,
+    "y": 432,
+    "animation": "sit",
+    "direction": "right",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 19,
+    "y": 456,
+    "animation": "sit",
+    "direction": "up",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 20,
+    "y": 480,
+    "animation": "wave",
+    "direction": "down",
+    "frames": 6,
+    "fps": 8,
+    "loop": false
+   },
+   {
+    "row": 21,
+    "y": 504,
+    "animation": "wave",
+    "direction": "left",
+    "frames": 6,
+    "fps": 8,
+    "loop": false
+   },
+   {
+    "row": 22,
+    "y": 528,
+    "animation": "wave",
+    "direction": "right",
+    "frames": 6,
+    "fps": 8,
+    "loop": false
+   },
+   {
+    "row": 23,
+    "y": 552,
+    "animation": "wave",
+    "direction": "up",
+    "frames": 6,
+    "fps": 8,
+    "loop": false
+   },
+   {
+    "row": 24,
+    "y": 576,
+    "animation": "eat",
+    "direction": "down",
+    "frames": 6,
+    "fps": 6,
+    "loop": false
+   },
+   {
+    "row": 25,
+    "y": 600,
+    "animation": "eat",
+    "direction": "left",
+    "frames": 6,
+    "fps": 6,
+    "loop": false
+   },
+   {
+    "row": 26,
+    "y": 624,
+    "animation": "eat",
+    "direction": "right",
+    "frames": 6,
+    "fps": 6,
+    "loop": false
+   },
+   {
+    "row": 27,
+    "y": 648,
+    "animation": "eat",
+    "direction": "up",
+    "frames": 6,
+    "fps": 6,
+    "loop": false
+   },
+   {
+    "row": 28,
+    "y": 672,
+    "animation": "water",
+    "direction": "down",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   {
+    "row": 29,
+    "y": 696,
+    "animation": "water",
+    "direction": "left",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   {
+    "row": 30,
+    "y": 720,
+    "animation": "water",
+    "direction": "right",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   {
+    "row": 31,
+    "y": 744,
+    "animation": "water",
+    "direction": "up",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   }
+  ],
+  "characters": [
+   {
+    "name": "player-1",
+    "look": "short messy hair, teal jacket"
+   },
+   {
+    "name": "player-2",
+    "look": "long hair, mustard sweater, skirt"
+   }
+  ]
+ },
+ "neighbors": {
+  "files": [
+   "1x/neighbor-1.png",
+   "2x/neighbor-1.png",
+   "4x/neighbor-1.png",
+   "1x/neighbor-2.png",
+   "2x/neighbor-2.png",
+   "4x/neighbor-2.png"
+  ],
+  "columns": 6,
+  "rows": [
+   {
+    "row": 0,
+    "y": 0,
+    "animation": "idle",
+    "direction": "down",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 1,
+    "y": 24,
+    "animation": "idle",
+    "direction": "left",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 2,
+    "y": 48,
+    "animation": "idle",
+    "direction": "right",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 3,
+    "y": 72,
+    "animation": "idle",
+    "direction": "up",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   {
+    "row": 4,
+    "y": 96,
+    "animation": "walk",
+    "direction": "down",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 5,
+    "y": 120,
+    "animation": "walk",
+    "direction": "left",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 6,
+    "y": 144,
+    "animation": "walk",
+    "direction": "right",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   },
+   {
+    "row": 7,
+    "y": 168,
+    "animation": "walk",
+    "direction": "up",
+    "frames": 6,
+    "fps": 10,
+    "loop": true
+   }
+  ],
+  "characters": [
+   {
+    "name": "neighbor-1",
+    "role": "barista"
+   },
+   {
+    "name": "neighbor-2",
+    "role": "baker"
+   }
+  ]
+ }
+}

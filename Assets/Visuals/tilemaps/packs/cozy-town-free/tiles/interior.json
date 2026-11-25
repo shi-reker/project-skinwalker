@@ -1,0 +1,622 @@
+{
+ "tile_size": 16,
+ "note": "Walls are 16x32: paint the -top cell above the -bottom cell. Frames go on top of floors and walls (transparent inside and outside); s-end-left/right close the bottom band beside a door gap.",
+ "sheets": {
+  "interior-floors": [
+   {
+    "name": "floor-oak",
+    "col": 0,
+    "row": 0
+   },
+   {
+    "name": "floor-walnut",
+    "col": 1,
+    "row": 0
+   },
+   {
+    "name": "floor-parquet",
+    "col": 2,
+    "row": 0
+   },
+   {
+    "name": "floor-checker-mint",
+    "col": 3,
+    "row": 0
+   },
+   {
+    "name": "floor-checker-sage",
+    "col": 4,
+    "row": 0
+   },
+   {
+    "name": "floor-checker-slate",
+    "col": 5,
+    "row": 0
+   },
+   {
+    "name": "floor-terracotta",
+    "col": 6,
+    "row": 0
+   },
+   {
+    "name": "floor-white-tile",
+    "col": 7,
+    "row": 0
+   },
+   {
+    "name": "floor-concrete",
+    "col": 8,
+    "row": 0
+   },
+   {
+    "name": "floor-stone",
+    "col": 9,
+    "row": 0
+   }
+  ],
+  "interior-walls": [
+   {
+    "name": "wall-cream-mint-top",
+    "col": 0,
+    "row": 0
+   },
+   {
+    "name": "wall-cream-mint-bottom",
+    "col": 0,
+    "row": 1
+   },
+   {
+    "name": "wall-cream-mint-window-top",
+    "col": 1,
+    "row": 0
+   },
+   {
+    "name": "wall-cream-mint-window-bottom",
+    "col": 1,
+    "row": 1
+   },
+   {
+    "name": "wall-cream-mint-window-night-top",
+    "col": 2,
+    "row": 0
+   },
+   {
+    "name": "wall-cream-mint-window-night-bottom",
+    "col": 2,
+    "row": 1
+   },
+   {
+    "name": "wall-cream-mint-door-top",
+    "col": 3,
+    "row": 0
+   },
+   {
+    "name": "wall-cream-mint-door-bottom",
+    "col": 3,
+    "row": 1
+   },
+   {
+    "name": "wall-cream-mint-door-kitchen-top",
+    "col": 4,
+    "row": 0
+   },
+   {
+    "name": "wall-cream-mint-door-kitchen-bottom",
+    "col": 4,
+    "row": 1
+   },
+   {
+    "name": "wall-brick-top",
+    "col": 0,
+    "row": 2
+   },
+   {
+    "name": "wall-brick-bottom",
+    "col": 0,
+    "row": 3
+   },
+   {
+    "name": "wall-brick-window-top",
+    "col": 1,
+    "row": 2
+   },
+   {
+    "name": "wall-brick-window-bottom",
+    "col": 1,
+    "row": 3
+   },
+   {
+    "name": "wall-brick-window-night-top",
+    "col": 2,
+    "row": 2
+   },
+   {
+    "name": "wall-brick-window-night-bottom",
+    "col": 2,
+    "row": 3
+   },
+   {
+    "name": "wall-brick-door-top",
+    "col": 3,
+    "row": 2
+   },
+   {
+    "name": "wall-brick-door-bottom",
+    "col": 3,
+    "row": 3
+   },
+   {
+    "name": "wall-brick-door-kitchen-top",
+    "col": 4,
+    "row": 2
+   },
+   {
+    "name": "wall-brick-door-kitchen-bottom",
+    "col": 4,
+    "row": 3
+   },
+   {
+    "name": "wall-subway-top",
+    "col": 0,
+    "row": 4
+   },
+   {
+    "name": "wall-subway-bottom",
+    "col": 0,
+    "row": 5
+   },
+   {
+    "name": "wall-subway-window-top",
+    "col": 1,
+    "row": 4
+   },
+   {
+    "name": "wall-subway-window-bottom",
+    "col": 1,
+    "row": 5
+   },
+   {
+    "name": "wall-subway-window-night-top",
+    "col": 2,
+    "row": 4
+   },
+   {
+    "name": "wall-subway-window-night-bottom",
+    "col": 2,
+    "row": 5
+   },
+   {
+    "name": "wall-subway-door-top",
+    "col": 3,
+    "row": 4
+   },
+   {
+    "name": "wall-subway-door-bottom",
+    "col": 3,
+    "row": 5
+   },
+   {
+    "name": "wall-subway-door-kitchen-top",
+    "col": 4,
+    "row": 4
+   },
+   {
+    "name": "wall-subway-door-kitchen-bottom",
+    "col": 4,
+    "row": 5
+   },
+   {
+    "name": "wall-butter-tile-top",
+    "col": 0,
+    "row": 6
+   },
+   {
+    "name": "wall-butter-tile-bottom",
+    "col": 0,
+    "row": 7
+   },
+   {
+    "name": "wall-butter-tile-window-top",
+    "col": 1,
+    "row": 6
+   },
+   {
+    "name": "wall-butter-tile-window-bottom",
+    "col": 1,
+    "row": 7
+   },
+   {
+    "name": "wall-butter-tile-window-night-top",
+    "col": 2,
+    "row": 6
+   },
+   {
+    "name": "wall-butter-tile-window-night-bottom",
+    "col": 2,
+    "row": 7
+   },
+   {
+    "name": "wall-butter-tile-door-top",
+    "col": 3,
+    "row": 6
+   },
+   {
+    "name": "wall-butter-tile-door-bottom",
+    "col": 3,
+    "row": 7
+   },
+   {
+    "name": "wall-butter-tile-door-kitchen-top",
+    "col": 4,
+    "row": 6
+   },
+   {
+    "name": "wall-butter-tile-door-kitchen-bottom",
+    "col": 4,
+    "row": 7
+   },
+   {
+    "name": "wall-sage-wood-top",
+    "col": 0,
+    "row": 8
+   },
+   {
+    "name": "wall-sage-wood-bottom",
+    "col": 0,
+    "row": 9
+   },
+   {
+    "name": "wall-sage-wood-window-top",
+    "col": 1,
+    "row": 8
+   },
+   {
+    "name": "wall-sage-wood-window-bottom",
+    "col": 1,
+    "row": 9
+   },
+   {
+    "name": "wall-sage-wood-window-night-top",
+    "col": 2,
+    "row": 8
+   },
+   {
+    "name": "wall-sage-wood-window-night-bottom",
+    "col": 2,
+    "row": 9
+   },
+   {
+    "name": "wall-sage-wood-door-top",
+    "col": 3,
+    "row": 8
+   },
+   {
+    "name": "wall-sage-wood-door-bottom",
+    "col": 3,
+    "row": 9
+   },
+   {
+    "name": "wall-sage-wood-door-kitchen-top",
+    "col": 4,
+    "row": 8
+   },
+   {
+    "name": "wall-sage-wood-door-kitchen-bottom",
+    "col": 4,
+    "row": 9
+   },
+   {
+    "name": "wall-rose-walnut-top",
+    "col": 0,
+    "row": 10
+   },
+   {
+    "name": "wall-rose-walnut-bottom",
+    "col": 0,
+    "row": 11
+   },
+   {
+    "name": "wall-rose-walnut-window-top",
+    "col": 1,
+    "row": 10
+   },
+   {
+    "name": "wall-rose-walnut-window-bottom",
+    "col": 1,
+    "row": 11
+   },
+   {
+    "name": "wall-rose-walnut-window-night-top",
+    "col": 2,
+    "row": 10
+   },
+   {
+    "name": "wall-rose-walnut-window-night-bottom",
+    "col": 2,
+    "row": 11
+   },
+   {
+    "name": "wall-rose-walnut-door-top",
+    "col": 3,
+    "row": 10
+   },
+   {
+    "name": "wall-rose-walnut-door-bottom",
+    "col": 3,
+    "row": 11
+   },
+   {
+    "name": "wall-rose-walnut-door-kitchen-top",
+    "col": 4,
+    "row": 10
+   },
+   {
+    "name": "wall-rose-walnut-door-kitchen-bottom",
+    "col": 4,
+    "row": 11
+   },
+   {
+    "name": "wall-wood-top",
+    "col": 0,
+    "row": 12
+   },
+   {
+    "name": "wall-wood-bottom",
+    "col": 0,
+    "row": 13
+   },
+   {
+    "name": "wall-wood-window-top",
+    "col": 1,
+    "row": 12
+   },
+   {
+    "name": "wall-wood-window-bottom",
+    "col": 1,
+    "row": 13
+   },
+   {
+    "name": "wall-wood-window-night-top",
+    "col": 2,
+    "row": 12
+   },
+   {
+    "name": "wall-wood-window-night-bottom",
+    "col": 2,
+    "row": 13
+   },
+   {
+    "name": "wall-wood-door-top",
+    "col": 3,
+    "row": 12
+   },
+   {
+    "name": "wall-wood-door-bottom",
+    "col": 3,
+    "row": 13
+   },
+   {
+    "name": "wall-wood-door-kitchen-top",
+    "col": 4,
+    "row": 12
+   },
+   {
+    "name": "wall-wood-door-kitchen-bottom",
+    "col": 4,
+    "row": 13
+   }
+  ],
+  "interior-frames": [
+   {
+    "name": "frame-wood-nw",
+    "col": 0,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-n",
+    "col": 1,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-ne",
+    "col": 2,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-w",
+    "col": 3,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-e",
+    "col": 4,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-sw",
+    "col": 5,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-s",
+    "col": 6,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-se",
+    "col": 7,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-inner-nw",
+    "col": 8,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-inner-ne",
+    "col": 9,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-inner-sw",
+    "col": 10,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-inner-se",
+    "col": 11,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-s-end-left",
+    "col": 12,
+    "row": 0
+   },
+   {
+    "name": "frame-wood-s-end-right",
+    "col": 13,
+    "row": 0
+   },
+   {
+    "name": "frame-plaster-nw",
+    "col": 0,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-n",
+    "col": 1,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-ne",
+    "col": 2,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-w",
+    "col": 3,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-e",
+    "col": 4,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-sw",
+    "col": 5,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-s",
+    "col": 6,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-se",
+    "col": 7,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-inner-nw",
+    "col": 8,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-inner-ne",
+    "col": 9,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-inner-sw",
+    "col": 10,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-inner-se",
+    "col": 11,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-s-end-left",
+    "col": 12,
+    "row": 1
+   },
+   {
+    "name": "frame-plaster-s-end-right",
+    "col": 13,
+    "row": 1
+   }
+  ]
+ },
+ "furniture": {
+  "cafe": [
+   "counter-left",
+   "counter-middle",
+   "counter-right",
+   "counter-case-pastries",
+   "counter-case-cakes",
+   "back-counter",
+   "back-counter-sink",
+   "back-counter-fridge",
+   "espresso-machine",
+   "coffee-grinder",
+   "cash-register",
+   "cake-dome",
+   "takeaway-cups",
+   "croissant-tray",
+   "menu-board-drinks",
+   "menu-board-pastries",
+   "mug-shelf",
+   "bean-jar-shelf",
+   "bistro-table",
+   "bistro-table-set",
+   "cafe-table",
+   "cafe-table-set",
+   "cafe-table-long",
+   "cafe-table-long-set",
+   "chair-wood-down",
+   "chair-wood-up",
+   "chair-wood-left",
+   "chair-wood-right",
+   "chair-mint-down",
+   "chair-mint-up",
+   "chair-mint-left",
+   "chair-mint-right",
+   "chair-walnut-down",
+   "chair-walnut-up",
+   "chair-walnut-left",
+   "chair-walnut-right",
+   "bar-stool",
+   "booth-down",
+   "booth-up",
+   "armchair-sage-right",
+   "armchair-sage-left",
+   "armchair-mustard-right",
+   "armchair-mustard-left",
+   "armchair-rose-down",
+   "leather-sofa",
+   "coffee-table",
+   "rug-terracotta",
+   "rug-round-teal",
+   "bookcase-low",
+   "coffee-sacks",
+   "condiment-station"
+  ],
+  "common": [
+   "monstera",
+   "fern-pot",
+   "ficus",
+   "floor-lamp",
+   "wall-sconce-on",
+   "wall-sconce-off",
+   "wall-clock",
+   "picture-cup",
+   "picture-hills",
+   "coat-rack",
+   "umbrella-stand",
+   "trash-bin-wood",
+   "cat-sleeping-orange"
+  ]
+ }
+}
