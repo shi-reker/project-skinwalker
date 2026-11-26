@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestDefinition" format=3 uid="uid://c47jisbui7a6n"]
+
+[ext_resource type="Script" uid="uid://bm1bk3el6qi05" path="res://Scripts/Resources/quest_definition.gd" id="2_taybp"]
+
+[resource]
+script = ExtResource("2_taybp")
+id = 2
+title = "Find her some hair products!"
+objective = 1
+target_item_id = 2
+metadata/_custom_type_script = "uid://bm1bk3el6qi05"

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project skinwalker"
-run/main_scene="uid://cujnjxthnql4w"
+run/main_scene="uid://ufv38cgpwhj6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,6 @@ NpcManager="*uid://dna6jv521132l"
 ItemManager="*uid://cajggnmgbjp5s"
 EnvironmentManager="*uid://4bsid8sj2v6q"
 SoundManager="*uid://c033tldb0wexa"
-NPCManager="*res://Scripts/Managers/npc_manager.gd"
 DialogueManager="*uid://dhmh0nxiyifc8"
 DebugManager="*uid://b0chii7bb0yvf"
 

@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="3_dialogue"]
 [ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="5_interactable"]
-[ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Scripts/Resources/NPC/yapper_dialogue.tres" id="6_4p8ee"]
+[ext_resource type="Resource" path="res://Scripts/Resources/NPC/yapper_dialogue.tres" id="6_4p8ee"]
 [ext_resource type="Script" uid="uid://brqbs6tvkh17f" path="res://Scripts/Components/follow_component.gd" id="7_follow"]
+[ext_resource type="Script" uid="uid://bhwxytl3npk5l" path="res://Scripts/Components/quest_component.gd" id="7_quest"]
 [ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="8_flvar"]
 
 [sub_resource type="RectangleShape2D" id="NPC_Collision"]
@@ -16,9 +17,10 @@ size = Vector2(24, 24)
 [sub_resource type="CircleShape2D" id="NPC_Interact"]
 radius = 55.0
 
-[node name="NPC" type="CharacterBody2D" unique_id=676992456 groups=["npc"]]
+[node name="NPC" type="CharacterBody2D" unique_id=676992456 node_paths=PackedStringArray("quest_component") groups=["npc"]]
 script = ExtResource("1_npc")
 npc_definition = ExtResource("2_16au0")
+quest_component = NodePath("Components/QuestComponent")
 
 [node name="Components" type="Node2D" parent="." unique_id=2088076043]
 
@@ -30,6 +32,9 @@ actor = NodePath("../..")
 script = ExtResource("7_follow")
 actor = NodePath("../..")
 movement_component = NodePath("../MovementComponent")
+
+[node name="QuestComponent" type="Node" parent="Components" unique_id=1324082495]
+script = ExtResource("7_quest")
 
 [node name="DialogueComponent" type="Node" parent="Components" unique_id=1324082494]
 script = ExtResource("3_dialogue")

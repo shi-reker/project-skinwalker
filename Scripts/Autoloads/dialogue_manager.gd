@@ -4,6 +4,11 @@ var dialogue_box: DialogueBox
 var _is_any_dialogue_active: bool = false
 var _active_component: DialogueComponent = null
 
+enum DialogueStatus { NEVER, QUEST, DONE }
+enum DialogueAction { NONE, QUEST, RECRUIT }
+
+var dialogue_statuses: Dictionary[DialogueDefinition, DialogueStatus] = {}
+
 func setup(dialogue_box_node: DialogueBox):
 	dialogue_box = dialogue_box_node
 
@@ -36,7 +41,7 @@ func update_choices(nChoices: int, choices: Array, component: DialogueComponent)
 		btn.id = c
 		btn.text.text = str(choices[c])
 		if not btn.picked.is_connected(component.dialogue_choice_handler):
-			btn.picked.connect(component.dialogue_choice_handler)
+			btn.picked.connect(component.dialogue_choice_handler, CONNECT_ONE_SHOT)
 
 func hide_choices() -> void:
 	for btn in dialogue_box.choices:
