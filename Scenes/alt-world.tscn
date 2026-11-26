@@ -15091,7 +15091,7 @@ position = Vector2(2848, 588)
 
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
-position = Vector2(1662, 2577)
+position = Vector2(1714, 2612)
 
 [node name="Player" parent="Actors" unique_id=473171831 instance=ExtResource("27_2105l")]
 position = Vector2(307, -22)
