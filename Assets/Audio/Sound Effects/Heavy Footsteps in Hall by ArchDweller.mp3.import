@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cisr3vddc4bq7"
+path="res://.godot/imported/Heavy Footsteps in Hall by ArchDweller.mp3-6465bd8af546789a442f328650b6bbae.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound Effects/Heavy Footsteps in Hall by ArchDweller.mp3"
+dest_files=["res://.godot/imported/Heavy Footsteps in Hall by ArchDweller.mp3-6465bd8af546789a442f328650b6bbae.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
