@@ -10,6 +10,8 @@ signal interaction_requested
 
 var can_interact: bool = true
 var cur_interactables: Array[InteractableComponent] = []
+var holding_interact: bool = false
+var hold_target: InteractableComponent = null
 
 var player_hints: Array[HintDefinition] = []
 
@@ -38,14 +40,25 @@ func set_interaction_available(available: bool, position: Vector2 = global_posit
 
 func _unhandled_input(event: InputEvent) -> void:
 	if DialogueManager._is_any_dialogue_active:
-		return
+			return
 
-	if can_interact and cur_interactables and event.is_action_pressed("interact"):
-		can_interact = false
-		cur_interactables[0].interact.call()
-		get_viewport().set_input_as_handled()
-		can_interact = true
-		return
+	if can_interact and cur_interactables:
+		var target := cur_interactables[0]
+
+		if event.is_action_pressed("interact"):
+			if target.weight == ItemManager.Weight.NONE:
+				target.interact.call()
+				get_viewport().set_input_as_handled()
+			else:
+				holding_interact = true
+				hold_target = target
+				target.begin_hold()
+
+		elif event.is_action_released("interact"):
+			if holding_interact and hold_target:
+				hold_target.cancel_hold()
+			holding_interact = false
+			hold_target = null
 
 	# if event.is_action_pressed("ability"):
 	# 	_trigger_nearest_ability()

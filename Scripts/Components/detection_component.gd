@@ -4,6 +4,9 @@ class_name DetectionComponent
 var detected_nodes: Array[CharacterBody2D] = []
 var current_visible_player: PlayerActor
 
+var target_conditions: Array[Callable] = []
+# func(target): return target is yapper
+
 @export var detect_shape: CollisionShape2D # only detect col layer 1
 
 @export var detect_radius: int = 200:
@@ -21,12 +24,16 @@ var current_visible_player: PlayerActor
 
 signal detected(nodes: Array[CharacterBody2D])
 signal player_detected(player: PlayerActor)
+signal target_detected(target: Node2D)
+
+
 
 func _ready() -> void:
 	_update_detect_shape()
 
 func _physics_process(_delta: float) -> void:
-	check_blast_radius(detected_nodes)
+	if not detected_nodes.is_empty():
+		check_blast_radius(detected_nodes)
 
 func _update_detect_shape() -> void:
 	if detect_shape == null or detect_shape.shape == null:
@@ -53,10 +60,15 @@ func check_blast_radius(targets: Array[CharacterBody2D]) -> void:
 		var result = space_state.intersect_ray(query)
 		
 		if result and result.collider == target:
-			if target is PlayerActor and visible_player == null:
-				visible_player = target
 			seen.append(target)
 
+			if target is PlayerActor and visible_player == null:
+				visible_player = target
+			if target_conditions.is_empty():
+				continue
+			for c in target_conditions:
+				if c.call(target):
+					target_detected.emit(target)
 	if current_visible_player != null and not is_instance_valid(current_visible_player):
 		current_visible_player = null
 	if visible_player != current_visible_player:
