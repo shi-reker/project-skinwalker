@@ -40,6 +40,22 @@
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="33_866uu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="34_la76y"]
 
+[sub_resource type="Environment" id="Environment_wj5hs"]
+background_mode = 3
+ssao_radius = 1.99
+glow_enabled = true
+glow_intensity = 0.78
+glow_bloom = 0.6
+glow_hdr_threshold = 1.25
+glow_hdr_luminance_cap = 0.5
+fog_light_color = Color(0.55365485, 0.5860884, 0.64007294, 1)
+fog_light_energy = 0.87
+fog_sun_scatter = 0.04
+fog_density = 0.0505
+adjustment_enabled = true
+adjustment_brightness = 0.5
+adjustment_contrast = 1.115
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tep7"]
 texture = ExtResource("2_lkpmk")
 1:0/0 = 0
@@ -15037,9 +15053,9 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68xk4"]
 shader = ExtResource("31_lkpmk")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.04800000228
+shader_parameter/scanlines_opacity = 0.046000002185
 shader_parameter/scanlines_width = 0.030000001425
-shader_parameter/grille_opacity = 0.0130000006175
+shader_parameter/grille_opacity = 0.058000002755
 shader_parameter/resolution = Vector2(1920, 1080)
 shader_parameter/pixelate = true
 shader_parameter/roll = false
@@ -15047,16 +15063,16 @@ shader_parameter/roll_speed = 1.0
 shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 0.10000000149012
 shader_parameter/distort_intensity = 0.00400000019
-shader_parameter/noise_opacity = 0.794000037715
+shader_parameter/noise_opacity = 0.8590000408025
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.18000000855
+shader_parameter/static_noise_intensity = 0.1850000087875
 shader_parameter/aberration = 0.00900004792750008
 shader_parameter/brightness = 1.0
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.06800000323
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.2950000140125
+shader_parameter/vignette_opacity = 0.326000015485
 
 [node name="AltWorld" type="Node2D" unique_id=1438441940 node_paths=PackedStringArray("player")]
 y_sort_enabled = true
@@ -15065,6 +15081,9 @@ player = NodePath("Actors/Player")
 player_spawn = null
 stalker_spawn = null
 npc_spawn_offset = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=596834013]
+environment = SubResource("Environment_wj5hs")
 
 [node name="Environment" type="Node2D" parent="." unique_id=621206705]
 y_sort_enabled = true
