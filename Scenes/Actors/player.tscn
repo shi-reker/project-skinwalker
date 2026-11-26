@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="5_movement_definition"]
 [ext_resource type="Texture2D" uid="uid://cugxxsmap0mfd" path="res://Assets/Visuals/tilemaps/packs/kenney_rpgUrbanKit/Tiles/tile_0026.png" id="6_sfcrp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ibjgy"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixl7y"]
+radius = 6.0
+height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 60.0
@@ -35,7 +36,8 @@ script = ExtResource("4_mqoqv")
 texture = ExtResource("6_sfcrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
-shape = SubResource("CircleShape2D_ibjgy")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_ixl7y")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
 layout_mode = 3
