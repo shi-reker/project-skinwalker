@@ -1,70 +1,74 @@
 extends NPCAbility
 class_name AbilityOjiSan
 
-@export var reveal_radius: float = 600.0
-@export var home_hint_value: String = "Rumah ada di arah timur laut"
+@export var stun_time: float = 6.0
 
-var _revealed_home: Node2D = null
+var _timer:float = 0.0
+var _player:PlayerActor
+var state:Callable
 
+func _on_activate(_world: World) -> void:
+	_timer = stun_time
+	_player = _world.player
+	if _owner_npc.global_position.distance_squared_to(_player.global_position) <= _owner_npc.detection_component.detect_radius:
+		state = follow
+	else:
+		state = search
 
-#func _on_activate(_context: Dictionary) -> void:
-	#if not _context.has("player"):
+func _on_use() -> void:
+	_target._on_immobilized(true)
+
+func _on_update(delta: float) -> void:
+	if _is_using:
+		_timer -= delta
+		if _timer <= 0.0:
+			_target._on_immobilized(false)
+			deactivate()
+	else:
+		state.call(delta)
+
+func _on_deactivate() -> void:
+	_is_using = false
+
+func follow(delta:float):
+	var minDist:float = _owner_npc.detection_component.detect_radius
+	if _owner_npc.global_position.distance_squared_to(_player.global_position) >= _owner_npc.detection_component.detect_radius:
+		if !is_instance_valid(_player):
+			return
+		state = search
+		return
+	
+	_owner_npc.movement_component.move_to(_player.global_position, delta)
+	if _owner_npc.movement_component.is_target_reached(minDist/2):
+		_on_target_reached()
+
+func search(delta:float):
+	if not is_instance_valid(_player):
+		_owner_npc.movement_component.stop_movement()
+		return
+	
+	_owner_npc.movement_component.move_to(_player.global_position, delta)
+	var minDist:float = _owner_npc.detection_component.detect_radius
+	if _owner_npc.movement_component.is_target_reached(minDist):
+		_on_target_reached()
+
+func _on_target_reached() -> void:
+	_owner_npc.movement_component.stop_movement()
+	
+	state = follow
+#
+#func _select_next_target() -> void:
+	#if _houses.is_empty():
+		#_has_search_target = false
 		#return
-	#var player := _context["player"] as PlayerActor
-#
-	#if player == null:
-		#return
-#
-	#_revealed_home = _find_home_node()
-	#if _revealed_home == null:
-		#print("[AbilityOjiSan] Tidak ada Home di scene!")
-		#return
-#
-	## Beri hint rumah ke player
-	#var hint := HintDefinition.new()
-	#hint.category = HintDefinition.HintCategory.HOUSE_COLOR
-	#hint.hint_value = home_hint_value
-	#hint.confidence = 0.9
-	#hint.is_active = true
-	#player.add_hint(hint)
-#
-	## Visual: garis sementara ke rumah
-	#_draw_path_to_home(player)
-#
-	#print("[AbilityOjiSan] Rumah ditunjukkan: ", _revealed_home.global_position)
-	#deactivate()
-#
-#
-#func _on_deactivate() -> void:
-	#_start_cooldown()
-#
-#
-#func _find_home_node() -> Node2D:
-	#var npc := get_owner_npc()
-	#if npc == null:
-		#return null
-	#var tree := npc.get_tree()
-	#if tree == null:
-		#return null
-#
-	#for node in tree.get_nodes_in_group("home"):
-		#if node is Node2D:
-			#return node
-#
-	#EnvironmentManager.home_node
-	#return null
-#
-#
-#func _draw_path_to_home(player: PlayerActor) -> void:
-	#if _revealed_home == null:
-		#return
-	#var line := Line2D.new()
-	#line.add_point(player.global_position)
-	#line.add_point(_revealed_home.global_position)
-	#line.width = 3.0
-	#line.default_color = Color(1, 0.8, 0.2, 0.7)
-	#player.get_parent().add_child(line)
-	#player.get_tree().create_timer(3.0).timeout.connect(func():
-		#if is_instance_valid(line):
-			#line.queue_free()
-	#)
+	#
+	#var closest_index := 0
+	#var closest_distance := _owner_npc.global_position.distance_squared_to(_houses[0])
+	#for index in range(1, _houses.size()):
+		#var distance := _owner_npc.global_position.distance_squared_to(_houses[index])
+		#if distance < closest_distance:
+			#closest_index = index
+			#closest_distance = distance
+	#
+	#_next_house = _houses.pop_at(closest_index)
+	#_has_search_target = true

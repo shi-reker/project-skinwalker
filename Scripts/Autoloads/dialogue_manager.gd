@@ -11,6 +11,7 @@ var dialogue_statuses: Dictionary[DialogueDefinition, DialogueStatus] = {}
 
 func setup(dialogue_box_node: DialogueBox):
 	dialogue_box = dialogue_box_node
+	#dialogue_box.text.text = "balls in yo jaw"
 
 func begin_session(component: DialogueComponent) -> void:
 	_active_component = component
