@@ -29,6 +29,7 @@ font = SubResource("SystemFont_spbju")
 font_size = 38
 
 [sub_resource type="SystemFont" id="SystemFont_6sal0"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ybp2y"]
 font = SubResource("SystemFont_6sal0")
@@ -192,7 +193,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "ballas"
 label_settings = SubResource("LabelSettings_ybp2y")
 autowrap_mode = 3
 

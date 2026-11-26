@@ -39,9 +39,8 @@ current_state = NodePath("SearchState")
 available_states = [NodePath("SearchState"), NodePath("PursuitState"), NodePath("SurveilState"), NodePath("CaptureState")]
 actor = NodePath("..")
 
-[node name="SearchState" type="Node" parent="StateMachine" unique_id=60467817 node_paths=PackedStringArray("noise")]
+[node name="SearchState" type="Node" parent="StateMachine" unique_id=60467817]
 script = ExtResource("6_2h22a")
-noise = NodePath("../../AudioStreamPlayer2D")
 state_name = &"SearchState"
 
 [node name="PursuitState" type="Node" parent="StateMachine" unique_id=1628534581]
