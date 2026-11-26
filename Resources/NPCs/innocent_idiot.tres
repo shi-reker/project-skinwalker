@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://d0w7ug4rrn1f2"]
+
+[ext_resource type="Resource" uid="uid://d2p3dh3cy3ylh" path="res://Resources/Abilities/lover.tres" id="1_ibra1"]
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="2_2hoem"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="2_6y6rg"]
+[ext_resource type="Resource" uid="uid://dn68nr4l5c0e2" path="res://Resources/NPCs/innocent_idiot_movement.tres" id="2_a8u7n"]
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="3_a8u7n"]
+[ext_resource type="Texture2D" uid="uid://b2nem6yy15557" path="res://icon.svg" id="4_6y6rg"]
+
+[resource]
+script = ExtResource("3_a8u7n")
+id = 3
+display_name = "Innocent Idiot"
+movement_definition = ExtResource("2_a8u7n")
+dialogue_definition = ExtResource("2_6y6rg")
+texture = ExtResource("4_6y6rg")
+recruitment_dialogue = ExtResource("2_6y6rg")
+ability = ExtResource("1_ibra1")
+metadata/_custom_type_script = "uid://cp37fayu15pxh"
