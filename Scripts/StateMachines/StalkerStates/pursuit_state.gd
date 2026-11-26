@@ -38,7 +38,7 @@ func update_state(delta: float) -> void:
 		else:
 			print_debug("[PursuitState] no player target or last-known position.")
 		_debug_elapsed = 0.0
-
+	
 	if has_target:
 		last_known_position = target.global_position
 		has_last_known_position = true
@@ -49,7 +49,7 @@ func update_state(delta: float) -> void:
 	elif not has_last_known_position:
 		stalker.movement_component.stop_movement()
 		return
-
+	
 	stalker.movement_component.move_to(last_known_position, delta)
 	if not has_target and stalker.movement_component.is_target_reached(CATCH_DISTANCE):
 		stalker.movement_component.stop_movement()

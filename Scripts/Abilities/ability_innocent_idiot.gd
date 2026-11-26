@@ -5,10 +5,10 @@ class_name AbilityInnocentIdiot
 
 var _timer:float = 0.0
 
-func _on_activate(world: World) -> void:
+func _on_activate(_world: World) -> void:
 	_timer = fight_duration
 	
-	_target = world.stalker
+	_target = _world.stalker
 
 func _on_use() -> void:
 	_owner_npc.movement_component.stop_movement()
@@ -25,4 +25,4 @@ func _on_update(delta: float) -> void:
 
 func _on_deactivate() -> void:
 	_is_using = false
-	print("[AbilityYapper] Distraksi selesai")
+	print("[AbilityLover] Distraksi selesai")
