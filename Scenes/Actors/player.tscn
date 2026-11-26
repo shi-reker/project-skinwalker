@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://pm6p8ifuqg4d" path="res://Scripts/StateMachines/player_state_machine.gd" id="3_state_machine"]
 [ext_resource type="Script" uid="uid://ijcu5f51cw6y" path="res://Scripts/StateMachines/PlayerStates/idle_state.gd" id="4_mqoqv"]
 [ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="5_movement_definition"]
-[ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="6_sfcrp"]
+[ext_resource type="Texture2D" uid="uid://cugxxsmap0mfd" path="res://Assets/Visuals/tilemaps/packs/kenney_rpgUrbanKit/Tiles/tile_0026.png" id="6_sfcrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibjgy"]
 radius = 32.0

@@ -6,6 +6,7 @@ signal ability_used(npc: NPCActor, ability: NPCAbility)
 
 @export var npc_definition: NPCDefinition
 
+@onready var detection_component: DetectionComponent = $Components/DetectionComponent
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 @onready var dialogue_component: DialogueComponent = $Components/DialogueComponent
 @export var quest_component: QuestComponent
@@ -25,6 +26,7 @@ func _ready() -> void:
 	
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
 	dialogue_component.quest_requested.connect(_on_quest_requested)
+	detection_component.stalker_detected.connect(_on_detected)
 
 	if npc_definition != null and npc_definition.ability != null:
 		npc_definition.ability = npc_definition.ability.duplicate(true)
@@ -38,7 +40,7 @@ func _exit_tree() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Update ability aktif
-	if npc_definition != null and npc_definition.ability != null:
+	if npc_definition != null and npc_definition.ability != null and npc_definition.ability.is_active():
 		npc_definition.ability.update(delta)
 
 func setup_npc() -> void:
@@ -88,19 +90,24 @@ func can_use_ability() -> bool:
 		return false
 	return npc_definition.ability.can_activate()
 
-
-func use_ability(context: Dictionary = {}) -> bool:
+func use_ability(world: World) -> bool:
 	if not can_use_ability():
 		print("[NPC] Ability tidak tersedia untuk ", name)
 		return false
-	#npc_definition.ability.activate(context)
+	npc_definition.ability.activate(world)
 	ability_used.emit(self, npc_definition.ability)
 	print("[NPC] ", name, " menggunakan ability: ", npc_definition.ability.ability_name)
 	return true
 
 func can_recruit_now() -> bool:
+	# check if npc has quest and if quest is completed
 	if npc_definition == null or not npc_definition.can_be_recruited:
 		return false
+	var has_quest := npc_definition != null and npc_definition.quest_definition != null
+	if has_quest:
+		var quest_status := QuestManager.get_quest_status(npc_definition.quest_definition.id)
+		if quest_status != QuestManager.QuestStatus.COMPLETED:
+			return false
 
 	return true
 
@@ -119,8 +126,14 @@ func _on_quest_completed() -> void:
 	# dialogue_component.update_status(DialogueManager.DialogueStatus.DONE)
 	pass
 
-func _on_dialogue_finished(dialogue_status: DialogueManager.DialogueStatus) -> void:
-	if dialogue_status == DialogueManager.DialogueStatus.QUEST:
-		pass
-	elif dialogue_status == DialogueManager.DialogueStatus.DONE and !is_recruited:
+func _on_dialogue_finished(status: DialogueManager.DialogueStatus) -> void:
+	if not is_recruited and status == DialogueManager.DialogueStatus.DONE and can_recruit_now():
 		recruit()
+
+func _on_detected(stalker: StalkerActor) -> void:
+	#print_debug("[NPC] detected")
+	if is_instance_valid(stalker) and npc_definition.ability.is_active():
+		#print_debug("[NPC] stalker detected")
+		npc_definition.ability._is_using = true
+		npc_definition.ability._target = stalker
+		npc_definition.ability._on_use()

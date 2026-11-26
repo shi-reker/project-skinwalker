@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("4_bwqth")
+id = 4
 display_name = "Imposror"
 movement_definition = ExtResource("3_pm7nh")
 dialogue_definition = ExtResource("2_yh68x")

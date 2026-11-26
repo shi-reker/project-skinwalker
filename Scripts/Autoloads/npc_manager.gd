@@ -1,6 +1,6 @@
 extends Node
 
-enum NpcId {NONE, NEIGHBOR, IMPOSTOR}
+enum NpcId {NONE, NEIGHBOR, YAPPER, LOVER, IMPOSTOR}
 
 var npc_resource: Dictionary[NpcId, NPCDefinition] = {
 	NpcId.NONE: preload("res://Resources/NPCs/guy1.tres")

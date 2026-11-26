@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AbilityInnocentIdiot" format=3 uid="uid://d2p3dh3cy3ylh"]
+
+[ext_resource type="Script" uid="uid://def62tww00cop" path="res://Scripts/Abilities/ability_innocent_idiot.gd" id="1_x7xdt"]
+
+[resource]
+script = ExtResource("1_x7xdt")
+metadata/_custom_type_script = "uid://def62tww00cop"

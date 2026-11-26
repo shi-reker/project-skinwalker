@@ -43,7 +43,7 @@ func _select_next_target() -> void:
 	if target_positions.is_empty():
 		has_search_target = false
 		return
-
+	
 	var closest_index := 0
 	var closest_distance := stalker.global_position.distance_squared_to(target_positions[0])
 	for index in range(1, target_positions.size()):
@@ -51,6 +51,6 @@ func _select_next_target() -> void:
 		if distance < closest_distance:
 			closest_index = index
 			closest_distance = distance
-
+	
 	target = target_positions.pop_at(closest_index)
 	has_search_target = true
