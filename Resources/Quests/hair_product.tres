@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://ca6f84umtoey6"]
+
+[ext_resource type="Script" uid="uid://5vb7khhfpc6b" path="res://Scripts/Resources/item_definition.gd" id="1_edq2i"]
+
+[sub_resource type="Gradient" id="Gradient_8j60k"]
+offsets = PackedFloat32Array(0.953125, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_edq2i"]
+gradient = SubResource("Gradient_8j60k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[resource]
+script = ExtResource("1_edq2i")
+id = 2
+name = "Hair Product"
+texture = SubResource("GradientTexture2D_edq2i")
+position = Vector2(-50, -50)
+metadata/_custom_type_script = "uid://5vb7khhfpc6b"

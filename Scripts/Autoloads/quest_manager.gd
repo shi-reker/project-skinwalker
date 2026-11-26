@@ -1,38 +1,65 @@
 extends Node
 
-enum QuestId { NONE, MAYA_LOCKET, FIND_KEY, ESCORT_NPC }
+enum QuestId { NONE, MAYA_LOCKET, FIND_KEY, ESCORT_NPC, FIND_CLOTHES }
+enum QuestObjectiveId { NONE, PICKUP, INTERACT }
+enum QuestStatus { NOT_STARTED, ACTIVE, COMPLETED }
 
-var quest_resource: Dictionary[QuestId, Resource] = {
-	QuestId.NONE: preload("res://Resources/Quests/fetch_spare_key.tres"), 
-	QuestId.MAYA_LOCKET: preload("res://Resources/Quests/fetch_spare_key.tres"), 
-	QuestId.FIND_KEY: preload("res://Resources/Quests/fetch_spare_key.tres"), 
-	QuestId.ESCORT_NPC: preload("res://Resources/Quests/fetch_spare_key.tres")
-}
-
-enum QuestObjectiveId {
-	NONE, PICKUP, INTERACT
-}
-
-var objective_resource: Dictionary[QuestObjectiveId, Resource] = {
-	QuestObjectiveId.NONE: preload("res://Resources/Quests/collect_objective.tres"),
-	QuestObjectiveId.PICKUP: preload("res://Resources/Quests/collect_objective.tres"),
-	QuestObjectiveId.INTERACT: preload("res://Resources/Quests/collect_objective.tres"),
-}
-
-enum QuestStatus {
-	NOT_STARTED,
-	ACTIVE,
-	COMPLETED,
+var quest_resource: Dictionary[QuestId, QuestDefinition] = {
+	QuestId.NONE: preload("res://Resources/Quests/fetch_spare_key.tres"),
+	QuestId.MAYA_LOCKET: preload("res://Resources/Quests/fetch_spare_key.tres"),
+	QuestId.FIND_KEY: preload("res://Resources/Quests/fetch_spare_key.tres"),
+	QuestId.ESCORT_NPC: preload("res://Resources/Quests/fetch_spare_key.tres"),
+	QuestId.FIND_CLOTHES: preload("res://Resources/Quests/fetch_clothes.tres")
 }
 
 var quest_statuses: Dictionary[QuestId, QuestStatus] = {}
+var quest_progress: Dictionary[QuestId, int] = {}
+var item_quests: Dictionary[ItemManager.ItemsId, QuestId] = {}
+var npc_quests: Dictionary[NpcManager.NpcId, QuestId] = {}
 
-signal quest_accepted(quest: QuestDefinition)
+func _ready() -> void:
+	ItemManager.item_accepted.connect(_on_item_accepted)
+
 func offer_quest(definition: QuestDefinition) -> bool:
 	if definition == null or definition.id == QuestId.NONE:
-		push_error("Cannot offer a quest without a definition and quest ID.")
 		return false
-	var quest_id := definition.id
-	quest_statuses[quest_id] = QuestStatus.ACTIVE
-	quest_accepted.emit(definition)
+	if quest_statuses.get(definition.id, QuestStatus.NOT_STARTED) != QuestStatus.NOT_STARTED:
+		return false
+	
+	var objective: QuestObjectiveId = definition.objective
+	quest_resource[definition.id] = definition
+	quest_statuses[definition.id] = QuestStatus.ACTIVE
+	
+	if objective == QuestObjectiveId.PICKUP:
+		quest_progress[definition.id] = int(ItemManager.item_quantities.get(definition.target_item_id, 0))
+		item_quests[definition.target_item_id] = definition.id
+	elif objective == QuestObjectiveId.INTERACT:
+		quest_progress[definition.id] = 1
+		npc_quests[definition.target_npc_id] = definition.id
+	_check_completed(definition)
 	return true
+
+func record_actor_interaction(actor_id: NpcManager.NpcId) -> void:
+	if npc_quests.has(actor_id):
+		var quest_id: QuestId = npc_quests[actor_id]
+		quest_progress[quest_id] = 1
+		_check_completed(quest_resource[quest_id])
+
+func get_quest_status(quest_id: QuestId) -> int:
+	return int(quest_statuses.get(quest_id, QuestStatus.NOT_STARTED))
+
+func is_quest_completed(quest: QuestDefinition) -> bool:
+	return quest != null and get_quest_status(quest.id) == QuestStatus.COMPLETED
+
+func _on_item_accepted(item: ItemDefinition, quantity: int) -> void:
+	if item_quests.has(item.id):
+		var quest_id: QuestId = item_quests[item.id]
+		var def: QuestDefinition = quest_resource[quest_id]
+		quest_progress[quest_id] = mini(quantity, def.required_count)
+		_check_completed(def)
+
+
+func _check_completed(definition: QuestDefinition) -> void:
+	var quest_id := definition.id
+	if int(quest_progress.get(quest_id, 0)) >= definition.required_count:
+		quest_statuses[quest_id] = QuestStatus.COMPLETED

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://cugy8861ddfkc"]
+
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="1_e26ml"]
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="2_cwaqg"]
+
+[resource]
+script = ExtResource("2_cwaqg")
+metadata/_custom_type_script = "uid://cp37fayu15pxh"

@@ -8,6 +8,7 @@ signal ability_used(npc: NPCActor, ability: NPCAbility)
 
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 @onready var dialogue_component: DialogueComponent = $Components/DialogueComponent
+@export var quest_component: QuestComponent
 @onready var follow_component: FollowComponent = $Components/FollowComponent
 @onready var state_machine: NPCStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
@@ -20,9 +21,11 @@ func _ready() -> void:
 	setup_npc()
 	
 	interactable.interact_name = "Talk"
-	interactable.interact = func(): interact_with_player()
+	interactable.interact = interact_with_player
 	
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
+	dialogue_component.recruit_requested.connect(_on_recruit_by_choice)
+	dialogue_component.quest_requested.connect(_on_quest_requested)
 
 	if npc_definition != null and npc_definition.ability != null:
 		npc_definition.ability = npc_definition.ability.duplicate(true)
@@ -43,12 +46,14 @@ func setup_npc() -> void:
 	if npc_definition == null:
 		return
 
+	quest_component.setup(npc_definition.quest_definition, self)
+
 	if npc_definition.texture != null:
 		sprite.texture = npc_definition.texture
 
 	if npc_definition.dialogue_definition != null:
+		DebugManager.add_debug("FOUND DIALOGUE"+str(npc_definition.dialogue_definition))
 		dialogue_component.dialogue_definition = npc_definition.dialogue_definition
-		npc_definition.dialogue_definition.recruit_owner.connect(_on_recruit_by_choice)
 
 	if npc_definition.movement_definition != null:
 		movement_component.movement_definition = npc_definition.movement_definition
@@ -56,6 +61,9 @@ func setup_npc() -> void:
 func interact_with_player() -> void:
 	if dialogue_component.is_dialogue_active:
 		return
+
+	QuestManager.record_actor_interaction(npc_definition.id)
+	dialogue_component.update_status(quest_component.check_quest_progress())
 	
 	if is_recruited:
 		dialogue_component.start_dialogue()
@@ -83,7 +91,7 @@ func use_ability(context: Dictionary = {}) -> bool:
 	if not can_use_ability():
 		print("[NPC] Ability tidak tersedia untuk ", name)
 		return false
-	npc_definition.ability.activate(context)
+	#npc_definition.ability.activate(context)
 	ability_used.emit(self, npc_definition.ability)
 	print("[NPC] ", name, " menggunakan ability: ", npc_definition.ability.ability_name)
 	return true
@@ -104,6 +112,14 @@ func _on_recruit_by_choice():
 	if not is_recruited and can_recruit_now():
 		recruit()
 
-func _on_dialogue_finished() -> void:
-	#if not is_recruited and can_recruit_now():
-	recruit()
+func _on_quest_requested() -> void:
+	quest_component.offer_quest()
+
+func _on_quest_completed() -> void:
+	dialogue_component.update_status(DialogueManager.DialogueStatus.DONE)
+
+func _on_dialogue_finished(dialogue_status: DialogueManager.DialogueStatus) -> void:
+	if dialogue_status == DialogueManager.DialogueStatus.QUEST:
+		pass
+	elif dialogue_status == DialogueManager.DialogueStatus.DONE and !is_recruited:
+		recruit()

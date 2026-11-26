@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://dh31wlw44pjmw"]
+
+[ext_resource type="Resource" path="res://Resources/Abilities/yapper_ability.tres" id="1_cuci2"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="2_yh68x"]
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="3_5neh4"]
+[ext_resource type="Resource" uid="uid://c47jisbui7a6n" path="res://Resources/Quests/fetch_clothes.tres" id="3_bwqth"]
+[ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="3_pm7nh"]
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="4_bwqth"]
+[ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="5_pm7nh"]
+
+[resource]
+script = ExtResource("4_bwqth")
+display_name = "Imposror"
+movement_definition = ExtResource("3_pm7nh")
+dialogue_definition = ExtResource("2_yh68x")
+texture = ExtResource("5_pm7nh")
+quest_definition = ExtResource("3_bwqth")
+recruitment_min_confidence = 0.5
+recruitment_dialogue = ExtResource("2_yh68x")
+ability = ExtResource("1_cuci2")
+metadata/_custom_type_script = "uid://cp37fayu15pxh"

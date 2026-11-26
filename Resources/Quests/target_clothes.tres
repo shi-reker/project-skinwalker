@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestObjectiveDefinition" format=3 uid="uid://bbrcfa8l4u54b"]
+
+[ext_resource type="Script" uid="uid://c3wrvbol1s2i2" path="res://Scripts/Components/quest_objective_definition.gd" id="1_0lhgm"]
+
+[resource]
+script = ExtResource("1_0lhgm")
+id = 1
+metadata/_custom_type_script = "uid://c3wrvbol1s2i2"

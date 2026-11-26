@@ -4,5 +4,21 @@
 
 [resource]
 script = ExtResource("1_v84tr")
-dialogue_lines = Array[String](["my balls"])
+speaker_name = "pla"
+dialogue_lines = Array[String](["hiiiii", "wanna do my quest????", "awww", "yessss", "pendinggggg", "wowwww", "thanksssss"])
+choice_lines = Dictionary[int, Array]({
+1: ["y", "n", 3, 2]
+})
+end_lines = Dictionary[int, int]({
+2: 0,
+3: 1,
+4: 0,
+5: 2,
+6: 0
+})
+start_lines = Dictionary[int, int]({
+0: 0,
+1: 4,
+2: 6
+})
 metadata/_custom_type_script = "uid://bv33ummqne80f"

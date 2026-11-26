@@ -14,21 +14,29 @@ class_name World
 @export var npc_spawn_offset: Vector2 = Vector2(48, 16)
 
 func _ready() -> void:
+	if active_debug_label == true:
+		print_debug(debug_label)
+		DebugManager.setup(debug_label)
+		DebugManager.add_debug("debug turned on")
 	if home != null:
+		push_error("ADD HOME AND AND SETUP HOME VAR")
 		EnvironmentManager.set_home(home)
 	if stalker != null:
+		push_error("ADD STALKER AND SETUP STALKER VAR")
 		stalker.add_hint()
+	if player != null:
+		push_error("ADD PLAYER SCENE AND SETUP PLAYER VAR")
+	
 	# NpcManager.setup(self)
+	
 	Events.home_entered.connect(_on_player_entered_home)
 	Events.player_captured.connect(_on_player_captured)
 
-	#_apply_spawn_layout()
-
-	NpcManager.setup(self)
+	# _apply_spawn_layout()
 	
-	if active_debug_label:
-		DebugManager.setup(debug_label)
-		DebugManager.add_debug("debug turned on")
+	NpcManager.setup(self)
+	ItemManager.setup(self)
+	
 
 func _apply_spawn_layout() -> void:
 	if player:

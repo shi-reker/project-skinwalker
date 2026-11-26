@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogueDefinition" format=3 uid="uid://r3t3ihto35jb"]
+
+[ext_resource type="Script" uid="uid://bv33ummqne80f" path="res://Scripts/Resources/dialogue_definition.gd" id="1_elgup"]
+
+[resource]
+script = ExtResource("1_elgup")
+metadata/_custom_type_script = "uid://bv33ummqne80f"
