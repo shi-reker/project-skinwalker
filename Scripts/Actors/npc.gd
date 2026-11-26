@@ -24,7 +24,6 @@ func _ready() -> void:
 	interactable.interact = interact_with_player
 	
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
-	dialogue_component.recruit_requested.connect(_on_recruit_by_choice)
 	dialogue_component.quest_requested.connect(_on_quest_requested)
 
 	if npc_definition != null and npc_definition.ability != null:
@@ -46,6 +45,7 @@ func setup_npc() -> void:
 	if npc_definition == null:
 		return
 
+	dialogue_component.npc = self
 	quest_component.setup(npc_definition.quest_definition, self)
 
 	if npc_definition.texture != null:
@@ -63,11 +63,13 @@ func interact_with_player() -> void:
 		return
 
 	QuestManager.record_actor_interaction(npc_definition.id)
-	dialogue_component.update_status(quest_component.check_quest_progress())
 	
 	if is_recruited:
+		dialogue_component.update_status(DialogueManager.DialogueStatus.RECRUITED)
 		dialogue_component.start_dialogue()
 		return
+
+	dialogue_component.update_status(quest_component.check_quest_progress())
 	
 	if not has_talked_once:
 		dialogue_component.start_dialogue()
@@ -106,17 +108,16 @@ func recruit() -> void:
 	if is_recruited:
 		return
 	is_recruited = true
+	dialogue_component.status = DialogueManager.DialogueStatus.RECRUITED
+	print_debug("RECRUITED!!!! ", dialogue_component.status)
 	NpcManager._on_npc_recruited(self)
-
-func _on_recruit_by_choice():
-	if not is_recruited and can_recruit_now():
-		recruit()
 
 func _on_quest_requested() -> void:
 	quest_component.offer_quest()
 
 func _on_quest_completed() -> void:
-	dialogue_component.update_status(DialogueManager.DialogueStatus.DONE)
+	# dialogue_component.update_status(DialogueManager.DialogueStatus.DONE)
+	pass
 
 func _on_dialogue_finished(dialogue_status: DialogueManager.DialogueStatus) -> void:
 	if dialogue_status == DialogueManager.DialogueStatus.QUEST:

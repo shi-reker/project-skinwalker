@@ -2,7 +2,6 @@ extends Node
 class_name DialogueComponent
 
 signal dialogue_finished(status: DialogueManager.DialogueStatus)
-signal recruit_requested
 signal quest_requested
 
 @export var dialogue_definition: DialogueDefinition = null
@@ -28,7 +27,13 @@ func start_dialogue() -> void:
 	#dialogue_definition.choice_lines = dialogue_definition.get_choices()
 	if dialogue_definition == null or dialogue_definition.dialogue_lines.is_empty():
 		return
-	DebugManager.add_debug("got new dialogue!"+str(dialogue_definition.dialogue_lines))
+	# if status is quest, check quest progress and update dialogue accordingly
+	print_debug("status before checking is",status)
+	if status == DialogueManager.DialogueStatus.QUEST:
+		if npc != null and npc.quest_component != null and npc.quest_component.quest_definition != null:
+			var quest_status: int = QuestManager.get_quest_status(npc.quest_component.quest_definition.id)
+			if quest_status == QuestManager.QuestStatus.COMPLETED:
+				status = DialogueManager.DialogueStatus.DONE
 	is_dialogue_active = true
 	current_line_index = clampi(current_line_index, 0, dialogue_definition.dialogue_lines.size() - 1)
 
@@ -48,7 +53,7 @@ func start_dialogue() -> void:
 			0
 		)
 	)
-	
+	print_debug("status is",status)
 	_display_current_line()
 
 func advance_dialogue() -> void:
@@ -56,8 +61,9 @@ func advance_dialogue() -> void:
 		return
 
 	if dialogue_definition.end_lines.has(current_line_index):
-		_run_end_action(current_line_index)
-		end_dialogue()
+		var action: DialogueManager.DialogueAction = dialogue_definition.end_lines[current_line_index]
+		_run_end_action(action)
+		end_dialogue(action)
 		return
 
 	current_line_index += 1
@@ -68,13 +74,9 @@ func advance_dialogue() -> void:
 
 	_display_current_line()
 
-func _run_end_action(line_index: int) -> void:
-	match dialogue_definition.end_lines.get(line_index, DialogueManager.DialogueAction.NONE):
-		DialogueManager.DialogueAction.RECRUIT:
-			recruit_requested.emit()
-		DialogueManager.DialogueAction.QUEST:
-			status = DialogueManager.DialogueStatus.QUEST
-			quest_requested.emit()
+func _run_end_action(action: DialogueManager.DialogueAction) -> void:
+	if action == DialogueManager.DialogueAction.QUEST:
+		quest_requested.emit()
 
 func _display_current_line() -> void:
 	print_debug("checkoing choice handler", current_line_index, " for ",dialogue_definition.choice_lines)
@@ -89,9 +91,14 @@ func _display_current_line() -> void:
 		DialogueManager.enable_dialogue()
 		DialogueManager.hide_choices()
 
-func end_dialogue() -> void:
+func end_dialogue(action: DialogueManager.DialogueAction = DialogueManager.DialogueAction.NONE) -> void:
 	if not is_dialogue_active:
 		return
+
+	if action == DialogueManager.DialogueAction.QUEST:
+		status = DialogueManager.DialogueStatus.QUEST
+	elif action == DialogueManager.DialogueAction.RECRUIT:
+		status = DialogueManager.DialogueStatus.DONE
 
 	is_dialogue_active = false
 	current_line_index = 0

@@ -13,7 +13,6 @@ class_name NPCDefinition
 @export var recruitment_required_hints: Array[HintDefinition] = []
 @export var recruitment_min_confidence: float = 0.0
 @export var recruitment_dialogue: DialogueDefinition
-@export var follow_distance: float = 60.0
 
 @export_group("Ability")
 @export var ability: NPCAbility

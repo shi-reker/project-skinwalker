@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("1_script")
 display_name = "Yapper"
+dialogue_definition = ExtResource("3_rclju")
 texture = ExtResource("3_tex")
 recruitment_min_confidence = 0.5
 recruitment_dialogue = ExtResource("3_rclju")
