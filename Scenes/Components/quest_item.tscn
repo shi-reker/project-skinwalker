@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvg688yjosedx"]
+
+[ext_resource type="Script" uid="uid://fnm3gt14x3ui" path="res://Scripts/Environments/item.gd" id="1_h1b4g"]
+[ext_resource type="PackedScene" uid="uid://c82j75d07l2o5" path="res://Scenes/Components/interactable_component.tscn" id="2_2s5yx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
+radius = 18.0
+
+[node name="QuestItem" type="Node2D" unique_id=615424674 node_paths=PackedStringArray("sprite", "interact_c")]
+script = ExtResource("1_h1b4g")
+sprite = NodePath("Sprite2D")
+interact_c = NodePath("InteractableComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869399075]
+
+[node name="InteractableComponent" parent="." unique_id=1612934472 instance=ExtResource("2_2s5yx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1463149709]
+shape = SubResource("CircleShape2D_pickup")

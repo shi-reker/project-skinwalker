@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://g77uxggti7hd"]
+
+[ext_resource type="Script" uid="uid://cvjr1x5o0ugln" path="res://Scripts/Menus/quest_progress_display.gd" id="1_410n8"]
+
+[node name="Quest" type="HFlowContainer" unique_id=826780464 node_paths=PackedStringArray("quest_details", "quest_progress")]
+anchors_preset = -1
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 8
+script = ExtResource("1_410n8")
+quest_details = NodePath("Label")
+quest_progress = NodePath("Label2")
+
+[node name="Label" type="Label" parent="." unique_id=1562885061]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "complete this quest!"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=1113751695]
+layout_mode = 2
+text = "0/1"

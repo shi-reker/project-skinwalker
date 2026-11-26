@@ -1,11 +1,12 @@
 extends Node2D
 class_name World
 
-@export var player: PlayerActor
-@export var stalker: StalkerActor
-@export var home: House
+@export var player: PlayerActor = null
+@export var stalker: StalkerActor = null
+@export var home: House = null
 
-@export var debug_label: Label
+@export var quests_display: QuestsDisplay= null
+@export var debug_label: Label = null
 @export var active_debug_label: bool = false
 
 @export_group("Spawn Layout")
@@ -26,6 +27,8 @@ func _ready() -> void:
 		stalker.add_hint()
 	if player != null:
 		push_error("ADD PLAYER SCENE AND SETUP PLAYER VAR")
+	if quests_display != null:
+		push_error("ADD QUESTS DISPLAY SCENE AND SETUP INSIDE INSPECTOR")
 	
 	# NpcManager.setup(self)
 	
@@ -36,7 +39,7 @@ func _ready() -> void:
 	
 	NpcManager.setup(self)
 	ItemManager.setup(self)
-	
+	QuestManager.setup(quests_display)
 
 func _apply_spawn_layout() -> void:
 	if player:

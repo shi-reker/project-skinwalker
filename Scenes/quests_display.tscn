@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://yn8f3738u5hw"]
+
+[ext_resource type="Script" uid="uid://dhyhtxur58sse" path="res://Scripts/Menus/quests_display.gd" id="1_rf0si"]
+[ext_resource type="PackedScene" uid="uid://g77uxggti7hd" path="res://Scenes/quest_progress_display.tscn" id="2_jkj3m"]
+
+[node name="QuestsDisplay" type="PanelContainer" unique_id=2563716 node_paths=PackedStringArray("quests_container")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1520.0
+offset_bottom = 400.0
+grow_horizontal = 0
+script = ExtResource("1_rf0si")
+quests_container = NodePath("MarginContainer/QuestsContainer")
+quest_scene = ExtResource("2_jkj3m")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1097937941]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="QuestsContainer" type="VBoxContainer" parent="MarginContainer" unique_id=443816130]
+layout_mode = 2
+
+[node name="Quest2" parent="MarginContainer/QuestsContainer" unique_id=1872932627 instance=ExtResource("2_jkj3m")]
+layout_mode = 2

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dbxkilk51lfta"]
+
+[ext_resource type="Script" uid="uid://d05q53jgoi6uk" path="res://Scripts/world.gd" id="1_cy3qn"]
+[ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="2_3o1fy"]
+[ext_resource type="PackedScene" uid="uid://bxsfjho2h3vhj" path="res://Scenes/Actors/stalker.tscn" id="3_4towk"]
+[ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="4_ytxsv"]
+[ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="5_1jlw6"]
+[ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="6_4towk"]
+[ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="7_1jlw6"]
+[ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Scripts/Resources/NPC/impostor.tres" id="7_ytxsv"]
+[ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="8_ytxsv"]
+
+[node name="Node2D" type="Node2D" unique_id=1552784915 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "debug_label")]
+script = ExtResource("1_cy3qn")
+player = NodePath("Player")
+stalker = NodePath("Stalker")
+home = NodePath("house1")
+quests_display = NodePath("CanvasLayer/Control/QuestsDisplay")
+debug_label = NodePath("CanvasLayer/Control/Label")
+active_debug_label = true
+
+[node name="Player" parent="." unique_id=473171831 instance=ExtResource("2_3o1fy")]
+position = Vector2(-191, -31)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=541135662]
+
+[node name="Stalker" parent="." unique_id=1888125872 instance=ExtResource("3_4towk")]
+position = Vector2(313, 6)
+
+[node name="Street" parent="." unique_id=449041247 instance=ExtResource("4_ytxsv")]
+street_name = "NEW"
+
+[node name="house1" parent="." unique_id=1714198596 node_paths=PackedStringArray("street") instance=ExtResource("5_1jlw6")]
+street = NodePath("../Street")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=530598615]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=283471229]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBox" parent="CanvasLayer/Control" unique_id=1390935538 instance=ExtResource("8_ytxsv")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -288.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=270254486]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="QuestsDisplay" parent="CanvasLayer/Control" unique_id=2563716 instance=ExtResource("7_1jlw6")]
+layout_mode = 1
+offset_left = -400.0
+offset_right = 0.0
+
+[node name="NPC" parent="." unique_id=676992456 instance=ExtResource("6_4towk")]
+npc_definition = ExtResource("7_ytxsv")
