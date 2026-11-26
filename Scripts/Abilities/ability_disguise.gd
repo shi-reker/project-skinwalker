@@ -28,10 +28,21 @@ func _on_update(delta: float) -> void:
 			_target._on_immobilized(false)
 			deactivate()
 	else:
+		if !_has_search_target:
+			_owner_npc.movement_component.stop_movement()
+			return
+		
 		_owner_npc.movement_component.move_to(_next_house, delta)
+		if _has_search_target and _owner_npc.movement_component.is_target_reached():
+			_on_target_reached()
 
 func _on_deactivate() -> void:
 	_is_using = false
+
+func _on_target_reached() -> void:
+	_select_next_target()
+	if not _has_search_target:
+		_owner_npc.movement_component.stop_movement()
 
 func _select_next_target() -> void:
 	if _houses.is_empty():
