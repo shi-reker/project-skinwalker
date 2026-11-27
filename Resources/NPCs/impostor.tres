@@ -2,19 +2,19 @@
 
 [ext_resource type="Resource" uid="uid://ddbsmo1wa86tb" path="res://Resources/Abilities/disguise_ability.tres" id="1_3u862"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="2_yh68x"]
+[ext_resource type="Resource" uid="uid://bkokfmli3nwno" path="res://Resources/NPCs/impostor_movement.tres" id="3_3u862"]
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="3_5neh4"]
 [ext_resource type="Resource" uid="uid://c47jisbui7a6n" path="res://Resources/Quests/fetch_clothes.tres" id="3_bwqth"]
-[ext_resource type="Resource" uid="uid://c1x5dk6jqle6b" path="res://Resources/Player/player_moveDef.tres" id="3_pm7nh"]
 [ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="4_bwqth"]
-[ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="5_pm7nh"]
+[ext_resource type="Texture2D" uid="uid://bw73jdsy6imr3" path="res://Assets/Visuals/sprites/NPCs/npc1 r.png" id="7_3u862"]
 
 [resource]
 script = ExtResource("4_bwqth")
 id = 4
 display_name = "Imposror"
-movement_definition = ExtResource("3_pm7nh")
+movement_definition = ExtResource("3_3u862")
 dialogue_definition = ExtResource("2_yh68x")
-texture = ExtResource("5_pm7nh")
+texture = ExtResource("7_3u862")
 quest_definition = ExtResource("3_bwqth")
 recruitment_min_confidence = 0.5
 recruitment_dialogue = ExtResource("2_yh68x")

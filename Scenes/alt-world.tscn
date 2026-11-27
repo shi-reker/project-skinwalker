@@ -13,7 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="33_866uu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="34_la76y"]
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="39_amo57"]
-[ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="40_e2110"]
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="39_e2110"]
+[ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="39_la76y"]
+[ext_resource type="Resource" uid="uid://85aim7l853wo" path="res://Resources/NPCs/oji-san.tres" id="40_jfgu2"]
+[ext_resource type="Resource" uid="uid://c3qsmrhowax0k" path="res://Resources/NPCs/yapper.tres" id="41_jby4m"]
+[ext_resource type="Resource" uid="uid://d0w7ug4rrn1f2" path="res://Resources/NPCs/innocent_idiot.tres" id="42_elfcg"]
+[ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="43_npc"]
 
 [sub_resource type="Environment" id="Environment_wj5hs"]
 background_mode = 3
@@ -39,6 +44,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_866uu")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_amo57"]
+font_size = 32
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68xk4"]
 shader = ExtResource("31_lkpmk")
@@ -70,7 +78,7 @@ script = ExtResource("1_qbpqm")
 player = NodePath("Actors/Player")
 stalker = NodePath("Actors/Stalker")
 home = NodePath("Environment/house1")
-quests_display = NodePath("CanvasLayer/QuestsDisplay")
+quests_display = NodePath("ShaderCanvas/HUD/QuestsDisplay")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 player_spawn = null
 stalker_spawn = null
@@ -133,7 +141,25 @@ anchor_bottom = 0.5
 
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("30_fyxux")]
 position = Vector2(273, -78)
+known_hints = Array[ExtResource("39_e2110")]([])
 target = NodePath("../Player")
+
+[node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
+
+[node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("43_npc")]
+position = Vector2(1111, 1325)
+
+[node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("43_npc")]
+position = Vector2(1999, -157)
+npc_definition = ExtResource("40_jfgu2")
+
+[node name="Yapper" parent="Actors/NPCs" unique_id=311879779 instance=ExtResource("43_npc")]
+position = Vector2(836, -445)
+npc_definition = ExtResource("41_jby4m")
+
+[node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("43_npc")]
+position = Vector2(1126, 132)
+npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]
 
@@ -541,6 +567,42 @@ color = Color(0.16361973, 0.39554623, 0.53303653, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
 
+[node name="HUD" type="Control" parent="ShaderCanvas" unique_id=1813744342]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestsDisplay" parent="ShaderCanvas/HUD" unique_id=2563716 instance=ExtResource("39_la76y")]
+layout_mode = 1
+offset_left = -400.0
+offset_right = 0.0
+
+[node name="DialogueBox" parent="ShaderCanvas/HUD" unique_id=942182066 instance=ExtResource("29_jp7ex")]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -865.0
+offset_top = -288.0
+offset_right = 865.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="DebugLabel" type="Label" parent="ShaderCanvas/HUD" unique_id=289459073]
+visible = false
+layout_mode = 1
+offset_left = 173.0
+offset_top = -8.0
+offset_right = 213.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_amo57")
+
 [node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=722996177]
 material = SubResource("ShaderMaterial_68xk4")
 anchors_preset = 15
@@ -587,4 +649,4 @@ polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 195
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 
-[node name="QuestsDisplay" parent="CanvasLayer" unique_id=2563716 instance=ExtResource("40_e2110")]
+[node name="QuestsDisplay" parent="CanvasLayer" unique_id=871502943 instance=ExtResource("39_la76y")]

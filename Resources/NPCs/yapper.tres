@@ -4,15 +4,15 @@
 [ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Resources/NPCs/yapper_dialogue.tres" id="2_dialog"]
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="2_nyknu"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="3_rclju"]
-[ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="3_tex"]
 [ext_resource type="Resource" path="res://Resources/Abilities/yapper_ability.tres" id="4_ability"]
+[ext_resource type="Texture2D" uid="uid://ci553r5hbeugc" path="res://Assets/Visuals/sprites/NPCs/npc3 d.png" id="6_ghhnf"]
 
 [resource]
 script = ExtResource("1_script")
 id = 2
 display_name = "Yapper"
 dialogue_definition = ExtResource("2_dialog")
-texture = ExtResource("3_tex")
+texture = ExtResource("6_ghhnf")
 recruitment_min_confidence = 0.5
 recruitment_dialogue = ExtResource("3_rclju")
 ability = ExtResource("4_ability")

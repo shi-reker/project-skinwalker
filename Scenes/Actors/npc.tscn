@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://crshuc8x0viue" path="res://Scenes/Components/detection_component.tscn" id="8_detection"]
 [ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="8_flvar"]
 
-[sub_resource type="RectangleShape2D" id="NPC_Collision"]
-size = Vector2(24, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3w3nk"]
+radius = 6.0
+height = 18.0
 
 [sub_resource type="CircleShape2D" id="NPC_Interact"]
 radius = 55.0
@@ -51,7 +52,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_flvar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964047544]
-shape = SubResource("NPC_Collision")
+shape = SubResource("CapsuleShape2D_3w3nk")
 
 [node name="InteractableComponent" type="Area2D" parent="." unique_id=1938976425]
 collision_layer = 2

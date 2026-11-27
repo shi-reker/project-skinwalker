@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_wosri")
-walk_speed = 10.0
-run_speed = 20.0
-acceleration = 8.0
-deceleration = 8.0
+walk_speed = 100.0
+run_speed = 120.0
+acceleration = 200.0
+deceleration = 220.0
 metadata/_custom_type_script = "uid://drtrxby0qypyv"
