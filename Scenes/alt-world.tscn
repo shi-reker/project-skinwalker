@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="33_866uu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="34_la76y"]
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="39_amo57"]
-[ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="40_e2110"]
-[ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="39_amo57"]
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="39_e2110"]
 [ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="39_la76y"]
 [ext_resource type="Resource" uid="uid://85aim7l853wo" path="res://Resources/NPCs/oji-san.tres" id="40_jfgu2"]
 [ext_resource type="Resource" uid="uid://c3qsmrhowax0k" path="res://Resources/NPCs/yapper.tres" id="41_jby4m"]
 [ext_resource type="Resource" uid="uid://d0w7ug4rrn1f2" path="res://Resources/NPCs/innocent_idiot.tres" id="42_elfcg"]
+[ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="43_npc"]
 
 [sub_resource type="Environment" id="Environment_wj5hs"]
 background_mode = 3
@@ -73,15 +73,13 @@ shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.326000015485
 
 [node name="AltWorld" type="Node2D" unique_id=1438441940 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "pause_menu")]
-[node name="AltWorld" type="Node2D" unique_id=1438441940 node_paths=PackedStringArray("player", "stalker", "quests_display")]
 y_sort_enabled = true
 script = ExtResource("1_qbpqm")
 player = NodePath("Actors/Player")
 stalker = NodePath("Actors/Stalker")
 home = NodePath("Environment/house1")
-quests_display = NodePath("CanvasLayer/QuestsDisplay")
-pause_menu = NodePath("CanvasLayer/PauseMenu")
 quests_display = NodePath("ShaderCanvas/HUD/QuestsDisplay")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
 player_spawn = null
 stalker_spawn = null
 npc_spawn_offset = null
@@ -143,7 +141,25 @@ anchor_bottom = 0.5
 
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("30_fyxux")]
 position = Vector2(273, -78)
+known_hints = Array[ExtResource("39_e2110")]([])
 target = NodePath("../Player")
+
+[node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
+
+[node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("43_npc")]
+position = Vector2(1111, 1325)
+
+[node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("43_npc")]
+position = Vector2(1999, -157)
+npc_definition = ExtResource("40_jfgu2")
+
+[node name="Yapper" parent="Actors/NPCs" unique_id=311879779 instance=ExtResource("43_npc")]
+position = Vector2(836, -445)
+npc_definition = ExtResource("41_jby4m")
+
+[node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("43_npc")]
+position = Vector2(1126, 132)
+npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]
 
@@ -548,22 +564,6 @@ texture_scale = 4.04
 
 [node name="NightColor" type="CanvasModulate" parent="." unique_id=4613796]
 color = Color(0.16361973, 0.39554623, 0.53303653, 1)
-[node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
-
-[node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("39_amo57")]
-position = Vector2(1111, 1325)
-
-[node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("39_amo57")]
-position = Vector2(1999, -157)
-npc_definition = ExtResource("40_jfgu2")
-
-[node name="Yapper" parent="Actors/NPCs" unique_id=311879779 instance=ExtResource("39_amo57")]
-position = Vector2(836, -445)
-npc_definition = ExtResource("41_jby4m")
-
-[node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("39_amo57")]
-position = Vector2(195, -433)
-npc_definition = ExtResource("42_elfcg")
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
 
@@ -649,4 +649,4 @@ polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 195
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 
-[node name="QuestsDisplay" parent="CanvasLayer" unique_id=2563716 instance=ExtResource("40_e2110")]
+[node name="QuestsDisplay" parent="CanvasLayer" unique_id=871502943 instance=ExtResource("39_la76y")]
