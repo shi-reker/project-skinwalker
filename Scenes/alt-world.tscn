@@ -156,7 +156,12 @@ connected_street = [NodePath("../WestBridge St"), NodePath("../CentralBridge St"
 [node name="WestPass St" parent="Environment/Streets" unique_id=478331399 node_paths=PackedStringArray("connected_street") instance=ExtResource("34_la76y")]
 position = Vector2(1003, 2418)
 street_name = "West Pass"
-connected_street = [NodePath("../SouthsideRiver St"), NodePath("../Worm St"), NodePath("../Mangroove St"), NodePath("../Waterfront St")]
+connected_street = [NodePath("../SouthsideRiver St"), NodePath("../Worm St"), NodePath("../Mangroove St"), NodePath("../Waterfront St"), NodePath("../WestGate St")]
+
+[node name="WestGate St" parent="Environment/Streets" unique_id=396923548 node_paths=PackedStringArray("connected_street") instance=ExtResource("34_la76y")]
+position = Vector2(733, 2033)
+street_name = "West Gate"
+connected_street = [NodePath("../WestPass St")]
 
 [node name="WestInner St" parent="Environment/Streets" unique_id=129317432 node_paths=PackedStringArray("connected_street") instance=ExtResource("34_la76y")]
 position = Vector2(1358, 2418)
@@ -256,8 +261,368 @@ connected_street = [NodePath("../Maze St"), NodePath("../CentralPass St")]
 [node name="Houses" type="Node" parent="Environment" unique_id=1956954500]
 
 [node name="house1" parent="Environment/Houses" unique_id=1714198596 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
-position = Vector2(1375, 747)
+position = Vector2(1397, 707)
 street = NodePath("../../Streets/North St")
+
+[node name="house2" parent="Environment/Houses" unique_id=1289674069 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1585, 736)
+street = NodePath("../../Streets/North St")
+
+[node name="house3" parent="Environment/Houses" unique_id=1952640322 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1861, 738)
+street = NodePath("../../Streets/North St")
+
+[node name="house4" parent="Environment/Houses" unique_id=1786518863 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2113, 716)
+street = NodePath("../../Streets/North St")
+
+[node name="house5" parent="Environment/Houses" unique_id=170291225 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2518, 642)
+street = NodePath("../../Streets/North St")
+
+[node name="house6" parent="Environment/Houses" unique_id=112144963 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2980, 725)
+street = NodePath("../../Streets/North St")
+
+[node name="house7" parent="Environment/Houses" unique_id=1123336644 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3606, 710)
+street = NodePath("../../Streets/North St")
+
+[node name="house8" parent="Environment/Houses" unique_id=294637612 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(997, 1303)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house9" parent="Environment/Houses" unique_id=736471368 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1324, 1327)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house10" parent="Environment/Houses" unique_id=51606343 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1463, 1330)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house11" parent="Environment/Houses" unique_id=650370056 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1581, 1331)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house12" parent="Environment/Houses" unique_id=864353830 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1700, 1331)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house13" parent="Environment/Houses" unique_id=1683493775 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2022, 1368)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house14" parent="Environment/Houses" unique_id=1111841018 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2373, 1337)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house15" parent="Environment/Houses" unique_id=372620361 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2758, 1363)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house16" parent="Environment/Houses" unique_id=1370276457 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2854, 1361)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house17" parent="Environment/Houses" unique_id=378127303 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2942, 1361)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house18" parent="Environment/Houses" unique_id=496673318 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3053, 1362)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house19" parent="Environment/Houses" unique_id=1993790027 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3144, 1362)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house20" parent="Environment/Houses" unique_id=1798553150 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3238, 1361)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house21" parent="Environment/Houses" unique_id=12864946 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3256, 1259)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house22" parent="Environment/Houses" unique_id=252582331 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3148, 1257)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house23" parent="Environment/Houses" unique_id=50703701 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3055, 1252)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house24" parent="Environment/Houses" unique_id=1076452834 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2946, 1253)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house25" parent="Environment/Houses" unique_id=998721054 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2821, 1248)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house26" parent="Environment/Houses" unique_id=1123546571 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2728, 1251)
+street = NodePath("../../Streets/NorthsideRiver St")
+
+[node name="house27" parent="Environment/Houses" unique_id=1408263665 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3250, 1008)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house28" parent="Environment/Houses" unique_id=1001705644 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3129, 1007)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house29" parent="Environment/Houses" unique_id=1088723762 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2996, 1003)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house30" parent="Environment/Houses" unique_id=1727209631 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2899, 1005)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house31" parent="Environment/Houses" unique_id=232249824 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2738, 1007)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house32" parent="Environment/Houses" unique_id=347550326 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2526, 1045)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house33" parent="Environment/Houses" unique_id=625319114 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2461, 1045)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house34" parent="Environment/Houses" unique_id=624424258 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2462, 931)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house35" parent="Environment/Houses" unique_id=746341033 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2527, 935)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house36" parent="Environment/Houses" unique_id=1175154232 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1997, 1043)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house37" parent="Environment/Houses" unique_id=633863952 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1933, 1043)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house38" parent="Environment/Houses" unique_id=605785067 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1931, 931)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house39" parent="Environment/Houses" unique_id=2142271598 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1997, 933)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house40" parent="Environment/Houses" unique_id=1488164881 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1715, 1009)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house41" parent="Environment/Houses" unique_id=976551776 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1542, 1010)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house42" parent="Environment/Houses" unique_id=121466183 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1365, 1011)
+street = NodePath("../../Streets/Spine St")
+
+[node name="house43" parent="Environment/Houses" unique_id=782120601 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(725, 1987)
+street = NodePath("../../Streets/WestGate St")
+
+[node name="house44" parent="Environment/Houses" unique_id=2057358587 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(726, 1859)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house45" parent="Environment/Houses" unique_id=996052479 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1124, 2113)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house46" parent="Environment/Houses" unique_id=1687379108 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1128, 2481)
+street = NodePath("../../Streets/Worm St")
+
+[node name="house47" parent="Environment/Houses" unique_id=98021558 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1172, 2323)
+street = NodePath("../../Streets/WestInner St")
+
+[node name="house48" parent="Environment/Houses" unique_id=1067190604 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1189, 1908)
+street = NodePath("../../Streets/WestInner St")
+
+[node name="house49" parent="Environment/Houses" unique_id=1261125201 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(864, 2285)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house50" parent="Environment/Houses" unique_id=314736206 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(870, 2604)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house51" parent="Environment/Houses" unique_id=1802826902 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(885, 2878)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house52" parent="Environment/Houses" unique_id=1936491305 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(855, 3165)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house53" parent="Environment/Houses" unique_id=1896779965 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(742, 3494)
+street = NodePath("../../Streets/WestPass St")
+
+[node name="house54" parent="Environment/Houses" unique_id=1440012298 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(741, 3619)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house55" parent="Environment/Houses" unique_id=1293373255 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(804, 3794)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house56" parent="Environment/Houses" unique_id=1271646116 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1237, 3841)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house57" parent="Environment/Houses" unique_id=1820382444 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1478, 3491)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house58" parent="Environment/Houses" unique_id=58606190 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1125, 3443)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house59" parent="Environment/Houses" unique_id=686570882 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1656, 3525)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house60" parent="Environment/Houses" unique_id=1689012591 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1838, 3528)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house61" parent="Environment/Houses" unique_id=1814375592 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2036, 3574)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house62" parent="Environment/Houses" unique_id=770528651 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2131, 3574)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house63" parent="Environment/Houses" unique_id=382404248 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2222, 3572)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house64" parent="Environment/Houses" unique_id=704993083 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2333, 3573)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house65" parent="Environment/Houses" unique_id=910418989 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2421, 3572)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house66" parent="Environment/Houses" unique_id=1367881008 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2517, 3571)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house67" parent="Environment/Houses" unique_id=307343015 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2543, 3460)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house68" parent="Environment/Houses" unique_id=796948103 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2428, 3460)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house69" parent="Environment/Houses" unique_id=1708382201 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2340, 3461)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house70" parent="Environment/Houses" unique_id=1062195005 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2228, 3461)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house71" parent="Environment/Houses" unique_id=815576426 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2103, 3459)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house72" parent="Environment/Houses" unique_id=2022770850 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2005, 3461)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house73" parent="Environment/Houses" unique_id=200306543 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1781, 3829)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house74" parent="Environment/Houses" unique_id=1353041443 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2355, 3843)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house75" parent="Environment/Houses" unique_id=855903157 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3061, 3811)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house76" parent="Environment/Houses" unique_id=189153230 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3748, 3825)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house77" parent="Environment/Houses" unique_id=1421338084 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3157, 3490)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house78" parent="Environment/Houses" unique_id=1060340002 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2805, 3525)
+street = NodePath("../../Streets/Waterfront St")
+
+[node name="house79" parent="Environment/Houses" unique_id=325566292 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2738, 3180)
+street = NodePath("../../Streets/Mangroove St")
+
+[node name="house80" parent="Environment/Houses" unique_id=1184744532 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2899, 3181)
+street = NodePath("../../Streets/Mangroove St")
+
+[node name="house81" parent="Environment/Houses" unique_id=105164543 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2994, 3181)
+street = NodePath("../../Streets/Mangroove St")
+
+[node name="house82" parent="Environment/Houses" unique_id=488786091 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3143, 3180)
+street = NodePath("../../Streets/Mangroove St")
+
+[node name="house83" parent="Environment/Houses" unique_id=647290942 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3249, 3179)
+street = NodePath("../../Streets/Mangroove St")
+
+[node name="house84" parent="Environment/Houses" unique_id=1486881878 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3236, 2699)
+street = NodePath("../../Streets/Maze St")
+
+[node name="house85" parent="Environment/Houses" unique_id=812709373 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3106, 2573)
+street = NodePath("../../Streets/Wall St")
+
+[node name="house86" parent="Environment/Houses" unique_id=972413017 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3281, 2236)
+street = NodePath("../../Streets/CentralPass St")
+
+[node name="house87" parent="Environment/Houses" unique_id=153776707 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3249, 1839)
+street = NodePath("../../Streets/Valley St")
+
+[node name="house88" parent="Environment/Houses" unique_id=126331437 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3105, 1839)
+street = NodePath("../../Streets/Valley St")
+
+[node name="house89" parent="Environment/Houses" unique_id=190816886 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2936, 1836)
+street = NodePath("../../Streets/Valley St")
+
+[node name="house90" parent="Environment/Houses" unique_id=306518023 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(2739, 1835)
+street = NodePath("../../Streets/Valley St")
+
+[node name="house91" parent="Environment/Houses" unique_id=143044967 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3862, 2179)
+street = NodePath("../../Streets/EastRiver St")
 
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
@@ -301,6 +666,7 @@ position = Vector2(1126, 132)
 npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]
+visible = false
 
 [node name="PointLight2D" type="PointLight2D" parent="LightSources" unique_id=1817201194]
 position = Vector2(1806, 2487)
@@ -706,6 +1072,7 @@ visible = false
 color = Color(0.16361973, 0.39554623, 0.53303653, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
+visible = false
 
 [node name="HUD" type="Control" parent="ShaderCanvas" unique_id=1813744342]
 layout_mode = 3
@@ -786,6 +1153,7 @@ polygon = PackedVector2Array(4292, 9, 4294, 4124, 5009, 4129, 5013, 9)
 polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 1956, 2219, 1957, 2251, 1973, 2251, 1972, 2283, 1989, 2282, 1988, 2394, 1972, 2394, 1973, 2410, 1956, 2410, 1956, 2427, 1940, 2427, 1940, 2442, 1877, 2442, 1877, 2426, 1845, 2426, 1845, 2394, 1829, 2394, 1829, 2361, 1813, 2362, 1813, 2250, 1829, 2250, 1829, 2234, 1845, 2234, 1845, 2218)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044929413]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 
