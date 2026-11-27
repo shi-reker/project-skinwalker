@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="5_1jlw6"]
 [ext_resource type="PackedScene" uid="uid://rueawrs8jnyg" path="res://Scenes/Actors/npc.tscn" id="6_4towk"]
 [ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="7_1jlw6"]
-[ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Scripts/Resources/NPC/impostor.tres" id="7_ytxsv"]
+[ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="8_1jlw6"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="8_ytxsv"]
 
-[node name="Node2D" type="Node2D" unique_id=1552784915 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "debug_label")]
+[node name="Node2D" type="Node2D" unique_id=1552784915 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "debug_label", "pause_menu")]
 script = ExtResource("1_cy3qn")
 player = NodePath("Player")
 stalker = NodePath("Stalker")
@@ -18,11 +18,16 @@ home = NodePath("house1")
 quests_display = NodePath("CanvasLayer/Control/QuestsDisplay")
 debug_label = NodePath("CanvasLayer/Control/Label")
 active_debug_label = true
+pause_menu = NodePath("CanvasLayer/PauseMenu")
+player_spawn = null
+stalker_spawn = null
+npc_spawn_offset = null
 
 [node name="Player" parent="." unique_id=473171831 instance=ExtResource("2_3o1fy")]
 position = Vector2(-191, -31)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=541135662]
+zoom = Vector2(5, 5)
 
 [node name="Stalker" parent="." unique_id=1888125872 instance=ExtResource("3_4towk")]
 position = Vector2(313, 6)
@@ -44,6 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogueBox" parent="CanvasLayer/Control" unique_id=1390935538 instance=ExtResource("8_ytxsv")]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

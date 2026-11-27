@@ -39,6 +39,8 @@
 [ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="31_lkpmk"]
 [ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="33_866uu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="34_la76y"]
+[ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="39_amo57"]
+[ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="40_e2110"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tep7"]
 texture = ExtResource("2_lkpmk")
@@ -15049,10 +15051,14 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.2950000140125
 
-[node name="AltWorld" type="Node2D" unique_id=1438441940 node_paths=PackedStringArray("player")]
+[node name="AltWorld" type="Node2D" unique_id=1438441940 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "pause_menu")]
 y_sort_enabled = true
 script = ExtResource("1_qbpqm")
 player = NodePath("Actors/Player")
+stalker = NodePath("Actors/Stalker")
+home = NodePath("Environment/house1")
+quests_display = NodePath("CanvasLayer/QuestsDisplay")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
 player_spawn = null
 stalker_spawn = null
 npc_spawn_offset = null
@@ -15156,3 +15162,9 @@ polygon = PackedVector2Array(4292, 9, 4294, 4124, 5009, 4129, 5013, 9)
 
 [node name="LakeCollision" type="CollisionPolygon2D" parent="WorldCollisions" unique_id=461095006]
 polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 1956, 2219, 1957, 2251, 1973, 2251, 1972, 2283, 1989, 2282, 1988, 2394, 1972, 2394, 1973, 2410, 1956, 2410, 1956, 2427, 1940, 2427, 1940, 2442, 1877, 2442, 1877, 2426, 1845, 2426, 1845, 2394, 1829, 2394, 1829, 2361, 1813, 2362, 1813, 2250, 1829, 2250, 1829, 2234, 1845, 2234, 1845, 2218)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044929413]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
+
+[node name="QuestsDisplay" parent="CanvasLayer" unique_id=2563716 instance=ExtResource("40_e2110")]

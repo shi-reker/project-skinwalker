@@ -8,6 +8,7 @@ class_name World
 @export var quests_display: QuestsDisplay= null
 @export var debug_label: Label = null
 @export var active_debug_label: bool = false
+@export var pause_menu: PauseMenu = null
 
 @export_group("Spawn Layout")
 @export var player_spawn: Vector2 = Vector2(400, 300)
@@ -30,6 +31,10 @@ func _ready() -> void:
 	if quests_display != null:
 		push_error("ADD QUESTS DISPLAY SCENE AND SETUP INSIDE INSPECTOR")
 	
+	if pause_menu == null:
+		push_error("ADD PAUSE MENU SCENE AND SETUP INSIDE INSPECTOR")
+	else:
+		PauseManager.setup(self, pause_menu)
 	# NpcManager.setup(self)
 	
 	Events.home_entered.connect(_on_player_entered_home)
