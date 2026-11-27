@@ -5,6 +5,7 @@ class_name NPCDefinition
 @export var display_name: String = ""
 @export var movement_definition: MovementDefinition
 @export var dialogue_definition: DialogueDefinition
+@export var frames: SpriteFrames
 @export var texture: Texture2D
 @export var quest_definition: QuestDefinition = null
 

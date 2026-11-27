@@ -1,4 +1,5 @@
 extends Control
+class_name PauseMenu
 
 signal resumed
 
@@ -9,6 +10,7 @@ const MAIN_MENU_SCENE = "res://scenes/main_menu.tscn"
 @onready var options_button: Button = $PauseContent/OptionsButton
 @onready var main_menu_button: Button = $PauseContent/MainMenuButton
 
+var will_queue_free: bool = true
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -22,6 +24,9 @@ func _ready() -> void:
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
 	resumed.emit()
+	if not will_queue_free:
+		hide()
+		return
 	queue_free()
 
 
