@@ -15,6 +15,7 @@ var lights_off_sfx := "res://Assets/Audio/Sound Effects/lights off.wav"
 var door_creak := "res://Assets/Audio/Sound Effects/Door creak.wav"
 var book_open := "res://Assets/Audio/Sound Effects/book_open.wav"
 
+#UI
 var generic_button_hover := "res://Assets/Audio/packs/pack 1/WAV/Retro1.wav"
 var play_button := "res://Assets/Audio/packs/pack 1/WAV/Modern15.wav"
 var option_button := "res://Assets/Audio/packs/pack 1/WAV/Coffee2.wav"
@@ -23,11 +24,19 @@ var generic_button := "res://Assets/Audio/packs/pack 1/WAV/Minimalist11.wav"
 
 # Gameplay BGM
 var gameplay_bgm := [
-	
+	"res://Assets/Audio/Music/Broken [Soundtrack] 3N.wav",
+	"res://Assets/Audio/Music/Coffee [Soundtrack] 3N.wav",
+	"res://Assets/Audio/Music/psylokid - alone in a room.ogg",
+	"res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg"
 ]
-
 var last_played_track := -1
-var is_gameplay := false
+
+#Ambience
+var ambience_players: Dictionary = {}
+var ambience_sounds := {
+	"vhs": "res://Assets/Audio/Ambience/609360__florstristi__vhs_vcr-hum-crunchy.ogg",
+	"fire": "res://Assets/Audio/Ambience/182368__kingsrow__fire-crackling-02.ogg",
+}
 
 func _ready():
 	BGMPlayer = AudioStreamPlayer.new()
@@ -55,27 +64,33 @@ func play_music(path: String, volume: float = 0.0):
 func play_menu_music():
 	play_music(menuBGM, -5)
 	
-func play_random_gameplay_music():
-	if gameplay_bgm.is_empty():
+func play_gameplay_track(index: int) -> void:
+	if index < 0 or index >= gameplay_bgm.size():
 		return
 
-	var random_index := randi_range(0, gameplay_bgm.size() - 1)
+	play_music(gameplay_bgm[index], -20)
 
-	while gameplay_bgm.size() > 1 and random_index == last_played_track:
-		random_index = randi_range(0, gameplay_bgm.size() - 1)
+func play_ambience(id: String, volume: float = 0.0) -> void:
+	if not ambience_sounds.has(id):
+		push_warning("Ambience not found: " + id)
+		return
 
-	last_played_track = random_index
-	play_music(gameplay_bgm[random_index], -10)
+	if ambience_players.has(id):
+		return
 
-func start_menu_music():
-	is_gameplay = false
-	play_menu_music()
+	var player := AudioStreamPlayer.new()
+	player.bus = "Ambience"
+	player.stream = load(ambience_sounds[id])
+	player.volume_db = volume
 
-func start_gameplay_music():
-	is_gameplay = true
-	last_played_track = -1
-	play_random_gameplay_music()
-	
+	if player.stream is AudioStreamWAV:
+		player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	elif player.stream is AudioStreamOggVorbis:
+		player.stream.loop = true
+
+	add_child(player)
+	ambience_players[id] = player
+	player.play()
 func _play_ui_hover(path: String, volume: float = 0.0):
 	UIHoverSoundPlayer.stream = load(path)
 	UIHoverSoundPlayer.volume_db = volume

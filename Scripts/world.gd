@@ -1,32 +1,41 @@
 extends Node2D
 class_name World
 
+#Music/Sfx related variable
+var last_track := -1
 @onready var fire_ambiance: AudioStreamPlayer = $FireAmbiance
 @onready var vhs_ambiance: AudioStreamPlayer = $VhsAmbiance
 
+#Actor related variable
 @export var player: PlayerActor = null
 @export var stalker: StalkerActor = null
 @export var home: House = null
 
+#Rendering related variable
 @export var foreground: TileMapLayer
-
 @export var quests_display: QuestsDisplay= null
 @export var debug_label: Label = null
 @export var active_debug_label: bool = false
 @export var pause_menu: PauseMenu = null
 
+#Gameplay related variable
 @export_group("Spawn Layout")
 @export var player_spawn: Vector2 = Vector2(400, 300)
 @export var stalker_spawn: Vector2 = Vector2(800, 500)
 @export var npc_spawn_offset: Vector2 = Vector2(48, 16)
 
 func _ready() -> void:
-	fire_ambiance.play()
-	vhs_ambiance.play()
+	#Music related
+	play_next_gameplay_music()
+	SoundManager.play_ambience("vhs", -8)
+	SoundManager.play_ambience("fire", -13)
+	
+	#Debugging
 	if active_debug_label == true:
 		print_debug(debug_label)
 		DebugManager.setup(debug_label)
 		DebugManager.add_debug("debug turned on")
+		
 	if home == null:
 		EnvironmentManager.set_home(home)
 	else:
@@ -99,3 +108,32 @@ func _on_player_entered_home():
 
 func _on_player_captured():
 	print_debug("YOU LOSEEEEE")
+
+
+#Background Music
+func play_next_gameplay_music() -> void:
+	var tracks = SoundManager.gameplay_bgm
+
+	if tracks.is_empty():
+		return
+
+	var random_index := randi_range(0, tracks.size() - 1)
+
+	while tracks.size() > 1 and random_index == last_track:
+		random_index = randi_range(0, tracks.size() - 1)
+
+	last_track = random_index
+
+	SoundManager.play_gameplay_track(random_index)
+
+	# Tunggu sampai lagu selesai.
+	await SoundManager.BGMPlayer.finished
+
+	# Tunggu 30 detik sebelum lagu berikutnya.
+	await get_tree().create_timer(30.0).timeout
+
+	# Pastikan scene masih aktif.
+	if not is_inside_tree():
+		return
+
+	play_next_gameplay_music()

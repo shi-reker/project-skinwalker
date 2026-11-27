@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="9_ikia7"]
 [ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="12_7yui6"]
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="13_c5t2i"]
-[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_kn0ld"]
-[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_hgpy0"]
+[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Ambience/182368__kingsrow__fire-crackling-02.ogg" id="14_kn0ld"]
+[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Ambience/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_hgpy0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ikia7"]
 font_size = 32
