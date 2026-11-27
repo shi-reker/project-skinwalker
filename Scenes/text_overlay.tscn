@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dpsgt3u853sxe"]
+
+[ext_resource type="Texture2D" uid="uid://bmd7arh4y4n7y" path="res://Assets/Visuals/text_overlay_bg.png" id="1_tgmy5"]
+[ext_resource type="FontFile" uid="uid://c58chvw3cpwej" path="res://Fonts/HandymandiFree.ttf" id="2_d700l"]
+[ext_resource type="Script" uid="uid://cbpq83qv04tea" path="res://Scripts/Components/text_overlay.gd" id="2_jkjtw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8knx"]
+font = ExtResource("2_d700l")
+font_size = 48
+font_color = Color(0.59905666, 1.4318898e-06, 4.3317675e-07, 1)
+
+[node name="TextOverlay" type="TextureRect" unique_id=1299591244 node_paths=PackedStringArray("timer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -969.0
+offset_top = -89.0
+offset_right = 969.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tgmy5")
+script = ExtResource("2_jkjtw")
+timer = NodePath("Timer")
+
+[node name="Label" type="Label" parent="." unique_id=522736078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "get home safely"
+label_settings = SubResource("LabelSettings_y8knx")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Timer" type="Timer" parent="." unique_id=972805940]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://c7fhxfrm7e7dy" path="res://Resources/tilesets/ObjectBehind.tres" id="3_4e70k"]
 [ext_resource type="TileSet" uid="uid://cpinskwyq6d5n" path="res://Resources/tilesets/Building.tres" id="4_dpta2"]
 [ext_resource type="TileSet" uid="uid://dar1g4uqxa4sx" path="res://Resources/tilesets/ObjectInfront.tres" id="5_7oe7p"]
+[ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="29_jp7ex"]
@@ -624,6 +625,18 @@ street = NodePath("../../Streets/Valley St")
 position = Vector2(3862, 2179)
 street = NodePath("../../Streets/EastRiver St")
 
+[node name="house92" parent="Environment/Houses" unique_id=1710869802 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3860, 1955)
+street = NodePath("../../Streets/EastRiver St")
+
+[node name="house93" parent="Environment/Houses" unique_id=1667815534 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3767, 1842)
+street = NodePath("../../Streets/Nook St")
+
+[node name="house94" parent="Environment/Houses" unique_id=1896702839 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(3765, 2068)
+street = NodePath("../../Streets/Nook St")
+
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
 position = Vector2(806, 2043)
@@ -666,7 +679,6 @@ position = Vector2(1126, 132)
 npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]
-visible = false
 
 [node name="PointLight2D" type="PointLight2D" parent="LightSources" unique_id=1817201194]
 position = Vector2(1806, 2487)
@@ -1072,7 +1084,6 @@ visible = false
 color = Color(0.16361973, 0.39554623, 0.53303653, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
-visible = false
 
 [node name="HUD" type="Control" parent="ShaderCanvas" unique_id=1813744342]
 layout_mode = 3
@@ -1109,6 +1120,9 @@ offset_top = -8.0
 offset_right = 213.0
 offset_bottom = 15.0
 label_settings = SubResource("LabelSettings_amo57")
+
+[node name="TextOverlay" parent="ShaderCanvas/HUD" unique_id=1299591244 instance=ExtResource("17_p50x7")]
+layout_mode = 1
 
 [node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=722996177]
 material = SubResource("ShaderMaterial_68xk4")
@@ -1153,7 +1167,6 @@ polygon = PackedVector2Array(4292, 9, 4294, 4124, 5009, 4129, 5013, 9)
 polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 1956, 2219, 1957, 2251, 1973, 2251, 1972, 2283, 1989, 2282, 1988, 2394, 1972, 2394, 1973, 2410, 1956, 2410, 1956, 2427, 1940, 2427, 1940, 2442, 1877, 2442, 1877, 2426, 1845, 2426, 1845, 2394, 1829, 2394, 1829, 2361, 1813, 2362, 1813, 2250, 1829, 2250, 1829, 2234, 1845, 2234, 1845, 2218)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044929413]
-visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 
