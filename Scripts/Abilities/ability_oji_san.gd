@@ -38,9 +38,10 @@ func follow(delta:float):
 		state = search
 		return
 	
-	_owner_npc.movement_component.move_to(_player.global_position, delta)
 	if _owner_npc.movement_component.is_target_reached(minDist/2):
 		_on_target_reached()
+	else:
+		_owner_npc.movement_component.move_to(_player.global_position, delta)
 
 func search(delta:float):
 	if not is_instance_valid(_player):
@@ -54,7 +55,6 @@ func search(delta:float):
 
 func _on_target_reached() -> void:
 	_owner_npc.movement_component.stop_movement()
-	
 	state = follow
 #
 #func _select_next_target() -> void:
