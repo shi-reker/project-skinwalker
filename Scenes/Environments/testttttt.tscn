@@ -71,5 +71,7 @@ layout_mode = 1
 offset_left = -400.0
 offset_right = 0.0
 
+[node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("8_1jlw6")]
+visible = false
+
 [node name="NPC" parent="." unique_id=676992456 instance=ExtResource("6_4towk")]
-npc_definition = ExtResource("7_ytxsv")

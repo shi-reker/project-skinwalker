@@ -4,6 +4,7 @@ class_name PlayerActor
 @onready var movement: MovementComponent = $Components/MovementComponent
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var interact_pop_up: Control = $InteractPopUp
+@export var animation: AnimationComponent
 
 signal entered_home
 signal interaction_requested
@@ -21,6 +22,7 @@ func _ready() -> void:
 	add_to_group("player")
 	state_machine.setup(self)
 	interact_pop_up.hide()
+	movement.direction_changed.connect(animation._on_movement_direction_changed)
 
 
 func _physics_process(delta: float) -> void:

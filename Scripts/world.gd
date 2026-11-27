@@ -20,17 +20,18 @@ func _ready() -> void:
 		print_debug(debug_label)
 		DebugManager.setup(debug_label)
 		DebugManager.add_debug("debug turned on")
-	if home != null:
-		push_error("ADD HOME AND AND SETUP HOME VAR")
+	if home == null:
 		EnvironmentManager.set_home(home)
-	if stalker != null:
+	else:
+		push_error("ADD HOME AND AND SETUP HOME VAR")
+	if stalker == null:
 		push_error("ADD STALKER AND SETUP STALKER VAR")
+	else:
 		stalker.add_hint()
-	if player != null:
+	if player == null:
 		push_error("ADD PLAYER SCENE AND SETUP PLAYER VAR")
-	if quests_display != null:
+	if quests_display == null:
 		push_error("ADD QUESTS DISPLAY SCENE AND SETUP INSIDE INSPECTOR")
-	
 	if pause_menu == null:
 		push_error("ADD PAUSE MENU SCENE AND SETUP INSIDE INSPECTOR")
 	else:

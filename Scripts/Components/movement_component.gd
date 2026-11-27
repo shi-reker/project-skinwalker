@@ -11,8 +11,10 @@ var has_target_position: bool = false
 var _debug_elapsed: float = 1.0
 var _using_direct_fallback: bool = false
 var rangeBorders:float = 0
+var _last_direction: Vector2 = Vector2.ZERO
 
 signal at_range(i:float)
+signal direction_changed(new_direction: Vector2)
 
 func _ready() -> void:
 	if actor == null:
@@ -92,12 +94,14 @@ func stop_movement() -> void:
 		navigator.velocity = Vector2.ZERO
 	actor.velocity = Vector2.ZERO
 	actor.move_and_slide()
+	_emit_direction(Vector2.ZERO)
 
 func move_with_velocity(velocity: Vector2) -> void:
 	if actor == null:
 		return
 	actor.velocity = velocity
 	actor.move_and_slide()
+	_emit_direction(velocity.normalized() if velocity != Vector2.ZERO else Vector2.ZERO)
 
 func _on_nav_agent_velocity_computed(safe_velocity: Vector2) -> void:
 	move_with_velocity(safe_velocity)
@@ -110,3 +114,10 @@ func _apply_movement(direction: Vector2, delta: float) -> void:
 	var rate := movement_definition.acceleration if direction != Vector2.ZERO else movement_definition.deceleration
 	actor.velocity = actor.velocity.move_toward(target_velocity, rate * delta)
 	actor.move_and_slide()
+	_emit_direction(direction.normalized() if direction != Vector2.ZERO else Vector2.ZERO)
+
+func _emit_direction(direction: Vector2) -> void:
+	if direction == _last_direction:
+		return
+	_last_direction = direction
+	direction_changed.emit(direction)

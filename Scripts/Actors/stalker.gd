@@ -6,6 +6,7 @@ class_name StalkerActor
 @export var stalker_definition: StalkerDefinition = null
 @export var known_hints: Array[HintDefinition] = []
 #@export var deployed_detection_systems: Array[DetectionSystem] = []
+@export var animation: AnimationComponent = null
 @export var sprite:Sprite2D
 @export var detection_component: DetectionComponent
 @export var target:PlayerActor
@@ -18,8 +19,16 @@ var is_player_detected: bool = false
 
 func _ready() -> void:
 	add_to_group("stalker")
-	if stalker_definition != null and stalker_definition.texture != null:
-		sprite.texture = stalker_definition.texture
+	if stalker_definition != null:
+		var frames: SpriteFrames = stalker_definition.frames
+		if frames != null:
+			animation.sprite_frames = frames
+			movement_component.direction_changed.connect(animation._on_movement_direction_changed)
+
+		elif stalker_definition.texture != null:
+			sprite.texture = stalker_definition.texture
+		else:
+			push_error("add visuals to npc def ", stalker_definition.display_name)
 	sprite.scale = Vector2(0.1, 0.1)
 	movement_component.actor = self
 	state_machine.setup(self)

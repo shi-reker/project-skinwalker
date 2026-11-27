@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://brqbs6tvkh17f" path="res://Scripts/Components/follow_component.gd" id="7_follow"]
 [ext_resource type="Script" uid="uid://bhwxytl3npk5l" path="res://Scripts/Components/quest_component.gd" id="7_quest"]
 [ext_resource type="PackedScene" uid="uid://crshuc8x0viue" path="res://Scenes/Components/detection_component.tscn" id="8_detection"]
-[ext_resource type="Texture2D" uid="uid://c0leypun80rl1" path="res://Resources/icon.svg" id="8_flvar"]
+[ext_resource type="Script" uid="uid://rs6wieni7cgk" path="res://Scripts/Components/animation_component.gd" id="10_3w3nk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3w3nk"]
 radius = 6.0
@@ -19,10 +19,12 @@ height = 18.0
 [sub_resource type="CircleShape2D" id="NPC_Interact"]
 radius = 55.0
 
-[node name="NPC" type="CharacterBody2D" unique_id=676992456 node_paths=PackedStringArray("quest_component") groups=["npc"]]
+[node name="NPC" type="CharacterBody2D" unique_id=676992456 node_paths=PackedStringArray("quest_component", "sprite", "animation") groups=["npc"]]
 script = ExtResource("1_npc")
 npc_definition = ExtResource("2_3w3nk")
 quest_component = NodePath("Components/QuestComponent")
+sprite = NodePath("Sprite2D2")
+animation = NodePath("AnimatedSprite2D")
 
 [node name="Components" type="Node2D" parent="." unique_id=2088076043]
 
@@ -47,9 +49,9 @@ dialogue_definition = ExtResource("6_4p8ee")
 [node name="StateMachine" type="Node" parent="." unique_id=1972760016]
 script = ExtResource("4_state_machine")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1467782547]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2048496251]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_flvar")
+script = ExtResource("10_3w3nk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964047544]
 shape = SubResource("CapsuleShape2D_3w3nk")
@@ -62,3 +64,5 @@ interact_name = "Talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1322296015]
 shape = SubResource("NPC_Interact")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=455822653]

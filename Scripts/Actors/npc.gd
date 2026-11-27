@@ -12,7 +12,8 @@ signal ability_used(npc: NPCActor, ability: NPCAbility)
 @export var quest_component: QuestComponent
 @onready var follow_component: FollowComponent = $Components/FollowComponent
 @onready var state_machine: NPCStateMachine = $StateMachine
-@onready var sprite: Sprite2D = $Sprite2D
+@export var sprite: Sprite2D
+@export var animation: AnimationComponent = null
 @onready var interactable: InteractableComponent = $InteractableComponent
 
 var is_recruited: bool = false
@@ -28,11 +29,22 @@ func _ready() -> void:
 	dialogue_component.quest_requested.connect(_on_quest_requested)
 	detection_component.stalker_detected.connect(_on_detected)
 
-	if npc_definition != null and npc_definition.ability != null:
-		npc_definition.ability = npc_definition.ability.duplicate(true)
-		npc_definition.ability.setup(self)
+	if npc_definition != null:
+		var frames: SpriteFrames = npc_definition.frames
+		if frames != null:
+			animation.sprite_frames = frames
+			movement_component.direction_changed.connect(animation._on_movement_direction_changed)
+
+		elif npc_definition.texture != null:
+			sprite.texture = npc_definition.texture
+		else:
+			push_error("add visuals to npc def ", npc_definition.display_name)
+		if npc_definition.ability != null:
+			npc_definition.ability = npc_definition.ability.duplicate(true)
+			npc_definition.ability.setup(self)
 
 	NpcManager.register_npc(self)
+	
 
 func _exit_tree() -> void:
 	if NpcManager:
