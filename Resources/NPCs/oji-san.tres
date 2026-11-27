@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://85aim7l853wo"]
+
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="1_21npy"]
+[ext_resource type="Resource" path="res://Resources/Abilities/oji_san_ability.tres" id="1_jr5g1"]
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="2_b5h4s"]
+[ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="2_qyifw"]
+[ext_resource type="Resource" uid="uid://c57ohjtxn3vto" path="res://Resources/NPCs/oji-san_movement.tres" id="3_igued"]
+[ext_resource type="Texture2D" uid="uid://dvvkl813wgk4h" path="res://Assets/Visuals/sprites/NPCs/npc2 d.png" id="6_qyifw"]
+
+[resource]
+script = ExtResource("2_b5h4s")
+id = 5
+display_name = "Oji-san"
+movement_definition = ExtResource("3_igued")
+dialogue_definition = ExtResource("2_qyifw")
+texture = ExtResource("6_qyifw")
+recruitment_dialogue = ExtResource("2_qyifw")
+ability = ExtResource("1_jr5g1")
+metadata/_custom_type_script = "uid://cp37fayu15pxh"

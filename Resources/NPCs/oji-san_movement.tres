@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MovementDefinition" format=3 uid="uid://c57ohjtxn3vto"]
+
+[ext_resource type="Script" uid="uid://drtrxby0qypyv" path="res://Scripts/Resources/movement_definition.gd" id="1_827ef"]
+
+[resource]
+script = ExtResource("1_827ef")
+walk_speed = 80.0
+run_speed = 100.0
+acceleration = 200.0
+deceleration = 220.0
+metadata/_custom_type_script = "uid://drtrxby0qypyv"
