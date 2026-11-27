@@ -164,3 +164,4 @@ parameters/looping = true
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="MusicDelay" to="." method="_on_music_delay_timeout"]

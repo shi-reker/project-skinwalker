@@ -15,7 +15,7 @@ func _ready() -> void:
 	SoundManager.BGMPlayer.finished.connect(_on_music_finished)
 	music_delay.timeout.connect(_on_music_delay_timeout)
 
-	SoundManager.play_music(SoundManager.menuBGM)
+	SoundManager.start_menu_music()
 	fire_ambiance.play()
 	vhs_ambiance.play()
 
@@ -23,7 +23,8 @@ func _on_music_finished() -> void:
 	music_delay.start()
 
 func _on_music_delay_timeout() -> void:
-	SoundManager.play_music(SoundManager.menuBGM)
+	SoundManager.start_menu_music()
+	
 
 func _on_play_pressed() -> void:
 	SoundManager.play_button_sfx()
@@ -55,7 +56,7 @@ func _on_options_mouse_exited() -> void:
 	SoundManager._play_ui_hover(SoundManager.lights_off_sfx)
 
 func _on_exit_mouse_entered() -> void:
-	SoundManager._play_ui_hover(SoundManager.door_creak)
+	SoundManager._play_ui_hover(SoundManager.door_creak, 12)
 
 func _on_settings_closed() -> void:
 	print("Settings closed")

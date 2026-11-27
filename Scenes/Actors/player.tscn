@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cugxxsmap0mfd" path="res://Assets/Visuals/tilemaps/packs/kenney_rpgUrbanKit/Tiles/tile_0026.png" id="6_sfcrp"]
 
 [sub_resource type="Gradient" id="Gradient_sfcrp"]
-offsets = PackedFloat32Array(0.124624625, 0.8123123)
+offsets = PackedFloat32Array(0.124624625, 0.6861862)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wj5hs"]
@@ -48,10 +48,11 @@ texture = ExtResource("6_sfcrp")
 color = Color(0.41766033, 0.41707048, 0, 1)
 energy = 1.86
 texture = SubResource("GradientTexture2D_wj5hs")
-texture_scale = 0.74
+texture_scale = 1.12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
 position = Vector2(0, 6)
+scale = Vector2(15, 15)
 shape = SubResource("RectangleShape2D_wj5hs")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
