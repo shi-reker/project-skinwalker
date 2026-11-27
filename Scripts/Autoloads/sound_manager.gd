@@ -21,6 +21,14 @@ var option_button := "res://Assets/Audio/packs/pack 1/WAV/Coffee2.wav"
 var quit_button := "res://Assets/Audio/packs/pack 1/WAV/African3.wav"
 var generic_button := "res://Assets/Audio/packs/pack 1/WAV/Minimalist11.wav"
 
+# Gameplay BGM
+var gameplay_bgm := [
+	
+]
+
+var last_played_track := -1
+var is_gameplay := false
+
 func _ready():
 	BGMPlayer = AudioStreamPlayer.new()
 	UISoundPlayer = AudioStreamPlayer2D.new()
@@ -34,16 +42,40 @@ func _ready():
 	add_child(UISoundPlayer)
 	add_child(UIHoverSoundPlayer)
 	add_child(gameplaySoundPlayer)
-
-func play_music(path: String):
-	if BGMPlayer.stream == load(path):
-		return # lagu sama, jangan restart
+	
+func play_music(path: String, volume: float = 0.0):
+	#if BGMPlayer.stream == load(path):
+		#return # lagu sama, jangan restart
 	
 	BGMPlayer.stop()
 	BGMPlayer.stream = load(path)
-	BGMPlayer.volume_db = -5
+	BGMPlayer.volume_db = volume
 	BGMPlayer.play()
+	
+func play_menu_music():
+	play_music(menuBGM, -5)
+	
+func play_random_gameplay_music():
+	if gameplay_bgm.is_empty():
+		return
 
+	var random_index := randi_range(0, gameplay_bgm.size() - 1)
+
+	while gameplay_bgm.size() > 1 and random_index == last_played_track:
+		random_index = randi_range(0, gameplay_bgm.size() - 1)
+
+	last_played_track = random_index
+	play_music(gameplay_bgm[random_index], -10)
+
+func start_menu_music():
+	is_gameplay = false
+	play_menu_music()
+
+func start_gameplay_music():
+	is_gameplay = true
+	last_played_track = -1
+	play_random_gameplay_music()
+	
 func _play_ui_hover(path: String, volume: float = 0.0):
 	UIHoverSoundPlayer.stream = load(path)
 	UIHoverSoundPlayer.volume_db = volume

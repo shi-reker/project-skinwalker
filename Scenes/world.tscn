@@ -12,18 +12,23 @@
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="5_5v1tr"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="9_ikia7"]
 [ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="12_7yui6"]
+[ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="13_c5t2i"]
+[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_kn0ld"]
+[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_hgpy0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ikia7"]
 font_size = 32
 
-[node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "debug_label")]
+[node name="World" type="Node2D" unique_id=2031561656 node_paths=PackedStringArray("player", "stalker", "home", "foreground", "quests_display", "debug_label", "pause_menu")]
 script = ExtResource("1_a02cp")
 player = NodePath("Actors/Player")
 stalker = NodePath("Actors/Stalker")
 home = NodePath("Environment/Houses/house1")
+foreground = NodePath("Environment/BuildingLayer")
 quests_display = NodePath("CanvasLayer/HUD/QuestsDisplay")
 debug_label = NodePath("CanvasLayer/HUD/DebugLabel")
 active_debug_label = true
+pause_menu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1093793490]
 
@@ -148,3 +153,24 @@ offset_top = -8.0
 offset_right = 213.0
 offset_bottom = 15.0
 label_settings = SubResource("LabelSettings_ikia7")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1614496913]
+
+[node name="PauseMenu" parent="CanvasLayer2" unique_id=627930756 instance=ExtResource("13_c5t2i")]
+visible = false
+
+[node name="QuestsDisplay" parent="CanvasLayer2" unique_id=198090863 instance=ExtResource("12_7yui6")]
+visible = false
+
+[node name="FireAmbiance" type="AudioStreamPlayer" parent="." unique_id=1903635078]
+stream = ExtResource("14_kn0ld")
+volume_db = -13.136
+pitch_scale = 1.25
+bus = &"Gameplay"
+parameters/looping = true
+
+[node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=485505330]
+stream = ExtResource("15_hgpy0")
+volume_db = -7.438
+bus = &"Gameplay"
+parameters/looping = true

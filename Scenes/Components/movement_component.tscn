@@ -9,7 +9,9 @@ movement_definition = ExtResource("2_fy2r7")
 navigator = NodePath("NavAgent")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1250709375]
-path_postprocessing = 1
+path_desired_distance = 10.0
+simplify_path = true
+simplify_epsilon = 8.0
 avoidance_enabled = true
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)

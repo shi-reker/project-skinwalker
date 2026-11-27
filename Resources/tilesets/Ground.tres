@@ -3011,7 +3011,6 @@ texture = ExtResource("9_g20cv")
 17:6/0 = 0
 
 [resource]
-navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_8tep7")
 sources/1 = SubResource("TileSetAtlasSource_y4t3j")
 sources/2 = SubResource("TileSetAtlasSource_v0t2x")

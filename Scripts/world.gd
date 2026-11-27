@@ -1,9 +1,14 @@
 extends Node2D
 class_name World
 
+@onready var fire_ambiance: AudioStreamPlayer = $FireAmbiance
+@onready var vhs_ambiance: AudioStreamPlayer = $VhsAmbiance
+
 @export var player: PlayerActor = null
 @export var stalker: StalkerActor = null
 @export var home: House = null
+
+@export var foreground: TileMapLayer
 
 @export var quests_display: QuestsDisplay= null
 @export var debug_label: Label = null
@@ -16,6 +21,8 @@ class_name World
 @export var npc_spawn_offset: Vector2 = Vector2(48, 16)
 
 func _ready() -> void:
+	fire_ambiance.play()
+	vhs_ambiance.play()
 	if active_debug_label == true:
 		print_debug(debug_label)
 		DebugManager.setup(debug_label)
@@ -47,6 +54,25 @@ func _ready() -> void:
 	ItemManager.setup(self)
 	QuestManager.setup(quests_display)
 
+func _process(_delta: float) -> void:
+	pass 
+	#building shader code it works but it does not look good
+		#if player == null or foreground == null:
+			#return
+	#
+		#var screen_position = (
+			#get_viewport().get_canvas_transform()
+			#* player.global_position
+			#)
+	#
+		#var material = foreground.material as ShaderMaterial
+	#
+		#if material:
+			#material.set_shader_parameter(
+			#"player_screen_position",
+			#screen_position
+		#)
+		
 func _apply_spawn_layout() -> void:
 	if player:
 		player.global_position = player_spawn
