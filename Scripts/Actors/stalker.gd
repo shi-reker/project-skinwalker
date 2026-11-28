@@ -178,3 +178,9 @@ func add_hint() -> void:
 
 	if is_instance_valid(EnvironmentManager.home_node):
 		hints = EnvironmentManager.reveal_hints(hints)
+
+func _physics_process(_delta: float) -> void:
+	print(
+		"[StalkerActor] State: ",
+		state_machine.current_state.name
+	)

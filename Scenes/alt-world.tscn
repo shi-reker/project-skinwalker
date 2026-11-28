@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cxm8lpttu1dxt" path="res://Scripts/Actors/actors.gd" id="12_gn53j"]
 [ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="16_ukg31"]
 [ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
-[ext_resource type="Resource" uid="uid://ukpxwbm1n7jx" path="res://Resources/NPCs/observer1.tres" id="20_ubxmd"]
+[ext_resource type="Resource" uid="uid://5ojb1ranwha7" path="res://Resources/NPCs/observer1.tres" id="20_ubxmd"]
 [ext_resource type="PackedScene" uid="uid://dlxxrbsonwotc" path="res://Scenes/Environments/SpatialAudio.tscn" id="21_bftph"]
 [ext_resource type="Resource" uid="uid://cugy8861ddfkc" path="res://Resources/NPCs/observer2.tres" id="21_gn53j"]
 [ext_resource type="Resource" uid="uid://co8frktlnmo41" path="res://Resources/NPCs/observer3.tres" id="22_1eudv"]
@@ -780,7 +780,7 @@ position = Vector2(2400, 2200)
 script = ExtResource("12_gn53j")
 
 [node name="Player" parent="Actors" unique_id=473171831 groups=["player"] instance=ExtResource("27_2105l")]
-position = Vector2(133, -112)
+position = Vector2(-349, -177)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1530724991]
 position = Vector2(-1, 0)
@@ -796,7 +796,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="Stalker" parent="Actors" unique_id=1888125872 instance=ExtResource("30_fyxux")]
-position = Vector2(273, -78)
+position = Vector2(-110, -177)
 
 [node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
 

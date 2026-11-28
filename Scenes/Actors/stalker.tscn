@@ -55,7 +55,8 @@ state_code = 1
 
 [node name="SurveilState" type="Node" parent="StateMachine" unique_id=93451075]
 script = ExtResource("9_hpxs0")
-aggression_duration = 15.0
+preferred_distance = 180.0
+aggression_distance = 220.0
 state_name = &"SurveilState"
 state_code = 2
 

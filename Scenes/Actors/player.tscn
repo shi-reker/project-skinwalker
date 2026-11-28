@@ -140,8 +140,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b2ja5"]
-radius = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hoiu"]
+size = Vector2(9, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 60.0
@@ -188,8 +188,8 @@ frame_progress = 0.4194019
 script = ExtResource("7_tvyim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_b2ja5")
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_4hoiu")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
 layout_mode = 3

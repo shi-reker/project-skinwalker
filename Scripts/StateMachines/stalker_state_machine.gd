@@ -86,6 +86,7 @@ func _initialize_states() -> void:
 # =========================================================
 
 func update_current_state(delta: float) -> void:
+	print("[StalkerStateMachine] UPDATE CURRENT STATE")
 	super.update_current_state(delta)
 
 
@@ -195,3 +196,7 @@ func _player_not_found() -> void:
 		print_debug(
 			"[StalkerStateMachine] Player lost. No last-known position available."
 		)
+
+func _process(delta: float) -> void:
+	print("[StalkerStateMachine] PROCESS RUNNING")
+	update_current_state(delta)
