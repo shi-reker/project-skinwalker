@@ -1,88 +1,180 @@
+
 extends CharacterBody2D
 class_name StalkerActor
 
+
+# =========================================================
+# References
+# =========================================================
+
+@export_group("Components")
+
 @export var movement_component: MovementComponent
-@onready var state_machine: StalkerStateMachine = $StateMachine
-@export var stalker_definition: StalkerDefinition = null
-@export var known_hints: Array[HintDefinition] = []
-#@export var deployed_detection_systems: Array[DetectionSystem] = []
-@export var animation: AnimationComponent = null
-@export var sprite:Sprite2D
+@export var stalker_definition: StalkerDefinition
+@export var animation: AnimationComponent
+@export var sprite: Sprite2D
 @export var detection_component: DetectionComponent
-@export var target:PlayerActor
-var hints: EnvironmentManager.HomeHints = EnvironmentManager.HomeHints.new()
-#@export var navAgent:NavigationAgent2D
-var isImmobilized:bool = false
-var moveSpeedCache:float = 0
-var distToTarget:float = 0
+
+@onready var state_machine: StalkerStateMachine = $StateMachine
+
+
+# =========================================================
+# AI Data
+# =========================================================
+
+var target: PlayerActor
+
+var last_known_position: Vector2 = Vector2.ZERO
+var has_last_known_position: bool = false
+
 var is_player_detected: bool = false
+
+
+# =========================================================
+# Environment Data
+# =========================================================
+
+@export_group("Environment")
+
+@export var known_hints: Array[HintDefinition] = []
+
+var hints: EnvironmentManager.HomeHints = EnvironmentManager.HomeHints.new()
+
+
+# =========================================================
+# Movement Status
+# =========================================================
+
+var is_immobilized: bool = false
+var _cached_move_speed: float = 0.0
+
+
+# =========================================================
+# Initialization
+# =========================================================
 
 func _ready() -> void:
 	add_to_group("stalker")
-	if stalker_definition != null:
-		var frames: SpriteFrames = stalker_definition.frames
-		if frames != null:
-			animation.sprite_frames = frames
-			movement_component.direction_changed.connect(animation._on_movement_direction_changed)
-		
-		elif stalker_definition.texture != null:
-			sprite.texture = stalker_definition.texture
-		else:
-			push_error("add visuals to npc def ", stalker_definition.display_name)
-	sprite.scale = Vector2(0.1, 0.1)
+
+	_initialize_visuals()
+	_initialize_movement()
+	_initialize_state_machine()
+	_initialize_detection()
+	_connect_signals()
+
+
+func _initialize_visuals() -> void:
+	if stalker_definition == null:
+		push_error("StalkerActor: StalkerDefinition is missing.")
+		return
+
+	if stalker_definition.frames != null:
+		if animation == null:
+			push_error("StalkerActor: AnimationComponent is missing.")
+			return
+
+		animation.sprite_frames = stalker_definition.frames
+
+	elif stalker_definition.texture != null:
+		if sprite == null:
+			push_error("StalkerActor: Sprite2D is missing.")
+			return
+
+		sprite.texture = stalker_definition.texture
+
+	else:
+		push_error(
+			"StalkerActor: No visuals assigned to NPC definition: "
+			+ stalker_definition.display_name
+		)
+		return
+
+	if sprite != null:
+		sprite.scale = Vector2(0.1, 0.1)
+
+
+func _initialize_movement() -> void:
+	if movement_component == null:
+		push_error("StalkerActor: MovementComponent is missing.")
+		return
+
 	movement_component.setup(self)
+
+
+func _initialize_state_machine() -> void:
+	if state_machine == null:
+		push_error("StalkerActor: StateMachine is missing.")
+		return
+
 	state_machine.setup(self)
+
+
+func _initialize_detection() -> void:
+	if detection_component == null:
+		push_error("StalkerActor: DetectionComponent is missing.")
+		return
+
 	detection_component.setup(self)
-	detection_component.player_detected.connect(state_machine._on_detected)
-	#print_debug("[Owner of stalker's detect comp] = ",detection_component.owner.name)
-	movement_component.rangeBorders = 160
-	movement_component.at_range.connect(state_machine.handle_dist_to_player)
-	
-	state_machine.setup(self)
 
-func _physics_process(delta: float) -> void:
-	state_machine.update_current_state(delta)
 
-func detected_player_entered_home():
-	print("i see you :)")
+# =========================================================
+# Signal Connections
+# =========================================================
+
+func _connect_signals() -> void:
+	if movement_component != null and animation != null:
+		if not movement_component.direction_changed.is_connected(
+			animation._on_movement_direction_changed
+		):
+			movement_component.direction_changed.connect(
+				animation._on_movement_direction_changed
+			)
+
+	if detection_component != null and state_machine != null:
+		if not detection_component.player_detected.is_connected(
+			state_machine._on_detected
+		):
+			detection_component.player_detected.connect(
+				state_machine._on_detected
+			)
+
+
+# =========================================================
+# Immobilization
+# =========================================================
+
+func set_immobilized(value: bool) -> void:
+	if is_immobilized == value:
+		return
+
+	if movement_component == null:
+		return
+
+	var movement_definition := movement_component.movement_definition
+
+	if movement_definition == null:
+		return
+
+	if value:
+		_cached_move_speed = movement_definition.walk_speed
+		movement_definition.walk_speed = 0.0
+	else:
+		movement_definition.walk_speed = _cached_move_speed
+
+	is_immobilized = value
+
+
+func _on_immobilized(state: bool) -> void:
+	set_immobilized(state)
+
+
+# =========================================================
+# Environment Hints
+# =========================================================
 
 func add_hint() -> void:
 	hints = EnvironmentManager.HomeHints.new()
 	hints.is_color_guessed = true
-	#for hint: HintDefinition in stalker_definition.initial_hints:
-		#if hint == null or not hint.is_active:
-			#continue
-		#match hint.category:
-			#HintDefinition.HintCategory.HOUSE_COLOR:
-				#hints.is_color_guessed = true
-			#HintDefinition.HintCategory.STREET:
-				#hints.is_street_guessed = true
 
 	if is_instance_valid(EnvironmentManager.home_node):
 		hints = EnvironmentManager.reveal_hints(hints)
-
-func _on_immobilized(_state:bool):
-	if _state:
-		isImmobilized = true
-		moveSpeedCache = movement_component.movement_definition.walk_speed
-		movement_component.movement_definition.walk_speed = 0
-	else:
-		isImmobilized = false
-		movement_component.movement_definition.walk_speed = moveSpeedCache
-
-func _on_nav_agent_velocity_computed(safe_velocity: Vector2) -> void:
-	pass # Replace with function body.
-
-func _on_detection_range_entered(body: Node2D) -> void:
-	if body is PlayerActor:
-		state_machine.change_state(state_machine.stateTable[state_machine.State.PURSUING])
-
-func _on_detection_range_exited(body: Node2D) -> void:
-	if body is PlayerActor:
-		state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
-
-
-func _on_detection_component_body_entered(body: Node2D) -> void:
-	if body is PlayerActor:
-		print_debug("found playerrrrrrrrrrrrrrrrr")
-		

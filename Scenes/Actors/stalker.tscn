@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d22s8i5t86f8n" path="res://Scripts/StateMachines/StalkerStates/pursuit_state.gd" id="7_i0hgd"]
 [ext_resource type="Script" uid="uid://dq3w1gx652edb" path="res://Scripts/StateMachines/StalkerStates/surveil_state.gd" id="9_hpxs0"]
 [ext_resource type="Script" uid="uid://bchtwcgyiq3hj" path="res://Scripts/StateMachines/StalkerStates/capture_state.gd" id="10_x4g44"]
+[ext_resource type="SpriteFrames" uid="uid://d3vpl5bjmcmis" path="res://Resources/Stalker/stalker_frames.tres" id="11_07o07"]
 [ext_resource type="Script" uid="uid://rs6wieni7cgk" path="res://Scripts/Components/animation_component.gd" id="11_bj6gk"]
 [ext_resource type="AudioStream" uid="uid://cisr3vddc4bq7" path="res://Assets/Audio/Sound Effects/Heavy Footsteps in Hall by ArchDweller.mp3" id="11_ibjgy"]
 
@@ -54,6 +55,7 @@ state_code = 1
 
 [node name="SurveilState" type="Node" parent="StateMachine" unique_id=93451075]
 script = ExtResource("9_hpxs0")
+aggression_duration = 15.0
 state_name = &"SurveilState"
 state_code = 2
 
@@ -82,6 +84,10 @@ grow_horizontal = 2
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1170340803]
+position = Vector2(-3, -12)
+sprite_frames = ExtResource("11_07o07")
+animation = &"down"
+frame_progress = 0.100469396
 script = ExtResource("11_bj6gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=776928643]

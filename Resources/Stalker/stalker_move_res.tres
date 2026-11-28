@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_l32gn")
-walk_speed = 32.0
-run_speed = 32.0
-acceleration = 32.0
+walk_speed = 120.0
+run_speed = 150.0
+acceleration = 100.0
 metadata/_custom_type_script = "uid://drtrxby0qypyv"
