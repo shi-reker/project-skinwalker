@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d005jsa6fka3p" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/tiles/1x/town-ground.png" id="7_tkidl"]
 [ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scenes/navmesh.gd" id="8_lpomo"]
+[ext_resource type="Script" uid="uid://cxm8lpttu1dxt" path="res://Scripts/Actors/actors.gd" id="12_gn53j"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="16_lpomo"]
 [ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="16_ukg31"]
 [ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
@@ -915,6 +916,7 @@ position = Vector2(2724, 2479)
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
 position = Vector2(2400, 2200)
+script = ExtResource("12_gn53j")
 
 [node name="Player" parent="Actors" unique_id=473171831 instance=ExtResource("27_2105l")]
 position = Vector2(133, 157)
