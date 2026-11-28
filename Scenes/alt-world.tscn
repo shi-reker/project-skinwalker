@@ -7,6 +7,8 @@
 [ext_resource type="TileSet" uid="uid://cpinskwyq6d5n" path="res://Resources/tilesets/Building.tres" id="4_dpta2"]
 [ext_resource type="TileSet" uid="uid://dar1g4uqxa4sx" path="res://Resources/tilesets/ObjectInfront.tres" id="5_7oe7p"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scripts/Resources/navmesh.gd" id="8_lpomo"]
+[ext_resource type="Script" uid="uid://nisv0qy5n0y8" path="res://Scripts/Environments/water_caustics.gd" id="9_f8eig"]
+[ext_resource type="PackedScene" uid="uid://d34u4aqis34ul" path="res://Scenes/Environments/water_animation.tscn" id="10_f8eig"]
 [ext_resource type="PackedScene" uid="uid://dlxxrbsonwotc" path="res://Scenes/Environments/SpatialAudio.tscn" id="21_bftph"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
@@ -140,12 +142,48 @@ agent_radius = 7.0
 [node name="Street" parent="Environment" unique_id=449041247 instance=ExtResource("34_la76y")]
 position = Vector2(2848, 588)
 
+[node name="WaterCaustics" type="Polygon2D" parent="Environment" unique_id=77977398]
+clip_children = 1
+color = Color(1, 1, 1, 0.5058824)
+polygon = PackedVector2Array(1026, 4202, 1023, 3885, 1361, 3944, 1531, 3948, 1712, 3974, 2020, 3960, 2256, 3927, 2384, 3902, 2765, 3899, 3084, 3954, 3251, 3979, 3621, 3969, 3791, 3941, 3889, 3902, 4077, 3902, 4256, 3958, 4459, 3980, 4602, 3894, 4658, 3897, 4660, 3200, 4880, 3199, 4883, 3907, 5250, 3944, 5251, 4212)
+script = ExtResource("9_f8eig")
+
+[node name="WaterAnimation" parent="Environment/WaterCaustics" unique_id=1510533959 instance=ExtResource("10_f8eig")]
+position = Vector2(1389, 3839.0005)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.6543289
+
+[node name="WaterAnimation2" parent="Environment/WaterCaustics" unique_id=246609872 instance=ExtResource("10_f8eig")]
+position = Vector2(2121.0002, 3837.0002)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.6976899
+
+[node name="WaterAnimation3" parent="Environment/WaterCaustics" unique_id=1353300961 instance=ExtResource("10_f8eig")]
+position = Vector2(2841, 3834.0002)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.2780434
+
+[node name="WaterAnimation4" parent="Environment/WaterCaustics" unique_id=1755293322 instance=ExtResource("10_f8eig")]
+position = Vector2(3559.0002, 3835.0002)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.2780434
+
+[node name="WaterAnimation5" parent="Environment/WaterCaustics" unique_id=145423564 instance=ExtResource("10_f8eig")]
+position = Vector2(4276, 3838.0002)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.2780434
+
+[node name="WaterAnimation6" parent="Environment/WaterCaustics" unique_id=1571075128 instance=ExtResource("10_f8eig")]
+position = Vector2(4956.0005, 4007.0002)
+scale = Vector2(5.7890625, 5.7890625)
+frame_progress = 0.2780434
+
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
 position = Vector2(1600, 3030)
 
 [node name="Player" parent="Actors" unique_id=473171831 groups=["player"] instance=ExtResource("27_2105l")]
-position = Vector2(2100, -504)
+position = Vector2(-256, 1080)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1530724991]
 position = Vector2(28, -30)
