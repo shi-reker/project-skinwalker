@@ -329,7 +329,6 @@ y_sort_enabled = true
 script = ExtResource("1_qbpqm")
 player = NodePath("Actors/Player")
 stalker = NodePath("Actors/Stalker")
-home = NodePath("Environment/Houses/house1")
 foreground = NodePath("Environment/Building-Layer3")
 quests_display = NodePath("ShaderCanvas/HUD/QuestsDisplay")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
