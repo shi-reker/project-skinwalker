@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dlxxrbsonwotc"]
+
+[ext_resource type="Script" uid="uid://by18t1ojy7b3c" path="res://Scripts/Environments/spatial_audio.gd" id="1_1unax"]
+
+[node name="SpatialAudio" type="Node2D" unique_id=1200157401]
+script = ExtResource("1_1unax")
+player_group = null
+fade_in_duration = null
+fade_out_duration = null
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1652974369]
+max_distance = 700.0
+
+[node name="RangeVisual" type="Node2D" parent="." unique_id=176176275]
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1533854120]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=109016462]

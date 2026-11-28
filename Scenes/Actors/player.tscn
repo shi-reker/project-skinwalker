@@ -180,7 +180,6 @@ texture_scale = 1.12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
 position = Vector2(0, 6)
-scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_wj5hs")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]

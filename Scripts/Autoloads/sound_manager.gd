@@ -26,8 +26,10 @@ var generic_button := "res://Assets/Audio/packs/pack 1/WAV/Minimalist11.wav"
 var gameplay_bgm := [
 	"res://Assets/Audio/Music/Broken [Soundtrack] 3N.wav",
 	"res://Assets/Audio/Music/Coffee [Soundtrack] 3N.wav",
-	"res://Assets/Audio/Music/psylokid - alone in a room.ogg",
-	"res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg"
+	"res://Assets/Audio/Music/lux-aeterna-liminal-loop-617237.ogg",
+	"res://Assets/Audio/Music/2- Mental Vortex.ogg",
+	"res://Assets/Audio/Music/10- Time Whistle.ogg"
+	
 ]
 var last_played_track := -1
 
@@ -36,6 +38,7 @@ var ambience_players: Dictionary = {}
 var ambience_sounds := {
 	"vhs": "res://Assets/Audio/Ambience/609360__florstristi__vhs_vcr-hum-crunchy.ogg",
 	"fire": "res://Assets/Audio/Ambience/182368__kingsrow__fire-crackling-02.ogg",
+	"night": "res://Assets/Audio/Ambience/night ambience.ogg"
 }
 
 func _ready():
@@ -53,9 +56,6 @@ func _ready():
 	add_child(gameplaySoundPlayer)
 	
 func play_music(path: String, volume: float = 0.0):
-	#if BGMPlayer.stream == load(path):
-		#return # lagu sama, jangan restart
-	
 	BGMPlayer.stop()
 	BGMPlayer.stream = load(path)
 	BGMPlayer.volume_db = volume
@@ -79,7 +79,7 @@ func play_ambience(id: String, volume: float = 0.0) -> void:
 		return
 
 	var player := AudioStreamPlayer.new()
-	player.bus = "Ambience"
+	player.bus = "Gameplay"
 	player.stream = load(ambience_sounds[id])
 	player.volume_db = volume
 

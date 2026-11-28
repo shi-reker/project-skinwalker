@@ -27,9 +27,9 @@ var last_track := -1
 func _ready() -> void:
 	#Music related
 	play_next_gameplay_music()
-	SoundManager.play_ambience("vhs", -8)
-	SoundManager.play_ambience("fire", -13)
-	
+	SoundManager.play_ambience("vhs", -7)
+	SoundManager.play_ambience("fire", -15)
+	SoundManager.play_ambience("night", 1)
 	#Debugging
 	if active_debug_label == true:
 		print_debug(debug_label)
