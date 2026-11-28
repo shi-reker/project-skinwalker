@@ -12,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://b6e1guna5ucvk" path="res://Assets/Main Menu Assets/Door pressed.png" id="9_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://ln45fpx6vw2r" path="res://Assets/Main Menu Assets/Door hover.png" id="10_t1dhk"]
 [ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="12_t1dhk"]
-[ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_vtepg"]
-[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_8dnnj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
 shader = ExtResource("12_t1dhk")
@@ -142,19 +140,6 @@ mouse_filter = 2
 [node name="MusicDelay" type="Timer" parent="." unique_id=1408040239]
 wait_time = 20.0
 one_shot = true
-
-[node name="FireAmbiance" type="AudioStreamPlayer" parent="." unique_id=1614970871]
-stream = ExtResource("14_vtepg")
-volume_db = -10.747
-pitch_scale = 1.25
-bus = &"Gameplay"
-parameters/looping = true
-
-[node name="VhsAmbiance" type="AudioStreamPlayer" parent="." unique_id=1048817067]
-stream = ExtResource("15_8dnnj")
-volume_db = 0.256
-bus = &"Gameplay"
-parameters/looping = true
 
 [connection signal="mouse_entered" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="SubViewportContainer/SubViewport/Buttons/Play" to="." method="_on_play_mouse_exited"]

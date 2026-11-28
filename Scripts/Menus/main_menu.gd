@@ -15,9 +15,9 @@ func _ready() -> void:
 	SoundManager.BGMPlayer.finished.connect(_on_music_finished)
 	music_delay.timeout.connect(_on_music_delay_timeout)
 
-	SoundManager.start_menu_music()
-	fire_ambiance.play()
-	vhs_ambiance.play()
+	SoundManager.play_menu_music()
+	SoundManager.play_ambience("vhs", 0.256)
+	SoundManager.play_ambience("fire", -10)
 
 func _on_music_finished() -> void:
 	music_delay.start()

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://d34u4aqis34ul"]
+
+[ext_resource type="Texture2D" uid="uid://by7jpidfqd42k" path="res://Assets/VFX/WaterCaustics/1-Sheet-export.png" id="1_yxsyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_two63"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5cj6"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_madxg"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qts3c"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulwg6"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ixd"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq2j8"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4uod"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g88gu"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nls0w"]
+atlas = ExtResource("1_yxsyf")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxeno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_two63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5cj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_madxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qts3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulwg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ixd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq2j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4uod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g88gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nls0w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterAnimation" type="AnimatedSprite2D" unique_id=1510533959]
+sprite_frames = SubResource("SpriteFrames_lxeno")
+frame_progress = 0.6675769

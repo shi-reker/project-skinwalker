@@ -1,0 +1,20 @@
+Music :
+	"Liminal Loop" by Lux Aeterna
+	"Broken" & "Coffee" by 3nmusic
+	"Mental Vortex" & "Time Whistle" by Crow Shade
+	
+Sfx:
+	"Fire Crackling" Kingsrow
+	"Vhs Hum Crunchy" by florstristi
+	"Creaky Wooden Door and Handle" by terryhancock
+	"Elecbuzz TV Static" by omoga dime
+	"vhs tape and machine rewind high speed real sounds with tv static effects", 
+	"tv static and glitch and power on real audio sound effects" by dudeawesome
+	"Book Open" by benjii1
+	
+Tilemap Assets:
+	"LO_Bit City" by Greywyrd
+	"Pixel Houses" by Fin_nio
+	"Trick or Treat Town", "Cozy Town" by Spaceyyy
+	"Modern Interiors" by LimeZu
+	

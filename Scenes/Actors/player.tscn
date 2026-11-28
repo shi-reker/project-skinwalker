@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://ddly8uudl67t3" path="res://Assets/Visuals/tilemaps/packs/16x16-RPG-characters/16x16-RPG-characters/sprites/old-style/01-generic.png" id="7_b2ja5"]
 [ext_resource type="Script" uid="uid://rs6wieni7cgk" path="res://Scripts/Components/animation_component.gd" id="7_tvyim"]
 
+[sub_resource type="Gradient" id="Gradient_sfcrp"]
+offsets = PackedFloat32Array(0.124624625, 0.6861862)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wj5hs"]
+gradient = SubResource("Gradient_sfcrp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sjoo"]
 atlas = ExtResource("7_b2ja5")
 region = Rect2(96, 0, 16, 16)
@@ -131,15 +140,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_sfcrp"]
-offsets = PackedFloat32Array(0.124624625, 0.6861862)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wj5hs"]
-gradient = SubResource("Gradient_sfcrp")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wj5hs"]
 size = Vector2(8, 4)
 
@@ -166,21 +166,26 @@ script = ExtResource("4_mqoqv")
 
 [node name="MoveState" type="Node" parent="StateMachine" unique_id=881009881]
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1170548618]
+color = Color(0.87673354, 0.8720054, 3.85046e-06, 1)
+energy = 1.08
+texture = SubResource("GradientTexture2D_wj5hs")
+texture_scale = 2.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=672561810]
+color = Color(0.59299874, 0.53615445, 0.06698165, 1)
+energy = 1.08
+texture = SubResource("GradientTexture2D_wj5hs")
+texture_scale = 0.74
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1678289881]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"down"
 frame_progress = 0.4194019
 script = ExtResource("7_tvyim")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1170548618]
-color = Color(0.41766033, 0.41707048, 0, 1)
-energy = 1.86
-texture = SubResource("GradientTexture2D_wj5hs")
-texture_scale = 1.12
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402727607]
 position = Vector2(0, 6)
-scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_wj5hs")
 
 [node name="InteractPopUp" type="Control" parent="." unique_id=464528855]
