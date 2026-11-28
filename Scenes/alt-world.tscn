@@ -39,8 +39,8 @@
 background_mode = 3
 ssao_radius = 1.99
 glow_enabled = true
-glow_intensity = 0.78
-glow_bloom = 0.6
+glow_intensity = 1.83
+glow_bloom = 0.13
 glow_hdr_threshold = 1.25
 glow_hdr_luminance_cap = 0.5
 fog_light_color = Color(0.55365485, 0.5860884, 0.64007294, 1)
@@ -137,6 +137,7 @@ tile_map_data = PackedByteArray("AACVAIQAFgAHAAIAAACVAIMAFgAHAAEAAACVAIEAFgAHAAA
 tile_set = ExtResource("5_7oe7p")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment" unique_id=1932757409 node_paths=PackedStringArray("obstacle_layers")]
+visible = false
 position = Vector2(39, 26)
 navigation_polygon = SubResource("NavigationPolygon_qtxpm")
 script = ExtResource("8_lpomo")
@@ -1242,7 +1243,6 @@ position = Vector2(3517.6714, 1616.2395)
 position = Vector2(3807.9958, 1612.7195)
 
 [node name="NightColor" type="CanvasModulate" parent="." unique_id=4613796]
-visible = false
 color = Color(0.14074641, 0.3891648, 0.57953393, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
