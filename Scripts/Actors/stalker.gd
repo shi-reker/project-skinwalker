@@ -34,7 +34,7 @@ func _ready() -> void:
 	state_machine.setup(self)
 	detection_component.setup(self)
 	detection_component.player_detected.connect(state_machine._on_detected)
-	print_debug("[Owner of stalker's detect comp] = ",detection_component.owner.name)
+	#print_debug("[Owner of stalker's detect comp] = ",detection_component.owner.name)
 	movement_component.rangeBorders = 160
 	movement_component.at_range.connect(state_machine.handle_dist_to_player)
 	

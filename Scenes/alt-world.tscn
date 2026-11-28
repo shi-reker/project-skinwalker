@@ -6,23 +6,21 @@
 [ext_resource type="Shader" uid="uid://dtwsuo51djnne" path="res://Shaders/building_shader.gdshader" id="4_7oe7p"]
 [ext_resource type="TileSet" uid="uid://cpinskwyq6d5n" path="res://Resources/tilesets/Building.tres" id="4_dpta2"]
 [ext_resource type="TileSet" uid="uid://dar1g4uqxa4sx" path="res://Resources/tilesets/ObjectInfront.tres" id="5_7oe7p"]
-[ext_resource type="Texture2D" uid="uid://d005jsa6fka3p" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/tiles/1x/town-ground.png" id="7_tkidl"]
 [ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scripts/Resources/navmesh.gd" id="8_lpomo"]
 [ext_resource type="Script" uid="uid://nisv0qy5n0y8" path="res://Scripts/Environments/water_caustics.gd" id="9_f8eig"]
 [ext_resource type="PackedScene" uid="uid://d34u4aqis34ul" path="res://Scenes/Environments/water_animation.tscn" id="10_f8eig"]
-[ext_resource type="PackedScene" uid="uid://dlxxrbsonwotc" path="res://Scenes/Environments/SpatialAudio.tscn" id="21_bftph"]
-[ext_resource type="PackedScene" uid="uid://bhoa2qn3jim6k" path="res://Scenes/Environments/light_source.tscn" id="24_ssnla"]
 [ext_resource type="Script" uid="uid://cxm8lpttu1dxt" path="res://Scripts/Actors/actors.gd" id="12_gn53j"]
 [ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="16_ukg31"]
 [ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
 [ext_resource type="Resource" uid="uid://ukpxwbm1n7jx" path="res://Resources/NPCs/observer1.tres" id="20_ubxmd"]
+[ext_resource type="PackedScene" uid="uid://dlxxrbsonwotc" path="res://Scenes/Environments/SpatialAudio.tscn" id="21_bftph"]
 [ext_resource type="Resource" uid="uid://cugy8861ddfkc" path="res://Resources/NPCs/observer2.tres" id="21_gn53j"]
 [ext_resource type="Resource" uid="uid://co8frktlnmo41" path="res://Resources/NPCs/observer3.tres" id="22_1eudv"]
 [ext_resource type="Resource" uid="uid://ci03utvodbq2i" path="res://Resources/NPCs/observer4.tres" id="23_0v6s5"]
 [ext_resource type="Resource" uid="uid://c8y5awjv6hk7h" path="res://Resources/NPCs/observer5.tres" id="24_cp73f"]
+[ext_resource type="PackedScene" uid="uid://bhoa2qn3jim6k" path="res://Scenes/Environments/light_source.tscn" id="24_ssnla"]
 [ext_resource type="Resource" uid="uid://bxjy2p0h8a5cf" path="res://Resources/NPCs/observer6.tres" id="25_8aklq"]
-[ext_resource type="Resource" uid="uid://cngt42hj15nqt" path="res://Resources/NPCs/observer7.tres" id="26_866uu"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="29_jp7ex"]
@@ -809,8 +807,6 @@ npc_definition = ExtResource("41_jby4m")
 position = Vector2(-449, -32)
 npc_definition = ExtResource("42_elfcg")
 
-[node name="LightSources" type="Node2D" parent="." unique_id=2080359912]
-
 [node name="Observers" type="Node" parent="Actors/NPCs" unique_id=1111744607]
 
 [node name="NPC" parent="Actors/NPCs/Observers" unique_id=705787072 instance=ExtResource("43_npc")]
@@ -837,16 +833,103 @@ npc_definition = ExtResource("24_cp73f")
 position = Vector2(2293, 3617)
 npc_definition = ExtResource("25_8aklq")
 
-[node name="NPC7" parent="Actors/NPCs/Observers" unique_id=870019639 instance=ExtResource("43_npc")]
-position = Vector2(2262, 3506)
-npc_definition = ExtResource("26_866uu")
-
-[node name="NPC8" parent="Actors/NPCs/Observers" unique_id=1099378648 instance=ExtResource("43_npc")]
-position = Vector2(2993, 3734)
+[node name="NPC7" parent="Actors/NPCs/Observers" unique_id=1099378648 instance=ExtResource("43_npc")]
+position = Vector2(3602, 3743)
 npc_definition = ExtResource("20_ubxmd")
 
-[node name="LightSources" type="Node2D" parent="." unique_id=478377099]
-visible = false
+[node name="NPC8" parent="Actors/NPCs/Observers" unique_id=847196942 instance=ExtResource("43_npc")]
+position = Vector2(2702, 3118)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC9" parent="Actors/NPCs/Observers" unique_id=1276102681 instance=ExtResource("43_npc")]
+position = Vector2(2912, 2494)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC10" parent="Actors/NPCs/Observers" unique_id=213013258 instance=ExtResource("43_npc")]
+position = Vector2(3579, 2138)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC11" parent="Actors/NPCs/Observers" unique_id=1078641768 instance=ExtResource("43_npc")]
+position = Vector2(4039, 2185)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC12" parent="Actors/NPCs/Observers" unique_id=1109518735 instance=ExtResource("43_npc")]
+position = Vector2(4037, 1899)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC13" parent="Actors/NPCs/Observers" unique_id=1245092057 instance=ExtResource("43_npc")]
+position = Vector2(4033, 1669)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC14" parent="Actors/NPCs/Observers" unique_id=869103855 instance=ExtResource("43_npc")]
+position = Vector2(3137, 1630)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC15" parent="Actors/NPCs/Observers" unique_id=1370809455 instance=ExtResource("43_npc")]
+position = Vector2(2915, 1628)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC16" parent="Actors/NPCs/Observers" unique_id=881653842 instance=ExtResource("43_npc")]
+position = Vector2(3028, 2239)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC17" parent="Actors/NPCs/Observers" unique_id=1834190619 instance=ExtResource("43_npc")]
+position = Vector2(1497, 2077)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC18" parent="Actors/NPCs/Observers" unique_id=1659763892 instance=ExtResource("43_npc")]
+position = Vector2(1211, 1634)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC19" parent="Actors/NPCs/Observers" unique_id=1282684888 instance=ExtResource("43_npc")]
+position = Vector2(1137, 1373)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC20" parent="Actors/NPCs/Observers" unique_id=1109752918 instance=ExtResource("43_npc")]
+position = Vector2(2088, 1060)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC21" parent="Actors/NPCs/Observers" unique_id=935033709 instance=ExtResource("43_npc")]
+position = Vector2(2298, 1065)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC22" parent="Actors/NPCs/Observers" unique_id=1921225015 instance=ExtResource("43_npc")]
+position = Vector2(2986, 1203)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC23" parent="Actors/NPCs/Observers" unique_id=271246168 instance=ExtResource("43_npc")]
+position = Vector2(3450, 1040)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC24" parent="Actors/NPCs/Observers" unique_id=1260026195 instance=ExtResource("43_npc")]
+position = Vector2(3444, 913)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC25" parent="Actors/NPCs/Observers" unique_id=34260220 instance=ExtResource("43_npc")]
+position = Vector2(3432, 1318)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC26" parent="Actors/NPCs/Observers" unique_id=898987508 instance=ExtResource("43_npc")]
+position = Vector2(3677, 867)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC27" parent="Actors/NPCs/Observers" unique_id=413772222 instance=ExtResource("43_npc")]
+position = Vector2(2814, 745)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC28" parent="Actors/NPCs/Observers" unique_id=1543774054 instance=ExtResource("43_npc")]
+position = Vector2(2395, 740)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC29" parent="Actors/NPCs/Observers" unique_id=1644480075 instance=ExtResource("43_npc")]
+position = Vector2(1604, 880)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC30" parent="Actors/NPCs/Observers" unique_id=614661780 instance=ExtResource("43_npc")]
+position = Vector2(1198, 735)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="LightSources" type="Node2D" parent="." unique_id=2080359912]
 
 [node name="LightSource" parent="LightSources" unique_id=392958207 instance=ExtResource("24_ssnla")]
 position = Vector2(1805, 2487)
@@ -1150,6 +1233,7 @@ position = Vector2(3517.6714, 1616.2395)
 position = Vector2(3807.9958, 1612.7195)
 
 [node name="NightColor" type="CanvasModulate" parent="." unique_id=4613796]
+visible = false
 color = Color(0.14074641, 0.3891648, 0.57953393, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
@@ -1245,8 +1329,6 @@ polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 195
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 visible = false
-
-[node name="QuestsDisplay" parent="CanvasLayer" unique_id=871502943 instance=ExtResource("39_la76y")]
 
 [node name="AudioSources" type="Node2D" parent="." unique_id=1114014552]
 
