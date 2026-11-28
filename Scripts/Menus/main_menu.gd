@@ -28,7 +28,7 @@ func _on_music_delay_timeout() -> void:
 
 func _on_play_pressed() -> void:
 	SoundManager.play_button_sfx()
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes/alt-world.tscn")
 	
 func _on_options_pressed() -> void:
 	SoundManager.option_button_sfx()
