@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scenes/navmesh.gd" id="8_lpomo"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="16_lpomo"]
+[ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="16_ukg31"]
 [ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
 [ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="17_tkidl"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
@@ -368,6 +369,7 @@ tile_map_data = PackedByteArray("AACZAKQAAAAAAAAAAACaAKQAAAAAAAAAAACbAKQAAAAAAAA
 tile_set = SubResource("TileSet_wj5hs")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment" unique_id=1932757409 node_paths=PackedStringArray("obstacle_layers")]
+visible = false
 position = Vector2(39, 26)
 navigation_polygon = SubResource("NavigationPolygon_qtxpm")
 script = ExtResource("8_lpomo")
@@ -916,13 +918,6 @@ zoom = Vector2(5, 5)
 script = ExtResource("28_1j46v")
 mode = 1
 
-[node name="DialogueBox" parent="Actors/Player/Camera2D" unique_id=1390935538 instance=ExtResource("29_jp7ex")]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("30_fyxux")]
 position = Vector2(60, 26)
 target = NodePath("../Player")
@@ -931,6 +926,7 @@ target = NodePath("../Player")
 
 [node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("43_npc")]
 position = Vector2(470, 1722)
+npc_definition = ExtResource("16_ukg31")
 
 [node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("43_npc")]
 position = Vector2(1208, -857)
@@ -943,6 +939,14 @@ npc_definition = ExtResource("41_jby4m")
 [node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("43_npc")]
 position = Vector2(-449, -32)
 npc_definition = ExtResource("42_elfcg")
+
+[node name="Observers" type="Node" parent="Actors/NPCs" unique_id=1111744607]
+
+[node name="NPC" parent="Actors/NPCs/Observers" unique_id=705787072 instance=ExtResource("43_npc")]
+position = Vector2(943, 1936)
+
+[node name="NPC2" parent="Actors/NPCs/Observers" unique_id=330729524 instance=ExtResource("43_npc")]
+position = Vector2(938, 2375)
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]
 visible = false
@@ -1390,6 +1394,12 @@ label_settings = SubResource("LabelSettings_amo57")
 
 [node name="TextOverlay" parent="ShaderCanvas/HUD" unique_id=1299591244 instance=ExtResource("17_p50x7")]
 layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.48
+anchor_bottom = 0.48
+offset_top = -178.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=722996177]
 material = SubResource("ShaderMaterial_68xk4")
@@ -1437,8 +1447,6 @@ polygon = PackedVector2Array(1862, 2218, 1862, 2203, 1941, 2203, 1941, 2219, 195
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=627930756 instance=ExtResource("39_amo57")]
 visible = false
-
-[node name="QuestsDisplay" parent="CanvasLayer" unique_id=871502943 instance=ExtResource("39_la76y")]
 
 [node name="FireAmbiance" type="AudioStreamPlayer" parent="." unique_id=698613072]
 stream = ExtResource("16_lpomo")

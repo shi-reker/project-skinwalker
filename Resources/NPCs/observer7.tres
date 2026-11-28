@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://cngt42hj15nqt"]
+
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="1_1uuw5"]
+[ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="2_3y8pt"]
+[ext_resource type="Texture2D" uid="uid://bdbr0i1tah4g4" path="res://Assets/Visuals/sprites/NPCs/individual 16x16/npc11 d.png" id="3_1uuw5"]
+
+[resource]
+script = ExtResource("2_3y8pt")
+display_name = "observer 7"
+texture = ExtResource("3_1uuw5")
+metadata/_custom_type_script = "uid://cp37fayu15pxh"
