@@ -5,6 +5,7 @@ var detected_nodes: Array[CharacterBody2D] = []
 var current_visible_player: PlayerActor
 
 var target_conditions: Array[Callable] = []
+var actor: CharacterBody2D = null
 # func(target): return target is yapper
 
 @export var detect_shape: CollisionShape2D # only detect col layer 1
@@ -30,6 +31,9 @@ signal stalker_detected(stalker: StalkerActor)
 func _ready() -> void:
 	_update_detect_shape()
 
+func setup(_owner: CharacterBody2D):
+	actor = _owner
+
 func _physics_process(_delta: float) -> void:
 	if not detected_nodes.is_empty():
 		check_blast_radius(detected_nodes)
@@ -44,14 +48,14 @@ func _update_detect_shape() -> void:
 func check_blast_radius(targets: Array[CharacterBody2D]) -> void:
 	var space_state = get_world_2d().direct_space_state
 	var seen: Array[CharacterBody2D] = []
-	var visible_player: PlayerActor
+	var visible_player: PlayerActor = null
 	
 	for target in targets:
 		if not is_instance_valid(target):
 			continue
 		var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position)
 		var excluded_rids: Array[RID] = [get_rid()]
-		var actor_body := get_parent().get_parent() as CollisionObject2D
+		var actor_body := actor as CollisionObject2D
 		if actor_body != null:
 			excluded_rids.append(actor_body.get_rid())
 		query.exclude = excluded_rids

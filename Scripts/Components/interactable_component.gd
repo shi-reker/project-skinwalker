@@ -5,6 +5,7 @@ class_name InteractableComponent
 @export var is_interactable: bool = true
 @export var weight: ItemManager.Weight = ItemManager.Weight.NONE
 
+var entity: Node2D
 var progress_bar: ProgressBar = null
 var interact: Callable = func (): pass
 
@@ -19,7 +20,8 @@ const WEIGHT_DURATION := {
 	ItemManager.Weight.HEAVY: 30,
 }
 
-func setup(name: String = "", _weight: ItemManager.Weight = ItemManager.Weight.NONE, _interact: Callable = Callable()):
+func setup(_entity: Node2D, name: String = "", _weight: ItemManager.Weight = ItemManager.Weight.NONE, _interact: Callable = Callable()):
+	entity = _entity
 	if name!= "":
 		interact_name = name 
 	if _weight != ItemManager.Weight.NONE:

@@ -10,11 +10,13 @@
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scenes/navmesh.gd" id="8_lpomo"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="16_lpomo"]
 [ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="17_tkidl"]
+[ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="29_jp7ex"]
 [ext_resource type="PackedScene" uid="uid://bxsfjho2h3vhj" path="res://Scenes/Actors/stalker.tscn" id="30_fyxux"]
 [ext_resource type="Shader" uid="uid://byktscp4wujur" path="res://Shaders/VHSEffect.gdshader" id="31_lkpmk"]
+[ext_resource type="PackedScene" uid="uid://4rkiat0jfniq" path="res://Scenes/Environments/house.tscn" id="33_866uu"]
 [ext_resource type="PackedScene" uid="uid://dal3i3qvx2elt" path="res://Scenes/Environments/street.tscn" id="34_la76y"]
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="39_amo57"]
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="39_e2110"]
@@ -373,9 +375,16 @@ script = ExtResource("8_lpomo")
 obstacle_layers = [NodePath("../Building-Layer3"), NodePath("../ObjectInfront-Layer4")]
 obstacle_collision_mask = 1
 agent_radius = 7.0
+[node name="house1" parent="Environment" unique_id=1714198596 node_paths=PackedStringArray("street") instance=ExtResource("33_866uu")]
+position = Vector2(1962, 529)
+street = NodePath("../Street")
+is_home = true
 
 [node name="Street" parent="Environment" unique_id=449041247 instance=ExtResource("34_la76y")]
 position = Vector2(2848, 588)
+
+[node name="Pet" parent="Environment" unique_id=1655865673 instance=ExtResource("8_ghupm")]
+position = Vector2(2724, 2479)
 
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true

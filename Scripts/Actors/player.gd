@@ -22,6 +22,7 @@ func _ready() -> void:
 	add_to_group("player")
 	state_machine.setup(self)
 	interact_pop_up.hide()
+	movement.setup(self)
 	movement.direction_changed.connect(animation._on_movement_direction_changed)
 
 

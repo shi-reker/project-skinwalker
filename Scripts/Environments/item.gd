@@ -10,7 +10,7 @@ func setup():
 	position = item_def.position
 	sprite.texture = item_def.texture
 	ItemManager.item_quantities[item_def.id] = 0
-	interact_c.setup("collect", item_def.weight, _collect)
+	interact_c.setup(self, "collect", item_def.weight, _collect)
 
 func _collect() -> void:
 	if ItemManager.offer_item(self):

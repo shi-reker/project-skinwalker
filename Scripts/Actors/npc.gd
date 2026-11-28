@@ -28,6 +28,8 @@ func _ready() -> void:
 	dialogue_component.dialogue_finished.connect(_on_dialogue_finished)
 	dialogue_component.quest_requested.connect(_on_quest_requested)
 	detection_component.stalker_detected.connect(_on_detected)
+	detection_component.setup(self)
+	movement_component.setup(self)
 
 	if npc_definition != null:
 		var frames: SpriteFrames = npc_definition.frames

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="13_c5t2i"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="14_kn0ld"]
 [ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="15_hgpy0"]
+[ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="13_c5t2j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ikia7"]
 font_size = 32
@@ -174,3 +175,5 @@ stream = ExtResource("15_hgpy0")
 volume_db = -7.438
 bus = &"Gameplay"
 parameters/looping = true
+[node name="Pet" parent="." unique_id=1655865673 instance=ExtResource("13_c5t2j")]
+position = Vector2(98, 129)

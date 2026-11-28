@@ -30,8 +30,9 @@ func _ready() -> void:
 		else:
 			push_error("add visuals to npc def ", stalker_definition.display_name)
 	sprite.scale = Vector2(0.1, 0.1)
-	movement_component.actor = self
+	movement_component.setup(self)
 	state_machine.setup(self)
+	detection_component.setup(self)
 	detection_component.player_detected.connect(state_machine._on_detected)
 	movement_component.rangeBorders = 160
 	movement_component.at_range.connect(state_machine.handle_dist_to_player)

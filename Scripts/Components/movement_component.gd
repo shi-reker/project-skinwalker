@@ -16,9 +16,12 @@ var _last_direction: Vector2 = Vector2.ZERO
 signal at_range(i:float)
 signal direction_changed(new_direction: Vector2)
 
+func setup(_actor: CharacterBody2D, _movement_def: MovementDefinition = null):
+	actor = _actor
+	if _movement_def != null:
+		movement_definition = _movement_def
+
 func _ready() -> void:
-	if actor == null:
-		actor = get_parent().get_parent() as CharacterBody2D
 	if navigator != null and not navigator.velocity_computed.is_connected(_on_nav_agent_velocity_computed):
 		navigator.velocity_computed.connect(_on_nav_agent_velocity_computed)
 
