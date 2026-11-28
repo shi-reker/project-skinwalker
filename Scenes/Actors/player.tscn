@@ -146,6 +146,9 @@ size = Vector2(8, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 60.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xjo"]
+size = Vector2(380, 210)
+
 [node name="Player" type="CharacterBody2D" unique_id=473171831 node_paths=PackedStringArray("animation")]
 y_sort_enabled = true
 script = ExtResource("1_player")
@@ -202,6 +205,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=1473775574]
 shape = SubResource("CircleShape2D_g4v7s")
 
+[node name="NPCDetectZone" type="Area2D" parent="." unique_id=699425509]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCDetectZone" unique_id=1628302002]
+shape = SubResource("RectangleShape2D_l0xjo")
+debug_color = Color(0.92482716, 0.06767778, 0.65130615, 0.41960785)
+
 [node name="Label" type="Label" parent="." unique_id=1869333331]
 anchors_preset = 5
 anchor_left = 0.5
@@ -215,3 +226,5 @@ vertical_alignment = 1
 
 [connection signal="area_entered" from="DetectArea" to="." method="_on_detect_area_area_entered"]
 [connection signal="area_exited" from="DetectArea" to="." method="_on_detect_area_area_exited"]
+[connection signal="body_entered" from="NPCDetectZone" to="." method="_on_npc_detect_zone_entered"]
+[connection signal="body_exited" from="NPCDetectZone" to="." method="_on_npc_detect_zone_exited"]

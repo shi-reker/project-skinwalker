@@ -19,7 +19,6 @@ radius = 8.0
 script = ExtResource("1_stalker")
 movement_component = NodePath("Components/MovementComponent")
 stalker_definition = ExtResource("2_ibjgy")
-known_hints = null
 animation = NodePath("AnimatedSprite2D")
 sprite = NodePath("Sprite2D")
 detection_component = NodePath("Components/DetectionComponent")

@@ -43,6 +43,8 @@ func _ready() -> void:
 		if npc_definition.ability != null:
 			npc_definition.ability = npc_definition.ability.duplicate(true)
 			npc_definition.ability.setup(self)
+			#if npc_definition.ability == AbilityObserver:
+				#npc_definition.ability._is_active = true
 		
 		if npc_definition.movement_definition != null:
 			movement_component.setup(self, npc_definition.movement_definition)

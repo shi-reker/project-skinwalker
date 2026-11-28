@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityObserver" format=3 uid="uid://dyj1ynq1yf4ab"]
+
+[ext_resource type="Script" uid="uid://wd3d7qyig5n1" path="res://Scripts/Abilities/observer_ability.gd" id="1_tk12x"]
+
+[resource]
+script = ExtResource("1_tk12x")
+ability_name = "Observe"
+description = "observers the player"
+metadata/_custom_type_script = "uid://wd3d7qyig5n1"
