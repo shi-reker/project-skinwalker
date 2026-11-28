@@ -14,6 +14,8 @@ var cur_interactables: Array[InteractableComponent] = []
 var holding_interact: bool = false
 var hold_target: InteractableComponent = null
 
+var nearby_NPCs:Array[NPCActor] = []
+
 var player_hints: Array[HintDefinition] = []
 
 var is_disguised: bool = false
@@ -44,11 +46,17 @@ func set_interaction_available(available: bool, position: Vector2 = global_posit
 func _unhandled_input(event: InputEvent) -> void:
 	if DialogueManager._is_any_dialogue_active:
 			return
-
+	
 	if can_interact and cur_interactables:
 		var target := cur_interactables[0]
-
+	
 		if event.is_action_pressed("interact"):
+			var compOwner := target.owner
+			if compOwner is House:
+				if !compOwner.is_home and !nearby_NPCs.is_empty():
+					get_tree().quit()
+					#return
+			
 			if target.weight == ItemManager.Weight.NONE:
 				target.interact.call()
 				get_viewport().set_input_as_handled()
@@ -56,7 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				holding_interact = true
 				hold_target = target
 				target.begin_hold()
-
+		
 		elif event.is_action_released("interact"):
 			if holding_interact and hold_target:
 				hold_target.cancel_hold()
@@ -91,12 +99,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # 	nearest.use_ability({"player": self})
 
-
 func _on_detect_area_area_entered(area: Area2D) -> void:
 	if area is InteractableComponent:
 		set_interaction_available(true, area.global_position)
 		cur_interactables.push_back(area)
-
 
 func _on_detect_area_area_exited(area: Area2D) -> void:
 	if area is InteractableComponent:
@@ -109,3 +115,11 @@ func _on_detect_area_area_exited(area: Area2D) -> void:
 func add_hint(hint: HintDefinition) -> void:
 	if hint != null and hint not in player_hints:
 		player_hints.append(hint)
+
+func _on_npc_detect_zone_entered(body: Node2D) -> void:
+	if body is NPCActor and !nearby_NPCs.has(body):
+		nearby_NPCs.append(body)
+
+func _on_npc_detect_zone_exited(body: Node2D) -> void:
+	if body is NPCActor and nearby_NPCs.has(body):
+		nearby_NPCs.erase(body)

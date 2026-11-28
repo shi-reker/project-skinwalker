@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://rueawrs8jnyg"]
 
 [ext_resource type="Script" uid="uid://c6vmicw5k7r43" path="res://Scripts/Actors/npc.gd" id="1_npc"]
-[ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="2_3w3nk"]
-[ext_resource type="Script" uid="uid://vc0g7sdmcnqh" path="res://Scripts/Components/movement_component.gd" id="2_movement"]
 [ext_resource type="Script" uid="uid://bmte47gmnm3nf" path="res://Scripts/Components/dialogue_component.gd" id="3_dialogue"]
+[ext_resource type="PackedScene" uid="uid://cpywotousrmdy" path="res://Scenes/Components/movement_component.tscn" id="3_e5gev"]
+[ext_resource type="Resource" uid="uid://bkokfmli3nwno" path="res://Resources/NPCs/impostor_movement.tres" id="4_0t8mi"]
 [ext_resource type="Script" uid="uid://dfohmrmh47ahi" path="res://Scripts/StateMachines/npc_state_machine.gd" id="4_state_machine"]
 [ext_resource type="Script" uid="uid://duh0tp3g4m0pe" path="res://Scripts/Components/interactable_component.gd" id="5_interactable"]
 [ext_resource type="Resource" uid="uid://dsvb1nkuqkc6a" path="res://Resources/NPCs/yapper_dialogue.tres" id="6_4p8ee"]
@@ -21,21 +21,20 @@ radius = 55.0
 
 [node name="NPC" type="CharacterBody2D" unique_id=676992456 node_paths=PackedStringArray("quest_component", "sprite", "animation") groups=["npc"]]
 script = ExtResource("1_npc")
-npc_definition = ExtResource("2_3w3nk")
 quest_component = NodePath("Components/QuestComponent")
 sprite = NodePath("Sprite2D2")
 animation = NodePath("AnimatedSprite2D")
 
 [node name="Components" type="Node2D" parent="." unique_id=2088076043]
 
-[node name="MovementComponent" type="Node2D" parent="Components" unique_id=1923050649 node_paths=PackedStringArray("actor")]
-script = ExtResource("2_movement")
+[node name="MovementComponent" parent="Components" unique_id=1603163079 node_paths=PackedStringArray("actor") instance=ExtResource("3_e5gev")]
+movement_definition = ExtResource("4_0t8mi")
 actor = NodePath("../..")
 
 [node name="FollowComponent" type="Node" parent="Components" unique_id=1923050650 node_paths=PackedStringArray("actor", "movement_component") groups=["npc"]]
 script = ExtResource("7_follow")
 actor = NodePath("../..")
-movement_component = NodePath("../MovementComponent")
+movement_component = NodePath("")
 
 [node name="QuestComponent" type="Node" parent="Components" unique_id=1324082495]
 script = ExtResource("7_quest")

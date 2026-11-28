@@ -8,12 +8,21 @@
 [ext_resource type="TileSet" uid="uid://dar1g4uqxa4sx" path="res://Resources/tilesets/ObjectInfront.tres" id="5_7oe7p"]
 [ext_resource type="Texture2D" uid="uid://d005jsa6fka3p" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/tiles/1x/town-ground.png" id="7_tkidl"]
 [ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
-[ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scripts/Resources/navmesh.gd" id="8_lpomo"]
 [ext_resource type="Script" uid="uid://nisv0qy5n0y8" path="res://Scripts/Environments/water_caustics.gd" id="9_f8eig"]
 [ext_resource type="PackedScene" uid="uid://d34u4aqis34ul" path="res://Scenes/Environments/water_animation.tscn" id="10_f8eig"]
 [ext_resource type="PackedScene" uid="uid://dlxxrbsonwotc" path="res://Scenes/Environments/SpatialAudio.tscn" id="21_bftph"]
 [ext_resource type="PackedScene" uid="uid://bhoa2qn3jim6k" path="res://Scenes/Environments/light_source.tscn" id="24_ssnla"]
+[ext_resource type="Script" uid="uid://cxm8lpttu1dxt" path="res://Scripts/Actors/actors.gd" id="12_gn53j"]
+[ext_resource type="Resource" uid="uid://dh31wlw44pjmw" path="res://Resources/NPCs/impostor.tres" id="16_ukg31"]
+[ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
+[ext_resource type="Resource" uid="uid://ukpxwbm1n7jx" path="res://Resources/NPCs/observer1.tres" id="20_ubxmd"]
+[ext_resource type="Resource" uid="uid://cugy8861ddfkc" path="res://Resources/NPCs/observer2.tres" id="21_gn53j"]
+[ext_resource type="Resource" uid="uid://co8frktlnmo41" path="res://Resources/NPCs/observer3.tres" id="22_1eudv"]
+[ext_resource type="Resource" uid="uid://ci03utvodbq2i" path="res://Resources/NPCs/observer4.tres" id="23_0v6s5"]
+[ext_resource type="Resource" uid="uid://c8y5awjv6hk7h" path="res://Resources/NPCs/observer5.tres" id="24_cp73f"]
+[ext_resource type="Resource" uid="uid://bxjy2p0h8a5cf" path="res://Resources/NPCs/observer6.tres" id="25_8aklq"]
+[ext_resource type="Resource" uid="uid://cngt42hj15nqt" path="res://Resources/NPCs/observer7.tres" id="26_866uu"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="29_jp7ex"]
@@ -766,7 +775,8 @@ frame_progress = 0.2780434
 
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
-position = Vector2(1600, 3030)
+position = Vector2(2400, 2200)
+script = ExtResource("12_gn53j")
 
 [node name="Player" parent="Actors" unique_id=473171831 groups=["player"] instance=ExtResource("27_2105l")]
 position = Vector2(-102, 951)
@@ -777,35 +787,66 @@ zoom = Vector2(6, 6)
 script = ExtResource("28_1j46v")
 mode = 1
 
-[node name="DialogueBox" parent="Actors/Player/Camera2D" unique_id=1390935538 instance=ExtResource("29_jp7ex")]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("30_fyxux")]
-position = Vector2(273, -78)
+position = Vector2(60, 26)
 target = NodePath("../Player")
 
 [node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
 
 [node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("43_npc")]
-position = Vector2(1294, 1887)
+position = Vector2(470, 1722)
+npc_definition = ExtResource("16_ukg31")
 
 [node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("43_npc")]
-position = Vector2(2069, -981)
+position = Vector2(1208, -857)
 npc_definition = ExtResource("40_jfgu2")
 
 [node name="Yapper" parent="Actors/NPCs" unique_id=311879779 instance=ExtResource("43_npc")]
-position = Vector2(1715, 115)
+position = Vector2(146, 588)
 npc_definition = ExtResource("41_jby4m")
 
 [node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("43_npc")]
-position = Vector2(1126, 132)
+position = Vector2(-449, -32)
 npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=2080359912]
+
+[node name="Observers" type="Node" parent="Actors/NPCs" unique_id=1111744607]
+
+[node name="NPC" parent="Actors/NPCs/Observers" unique_id=705787072 instance=ExtResource("43_npc")]
+position = Vector2(943, 1936)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="NPC2" parent="Actors/NPCs/Observers" unique_id=330729524 instance=ExtResource("43_npc")]
+position = Vector2(938, 2375)
+npc_definition = ExtResource("21_gn53j")
+
+[node name="NPC3" parent="Actors/NPCs/Observers" unique_id=1957037127 instance=ExtResource("43_npc")]
+position = Vector2(944, 3027)
+npc_definition = ExtResource("22_1eudv")
+
+[node name="NPC4" parent="Actors/NPCs/Observers" unique_id=1276398486 instance=ExtResource("43_npc")]
+position = Vector2(947, 3503)
+npc_definition = ExtResource("23_0v6s5")
+
+[node name="NPC5" parent="Actors/NPCs/Observers" unique_id=1919201646 instance=ExtResource("43_npc")]
+position = Vector2(1636, 3609)
+npc_definition = ExtResource("24_cp73f")
+
+[node name="NPC6" parent="Actors/NPCs/Observers" unique_id=1423660121 instance=ExtResource("43_npc")]
+position = Vector2(2293, 3617)
+npc_definition = ExtResource("25_8aklq")
+
+[node name="NPC7" parent="Actors/NPCs/Observers" unique_id=870019639 instance=ExtResource("43_npc")]
+position = Vector2(2262, 3506)
+npc_definition = ExtResource("26_866uu")
+
+[node name="NPC8" parent="Actors/NPCs/Observers" unique_id=1099378648 instance=ExtResource("43_npc")]
+position = Vector2(2993, 3734)
+npc_definition = ExtResource("20_ubxmd")
+
+[node name="LightSources" type="Node2D" parent="." unique_id=478377099]
+visible = false
 
 [node name="LightSource" parent="LightSources" unique_id=392958207 instance=ExtResource("24_ssnla")]
 position = Vector2(1805, 2487)
@@ -1151,6 +1192,12 @@ label_settings = SubResource("LabelSettings_amo57")
 
 [node name="TextOverlay" parent="ShaderCanvas/HUD" unique_id=1299591244 instance=ExtResource("17_p50x7")]
 layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.48
+anchor_bottom = 0.48
+offset_top = -178.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="VHSShader" type="ColorRect" parent="ShaderCanvas" unique_id=722996177]
 material = SubResource("ShaderMaterial_68xk4")

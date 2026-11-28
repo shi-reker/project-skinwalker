@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://ukpxwbm1n7jx"]
+[gd_resource type="Resource" script_class="NPCDefinition" format=3 uid="uid://riywsh5udb3d"]
 
 [ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="1_mbctg"]
-[ext_resource type="Texture2D" uid="uid://bef4qqboc8nhp" path="res://Assets/temp_circle_sprite.tres" id="2_mbctg"]
+[ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="2_ulxi0"]
+[ext_resource type="Texture2D" uid="uid://5cpvy3rb6aya" path="res://Assets/Visuals/sprites/NPCs/individual 16x16/npc5 d.png" id="4_8jefw"]
 
 [resource]
 script = ExtResource("1_mbctg")
-texture = ExtResource("2_mbctg")
-location = Vector2(256, -256)
+texture = ExtResource("4_8jefw")
+can_be_recruited = false
 metadata/_custom_type_script = "uid://cp37fayu15pxh"

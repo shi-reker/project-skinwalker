@@ -37,7 +37,7 @@ func _ready() -> void:
 		DebugManager.add_debug("debug turned on")
 		
 	if home == null:
-		EnvironmentManager.set_home(home)
+		EnvironmentManager.assign_home()
 	else:
 		push_error("ADD HOME AND AND SETUP HOME VAR")
 	if stalker == null:

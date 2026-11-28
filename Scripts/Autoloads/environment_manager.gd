@@ -20,26 +20,29 @@ func set_home(house: House) -> void:
 	if not is_instance_valid(house):
 		push_error("Cannot set an invalid home house.")
 		return
-
+	
 	add_house(house)
 	home_node = house
+	house.is_home = true
+	house.setup_home()
+	#print_debug("[Home: ]",house.global_position, house.is_home)
 
 func add_house(house: House) -> void:
 	if not is_instance_valid(house) or house in house_nodes:
 		return
-
+	
 	house_nodes.append(house)
-
+	
 	if not color_houses.has(house.color):
 		color_houses[house.color] = []
 	color_houses[house.color].append(house)
-
+	
 	if is_instance_valid(house.street):
 		add_street(house.street)
 		if not street_houses.has(house.street):
 			street_houses[house.street] = []
 		street_houses[house.street].append(house)
-
+	
 	if house.is_home:
 		home_node = house
 
@@ -47,6 +50,11 @@ func add_street(street: Street) -> void:
 	if not is_instance_valid(street) or street in street_nodes:
 		return
 	street_nodes.append(street)
+
+func assign_home():
+	if home_node == null and !house_nodes.is_empty():
+		var chosen_home = house_nodes.pick_random()
+		set_home(chosen_home)
 
 func get_candidates(hints: HomeHints) -> Array[House]:
 	var candidates: Array[House] = []
@@ -70,7 +78,7 @@ func reveal_hints(hints: HomeHints) -> HomeHints:
 	if not is_instance_valid(home_node):
 		push_error("Cannot reveal stalker hints before the home is set.")
 		return hints
-
+	
 	if hints.is_color_guessed:
 		hints.color = home_node.color
 	if hints.is_street_guessed:

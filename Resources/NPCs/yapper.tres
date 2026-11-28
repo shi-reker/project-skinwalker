@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="2_nyknu"]
 [ext_resource type="SpriteFrames" uid="uid://c2cg2qlyymijm" path="res://Resources/NPCs/yapper_animations.tres" id="3_bqufd"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="3_rclju"]
-[ext_resource type="Resource" path="res://Resources/Abilities/yapper_ability.tres" id="4_ability"]
+[ext_resource type="Resource" uid="uid://bx8o2xkrwtrsx" path="res://Resources/Abilities/yapper_ability.tres" id="4_ability"]
 [ext_resource type="Texture2D" uid="uid://ci553r5hbeugc" path="res://Assets/Visuals/sprites/NPCs/npc3 d.png" id="6_ghhnf"]
 
 [resource]

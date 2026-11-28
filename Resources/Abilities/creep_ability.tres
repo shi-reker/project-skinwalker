@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityOjiSan" format=3 uid="uid://bjckct10jlyk3"]
+
+[ext_resource type="Script" uid="uid://bu02df0q856th" path="res://Scripts/Abilities/ability_oji_san.gd" id="1_fjabx"]
+
+[resource]
+script = ExtResource("1_fjabx")
+ability_name = "Oji-san"
+description = "follows you around like a stalker and is antagonistic to the actual stalker"
+cooldown = 20.0

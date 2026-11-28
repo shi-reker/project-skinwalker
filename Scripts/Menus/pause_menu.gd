@@ -4,7 +4,7 @@ class_name PauseMenu
 signal resumed
 
 const SETTINGS_SCENE = preload("res://Scenes/Components/Pause Component/options.tscn")
-const MAIN_MENU_SCENE = "res://scenes/main_menu.tscn"
+const MAIN_MENU_SCENE = "res://Scenes/main_menu.tscn"
 
 @onready var resume_button: Button = $PauseContent/ResumeButton
 @onready var options_button: Button = $PauseContent/OptionsButton

@@ -24,7 +24,7 @@ func setup_home() -> void:
 	interactable.is_interactable = is_home_unlocked()
 
 func enter_home() -> void:
-	if not is_home_unlocked():
+	if is_home and not is_home_unlocked():
 		return
 	Events.home_entered.emit()
 

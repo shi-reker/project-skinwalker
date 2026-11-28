@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_x7xdt")
+ability_name = "Innocent idiot"
+description = "white knights for the player"
 metadata/_custom_type_script = "uid://def62tww00cop"
