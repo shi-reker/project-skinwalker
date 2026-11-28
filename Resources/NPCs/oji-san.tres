@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="2_b5h4s"]
 [ext_resource type="Resource" uid="uid://y56ophejvnt6" path="res://Resources/placeholder_dialogue.tres" id="2_qyifw"]
 [ext_resource type="Resource" uid="uid://c57ohjtxn3vto" path="res://Resources/NPCs/oji-san_movement.tres" id="3_igued"]
+[ext_resource type="SpriteFrames" uid="uid://cua8yr6naryla" path="res://Resources/NPCs/oji-san_animations.tres" id="3_xlqa5"]
 [ext_resource type="Texture2D" uid="uid://dvvkl813wgk4h" path="res://Assets/Visuals/sprites/NPCs/npc2 d.png" id="6_qyifw"]
 
 [resource]
@@ -13,6 +14,7 @@ id = 5
 display_name = "Oji-san"
 movement_definition = ExtResource("3_igued")
 dialogue_definition = ExtResource("2_qyifw")
+frames = ExtResource("3_xlqa5")
 texture = ExtResource("6_qyifw")
 recruitment_dialogue = ExtResource("2_qyifw")
 ability = ExtResource("1_jr5g1")

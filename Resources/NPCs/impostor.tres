@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bkokfmli3nwno" path="res://Resources/NPCs/impostor_movement.tres" id="3_3u862"]
 [ext_resource type="Script" uid="uid://c5kiv4arqwtk5" path="res://Scripts/Resources/hint_definition.gd" id="3_5neh4"]
 [ext_resource type="Resource" uid="uid://c47jisbui7a6n" path="res://Resources/Quests/fetch_clothes.tres" id="3_bwqth"]
+[ext_resource type="SpriteFrames" uid="uid://bxlsdaa61yjda" path="res://Resources/NPCs/impostor_animations.tres" id="3_qmtbp"]
 [ext_resource type="Script" uid="uid://cp37fayu15pxh" path="res://Scripts/Resources/npc_definition.gd" id="4_bwqth"]
 [ext_resource type="Texture2D" uid="uid://bw73jdsy6imr3" path="res://Assets/Visuals/sprites/NPCs/npc1 r.png" id="7_3u862"]
 
@@ -14,6 +15,7 @@ id = 4
 display_name = "Imposror"
 movement_definition = ExtResource("3_3u862")
 dialogue_definition = ExtResource("2_yh68x")
+frames = ExtResource("3_qmtbp")
 texture = ExtResource("7_3u862")
 quest_definition = ExtResource("3_bwqth")
 recruitment_min_confidence = 0.5
