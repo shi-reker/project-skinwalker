@@ -7,11 +7,11 @@
 [ext_resource type="TileSet" uid="uid://cpinskwyq6d5n" path="res://Resources/tilesets/Building.tres" id="4_dpta2"]
 [ext_resource type="TileSet" uid="uid://dar1g4uqxa4sx" path="res://Resources/tilesets/ObjectInfront.tres" id="5_7oe7p"]
 [ext_resource type="Texture2D" uid="uid://d005jsa6fka3p" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/tiles/1x/town-ground.png" id="7_tkidl"]
+[ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="Script" uid="uid://dqua8xqjxrv6t" path="res://Scenes/navmesh.gd" id="8_lpomo"]
 [ext_resource type="AudioStream" uid="uid://kcemnfiico12" path="res://Assets/Audio/Sound Effects/182368__kingsrow__fire-crackling-02.ogg" id="16_lpomo"]
-[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="17_tkidl"]
-[ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="8_ghupm"]
 [ext_resource type="PackedScene" uid="uid://dpsgt3u853sxe" path="res://Scenes/text_overlay.tscn" id="17_p50x7"]
+[ext_resource type="AudioStream" uid="uid://6l07q6itwjwn" path="res://Assets/Audio/Sound Effects/609360__florstristi__vhs_vcr-hum-crunchy.ogg" id="17_tkidl"]
 [ext_resource type="PackedScene" uid="uid://bj87j4ak260gm" path="res://Scenes/Actors/player.tscn" id="27_2105l"]
 [ext_resource type="Script" uid="uid://bpsr3ni5x3orx" path="res://Scripts/Components/camera_system.gd" id="28_1j46v"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="29_jp7ex"]
@@ -330,8 +330,8 @@ script = ExtResource("1_qbpqm")
 player = NodePath("Actors/Player")
 stalker = NodePath("Actors/Stalker")
 home = NodePath("Environment/Houses/house1")
-quests_display = NodePath("ShaderCanvas/HUD/QuestsDisplay")
 foreground = NodePath("Environment/Building-Layer3")
+quests_display = NodePath("ShaderCanvas/HUD/QuestsDisplay")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=596834013]
@@ -1352,7 +1352,6 @@ visible = false
 color = Color(0.16361973, 0.39554623, 0.53303653, 1)
 
 [node name="ShaderCanvas" type="CanvasLayer" parent="." unique_id=246099404]
-visible = false
 
 [node name="HUD" type="Control" parent="ShaderCanvas" unique_id=1813744342]
 layout_mode = 3
