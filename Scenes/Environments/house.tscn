@@ -11,6 +11,8 @@ script = ExtResource("1_88tlx")
 interactable = NodePath("InteractableComponent")
 
 [node name="InteractableComponent" parent="." unique_id=1612934472 instance=ExtResource("2_congh")]
+interact_name = "GO HOME"
+weight = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1940327612]
 shape = SubResource("CircleShape2D_g4v7s")

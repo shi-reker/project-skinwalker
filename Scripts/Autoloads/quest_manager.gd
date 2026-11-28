@@ -1,7 +1,7 @@
 extends Node
 
-enum QuestId { NONE, MAYA_LOCKET, FIND_KEY, ESCORT_NPC, FIND_CLOTHES }
-enum QuestObjectiveId { NONE, PICKUP, INTERACT }
+enum QuestId { NONE, MAYA_LOCKET, FIND_KEY, ESCORT_NPC, FIND_CLOTHES, FIND_PET }
+enum QuestObjectiveId { NONE, PICKUP, INTERACT, PICKUP_PET }
 enum QuestStatus { NOT_STARTED, ACTIVE, COMPLETED }
 
 var quest_resource: Dictionary[QuestId, QuestDefinition] = {
@@ -9,7 +9,8 @@ var quest_resource: Dictionary[QuestId, QuestDefinition] = {
 	QuestId.MAYA_LOCKET: preload("res://Resources/Quests/fetch_spare_key.tres"),
 	QuestId.FIND_KEY: preload("res://Resources/Quests/fetch_spare_key.tres"),
 	QuestId.ESCORT_NPC: preload("res://Resources/Quests/fetch_spare_key.tres"),
-	QuestId.FIND_CLOTHES: preload("res://Resources/Quests/fetch_clothes.tres")
+	QuestId.FIND_CLOTHES: preload("res://Resources/Quests/fetch_clothes.tres"),
+	QuestId.FIND_PET: preload("res://Resources/Quests/find_pet.tres")
 }
 
 var quest_statuses: Dictionary[QuestId, QuestStatus] = {}
@@ -17,6 +18,8 @@ var quest_progress: Dictionary[QuestId, int] = {}
 var item_quests: Dictionary[ItemManager.ItemsId, QuestId] = {}
 var npc_quests: Dictionary[NpcManager.NpcId, QuestId] = {}
 var quest_display: QuestsDisplay
+
+signal quest_status_changed(quest_id: QuestId, status: QuestStatus)
 
 func setup(_quest_display: QuestsDisplay):
 	quest_display = _quest_display
@@ -31,6 +34,7 @@ func offer_quest(definition: QuestDefinition) -> bool:
 	var objective: QuestObjectiveId = definition.objective
 	quest_resource[definition.id] = definition
 	quest_statuses[definition.id] = QuestStatus.ACTIVE
+	quest_status_changed.emit(definition.id, QuestStatus.ACTIVE)
 	
 	if objective == QuestObjectiveId.PICKUP:
 		quest_progress[definition.id] = int(ItemManager.item_quantities.get(definition.target_item_id, 0))
@@ -39,8 +43,34 @@ func offer_quest(definition: QuestDefinition) -> bool:
 	elif objective == QuestObjectiveId.INTERACT:
 		quest_progress[definition.id] = 0
 		npc_quests[definition.target_npc_id] = definition.id
+	elif objective == QuestObjectiveId.PICKUP_PET:
+		quest_progress[definition.id] = 0
 	_check_completed(definition)
 	return true
+
+func record_pet_pickup() -> bool:
+	var quest_id := QuestId.FIND_PET
+	if get_quest_status(quest_id) != QuestStatus.ACTIVE:
+		push_error("Cannot record pet pickup when the pet quest is not active.")
+		return false
+
+	var definition: QuestDefinition = quest_resource.get(quest_id)
+	if definition == null:
+		push_error("Pet quest definition is missing.")
+		return false
+
+	quest_progress[quest_id] = mini(
+		int(quest_progress.get(quest_id, 0)) + 1,
+		definition.required_count
+	)
+	_check_completed(definition)
+	return true
+
+func is_pet_quest_active() -> bool:
+	return get_quest_status(QuestId.FIND_PET) == QuestStatus.ACTIVE
+
+func is_pet_quest_completed() -> bool:
+	return get_quest_status(QuestId.FIND_PET) == QuestStatus.COMPLETED
 
 func record_actor_interaction(actor_id: NpcManager.NpcId) -> void:
 	if npc_quests.has(actor_id):
@@ -66,9 +96,10 @@ func _on_item_accepted(item: ItemDefinition, quantity: int) -> void:
 
 func _check_completed(definition: QuestDefinition) -> void:
 	var quest_id := definition.id
-	print_debug("checking quest completion for %s" % [definition.title])
+	print_debug("checking quest completion for %s. progress: %d / %d" % [definition.title])
 	if int(quest_progress.get(quest_id, 0)) >= definition.required_count:
 		quest_statuses[quest_id] = QuestStatus.COMPLETED
+		quest_status_changed.emit(quest_id, QuestStatus.COMPLETED)
 	if quest_display != null:
 		quest_display.update_quest(definition, int(quest_progress.get(quest_id, 0)))
 

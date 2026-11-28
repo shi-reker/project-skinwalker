@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://yn8f3738u5hw" path="res://Scenes/quests_display.tscn" id="7_1jlw6"]
 [ext_resource type="PackedScene" uid="uid://ccory64uumym1" path="res://Scenes/pause_menu.tscn" id="8_1jlw6"]
 [ext_resource type="PackedScene" uid="uid://b867a6fxqgem3" path="res://Scenes/Components/dialogue_box.tscn" id="8_ytxsv"]
+[ext_resource type="PackedScene" uid="uid://0m4qe4w4uu0p" path="res://Scenes/Environments/pet.tscn" id="10_b0yhb"]
 
 [node name="Node2D" type="Node2D" unique_id=1552784915 node_paths=PackedStringArray("player", "stalker", "home", "quests_display", "debug_label", "pause_menu")]
 script = ExtResource("1_cy3qn")
@@ -35,8 +36,38 @@ position = Vector2(313, 6)
 [node name="Street" parent="." unique_id=449041247 instance=ExtResource("4_ytxsv")]
 street_name = "NEW"
 
+[node name="Polygon2D2" type="Polygon2D" parent="Street" unique_id=896233636]
+color = Color(0.6782022, 0.33403242, 0.9414769, 1)
+polygon = PackedVector2Array(8.999664, -12.666664, -24.33368, 1.3333359, 24.333008, 19.333336)
+uv = PackedVector2Array(-64.33368, -60.666664, -107.66699, 12, 17.66632, 3.3333359)
+
 [node name="house1" parent="." unique_id=1714198596 node_paths=PackedStringArray("street") instance=ExtResource("5_1jlw6")]
+position = Vector2(-220, 76)
 street = NodePath("../Street")
+is_home = true
+
+[node name="Polygon2D" type="Polygon2D" parent="house1" unique_id=2051750633]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(8.999664, -12.666664, -24.33368, 1.3333359, 24.333008, 19.333336)
+uv = PackedVector2Array(-64.33368, -60.666664, -107.66699, 12, 17.66632, 3.3333359)
+
+[node name="house2" parent="." unique_id=71780726 node_paths=PackedStringArray("street") instance=ExtResource("5_1jlw6")]
+position = Vector2(-80, -73)
+street = NodePath("../Street")
+
+[node name="Polygon2D2" type="Polygon2D" parent="house2" unique_id=988853187]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8.999664, -12.666664, -24.33368, 1.3333359, 24.333008, 19.333336)
+uv = PackedVector2Array(-64.33368, -60.666664, -107.66699, 12, 17.66632, 3.3333359)
+
+[node name="house3" parent="." unique_id=1659955943 node_paths=PackedStringArray("street") instance=ExtResource("5_1jlw6")]
+position = Vector2(-323, -79)
+street = NodePath("../Street")
+
+[node name="Polygon2D3" type="Polygon2D" parent="house3" unique_id=602204147]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8.999664, -12.666664, -24.33368, 1.3333359, 24.333008, 19.333336)
+uv = PackedVector2Array(-64.33368, -60.666664, -107.66699, 12, 17.66632, 3.3333359)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=530598615]
 
@@ -75,3 +106,7 @@ offset_right = 0.0
 visible = false
 
 [node name="NPC" parent="." unique_id=676992456 instance=ExtResource("6_4towk")]
+position = Vector2(137, 59)
+
+[node name="Pet" parent="." unique_id=1655865673 instance=ExtResource("10_b0yhb")]
+position = Vector2(-335, 21)
