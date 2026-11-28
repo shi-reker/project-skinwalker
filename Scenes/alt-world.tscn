@@ -905,10 +905,10 @@ position = Vector2(2724, 2479)
 
 [node name="Actors" type="Node2D" parent="." unique_id=315016326]
 y_sort_enabled = true
-position = Vector2(1600, 3030)
+position = Vector2(2400, 2200)
 
 [node name="Player" parent="Actors" unique_id=473171831 instance=ExtResource("27_2105l")]
-position = Vector2(1625, 130)
+position = Vector2(133, 157)
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Player" unique_id=1530724991]
 position = Vector2(28, -30)
@@ -924,24 +924,24 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="Stalker" parent="Actors" unique_id=1888125872 node_paths=PackedStringArray("target") instance=ExtResource("30_fyxux")]
-position = Vector2(273, -78)
+position = Vector2(60, 26)
 target = NodePath("../Player")
 
 [node name="NPCs" type="Node2D" parent="Actors" unique_id=1003355819]
 
 [node name="Impostor" parent="Actors/NPCs" unique_id=676992456 instance=ExtResource("43_npc")]
-position = Vector2(1294, 1887)
+position = Vector2(470, 1722)
 
 [node name="Oji-San" parent="Actors/NPCs" unique_id=775867685 instance=ExtResource("43_npc")]
-position = Vector2(2069, -981)
+position = Vector2(1208, -857)
 npc_definition = ExtResource("40_jfgu2")
 
 [node name="Yapper" parent="Actors/NPCs" unique_id=311879779 instance=ExtResource("43_npc")]
-position = Vector2(1715, 115)
+position = Vector2(146, 588)
 npc_definition = ExtResource("41_jby4m")
 
 [node name="InnocentIdiot" parent="Actors/NPCs" unique_id=655240441 instance=ExtResource("43_npc")]
-position = Vector2(1126, 132)
+position = Vector2(-449, -32)
 npc_definition = ExtResource("42_elfcg")
 
 [node name="LightSources" type="Node2D" parent="." unique_id=478377099]

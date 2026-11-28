@@ -5,16 +5,16 @@ signal recruited(npc: NPCActor)
 signal ability_used(npc: NPCActor, ability: NPCAbility)
 
 @export var npc_definition: NPCDefinition
+@export var quest_component: QuestComponent
+@export var sprite: Sprite2D
+@export var animation: AnimationComponent = null
 
 @onready var detection_component: DetectionComponent = $Components/DetectionComponent
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 @onready var dialogue_component: DialogueComponent = $Components/DialogueComponent
-@export var quest_component: QuestComponent
 @onready var follow_component: FollowComponent = $Components/FollowComponent
-@onready var state_machine: NPCStateMachine = $StateMachine
-@export var sprite: Sprite2D
-@export var animation: AnimationComponent = null
 @onready var interactable: InteractableComponent = $InteractableComponent
+@onready var state_machine: NPCStateMachine = $StateMachine
 
 var is_recruited: bool = false
 var has_talked_once: bool = false
@@ -29,24 +29,27 @@ func _ready() -> void:
 	dialogue_component.quest_requested.connect(_on_quest_requested)
 	detection_component.stalker_detected.connect(_on_detected)
 	detection_component.setup(self)
-	movement_component.setup(self)
 
 	if npc_definition != null:
 		var frames: SpriteFrames = npc_definition.frames
 		if frames != null:
 			animation.sprite_frames = frames
 			movement_component.direction_changed.connect(animation._on_movement_direction_changed)
-
 		elif npc_definition.texture != null:
 			sprite.texture = npc_definition.texture
 		else:
 			push_error("add visuals to npc def ", npc_definition.display_name)
+		
 		if npc_definition.ability != null:
 			npc_definition.ability = npc_definition.ability.duplicate(true)
 			npc_definition.ability.setup(self)
-
-	NpcManager.register_npc(self)
+		
+		if npc_definition.movement_definition != null:
+			movement_component.setup(self, npc_definition.movement_definition)
+		else:
+			movement_component.setup(self)
 	
+	NpcManager.register_npc(self)
 
 func _exit_tree() -> void:
 	if NpcManager:

@@ -1,6 +1,7 @@
 extends TextureRect
 
-const FADE_IN := 0.35
+const FADE_IN := 0.7
+#const FLICKER := 0.07
 const FADE_OUT := 0.6
 
 @export var timer:Timer
@@ -20,7 +21,12 @@ func CompleteAnimation() -> void:
 	modulate.a = 1.0
 	await get_tree().process_frame
 	
-	var tween := create_tween().set_parallel(true)
+	var tween := create_tween()
+	for i in 4:
+		var FLICKER = randf_range(0.04, 0.1)
+		var mod = randf_range(0.6, 0.9)
+		tween.tween_property(self, "modulate:a", 0.0, FLICKER)
+		tween.tween_property(self, "modulate:a", mod, FLICKER)
 	tween.tween_property(self, "modulate:a", 0.0, FADE_OUT)
 	
 	await tween.finished

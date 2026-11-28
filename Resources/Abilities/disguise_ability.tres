@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_script")
-ability_name = "Penyamaran"
+ability_name = "Disguise"
 description = "Menyamarkan player dari Stalker"
 cooldown = 12.0
-disguise_duration = 8.0
-disguise_alpha = 0.4
