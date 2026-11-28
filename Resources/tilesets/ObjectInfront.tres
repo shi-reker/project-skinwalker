@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uhvnxl0rwnjv" path="res://Assets/Visuals/tilemaps/Lo_bit_city_set.png" id="12_gpab7"]
 [ext_resource type="Texture2D" uid="uid://b0o8bp378ww4n" path="res://Assets/Visuals/tilemaps/packs/kenney_rpgUrbanKit/Tilemap/tilemap_packed.png" id="13_xybms"]
 [ext_resource type="Texture2D" uid="uid://bjqwamwwlineu" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/sprites/nature/1x/tree-autumn.png" id="14_wlbwu"]
+[ext_resource type="Texture2D" uid="uid://dau4i6f7jl142" path="res://Assets/Visuals/sprites/NPCs/spritesheet.png" id="14_wrppr"]
 [ext_resource type="Texture2D" uid="uid://d2jlh4trc220p" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/sprites/nature/1x/tree-green.png" id="15_fsxxy"]
 [ext_resource type="Texture2D" uid="uid://c5elcbakd6l35" path="res://Assets/Visuals/tilemaps/packs/cozy-town-free/sprites/nature/1x/tree-pine.png" id="16_csp8q"]
 [ext_resource type="Texture2D" uid="uid://c0qbxaxdrhiax" path="res://Assets/Visuals/tilemaps/packs/summer_plains_v1.0_standard/assets.png" id="17_n7buf"]
@@ -3465,6 +3466,53 @@ texture = ExtResource("13_xybms")
 25:17/0 = 0
 26:17/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dii6r"]
+texture = ExtResource("14_wrppr")
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+5:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:3/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cor1u"]
 texture = ExtResource("14_wlbwu")
 0:0/0 = 0
@@ -5079,3 +5127,4 @@ sources/18 = SubResource("TileSetAtlasSource_866uu")
 sources/19 = SubResource("TileSetAtlasSource_e2110")
 sources/20 = SubResource("TileSetAtlasSource_4cwtl")
 sources/21 = SubResource("TileSetAtlasSource_cp73f")
+sources/22 = SubResource("TileSetAtlasSource_dii6r")

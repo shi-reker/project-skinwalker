@@ -80,3 +80,9 @@ func _on_detection_range_entered(body: Node2D) -> void:
 func _on_detection_range_exited(body: Node2D) -> void:
 	if body is PlayerActor:
 		state_machine.change_state(state_machine.stateTable[state_machine.State.SEARCHING])
+
+
+func _on_detection_component_body_entered(body: Node2D) -> void:
+	if body is PlayerActor:
+		print_debug("found playerrrrrrrrrrrrrrrrr")
+		
